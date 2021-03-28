@@ -1,10 +1,14 @@
+import React, {useState, useContext} from 'react';
 import './App.css';
+import QuoteBox from './components/QuoteBox.js';
+import {ColorContext} from './ColorContext.js';
+import './RandomColor.css'
 
 function App() {
+  const [colorNumber, setColorNumber] = useContext(ColorContext);
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
+    <div className={`App color${colorNumber}`}>
+      <QuoteBox />
     </div>
   );
 }
