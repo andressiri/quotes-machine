@@ -1,0 +1,12 @@
+
+
+//this list is related to randomDifNum.js random number calculation
+$colors: yellow, blue, red, black, purple, green, grey, orange, brown, lightblue;
+
+@for $i from 1 through length($colors) {
+    .color#{$i - 1} {
+      background-color: nth($colors, $i);                
+    }
+}
+
+

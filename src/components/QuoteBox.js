@@ -1,15 +1,16 @@
 import React, {useState, useContext, useEffect} from 'react';
 import './QuoteBox.css';
 import {ColorContext} from './../ColorContext.js';
-import './../RandomColor.css';
+import './../RandomColor.scss';
+import randomDifNum from './randomDifNum.js';
 
 function QuoteBox() {
   const [colorNumber, setColorNumber] = useContext(ColorContext);
   const [quoteText, setQuoteText] = useState('');
   const [author, setAuthor] = useState('');
-  
-  function randomNumber() {
-    setColorNumber((prev) => prev = Math.floor(Math.random() * (3 + 1)));
+    
+  function randomColor() {
+    setColorNumber((prev) => prev = randomDifNum(colorNumber));     
   }
 
   function randomQuote() {
@@ -17,7 +18,7 @@ function QuoteBox() {
     .then(response => response.json())
     .then(data => {
       setQuoteText(data.content);
-      setAuthor(data.author);   
+      setAuthor(data.author);
     })
     .catch(err => console.log(err))
   }
@@ -29,7 +30,7 @@ function QuoteBox() {
         <h1 id="text">{quoteText}</h1>
         <p id="author">{author}</p>
         <button className={`color${colorNumber}`}><a id="tweet-quote" href="youtube.com">Tweet</a></button>
-        <button id="new-quote" onClick={function(event){ randomNumber(); randomQuote()}} className={`color${colorNumber}`}>New quote</button>        
+        <button id="new-quote" onClick={function(){ randomColor(); randomQuote()}} className={`color${colorNumber}`}>New quote</button>        
     </div>
   );
 }
