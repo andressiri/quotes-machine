@@ -27,10 +27,10 @@ function QuoteBox() {
   
   return (
     <div id="quote-box" className={`QuoteBox`}>
-        <h1 id="text">{quoteText}</h1>
-        <p id="author">{author}</p>
-        <button className={`color${colorNumber}`}><a id="tweet-quote" href="youtube.com">Tweet</a></button>
-        <button id="new-quote" onClick={function(){ randomColor(); randomQuote()}} className={`color${colorNumber}`}>New quote</button>        
+        <h1 id="text" className={`text-color${colorNumber}`}>{quoteText}</h1>
+        <p id="author" className={`text-color${colorNumber}`}>{author}</p>
+        <button className={`BG-color${colorNumber}`}><a id="tweet-quote" href="youtube.com">Tweet</a></button>
+        <button id="new-quote" onClick={function(){ randomColor(); randomQuote()}} className={`BG-color${colorNumber}`}>New quote</button>        
     </div>
   );
 }

@@ -8,7 +8,7 @@ function App() {
   const [colorNumber, setColorNumber] = useContext(ColorContext);
   
   return (
-    <div className={`App color${colorNumber}`}>
+    <div className={`App BG-color${colorNumber}`}>
       <QuoteBox />
     </div>
   );
