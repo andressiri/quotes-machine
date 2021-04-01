@@ -3,6 +3,7 @@ import './QuoteBox.css';
 import {ColorContext} from './../ColorContext.js';
 import './../RandomColor.scss';
 import randomDifNum from './randomDifNum.js';
+import fetchRandomQuote from './fetchRandomQuote.js'
 
 function QuoteBox() {
   const [colorNumber, setColorNumber] = useContext(ColorContext);
@@ -13,14 +14,10 @@ function QuoteBox() {
     setColorNumber((prev) => prev = randomDifNum(colorNumber));     
   }
 
-  function randomQuote() {
-    fetch('https://api.quotable.io/random')
-    .then(response => response.json())
-    .then(data => {
-      setQuoteText(data.content);
-      setAuthor(data.author);
-    })
-    .catch(err => console.log(err))
+  async function randomQuote() {
+    let quoteObj = await fetchRandomQuote();
+    setQuoteText(quoteObj.content);
+    setAuthor(quoteObj.author);
   }
 
   useEffect(() => randomQuote(), []);
