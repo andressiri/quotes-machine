@@ -4,9 +4,12 @@
 $colors: yellow, blue, red, black, purple, green, grey, orange, brown, lightblue;
 
 @for $i from 1 through length($colors) {
-    .color#{$i - 1} {
+    .BG-color#{$i - 1} {
       background-color: nth($colors, $i);                
     }
 }
-
-
+@for $i from 1 through length($colors) {
+  .text-color#{$i - 1} {
+    color: nth($colors, $i);                
+  }
+}
