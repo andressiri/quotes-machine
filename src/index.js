@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {ColorProvider} from './ColorContext.js';
+import {ContextProvider} from './Context.js';
 
 ReactDOM.render(
-  <ColorProvider>
+  <ContextProvider>
   <React.StrictMode>
     <App />
   </React.StrictMode>
-  </ColorProvider>,
+  </ContextProvider>,
   document.getElementById('root')
 );
 
