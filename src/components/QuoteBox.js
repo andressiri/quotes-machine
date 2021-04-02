@@ -1,33 +1,21 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState, useContext} from 'react';
+import {Context} from './../Context.js';
 import './QuoteBox.css';
-import {ColorContext} from './../ColorContext.js';
 import './../RandomColor.scss';
-import randomDifNum from './randomDifNum.js';
-import fetchRandomQuote from './fetchRandomQuote.js'
+import NewQuoteBtn from './NewQuoteBtn.js';
 
 function QuoteBox() {
-  const [colorNumber, setColorNumber] = useContext(ColorContext);
-  const [quoteText, setQuoteText] = useState('');
-  const [author, setAuthor] = useState('');
-    
-  function randomColor() {
-    setColorNumber((prev) => prev = randomDifNum(colorNumber));     
-  }
-
-  async function randomQuote() {
-    let quoteObj = await fetchRandomQuote();
-    setQuoteText(quoteObj.content);
-    setAuthor(quoteObj.author);
-  }
-
-  useEffect(() => randomQuote(), []);
+  const {colorNum, quote, auth} = useContext(Context);
+  const [colorNumber, setColorNumber] = colorNum;
+  const [quoteText, setQuoteText] = quote;  
+  const [author, setAuthor] = auth;
   
   return (
     <div id="quote-box" className={`QuoteBox`}>
-        <h1 id="text" className={`text-color${colorNumber}`}>{quoteText}</h1>
-        <p id="author" className={`text-color${colorNumber}`}>{author}</p>
-        <button className={`BG-color${colorNumber}`}><a id="tweet-quote" href="youtube.com">Tweet</a></button>
-        <button id="new-quote" onClick={function(){ randomColor(); randomQuote()}} className={`BG-color${colorNumber}`}>New quote</button>        
+      <h1 id="text" className={`text-color${colorNumber}`}>{quoteText}</h1>
+      <p id="author" className={`text-color${colorNumber}`}>{author}</p>
+      <button className={`BG-color${colorNumber}`}><a id="tweet-quote" href="youtube.com">Tweet</a></button>
+      <NewQuoteBtn />
     </div>
   );
 }
