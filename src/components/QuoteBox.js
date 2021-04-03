@@ -1,8 +1,10 @@
 import React, {useState, useContext} from 'react';
 import {Context} from './../Context.js';
 import './QuoteBox.css';
+import TwitterBtn from './TwitterBtn.js';
 import './../RandomColor.scss';
 import NewQuoteBtn from './NewQuoteBtn.js';
+import AutoBtn from './AutoBtn.js';
 
 function QuoteBox() {
   const {colorNum, quote, auth} = useContext(Context);
@@ -14,7 +16,8 @@ function QuoteBox() {
     <div id="quote-box" className={`QuoteBox`}>
       <h1 id="text" className={`text-color${colorNumber}`}>{quoteText}</h1>
       <p id="author" className={`text-color${colorNumber}`}>{author}</p>
-      <button className={`BG-color${colorNumber}`}><a id="tweet-quote" href="youtube.com">Tweet</a></button>
+      <TwitterBtn />
+      <AutoBtn />
       <NewQuoteBtn />
     </div>
   );
