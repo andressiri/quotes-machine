@@ -1,9 +1,9 @@
 .QuoteBox {
-    background-color: whitesmoke;
+  background-color: whitesmoke;
 }
 
 .BoxButton {
-    border: none;
-    background-color:tomato;
-    border-radius: 2px;
-}
+  border: none;
+  background-color:tomato;
+  border-radius: 2px;
+}   
