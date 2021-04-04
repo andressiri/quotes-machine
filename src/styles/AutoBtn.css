@@ -1,6 +1,7 @@
 .autoBtn {
     height: 40px;
-    border-radius: 4px;  
+    border-radius: 4px;
+    user-select: none;    
 }
 
 .btnOn {
