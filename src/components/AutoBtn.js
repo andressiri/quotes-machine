@@ -3,7 +3,7 @@ import {Context} from './../Context.js';
 import randomDifNum from './randomDifNum.js';
 import fetchRandomQuote from './fetchRandomQuote.js';
 import './../styles/RandomColor.scss';
-import './../styles/AutoBtn.css'
+import './../styles/AutoBtn.scss'
 
 function AutoBtn () {
   const {colorNum, quote, auth, auto, aClass, aTime} = useContext(Context);

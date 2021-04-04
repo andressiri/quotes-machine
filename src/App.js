@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react';
 import {Context} from './Context.js';
 import QuoteBox from './components/QuoteBox.js';
-import './styles/App.css';
+import './styles/App.scss';
 import './styles/RandomColor.scss'
 
 function App() {
