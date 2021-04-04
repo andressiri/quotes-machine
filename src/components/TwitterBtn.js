@@ -2,8 +2,8 @@ import React, {useState, useContext} from "react";
 import { Context } from "./../Context.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitterSquare} from "@fortawesome/free-brands-svg-icons";
-import './icon.css';
-import './../RandomColor.scss';
+import './../styles/icon.css';
+import './../styles/RandomColor.scss';
 
 function TwitterBtn() {
   const {colorNum, quote, auth} = useContext(Context);

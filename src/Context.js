@@ -6,9 +6,10 @@ export const ContextProvider = (props) => {
   const [colorNumber, setColorNumber] = useState(0);
   const [quoteText, setQuoteText] = useState('');
   const [author, setAuthor] = useState('');
-    
+  const [handleAuto, setHandleAuto] = useState('Interval is off');
+  const [autoClass, setAutoClass] = useState('off BG-color'); 
   return (
-    <Context.Provider value={{colorNum: [colorNumber, setColorNumber], quote: [quoteText, setQuoteText], auth: [author, setAuthor]}} >
+    <Context.Provider value={{colorNum: [colorNumber, setColorNumber], quote: [quoteText, setQuoteText], auth: [author, setAuthor], auto: [handleAuto, setHandleAuto], aClass: [autoClass, setAutoClass]}} >
         {props.children}
     </Context.Provider>
   );

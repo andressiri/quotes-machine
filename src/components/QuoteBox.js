@@ -1,8 +1,8 @@
 import React, {useState, useContext} from 'react';
 import {Context} from './../Context.js';
-import './QuoteBox.css';
+import './../styles/QuoteBox.css';
 import TwitterBtn from './TwitterBtn.js';
-import './../RandomColor.scss';
+import './../styles/RandomColor.scss';
 import NewQuoteBtn from './NewQuoteBtn.js';
 import AutoBtn from './AutoBtn.js';
 
