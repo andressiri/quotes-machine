@@ -1,8 +1,8 @@
 import React, {useState, useContext} from 'react';
 import {Context} from './Context.js';
 import QuoteBox from './components/QuoteBox.js';
-import './App.css';
-import './RandomColor.scss'
+import './styles/App.css';
+import './styles/RandomColor.scss'
 
 function App() {
   const {colorNum, quote, auth} = useContext(Context);
