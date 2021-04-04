@@ -1,0 +1,11 @@
+@import './variables.scss';
+
+.quoteBox {
+  background-color: $boxBG;
+  width: 800px;
+  border-radius: 8px;
+}
+
+.quote {
+  font-family: 'New Tegomin', serif;
+}

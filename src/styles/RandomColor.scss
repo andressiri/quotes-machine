@@ -1,16 +1,19 @@
 
 //this list is related to randomDifNum.js random number calculation
-$colors: yellow, blue, red, black, purple, green, grey, orange, brown, lightblue;
+$colors: rgb(210, 210, 0), rgb(50, 50, 210), rgb(220, 50, 50), rgb(190, 50, 200), rgb(160, 15, 90), rgb(90, 170, 90), rgb(145, 145, 145), rgb(255, 170, 10), rgb(165, 35, 10), rgb(151, 175, 184);
 
 @for $i from 1 through length($colors) {
   .BG-color#{$i - 1} {
-    background-color: nth($colors, $i);                
+    background-color: nth($colors, $i);
+    transition: background-color 2.5s;               
   }
 }
 
 @for $i from 1 through length($colors) {
   .text-color#{$i - 1} {
     color: nth($colors, $i);
-    border-color: nth($colors, $i) !important;      
+    border-color: nth($colors, $i) !important;
+    content: '';
+    transition: color 2.5s, border-color 2.5s, content 2.5s;      
   }
 }

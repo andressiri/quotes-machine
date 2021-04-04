@@ -1,0 +1,9 @@
+@import './variables.scss';
+
+.clipBtn {
+    color: $boxBG;
+    width: 25px;
+    padding: 5px;
+    border-radius: $btnRadius;
+}
+

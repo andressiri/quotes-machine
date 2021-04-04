@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react';
 import{Context} from './../Context.js';
 import './../styles/RandomColor.scss';
-import './../styles/SetAutoTimeBtn.css';
+import './../styles/SetAutoTimeBtn.scss';
 
 function SetAutoTimeBtn() {
   const {colorNum, quote, auth, auto, aClass, aTime} = useContext(Context);

@@ -1,0 +1,14 @@
+@import './variables.scss';
+
+.timeBtn {
+    color: $boxBG;
+    border: none;
+    height: $btnSize;
+    border-radius: $btnRadius;
+    user-select: none;
+    font-family: $fontFamily;    
+}
+
+.timeBtn:focus {
+    outline: none;
+}
