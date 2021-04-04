@@ -1,7 +1,9 @@
 .autoBtn {
     height: 40px;
+    width: 60px;
     border-radius: 4px;
-    user-select: none;    
+    user-select: none;
+    font-family: 'Montserrat', sans-serif;    
 }
 
 .btnOn {

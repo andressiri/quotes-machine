@@ -12,7 +12,7 @@ function TwitterBtn() {
   const [author, setAuthor] = auth;
 
   return (
-    <a id="tweet-quote" target="_blank" href={`http://twitter.com/intent/tweet?hashtags=quotes&realted=elsirook&text="${quoteText}"%20%20${author}`}>
+    <a id="tweet-quote" target="_blank" href={`http://twitter.com/intent/tweet?hashtags=quotes&realted=elsirook&text="${quoteText}"%20-%20${author}`}>
       <FontAwesomeIcon icon={faTwitterSquare} class={`icon text-color${colorNumber}`} />
     </a>
   );
