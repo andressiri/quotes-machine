@@ -1,18 +1,18 @@
 import React, {useState, useContext, useEffect} from 'react';
 import {Context} from './../Context.js';
-import './../styles/RandomColor.scss';
 import randomDifNum from './randomDifNum.js';
 import fetchRandomQuote from './fetchRandomQuote.js';
+import './../styles/RandomColor.scss';
 import './../styles/AutoBtn.css'
 
-
 function AutoBtn () {
-  const {colorNum, quote, auth, auto, aClass} = useContext(Context);
+  const {colorNum, quote, auth, auto, aClass, aTime} = useContext(Context);
   const [colorNumber, setColorNumber] = colorNum;
   const [quoteText, setQuoteText] = quote;  
   const [author, setAuthor] = auth;
   const [handleAuto, setHandleAuto] = auto;
   const [autoClass, setAutoClass] = aClass;
+  const [autoTime, setAutoTime] = aTime;
 
   async function startAuto(){    
     setColorNumber(randomDifNum(colorNumber)); 
@@ -24,11 +24,11 @@ function AutoBtn () {
     if (handleAuto !== 'Interval is off') {
       clearInterval(handleAuto);
       setHandleAuto('Interval is off');
-      setAutoClass('off BG-color'); 
+      setAutoClass('autoBtn btnOff BG-color'); 
     } else {
-      setAutoClass('on text-color') 
+      setAutoClass('autoBtn btnOn text-color') 
       startAuto();    
-      setHandleAuto(setInterval(startAuto, 1500));
+      setHandleAuto(setInterval(startAuto, autoTime));
     }
   };
 
