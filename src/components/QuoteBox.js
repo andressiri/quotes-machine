@@ -10,6 +10,7 @@ import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import { faQuoteRight } from "@fortawesome/free-solid-svg-icons";
 import './../styles/QuoteBox.css';
 import './../styles/RandomColor.scss';
+import CopyToClipboardBtn from './CopyToClipboardBtn.js';
 
 function QuoteBox() {
   const {colorNum, quote, auth} = useContext(Context);
@@ -25,6 +26,7 @@ function QuoteBox() {
         <FontAwesomeIcon icon={faQuoteRight} class={`icon text-color${colorNumber}`} />
       </h1>
       <p id="author" className={`text-color${colorNumber}`}>{author}</p>
+      <CopyToClipboardBtn />
       <TumblrBtn />
       <TwitterBtn />
       <AutoBtn />
