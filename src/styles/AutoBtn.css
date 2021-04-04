@@ -1,7 +1,19 @@
-.on {
+.autoBtn {
+    height: 40px;
+    border-radius: 4px;  
+}
+
+.btnOn {
     background-color: whitesmoke;
 }
 
-.off {
+.btnOff {
     color: whitesmoke;
-} 
+    border: none;
+}
+
+.autoBtn:focus {
+    outline: none;
+}
+
+     

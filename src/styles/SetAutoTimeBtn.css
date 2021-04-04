@@ -1,0 +1,10 @@
+.timeBtn {
+    color: whitesmoke;
+    border: none;
+    height: 40px;
+    border-radius: 4px;    
+}
+
+.timeBtn:focus {
+    outline: none;
+}

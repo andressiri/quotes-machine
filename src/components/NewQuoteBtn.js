@@ -1,8 +1,9 @@
 import React, {useState, useContext, useEffect} from 'react';
 import {Context} from './../Context.js';
-import './../styles/RandomColor.scss';
 import randomDifNum from './randomDifNum.js';
 import fetchRandomQuote from './fetchRandomQuote.js';
+import './../styles/RandomColor.scss';
+import './../styles/NewQuoteButton.css'
 
 function NewQuoteBtn () {
   const {colorNum, quote, auth, auto, aClass} = useContext(Context);
@@ -13,8 +14,8 @@ function NewQuoteBtn () {
   const [autoClass, setAutoClass] = aClass;    
 
   async function HandleNewQuote() {
-    if (handleAuto !== 'First time' && handleAuto !== 'Interval is off') {
-      setAutoClass('off BG-color'); 
+    if (handleAuto !== 'Interval is off') {
+      setAutoClass('autoBtn btnOff BG-color'); 
       clearInterval(handleAuto);
       setHandleAuto('Interval is off');    
     }
@@ -27,7 +28,7 @@ function NewQuoteBtn () {
   useEffect(HandleNewQuote, []);
   
   return (
-      <button id="new-quote" onClick={HandleNewQuote} className={`BG-color${colorNumber}`}>New quote</button>
+      <button id="new-quote" onClick={HandleNewQuote} className={`NQbtn BG-color${colorNumber}`}>New quote</button>
   );
 }
 
