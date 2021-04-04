@@ -20,12 +20,12 @@ function QuoteBox() {
   
   return (
     <div id="quote-box" className={`quoteBox`}>
-      <h1 id="text" className={`text-color${colorNumber}`}>
+      <h1 id="text" className={`quote text-color${colorNumber}`}>
         <FontAwesomeIcon icon={faQuoteLeft} class={`icon text-color${colorNumber}`} />
         {quoteText}
         <FontAwesomeIcon icon={faQuoteRight} class={`icon text-color${colorNumber}`} />
       </h1>
-      <p id="author" className={`text-color${colorNumber}`}>{author}</p>
+      <p id="author" className={`text-color${colorNumber}`}>{`- ${author}`}</p>
       <CopyToClipboardBtn />
       <TumblrBtn />
       <TwitterBtn />

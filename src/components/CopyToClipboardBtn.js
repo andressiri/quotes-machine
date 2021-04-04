@@ -13,12 +13,12 @@ function CopyToClipboardBtn() {
   const [author, setAuthor] = auth;
 
   function handleClipClick () {
-    alert(`Copied: "${quoteText}" ${author}`);
+    alert(`Copied: "${quoteText}" - ${author}`);
   }
 
   return (
     <a id="clipboard-btn" href='#' >
-      <CopyToClipboard text={`"${quoteText}" ${author}`}>
+      <CopyToClipboard text={`"${quoteText}" - ${author}`}>
         <FontAwesomeIcon icon={faPaperclip} class={`clipBtn BG-color${colorNumber}`} onClick={handleClipClick} />
       </CopyToClipboard>
     </a>
