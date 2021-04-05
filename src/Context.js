@@ -9,6 +9,7 @@ export const ContextProvider = (props) => {
   const [handleAuto, setHandleAuto] = useState('Interval is off');
   const [autoClass, setAutoClass] = useState('autoBtn btnOff BG-color');
   const [autoTime, setAutoTime] = useState(10000);
+  const [fade, setFade] = useState('In');
   
   return (
     <Context.Provider value={
@@ -17,7 +18,8 @@ export const ContextProvider = (props) => {
        auth: [author, setAuthor],
        auto: [handleAuto, setHandleAuto],
        aClass: [autoClass, setAutoClass],
-       aTime: [autoTime, setAutoTime]}
+       aTime: [autoTime, setAutoTime],
+       fad: [fade, setFade]}
     }>
         {props.children}
     </Context.Provider>

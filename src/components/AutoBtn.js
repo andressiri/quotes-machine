@@ -6,19 +6,23 @@ import './../styles/RandomColor.scss';
 import './../styles/AutoBtn.scss'
 
 function AutoBtn () {
-  const {colorNum, quote, auth, auto, aClass, aTime} = useContext(Context);
+  const {colorNum, quote, auth, auto, aClass, aTime, fad} = useContext(Context);
   const [colorNumber, setColorNumber] = colorNum;
   const [quoteText, setQuoteText] = quote;  
   const [author, setAuthor] = auth;
   const [handleAuto, setHandleAuto] = auto;
   const [autoClass, setAutoClass] = aClass;
   const [autoTime, setAutoTime] = aTime;
+  const [fade, setFade] = fad;
 
   async function startAuto(){    
-    setColorNumber(randomDifNum(colorNumber)); 
-    let quoteAuto = await fetchRandomQuote();
-    setQuoteText(quoteAuto.content);
-    setAuthor(quoteAuto.author);
+    setFade('Out');
+    let quoteObj = await fetchRandomQuote();
+    await new Promise(resolve => setTimeout(resolve, 650));
+    setColorNumber(randomDifNum(colorNumber));
+    setQuoteText(quoteObj.content);
+    setAuthor(quoteObj.author);
+    setFade('In');
   }
   function handleAutoBtn() {
     if (handleAuto !== 'Interval is off') {
