@@ -26,7 +26,9 @@ function NewQuoteBtn () {
     setColorNumber(randomDifNum(colorNumber));
     setQuoteText(quoteObj.content);
     setAuthor(quoteObj.author);
-    setFade('In');
+    setTimeout (() => {
+      setFade('In');
+    }, 200);
   };
 
   useEffect(HandleNewQuote, []);

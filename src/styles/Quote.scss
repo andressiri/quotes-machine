@@ -1,14 +1,38 @@
+@import './variables.scss';
+
 .quote {
-    font-family: 'New Tegomin', serif;
-  }
+    box-sizing: border-box;
+    font-family: serif, sans-serif;
+    text-align: center;
+    background-color: $boxBG;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.quoteIcon {
+    width: 20px;
+}
 
 .fadeIn {
     opacity: 1;
-    transition: opacity 3s;
+    transition: opacity 1.0s;
 }
 
 .fadeOut {
     opacity: 0;
-    transition: opacity 0.6s;
+    transition: opacity 0.5s;
 
+}
+#domtoimageDiv {
+    display: none;
+    padding: 0;
+    margin: 0;
+    height: 0;
+    width: 0;
+    background-color: red;
 }
