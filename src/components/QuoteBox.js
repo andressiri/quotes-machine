@@ -1,5 +1,6 @@
 import React from 'react';
 import Quote from './Quote.js';
+import ImgToClipboard from './ImgToClipboard.js'
 import CopyToClipboardBtn from './CopyToClipboardBtn.js';
 import TumblrBtn from './TumblrBtn.js';
 import TwitterBtn from './TwitterBtn.js';
@@ -11,7 +12,8 @@ import './../styles/QuoteBox.scss';
 function QuoteBox() {  
   return (
     <div id="quote-box" className={`quoteBox`}>
-      <Quote />
+      <Quote />      
+      <ImgToClipboard />
       <CopyToClipboardBtn />
       <TumblrBtn />
       <TwitterBtn />

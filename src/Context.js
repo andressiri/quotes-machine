@@ -1,4 +1,4 @@
-import React, {useState, createContext} from "react"
+import React, {useState, createContext, useRef} from "react"
 
 export const Context = createContext();
 
@@ -10,6 +10,7 @@ export const ContextProvider = (props) => {
   const [autoClass, setAutoClass] = useState('autoBtn btnOff BG-color');
   const [autoTime, setAutoTime] = useState(10000);
   const [fade, setFade] = useState('In');
+  const quoteRef = useRef('null');
   
   return (
     <Context.Provider value={
@@ -19,7 +20,9 @@ export const ContextProvider = (props) => {
        auto: [handleAuto, setHandleAuto],
        aClass: [autoClass, setAutoClass],
        aTime: [autoTime, setAutoTime],
-       fad: [fade, setFade]}
+       fad: [fade, setFade],
+       ref: quoteRef
+      }
     }>
         {props.children}
     </Context.Provider>
