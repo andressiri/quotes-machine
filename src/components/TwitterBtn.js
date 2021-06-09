@@ -1,7 +1,9 @@
-import React, {useState, useContext} from "react";
-import { Context } from "./../Context.js";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitterSquare } from "@fortawesome/free-brands-svg-icons";
+import React, {useContext} from "react";
+import {Context} from "./../Context.js";
+import useStopAuto from '../functions/useStopAuto.js';
+import clickLink from '../functions/clickLink.js';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faTwitterSquare} from "@fortawesome/free-brands-svg-icons";
 import './../styles/icon.scss';
 import './../styles/RandomColor.scss';
 
@@ -10,21 +12,16 @@ function TwitterBtn() {
   const [colorNumber, setColorNumber] = colorNum;
   const [quoteText, setQuoteText] = quote;  
   const [author, setAuthor] = auth;
-  const [handleAuto, setHandleAuto] = auto;
-  const [autoClass, setAutoClass] = aClass;
+  const stopAuto = useStopAuto();
 
   function handleTwitter () {
-    if (handleAuto !== 'Interval is off') {
-      setAutoClass('autoBtn btnOff BG-color'); 
-      clearInterval(handleAuto);
-      setHandleAuto('Interval is off');    
-    }
+    stopAuto();
+    const link = `http://twitter.com/intent/tweet?hashtags=quotes&realted=elsirook&text="${quoteText}"%20-%20${author}`;  
+    clickLink(link);
   }
 
   return (
-    <a id="tweet-quote" onClick={handleTwitter} target="_blank" href={`http://twitter.com/intent/tweet?hashtags=quotes&realted=elsirook&text="${quoteText}"%20-%20${author}`}>
-      <FontAwesomeIcon icon={faTwitterSquare} class={`icon text-color${colorNumber}`} />
-    </a>
+    <FontAwesomeIcon class={`icon text-color${colorNumber}`} onClick={handleTwitter} icon={faTwitterSquare} />
   );
 }
 
