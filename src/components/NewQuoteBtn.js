@@ -1,40 +1,25 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Context} from './../Context.js';
-import randomDifNum from './randomDifNum.js';
-import fetchRandomQuote from './fetchRandomQuote.js';
+import useStopAuto from '../functions/useStopAuto.js';
+import useNewQuote from '../functions/useNewQuote.js';
 import './../styles/RandomColor.scss';
-import './../styles/NewQuoteButton.scss'
+import './../styles/NewQuoteButton.scss';
 
 function NewQuoteBtn () {
-  const {colorNum, quote, auth, auto, aClass, aTime, fad} = useContext(Context);
-  const [colorNumber, setColorNumber] = colorNum;
-  const [quoteText, setQuoteText] = quote;  
-  const [author, setAuthor] = auth;
-  const [handleAuto, setHandleAuto] = auto;
-  const [autoClass, setAutoClass] = aClass;
-  const [fade, setFade] = fad;   
+  const {colorNum} = useContext(Context);
+  const [colorNumber, setColorNumber] = colorNum; 
+  const stopAuto = useStopAuto();
+  const newQuote = useNewQuote();
 
-  async function HandleNewQuote() {
-    setFade('Out');
-    if (handleAuto !== 'Interval is off') {
-      setAutoClass('autoBtn btnOff BG-color'); 
-      clearInterval(handleAuto);
-      setHandleAuto('Interval is off');    
-    };    
-    let quoteObj = await fetchRandomQuote();
-    await new Promise(resolve => setTimeout(resolve, 650));
-    setColorNumber(randomDifNum(colorNumber));
-    setQuoteText(quoteObj.content);
-    setAuthor(quoteObj.author);
-    setTimeout (() => {
-      setFade('In');
-    }, 200);
+  async function handleNewQuote() {    
+    stopAuto();    
+    newQuote();
   };
 
-  useEffect(HandleNewQuote, []);
+  useEffect(handleNewQuote, []);
   
   return (
-      <button id="new-quote" onClick={HandleNewQuote} className={`NQbtn BG-color${colorNumber}`}>New quote</button>
+    <button className={`NQbtn BG-color${colorNumber}`} onClick={handleNewQuote} >New quote</button>
   );
 }
 

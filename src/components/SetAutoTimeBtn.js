@@ -1,22 +1,18 @@
 import React, {useState, useContext} from 'react';
 import{Context} from './../Context.js';
+import useStopAuto from '../functions/useStopAuto.js';
 import './../styles/RandomColor.scss';
 import './../styles/SetAutoTimeBtn.scss';
 
 function SetAutoTimeBtn() {
   const {colorNum, quote, auth, auto, aClass, aTime} = useContext(Context);
   const [colorNumber, setColorNumber] = colorNum;
-  const [handleAuto, setHandleAuto] = auto;
-  const [autoClass, setAutoClass] = aClass;
   const [autoTime, setAutoTime] = aTime;
   const [seconds, setSeconds] = useState('10s');
+  const stopAuto = useStopAuto();
     
   function handleTime () {
-     if (handleAuto !== 'Interval is off') {
-      setAutoClass('autoBtn btnOff BG-color'); 
-      clearInterval(handleAuto);
-      setHandleAuto('Interval is off');    
-    }
+    stopAuto();
     switch (autoTime) {
       case 5000:
         setAutoTime(10000);
@@ -34,7 +30,7 @@ function SetAutoTimeBtn() {
   }
   
   return (
-    <button onClick={handleTime} className={`timeBtn BG-color${colorNumber}`}>{seconds}</button>
+    <button className={`timeBtn BG-color${colorNumber}`} onClick={handleTime} >{seconds}</button>
   );
 }
 

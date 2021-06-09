@@ -1,13 +1,11 @@
-import React, {useState, useContext, useRef} from 'react';
+import React, {useContext} from 'react';
 import {Context} from '../Context.js';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
-import { faQuoteRight } from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faQuoteLeft} from "@fortawesome/free-solid-svg-icons";
+import {faQuoteRight} from "@fortawesome/free-solid-svg-icons";
 import './../styles/icon.scss';
 import './../styles/RandomColor.scss';
 import './../styles/Quote.scss';
-
-//import RenderAsImage from 'react-render-as-image';
 
 function Quote() {
   const {colorNum, quote, auth, auto, aClass, aTime, fad, ref} = useContext(Context);
@@ -17,7 +15,6 @@ function Quote() {
   const [fade, setFade] = fad; 
   const quoteRef = ref;
 
-
   return (    
     <div id='refDiv' className={`quote text-color${colorNumber} fade${fade}`} ref={quoteRef}>
       <h1 id="text" >
@@ -25,8 +22,7 @@ function Quote() {
         {quoteText}
         <FontAwesomeIcon icon={faQuoteRight} class={'quoteIcon'} /> 
       </h1>
-      <p id="author">{`- ${author}`}</p>
-      <div id='domtoimageDiv' />         
+      <p id="author">{`- ${author}`}</p>       
     </div >
   )
 }
