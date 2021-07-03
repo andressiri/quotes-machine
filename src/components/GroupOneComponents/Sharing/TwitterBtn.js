@@ -4,7 +4,6 @@ import useStopAuto from '../../../functions/useStopAuto.js';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTwitterSquare} from "@fortawesome/free-brands-svg-icons";
 import './../../../styles/icon.scss';
-import './../../../styles/RandomColor.scss';
 
 function TwitterBtn() {
   const {colors, quote, auto, groups, refs} = useContext(Context);
@@ -21,12 +20,11 @@ function TwitterBtn() {
     setHideGroupOne('On');
     setHideGroupTwo('Off');
     setHideCancelBtn('Off');
-    //TO DO enable groupTwo buttons and disable groupOne buttons
-  }
+  };
 
   return (
     <FontAwesomeIcon class={`icon text-color${colorNumber} hide${hideGroupOne}`} onClick={handleTwitter} icon={faTwitterSquare} />
   );
-}
+};
 
 export default TwitterBtn;

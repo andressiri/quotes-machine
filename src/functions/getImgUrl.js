@@ -16,7 +16,7 @@ async function getUrl (blob) {
         reject(console.error('oops, something went wrong uploading the image!', error));
     });
 });    
-}
+};
 
 async function getImgUrl (imgBlob) { 
   const imgUrl = await getUrl(imgBlob);

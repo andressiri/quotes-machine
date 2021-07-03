@@ -4,7 +4,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faQuoteLeft} from "@fortawesome/free-solid-svg-icons";
 import {faQuoteRight} from "@fortawesome/free-solid-svg-icons";
 import './../styles/icon.scss';
-import './../styles/RandomColor.scss';
 import './../styles/Quote.scss';
 
 function Quote() {
@@ -25,8 +24,7 @@ function Quote() {
       </h1>
       <p id="author" className={`fade${fadeQuote}`} >{`- ${author}`}</p>       
     </div >
-  )
-}
+  );
+};
 
 export default Quote;
-;

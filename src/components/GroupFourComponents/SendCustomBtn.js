@@ -2,7 +2,6 @@ import React, {useContext} from "react";
 import {Context} from "../../Context.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faStar} from "@fortawesome/free-solid-svg-icons";
-
 import useShareImg from '../../functions/useShareImg.js';
 
 function SendCustomBtn () {
@@ -22,7 +21,7 @@ function SendCustomBtn () {
     setHideGroupOne('Off');
     setHideCancelBtn('On');
     setImgBGColor(8);
-  }  
+  }; 
 
   return (
     <FontAwesomeIcon class={`icon text-color${colorNumber} hide${hideGroupFour}`} onClick={handleSendCustom} icon={faStar} />

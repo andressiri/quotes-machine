@@ -13,8 +13,7 @@ function CustomizeImgBtn () {
   function handleCustomizeImg () {
     setHideGroupThree('On');
     setHideGroupFour('Off');
-    // TO DO enable groupOne buttons and disable groupTwo buttons  
-  }  
+  };  
 
   return (
     <FontAwesomeIcon class={`icon text-color${colorNumber} hide${hideGroupThree}`} onClick={handleCustomizeImg} icon={faStar} />

@@ -8,7 +8,6 @@ import GroupTwo from './GroupTwoComponents/GroupTwo.js';
 import GroupThree from './GroupThreeComponents/GroupThree.js';
 import GroupFour from './GroupFourComponents/GroupFour.js';
 import './../styles/QuoteBox.scss';
-import './../styles/RandomColor.scss';
 
 function QuoteBox() {
   const {colors, quote, auto, groups, refs} = useContext(Context);
@@ -30,6 +29,6 @@ function QuoteBox() {
       <ShareCancel />
     </div>
   );
-}
+};
 
 export default QuoteBox;

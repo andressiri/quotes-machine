@@ -12,8 +12,7 @@ function ShareImgBtn () {
   function handleShareImg () {
     setHideGroupTwo('On');
     setHideGroupThree('Off');
-    // TO DO enable groupOne buttons and disable groupTwo buttons  
-  }  
+  };  
 
   return (
     <FontAwesomeIcon class={`icon text-color${colorNumber} hide${hideGroupTwo}`} onClick={handleShareImg} icon={faReply} />

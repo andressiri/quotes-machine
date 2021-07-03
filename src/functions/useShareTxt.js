@@ -1,6 +1,5 @@
 import {useContext} from 'react';
-import {Context} from '../Context.js';
-import './../styles/RandomColor.scss';
+import {Context} from './../Context.js';
 import clickLink from './clickLink.js';
 
 function useShareTxt () {
@@ -22,11 +21,11 @@ function useShareTxt () {
         case 'Twitter':
           link = `http://twitter.com/intent/tweet?hashtags=quotes&realted=elsirook&text="${quoteText}"%20-%20${author}`;
           break;  
-       }
+       };
       clickLink(link);
-    }
+    };
   };
   return shareTxt;
-}
+};
 
 export default useShareTxt;

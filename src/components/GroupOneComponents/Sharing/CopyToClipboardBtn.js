@@ -3,7 +3,6 @@ import {Context} from "../../../Context.js";
 import useStopAuto from '../../../functions/useStopAuto.js'; 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPaperclip} from "@fortawesome/free-solid-svg-icons";
-import './../../../styles/RandomColor.scss';
 import './../../../styles/CopyToClipboardBtn.scss';
 
 function CopyToClipboardBtn() {
@@ -22,11 +21,11 @@ function CopyToClipboardBtn() {
     setHideGroupOne('On');
     setHideGroupTwo('Off');
     setHideCancelBtn('Off');
-  }
+  };
 
   return (
     <FontAwesomeIcon class={`clipBtn BG-color${colorNumber} text-color${imgBGColor} hide${hideGroupOne}`} onClick={handleCopyToClip} icon={faPaperclip} />
   );
-}
+};
 
 export default CopyToClipboardBtn;

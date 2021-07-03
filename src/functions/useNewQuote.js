@@ -1,9 +1,7 @@
-import {useContext, useEffect} from 'react';
+import {useContext} from 'react';
 import {Context} from '../Context.js';
 import changeColorNumber from './changeColorNumber.js';
 import fetchRandomQuote from './fetchRandomQuote.js';
-import './../styles/RandomColor.scss';
-import './../styles/AutoBtn.scss'
 
 function useNewQuote () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
