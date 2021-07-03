@@ -8,21 +8,22 @@ import './../styles/RandomColor.scss';
 import './../styles/Quote.scss';
 
 function Quote() {
-  const {colorNum, quote, auth, auto, aClass, aTime, fad, ref} = useContext(Context);
-  const [colorNumber, setColorNumber] = colorNum;
-  const [quoteText, setQuoteText] = quote;  
-  const [author, setAuthor] = auth;
-  const [fade, setFade] = fad; 
-  const quoteRef = ref;
+  const {colors, quote, auto, groups, refs} = useContext(Context);
+  const [colorNumber, setColorNumber] = colors.colorNum;
+  const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const [quoteText, setQuoteText] = quote.quoteTxt;  
+  const [author, setAuthor] = quote.auth;
+  const [fadeQuote, setFadeQuote] = quote.fadQ; 
+  const quoteRef = refs.refImg;
 
   return (    
-    <div id='refDiv' className={`quote text-color${colorNumber} fade${fade}`} ref={quoteRef}>
-      <h1 id="text" >
-        <FontAwesomeIcon icon={faQuoteLeft} class={'quoteIcon'} />
-        {quoteText}
-        <FontAwesomeIcon icon={faQuoteRight} class={'quoteIcon'} /> 
+    <div id='refDiv' className={`quote BG-color${imgBGColor} text-color${colorNumber} fade${fadeQuote}`} ref={quoteRef}>
+      <h1 id="text" className={`text fade${fadeQuote}`} >
+        <FontAwesomeIcon icon={faQuoteLeft} className={`quoteIcon fade${fadeQuote}`} />
+        {` ${quoteText} `}
+        <FontAwesomeIcon icon={faQuoteRight} className={`quoteIcon fade${fadeQuote}`} /> 
       </h1>
-      <p id="author">{`- ${author}`}</p>       
+      <p id="author" className={`fade${fadeQuote}`} >{`- ${author}`}</p>       
     </div >
   )
 }
