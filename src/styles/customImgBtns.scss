@@ -1,0 +1,82 @@
+@import './variables.scss';
+
+.redBGOn {
+    background-color: $customRed;
+}
+.redBGOff {
+    background-color: $customRed;
+    opacity: 0.5 !important;
+    pointer-events: none !important;
+}
+
+.orangeBGOn {
+    background-color: $customOrange;
+}
+.orangeBGOff {
+    background-color: $customOrange;
+    opacity: 0.5 !important;
+    pointer-events: none !important;
+}
+
+.yellowBGOn {
+    background-color: $customYellow;
+}
+.yellowBGOff {
+    background-color: $customYellow;
+    opacity: 0.5 !important;
+    pointer-events: none !important;
+}
+
+.greenBGOn {
+    background-color: $customGreen;
+}
+.greenBGOff {
+    background-color: $customGreen;
+    opacity: 0.5 !important;
+    pointer-events: none !important;
+}
+
+.blueBGOn {
+    background-color: $customBlue;
+}
+.blueBGOff {
+    background-color: $customBlue;
+    opacity: 0.5 !important;
+    pointer-events: none !important;
+}
+
+.indigoBGOn {
+    background-color: $customIndigo;
+}
+.indigoBGOff {
+    background-color: $customIndigo;
+    opacity: 0.5 !important;
+    pointer-events: none !important;
+}
+
+.violetBGOn {
+    background-color: $customViolet;
+}
+.violetBGOff {
+    background-color: $customViolet;
+    opacity: 0.5 !important;
+    pointer-events: none !important;
+}
+
+.blackBGOn {
+    background-color: $customBlack;
+}
+.blackBGOff {
+    background-color: $customBlack;
+    opacity: 0.5 !important;
+    pointer-events: none !important;
+}
+
+.whiteBGOn {
+    background-color: $customWhite;
+}
+.whiteBGOff {
+    background-color: $customWhite;
+    opacity: 0.5 !important;
+    pointer-events: none !important;
+}

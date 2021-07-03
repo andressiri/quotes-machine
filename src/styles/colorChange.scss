@@ -1,0 +1,19 @@
+@import './variables.scss';
+
+//this list is related to changeColorNumber.js
+$colors: $customRed, $customOrange, $customYellow, $customGreen, $customBlue, $customIndigo, $customViolet, $customBlack, $customWhite;
+
+@for $i from 1 through length($colors) {
+  .BG-color#{$i - 1} {
+    background-color: nth($colors, $i);
+    transition: background-color 1s;               
+  }
+}
+
+@for $i from 1 through length($colors) {
+  .text-color#{$i - 1} {
+    color: nth($colors, $i);
+    border-color: nth($colors, $i);
+    transition: color 1s, border-color 1s;          
+  }
+}
