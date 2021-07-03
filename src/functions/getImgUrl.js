@@ -1,5 +1,3 @@
-import domtoimage from 'dom-to-image';
-
 async function getUrl (blob) {
   return new Promise( async function (resolve, reject) {
     const formData = new FormData();
@@ -20,8 +18,7 @@ async function getUrl (blob) {
 });    
 }
 
-async function getImgUrl (imgRef) {
-  const imgBlob = await domtoimage.toBlob(imgRef);
+async function getImgUrl (imgBlob) { 
   const imgUrl = await getUrl(imgBlob);
   return imgUrl;
 };

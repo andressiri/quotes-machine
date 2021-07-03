@@ -2,23 +2,23 @@
 
 .autoBtn {
     height: $btnSize;
-    width: 60px;
-    border-radius: $btnRadius;
+    width: 50px;
+    border-radius: $btnRadius 0px 0px $btnRadius;
     user-select: none;
-    font-family: $fontFamily;    
-}
-
-.btnOn {
-    background-color: $boxBG;
-}
-
-.btnOff {
-    color: $boxBG;
-    border: none;
+    font-family: $fontFamily;
+    margin: 10px 0px 10px 10px; 
 }
 
 .autoBtn:focus {
     outline: none;
+}
+
+.autoBtnOn {
+    border-width: 2px !important;
+    border-right: none;
+}
+.autoBtnOff {
+    border: none;
 }
 
      
