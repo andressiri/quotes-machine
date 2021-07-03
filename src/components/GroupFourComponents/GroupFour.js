@@ -3,6 +3,7 @@ import {Context} from "./../../Context.js";
 import BackgroundColor from './backgroundColor/BackgroundColor.js';
 import TextColor from './textColor/TextColor.js';
 import SendCustomBtn from './SendCustomBtn.js';
+import './../../styles/customImgBtns.scss';
 
 function GroupFour () {
   const {colors, quote, auto, groups, refs} = useContext(Context);

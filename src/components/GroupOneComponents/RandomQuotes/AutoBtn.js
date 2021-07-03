@@ -2,7 +2,6 @@ import React, {useContext, useEffect} from 'react';
 import {Context} from '../../../Context.js';
 import useNewQuote from '../../../functions/useNewQuote.js';
 import useStopAuto from '../../../functions/useStopAuto.js';
-import './../../../styles/RandomColor.scss';
 import './../../../styles/AutoBtn.scss';
 
 function AutoBtn () {

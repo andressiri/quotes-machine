@@ -2,7 +2,6 @@ import React, {useContext} from "react";
 import {Context} from "../../Context.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faReply} from "@fortawesome/free-solid-svg-icons";
-
 import useShareTxt from '../../functions/useShareTxt.js';
 
 function ShareTxtBtn () {
@@ -20,8 +19,7 @@ function ShareTxtBtn () {
     setHideGroupTwo('On');
     setHideCancelBtn('On');
     setHideGroupOne('Off');
-    // TO DO enable groupOne buttons and disable groupTwo buttons  
-  }  
+  };  
 
   return (
     <FontAwesomeIcon class={`icon text-color${colorNumber} hide${hideGroupTwo}`} onClick={handleShareTxt} icon={faReply} />

@@ -20,7 +20,7 @@ function ShareCancel () {
     setHideCancelBtn('On');
     setHideGroupOne('Off');
     setShareChosen('');
-  }  
+  };  
 
   return (
     <FontAwesomeIcon class={`icon text-color${colorNumber} hide${hideCancelBtn}`} onClick={handleShareCancel} icon={faReply} />

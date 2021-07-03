@@ -1,6 +1,5 @@
 import React, {useContext} from "react";
 import {Context} from "./../../../Context.js";
-import './../../../styles/colorButtons.scss';
 
 function YellowBG () {
   const {colors, quote, auto, groups, refs} = useContext(Context);

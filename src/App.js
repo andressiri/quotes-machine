@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {Context} from './Context.js';
 import QuoteBox from './components/QuoteBox.js';
 import './styles/App.scss';
-import './styles/RandomColor.scss'
+import './styles/colorChange.scss'
 
 function App() {
   const {colors, quote, auto, groups, refs} = useContext(Context);

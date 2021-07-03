@@ -2,7 +2,6 @@ import React, {useContext} from "react";
 import {Context} from "../../Context.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCrown} from "@fortawesome/free-solid-svg-icons";
-
 import useShareImg from '../../functions/useShareImg.js';
 
 function DefaultImgBtn () {
@@ -20,8 +19,7 @@ function DefaultImgBtn () {
     setHideGroupThree('On');
     setHideCancelBtn('On');
     setHideGroupOne('Off');
-    // TO DO enable groupOne buttons and disable groupTwo buttons  
-  }  
+  };  
 
   return (
     <FontAwesomeIcon class={`icon text-color${colorNumber} hide${hideGroupThree}`} onClick={handleDefaultImg} icon={faCrown} />

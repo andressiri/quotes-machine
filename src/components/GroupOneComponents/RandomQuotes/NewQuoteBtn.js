@@ -2,7 +2,6 @@ import React, {useContext, useEffect} from 'react';
 import {Context} from '../../../Context.js';
 import useStopAuto from '../../../functions/useStopAuto.js';
 import useNewQuote from '../../../functions/useNewQuote.js';
-import './../../../styles/RandomColor.scss';
 import './../../../styles/NewQuoteButton.scss';
 
 function NewQuoteBtn () {
@@ -17,12 +16,10 @@ function NewQuoteBtn () {
     stopAuto();    
     newQuote();
   };
-  
-  //useEffect(handleNewQuote, []);
 
   return (
     <button className={`NQbtn hide${hideGroupOne} BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleNewQuote} id="new-quote">New quote</button>
   );
-}
+};
 
 export default NewQuoteBtn;
