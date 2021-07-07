@@ -5,11 +5,10 @@ function YellowBG () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
-  let yellowBGState = 'On';
+  let yellowBGState = '';
   
   if (colorNumber == 2) {
-    yellowBGState = 'Off';
+    yellowBGState = 'buttonDisabled';
   };
 
   function handleYellowBG () {
@@ -17,7 +16,7 @@ function YellowBG () {
   };
 
   return (
-    <button class={`yellowBG${yellowBGState} hide${hideGroupFour}`} onClick={handleYellowBG}></button>
+    <button class={`BG-color2 ${yellowBGState}`} onClick={handleYellowBG}></button>
   );
 };
 

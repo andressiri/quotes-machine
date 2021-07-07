@@ -7,16 +7,14 @@ import {faStar} from "@fortawesome/free-solid-svg-icons";
 function CustomizeImgBtn () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
-  const [hideGroupThree, setHideGroupThree] = groups.gThree;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
+  const [groupRef, setGroupRef] = groups.gRef;
   
   function handleCustomizeImg () {
-    setHideGroupThree('On');
-    setHideGroupFour('Off');
+    setGroupRef('groupFour');
   };  
 
   return (
-    <FontAwesomeIcon class={`icon text-color${colorNumber} hide${hideGroupThree}`} onClick={handleCustomizeImg} icon={faStar} />
+    <FontAwesomeIcon class={`icon text-color${colorNumber}`} onClick={handleCustomizeImg} icon={faStar} />
   );
 };
 

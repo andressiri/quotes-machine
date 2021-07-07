@@ -5,11 +5,10 @@ function IndigoTxt () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
-  let indigoTxtState = 'On';
+  let indigoTxtState = '';
   
   if (imgBGColor == 5) {
-    indigoTxtState = 'Off';
+    indigoTxtState = 'buttonDisabled';
   };
 
   function handleIndigoTxt () {
@@ -17,7 +16,7 @@ function IndigoTxt () {
   };
 
   return (
-    <button class={`indigoBG${indigoTxtState} hide${hideGroupFour}`} onClick={handleIndigoTxt}></button>
+    <button class={`BG-color5 ${indigoTxtState}`} onClick={handleIndigoTxt}></button>
   );
 };
 

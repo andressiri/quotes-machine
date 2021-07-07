@@ -5,11 +5,10 @@ function RedBG () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
-  let redBGState = 'On';
+  let redBGState = '';
 
   if (colorNumber == 0) {
-    redBGState = 'Off';
+    redBGState = 'buttonDisabled';
   };
 
   function handleRedBG () {
@@ -17,7 +16,7 @@ function RedBG () {
   };
 
   return (
-    <button class={`redBG${redBGState} hide${hideGroupFour}`} onClick={handleRedBG}></button>
+    <button class={`BG-color0 ${redBGState}`} onClick={handleRedBG}></button>
   );
 };
 

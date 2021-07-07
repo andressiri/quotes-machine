@@ -5,11 +5,10 @@ function VioletTxt () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
-  let violetTxtState = 'On';
+  let violetTxtState = '';
   
   if (imgBGColor == 6) {
-    violetTxtState = 'Off';
+    violetTxtState = 'buttonDisabled';
   };
 
   function handleVioletTxt () {
@@ -17,7 +16,7 @@ function VioletTxt () {
   };
 
   return (
-    <button class={`violetBG${violetTxtState} hide${hideGroupFour}`} onClick={handleVioletTxt}></button>
+    <button class={`BG-color6 ${violetTxtState}`} onClick={handleVioletTxt}></button>
   );
 };
 

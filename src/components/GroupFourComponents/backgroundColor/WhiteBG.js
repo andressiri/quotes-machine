@@ -5,11 +5,10 @@ function WhiteBG () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
-  let whiteBGState = 'On';
+  let whiteBGState = '';
 
   if (colorNumber == 8) {
-    whiteBGState = 'Off';
+    whiteBGState = 'buttonDisabled';
   };
 
   function handleWhiteBG () {
@@ -17,7 +16,7 @@ function WhiteBG () {
   };
 
   return (
-    <button class={`whiteBG${whiteBGState} hide${hideGroupFour}`} onClick={handleWhiteBG}></button>
+    <button class={`BG-color8 ${whiteBGState}`} onClick={handleWhiteBG}></button>
   );
 };
 

@@ -1,18 +1,14 @@
-import React, {useContext} from "react";
-import {Context} from "./../../Context.js";
+import React from "react";
 import BackgroundColor from './backgroundColor/BackgroundColor.js';
 import TextColor from './textColor/TextColor.js';
 import SendCustomBtn from './SendCustomBtn.js';
 import './../../styles/customImgBtns.scss';
 
 function GroupFour () {
-  const {colors, quote, auto, groups, refs} = useContext(Context);
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
-
   return (
-    <div className={`hide${hideGroupFour}`} >
-      <BackgroundColor />
+    <div>
       <TextColor />
+      <BackgroundColor />
       <SendCustomBtn />    
     </div>    
   );

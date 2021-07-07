@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from "react";
+import {Context} from "./../../../Context.js";
 import WhiteTxt from './WhiteTxt.js';
 import RedTxt from './RedTxt.js';
 import OrangeTxt from './OrangeTxt.js';
@@ -10,8 +11,14 @@ import VioletTxt from './VioletTxt.js';
 import BlackTxt from './BlackTxt.js';
 
 function TextColor () {
+  const {colors, quote, auto, groups, refs} = useContext(Context);
+  const [colorNumber, setColorNumber] = colors.colorNum;
+  const [imgBGColor, setImgBGColor] = colors.imgBG;
+
   return (
-   <div>
+   <div className={`customGroup reSized BG-color${colorNumber} text-color${imgBGColor}`}>
+     <p className={`text-color${imgBGColor}`} style={{marginRight: "10px"}}>Text</p>
+     <div>
      <WhiteTxt />
      <RedTxt />
      <OrangeTxt />
@@ -21,6 +28,8 @@ function TextColor () {
      <IndigoTxt />
      <VioletTxt />
      <BlackTxt />
+     </div>
+     <p className={`text-color${imgBGColor}`} style={{marginLeft: "10px"}}>Text</p>
    </div>    
   );
 };

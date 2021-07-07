@@ -5,11 +5,10 @@ function OrangeTxt () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
-  let orangeTxtState = 'On';
+  let orangeTxtState = '';
   
   if (imgBGColor == 1) {
-    orangeTxtState = 'Off';
+    orangeTxtState = 'buttonDisabled';
   };
 
   function handleOrangeTxt () {
@@ -17,7 +16,7 @@ function OrangeTxt () {
   };
 
   return (
-    <button class={`redBG${orangeTxtState} hide${hideGroupFour}`} onClick={handleOrangeTxt}></button>
+    <button class={`BG-color1 ${orangeTxtState}`} onClick={handleOrangeTxt}></button>
   );
 };
 

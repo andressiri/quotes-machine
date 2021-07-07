@@ -7,8 +7,7 @@ import useShareImg from '../../functions/useShareImg.js';
 function DefaultImgBtn () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
-  const [hideGroupOne, setHideGroupOne] = groups.gOne;
-  const [hideGroupThree, setHideGroupThree] = groups.gThree;
+  const [groupRef, setGroupRef] = groups.gRef;
   const [hideCancelBtn, setHideCancelBtn] = groups.cancel;
   const [shareChosen, setShareChosen] = refs.sChosen;
   const shareImg = useShareImg();  
@@ -16,13 +15,12 @@ function DefaultImgBtn () {
   function handleDefaultImg () {
     shareImg();
     setShareChosen(``);
-    setHideGroupThree('On');
-    setHideCancelBtn('On');
-    setHideGroupOne('Off');
+    setHideCancelBtn(true);
+    setGroupRef('groupOne');
   };  
 
   return (
-    <FontAwesomeIcon class={`icon text-color${colorNumber} hide${hideGroupThree}`} onClick={handleDefaultImg} icon={faCrown} />
+    <FontAwesomeIcon class={`icon text-color${colorNumber}`} onClick={handleDefaultImg} icon={faCrown} />
   );
 };
 

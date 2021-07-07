@@ -16,11 +16,8 @@ export const ContextProvider = (props) => {
   const [autoClass, setAutoClass] = useState(false);
   const [autoTime, setAutoTime] = useState(10000);
   //groups
-  const [hideGroupOne, setHideGroupOne] = useState('Off');
-  const [hideGroupTwo, setHideGroupTwo] = useState('On');
-  const [hideGroupThree, setHideGroupThree] = useState('On');
-  const [hideGroupFour, setHideGroupFour] = useState('On');
-  const [hideCancelBtn, setHideCancelBtn] = useState('On');
+  const [groupRef, setGroupRef] = useState('groupOne');
+  const [hideCancelBtn, setHideCancelBtn] = useState(true);
   //refs
   const quoteRef = useRef('null');
   const [shareChosen, setShareChosen] = useState('');
@@ -43,10 +40,7 @@ export const ContextProvider = (props) => {
         aTime: [autoTime, setAutoTime]
       },
       groups: {
-        gOne: [hideGroupOne, setHideGroupOne],
-        gTwo: [hideGroupTwo, setHideGroupTwo],
-        gThree: [hideGroupThree, setHideGroupThree],
-        gFour: [hideGroupFour, setHideGroupFour],
+        gRef: [groupRef, setGroupRef],
         cancel: [hideCancelBtn, setHideCancelBtn],
       },
       refs : {

@@ -5,11 +5,10 @@ function RedTxt () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
-  let redTxtState = 'On';
+  let redTxtState = '';
   
   if (imgBGColor == 0) {
-    redTxtState = 'Off';
+    redTxtState = 'buttonDisabled';
   };
 
   function handleRedTxt () {
@@ -17,7 +16,7 @@ function RedTxt () {
   };
 
   return (
-    <button class={`redBG${redTxtState} hide${hideGroupFour}`} onClick={handleRedTxt}></button>
+    <button class={`BG-color0 ${redTxtState}`} onClick={handleRedTxt}></button>
   );
 };
 

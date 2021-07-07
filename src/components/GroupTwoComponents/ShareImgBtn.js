@@ -1,21 +1,19 @@
 import React, {useContext} from "react";
-import {Context} from "../../Context.js";
+import {Context} from "./../../Context.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faReply} from "@fortawesome/free-solid-svg-icons";
 
 function ShareImgBtn () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
-  const [hideGroupTwo, setHideGroupTwo] = groups.gTwo;
-  const [hideGroupThree, setHideGroupThree] = groups.gThree;
+  const [groupRef, setGroupRef] = groups.gRef;
    
   function handleShareImg () {
-    setHideGroupTwo('On');
-    setHideGroupThree('Off');
+    setGroupRef('groupThree');
   };  
 
   return (
-    <FontAwesomeIcon class={`icon text-color${colorNumber} hide${hideGroupTwo}`} onClick={handleShareImg} icon={faReply} />
+    <FontAwesomeIcon class={`icon text-color${colorNumber}`} onClick={handleShareImg} icon={faReply} />
   );
 };
 

@@ -5,11 +5,10 @@ function VioletBG () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
-  let violetBGState = 'On';
+  let violetBGState = '';
 
   if (colorNumber == 6) {
-    violetBGState = 'Off';
+    violetBGState = 'buttonDisabled';
   };
 
   function handleVioletBG () {
@@ -17,7 +16,7 @@ function VioletBG () {
   };
 
   return (
-    <button class={`violetBG${violetBGState} hide${hideGroupFour}`} onClick={handleVioletBG}></button>
+    <button class={`BG-color6 ${violetBGState}`} onClick={handleVioletBG}></button>
   );
 };
 

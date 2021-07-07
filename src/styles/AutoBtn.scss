@@ -4,13 +4,12 @@
     height: $btnSize;
     width: 50px;
     border-radius: $btnRadius 0px 0px $btnRadius;
-    user-select: none;
     font-family: $fontFamily;
     margin: 10px 0px 10px 10px; 
 }
 
-.autoBtn:focus {
-    outline: none;
+.autoBtn:hover {
+    cursor: pointer;    
 }
 
 .autoBtnOn {

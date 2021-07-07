@@ -7,8 +7,7 @@ import useShareTxt from '../../functions/useShareTxt.js';
 function ShareTxtBtn () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
-  const [hideGroupOne, setHideGroupOne] = groups.gOne;
-  const [hideGroupTwo, setHideGroupTwo] = groups.gTwo;
+  const [groupRef, setGroupRef] = groups.gRef;
   const [hideCancelBtn, setHideCancelBtn] = groups.cancel;
   const [shareChosen, setShareChosen] = refs.sChosen;
   const shareTxt = useShareTxt();  
@@ -16,13 +15,12 @@ function ShareTxtBtn () {
   function handleShareTxt () {
     shareTxt();
     setShareChosen(``);
-    setHideGroupTwo('On');
-    setHideCancelBtn('On');
-    setHideGroupOne('Off');
+    setHideCancelBtn(true);
+    setGroupRef('groupOne');
   };  
 
   return (
-    <FontAwesomeIcon class={`icon text-color${colorNumber} hide${hideGroupTwo}`} onClick={handleShareTxt} icon={faReply} />
+    <FontAwesomeIcon class={`icon text-color${colorNumber}`} onClick={handleShareTxt} icon={faReply} />
   );
 };
 

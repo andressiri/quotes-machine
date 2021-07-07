@@ -1,17 +1,31 @@
 @import './variables.scss';
 
 .quoteBox {
-  width: 450px;
+  width: $boxWidth;
   border-radius: 8px;
-  transition: background-color 0s !important; 
+  transition: background-color 0s !important;
 }
 
-.hideOff {
-  opacity: 1;
-  pointer-events: all;
+.groupOneRQ {
+  width: $boxWidth;
+  height: $btnSize + 20px;
 }
 
-.hideOn {
-  pointer-events: none !important;
-  opacity: 0 !important;
+.groupContainer{
+  width: $boxWidth;
+  height: 200px;
+  border-radius: 8px;
+  margin-top: 0px;
+}
+
+.cancel {
+  position: absolute;
+  margin-top: -60px;
+  margin-left: -15px;
+}
+
+.shareIt {
+  padding-top: 10px;
+  margin-top: 0px;
+  cursor: default !important;
 }

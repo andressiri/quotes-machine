@@ -5,11 +5,10 @@ function IndigoBG () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
-  let indigoBGState = 'On';
+  let indigoBGState = '';
   
   if (colorNumber == 5) {
-    indigoBGState = 'Off';
+    indigoBGState = 'buttonDisabled';
   };
 
   function handleIndigoBG () {
@@ -17,7 +16,7 @@ function IndigoBG () {
   };
 
   return (
-    <button class={`indigoBG${indigoBGState} hide${hideGroupFour}`} onClick={handleIndigoBG}></button>
+    <button class={`BG-color5 ${indigoBGState}`} onClick={handleIndigoBG}></button>
   );
 };
 

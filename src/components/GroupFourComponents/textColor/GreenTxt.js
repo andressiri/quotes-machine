@@ -5,11 +5,10 @@ function GreenTxt () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
-  let greenTxtState = 'On';
+  let greenTxtState = '';
   
   if (imgBGColor == 3) {
-    greenTxtState = 'Off';
+    greenTxtState = 'buttonDisabled';
   };
 
   function handleGreenTxt () {
@@ -17,7 +16,7 @@ function GreenTxt () {
   };
 
   return (
-    <button class={`greenBG${greenTxtState} hide${hideGroupFour}`} onClick={handleGreenTxt}></button>
+    <button class={`BG-color3 ${greenTxtState}`} onClick={handleGreenTxt}></button>
   );
 };
 

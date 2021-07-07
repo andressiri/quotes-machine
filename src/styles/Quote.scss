@@ -4,8 +4,8 @@
   box-sizing: border-box;
   font-family: serif, sans-serif;
   text-align: center;    
-  height: 450px;
-  width: 450px;
+  height: $boxWidth;
+  width: $boxWidth;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,10 +14,11 @@
   border-top-style: solid;
   border-bottom-width: 1px;
   border-bottom-style: solid;
+  margin-bottom: 0px;
 }
 
 .text {
-  margin: 40px;
+  margin: 30px;
 }
 
 .quoteIcon {

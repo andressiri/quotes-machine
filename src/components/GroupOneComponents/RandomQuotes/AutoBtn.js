@@ -11,7 +11,6 @@ function AutoBtn () {
   const [handleAuto, setHandleAuto] = auto.hAuto;
   const [autoClass, setAutoClass] = auto.aClass;
   const [autoTime, setAutoTime] = auto.aTime; 
-  const [hideGroupOne, setHideGroupOne] = groups.gOne;
   const newQuote = useNewQuote();
   const stopAuto = useStopAuto();
   let autoText = imgBGColor;
@@ -35,7 +34,7 @@ function AutoBtn () {
   };
 
   return (
-    <button className={`hide${hideGroupOne} ${autoOnOff} text-color${autoText} BG-color${autoBG}`} onClick={handleAutoBtn} >Auto</button>
+    <button className={`${autoOnOff} text-color${autoText} BG-color${autoBG}`} onClick={handleAutoBtn} >Auto</button>
   );
 };
 

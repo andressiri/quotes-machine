@@ -5,11 +5,10 @@ function BlueTxt () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
-  let blueTxtState = 'On';
+  let blueTxtState = '';
   
   if (imgBGColor == 4) {
-    blueTxtState = 'Off';
+    blueTxtState = 'buttonDisabled';
   };
 
   function handleBlueTxt () {
@@ -17,7 +16,7 @@ function BlueTxt () {
   };
 
   return (
-    <button class={`blueBG${blueTxtState} hide${hideGroupFour}`} onClick={handleBlueTxt}></button>
+    <button class={`BG-color4 ${blueTxtState}`} onClick={handleBlueTxt}></button>
   );
 };
 

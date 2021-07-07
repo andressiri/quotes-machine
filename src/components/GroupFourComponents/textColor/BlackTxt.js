@@ -5,11 +5,10 @@ function BlackTxt () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
-  let blackTxtState = 'On';
+  let blackTxtState = '';
 
   if (imgBGColor == 7) {
-    blackTxtState = 'Off';
+    blackTxtState = 'buttonDisabled';
   };
 
   function handleBlackTxt () {
@@ -17,7 +16,7 @@ function BlackTxt () {
   };
 
   return (
-    <button class={`blackBG${blackTxtState} hide${hideGroupFour}`} onClick={handleBlackTxt}></button>
+    <button class={`BG-color7 ${blackTxtState}`} onClick={handleBlackTxt}></button>
   );
 };
 

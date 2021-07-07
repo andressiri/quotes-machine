@@ -1,82 +1,41 @@
 @import './variables.scss';
 
-.redBGOn {
-    background-color: $customRed;
+button {
+    width: 25px;
+    height: 13px;
+    border: none;
 }
-.redBGOff {
-    background-color: $customRed;
+
+.buttonDisabled {
     opacity: 0.5 !important;
     pointer-events: none !important;
 }
 
-.orangeBGOn {
-    background-color: $customOrange;
-}
-.orangeBGOff {
-    background-color: $customOrange;
-    opacity: 0.5 !important;
-    pointer-events: none !important;
-}
-
-.yellowBGOn {
-    background-color: $customYellow;
-}
-.yellowBGOff {
-    background-color: $customYellow;
-    opacity: 0.5 !important;
-    pointer-events: none !important;
-}
-
-.greenBGOn {
-    background-color: $customGreen;
-}
-.greenBGOff {
-    background-color: $customGreen;
-    opacity: 0.5 !important;
-    pointer-events: none !important;
+.customGroup {
+    height: 25px;
+    width: 310px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 10px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
 }
 
-.blueBGOn {
-    background-color: $customBlue;
-}
-.blueBGOff {
-    background-color: $customBlue;
-    opacity: 0.5 !important;
-    pointer-events: none !important;
+.reSized {
+    height: 27px;
+    width: 312px;
 }
 
-.indigoBGOn {
-    background-color: $customIndigo;
-}
-.indigoBGOff {
-    background-color: $customIndigo;
-    opacity: 0.5 !important;
-    pointer-events: none !important;
-}
-
-.violetBGOn {
-    background-color: $customViolet;
-}
-.violetBGOff {
-    background-color: $customViolet;
-    opacity: 0.5 !important;
-    pointer-events: none !important;
-}
-
-.blackBGOn {
-    background-color: $customBlack;
-}
-.blackBGOff {
-    background-color: $customBlack;
-    opacity: 0.5 !important;
-    pointer-events: none !important;
-}
-
-.whiteBGOn {
-    background-color: $customWhite;
-}
-.whiteBGOff {
-    background-color: $customWhite;
-    opacity: 0.5 !important;
-    pointer-events: none !important;
+.leftBtn {
+    margin-left: 7px;
+    //border-top-left-radius: 10px;
+    //border-bottom-left-radius: 10px;
 }

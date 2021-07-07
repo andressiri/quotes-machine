@@ -5,11 +5,10 @@ function OrangeBG () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
-  let orangeBGState = 'On';
+  let orangeBGState = '';
 
   if (colorNumber == 1) {
-    orangeBGState = 'Off';
+    orangeBGState = 'buttonDisabled';
   };
 
   function handleOrangeBG () {
@@ -17,7 +16,7 @@ function OrangeBG () {
   };
 
   return (
-    <button class={`redBG${orangeBGState} hide${hideGroupFour}`} onClick={handleOrangeBG}></button>
+    <button class={`BG-color1 ${orangeBGState}`} onClick={handleOrangeBG}></button>
   );
 };
 
