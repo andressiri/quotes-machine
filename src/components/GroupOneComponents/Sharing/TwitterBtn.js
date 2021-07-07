@@ -8,8 +8,7 @@ import './../../../styles/icon.scss';
 function TwitterBtn() {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
-  const [hideGroupOne, setHideGroupOne] = groups.gOne;
-  const [hideGroupTwo, setHideGroupTwo] = groups.gTwo;
+  const [groupRef, setGroupRef] = groups.gRef;
   const [hideCancelBtn, setHideCancelBtn] = groups.cancel;
   const [shareChosen, setShareChosen] = refs.sChosen;
   const stopAuto = useStopAuto();
@@ -17,13 +16,12 @@ function TwitterBtn() {
   function handleTwitter () {
     stopAuto();
     setShareChosen('Twitter');
-    setHideGroupOne('On');
-    setHideGroupTwo('Off');
-    setHideCancelBtn('Off');
+    setGroupRef('groupTwo');
+    setHideCancelBtn(false);
   };
 
   return (
-    <FontAwesomeIcon class={`icon text-color${colorNumber} hide${hideGroupOne}`} onClick={handleTwitter} icon={faTwitterSquare} />
+    <FontAwesomeIcon class={`icon text-color${colorNumber}`} onClick={handleTwitter} icon={faTwitterSquare} />
   );
 };
 

@@ -7,8 +7,7 @@ import useShareImg from '../../functions/useShareImg.js';
 function SendCustomBtn () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
-  const [hideGroupOne, setHideGroupOne] = groups.gOne;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
+  const [groupRef, setGroupRef] = groups.gRef;
   const [hideCancelBtn, setHideCancelBtn] = groups.cancel;
   const [shareChosen, setShareChosen] = refs.sChosen;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
@@ -17,14 +16,13 @@ function SendCustomBtn () {
   async function handleSendCustom () {
     await shareImg();
     setShareChosen('');
-    setHideGroupFour('On');
-    setHideGroupOne('Off');
-    setHideCancelBtn('On');
+    setHideCancelBtn(true);
+    setGroupRef('groupOne');
     setImgBGColor(8);
   }; 
 
   return (
-    <FontAwesomeIcon class={`icon text-color${colorNumber} hide${hideGroupFour}`} onClick={handleSendCustom} icon={faStar} />
+    <FontAwesomeIcon class={`icon text-color${colorNumber}`} onClick={handleSendCustom} icon={faStar} />
   );
 };
 

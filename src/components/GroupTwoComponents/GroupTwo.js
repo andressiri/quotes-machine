@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import ShareImgBtn from './ShareImgBtn.js';
 import ShareTxtBtn from './ShareTxtBtn.js';
 

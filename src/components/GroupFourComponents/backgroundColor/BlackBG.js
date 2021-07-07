@@ -5,11 +5,10 @@ function BlackBG () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
-  let blackBGState = 'On';
+  let blackBGState = '';
 
   if (colorNumber == 7) {
-    blackBGState = 'Off';
+    blackBGState = 'buttonDisabled';
   }; 
 
   function handleBlackBG () {
@@ -17,7 +16,7 @@ function BlackBG () {
   };
 
   return (
-    <button class={`blackBG${blackBGState} hide${hideGroupFour}`} onClick={handleBlackBG}></button>
+    <button class={`BG-color7 ${blackBGState}`} onClick={handleBlackBG}></button>
   );
 };
 

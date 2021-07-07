@@ -5,11 +5,10 @@ function WhiteTxt () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
-  let whiteTxtState = 'On';
+  let whiteTxtState = '';
   
   if (imgBGColor == 8) {
-    whiteTxtState = 'Off';
+    whiteTxtState = 'buttonDisabled';
   };
 
   function handleWhiteTxt () {
@@ -17,7 +16,7 @@ function WhiteTxt () {
   };
 
   return (
-    <button class={`whiteBG${whiteTxtState} hide${hideGroupFour}`} onClick={handleWhiteTxt}></button>
+    <button class={`BG-color8 ${whiteTxtState}`} onClick={handleWhiteTxt}></button>
   );
 };
 

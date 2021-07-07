@@ -5,11 +5,10 @@ function BlueBG () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [hideGroupFour, setHideGroupFour] = groups.gFour;
-  let blueBGState= 'On';
+  let blueBGState= '';
 
   if (colorNumber == 4) {
-    blueBGState = 'Off';
+    blueBGState = 'buttonDisabled';
   };
 
   function handleBlueBG () {
@@ -17,7 +16,7 @@ function BlueBG () {
   };
 
   return (
-    <button class={`blueBG${blueBGState} hide${hideGroupFour}`} onClick={handleBlueBG}></button>
+    <button class={`BG-color4 ${blueBGState}`} onClick={handleBlueBG}></button>
   );
 };
 

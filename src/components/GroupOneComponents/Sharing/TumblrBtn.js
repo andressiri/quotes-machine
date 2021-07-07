@@ -8,8 +8,7 @@ import './../../../styles/icon.scss';
 function TumblrBtn() {
   const {colors, quote, auto, groups, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
-  const [hideGroupOne, setHideGroupOne] = groups.gOne;
-  const [hideGroupTwo, setHideGroupTwo] = groups.gTwo;
+  const [groupRef, setGroupRef] = groups.gRef;
   const [hideCancelBtn, setHideCancelBtn] = groups.cancel;
   const [shareChosen, setShareChosen] = refs.sChosen;
   const stopAuto = useStopAuto();
@@ -17,13 +16,12 @@ function TumblrBtn() {
   async function handleTumblr () {
     stopAuto();
     setShareChosen('Tumblr');
-    setHideGroupOne('On');
-    setHideGroupTwo('Off');
-    setHideCancelBtn('Off');
+    setGroupRef('groupTwo');
+    setHideCancelBtn(false);
   };  
 
   return (    
-    <FontAwesomeIcon class={`icon text-color${colorNumber} hide${hideGroupOne}`} onClick={handleTumblr} icon={faTumblrSquare} />
+    <FontAwesomeIcon class={`icon text-color${colorNumber}`} onClick={handleTumblr} icon={faTumblrSquare} />
   );
 };
 

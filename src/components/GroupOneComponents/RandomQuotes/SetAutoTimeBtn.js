@@ -9,7 +9,6 @@ function SetAutoTimeBtn() {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [autoTime, setAutoTime] = auto.aTime;
   const [autoClass, setAutoClass] = auto.aClass;
-  const [hideGroupOne, setHideGroupOne] = groups.gOne;
   const [seconds, setSeconds] = useState('10s');
   const stopAuto = useStopAuto();
   let setText = imgBGColor;
@@ -41,7 +40,7 @@ function SetAutoTimeBtn() {
   };
   
   return (
-    <button className={`hide${hideGroupOne} ${setOnOff} text-color${setText} BG-color${setBG}`} onClick={handleTime} >{seconds}</button>
+    <button className={`${setOnOff} text-color${setText} BG-color${setBG}`} onClick={handleTime} >{seconds}</button>
   );
 };
 
