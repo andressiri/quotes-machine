@@ -1,41 +1,68 @@
 @import './variables.scss';
 
-button {
-    width: 25px;
-    height: 13px;
+.customBtn {
+    box-sizing: border-box;
+    width: 26px;
+    height: 20px;
     border: none;
+    cursor: pointer;
 }
 
 .buttonDisabled {
     opacity: 0.5 !important;
     pointer-events: none !important;
+    cursor: not-allowed;
+}
+
+.buttonEnabled {
+    border-width: 2px;
+    border-style: solid !important;
+    position: relative;
+    top: -2px; 
 }
 
 .customGroup {
-    height: 25px;
-    width: 310px;
+    position: relative;
+    height: 30px;
+    width: 320px;
     border-width: 1px;
     border-style: solid;
-    border-radius: 15px;
+    border-radius: 17px;
     margin: auto;
     margin-top: 10px;
     font-size: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    -webkit-user-select: none;  
-    -moz-user-select: none;    
-    -ms-user-select: none;      
-    user-select: none;
+    flex-wrap: wrap;
 }
 
 .reSized {
-    height: 27px;
-    width: 312px;
+    height: 32px;
+    width: 322px;
 }
 
-.leftBtn {
-    margin-left: 7px;
-    //border-top-left-radius: 10px;
-    //border-bottom-left-radius: 10px;
+.fFam {
+    font-size: 17px;
+    border-style: solid !important;
+    border-width: 1px !important;
+    text-align: center;
+    padding: 0;
+}
+
+#fantasyBtn {
+    position: relative;
+    top: -2px;
+    font-size: 14px;
+}
+
+#cursiveBtn {
+    position: relative;
+    top: -1px;
+}
+
+#monospaceBtn {
+    position: relative;
+    margin-top: 1px;
+    top: -1px;
 }

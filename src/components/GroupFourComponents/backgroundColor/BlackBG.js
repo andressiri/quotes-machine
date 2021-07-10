@@ -9,14 +9,17 @@ function BlackBG () {
 
   if (colorNumber == 7) {
     blackBGState = 'buttonDisabled';
-  }; 
+  };
+  if (imgBGColor == 7) {
+    blackBGState = `buttonEnabled text-color${colorNumber}`;
+  };
 
   function handleBlackBG () {
     setImgBGColor(7);
   };
 
   return (
-    <button class={`BG-color7 ${blackBGState}`} onClick={handleBlackBG}></button>
+    <button class={`customBtn BG-color7 ${blackBGState}`} onClick={handleBlackBG}></button>
   );
 };
 

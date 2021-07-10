@@ -10,13 +10,16 @@ function BlueBG () {
   if (colorNumber == 4) {
     blueBGState = 'buttonDisabled';
   };
+  if (imgBGColor == 4) {
+    blueBGState = `buttonEnabled text-color${colorNumber}`;
+  };
 
   function handleBlueBG () {
     setImgBGColor(4);
   };
 
   return (
-    <button class={`BG-color4 ${blueBGState}`} onClick={handleBlueBG}></button>
+    <button class={`customBtn BG-color4 ${blueBGState}`} onClick={handleBlueBG}></button>
   );
 };
 

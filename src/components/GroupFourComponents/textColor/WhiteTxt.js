@@ -10,13 +10,16 @@ function WhiteTxt () {
   if (imgBGColor == 8) {
     whiteTxtState = 'buttonDisabled';
   };
+  if (colorNumber == 8) {
+    whiteTxtState = `buttonEnabled text-color${imgBGColor}`;
+  };
 
   function handleWhiteTxt () {
     setColorNumber(8);
   };
 
   return (
-    <button class={`BG-color8 ${whiteTxtState}`} onClick={handleWhiteTxt}></button>
+    <button class={`customBtn BG-color8 ${whiteTxtState}`} onClick={handleWhiteTxt}></button>
   );
 };
 

@@ -10,13 +10,16 @@ function RedTxt () {
   if (imgBGColor == 0) {
     redTxtState = 'buttonDisabled';
   };
+  if (colorNumber == 0) {
+    redTxtState = `buttonEnabled text-color${imgBGColor}`;
+  };
 
   function handleRedTxt () {
     setColorNumber(0);
   };
 
   return (
-    <button class={`BG-color0 ${redTxtState}`} onClick={handleRedTxt}></button>
+    <button class={`customBtn BG-color0 ${redTxtState}`} onClick={handleRedTxt}></button>
   );
 };
 

@@ -13,12 +13,12 @@ function SetAutoTimeBtn() {
   const stopAuto = useStopAuto();
   let setText = imgBGColor;
   let setBG = colorNumber;
-  let setOnOff = 'timeBtn setBtnOff';
+  let setOnOff = 'timeBtnOff';
     
   if (autoClass) {
     setText = colorNumber;
     setBG = imgBGColor;
-    setOnOff = 'timeBtn setBtnOn';
+    setOnOff = 'timeBtnOn';
   };
 
   function handleTime () {
@@ -40,7 +40,7 @@ function SetAutoTimeBtn() {
   };
   
   return (
-    <button className={`${setOnOff} text-color${setText} BG-color${setBG}`} onClick={handleTime} >{seconds}</button>
+    <button className={`${setOnOff} text-color${setText} BG-color${setBG}`} aria-label="Set time for Auto" onClick={handleTime} >{seconds}</button>
   );
 };
 

@@ -7,7 +7,6 @@ import './../../../styles/icon.scss';
 
 function TwitterBtn() {
   const {colors, quote, auto, groups, refs} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
   const [groupRef, setGroupRef] = groups.gRef;
   const [hideCancelBtn, setHideCancelBtn] = groups.cancel;
   const [shareChosen, setShareChosen] = refs.sChosen;
@@ -21,7 +20,7 @@ function TwitterBtn() {
   };
 
   return (
-    <FontAwesomeIcon class={`icon text-color${colorNumber}`} onClick={handleTwitter} icon={faTwitterSquare} />
+    <FontAwesomeIcon class={`icon`} onClick={handleTwitter} icon={faTwitterSquare} />
   );
 };
 

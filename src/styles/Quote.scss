@@ -10,11 +10,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-top-width: 1px;
-  border-top-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  margin-bottom: 0px;
 }
 
 .text {
@@ -27,10 +22,10 @@
 
 .fadeIn {
   opacity: 1;
-  transition: opacity 0.8s;
+  transition: opacity 1s;
 }
 
 .fadeOut {
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.3s;
 }

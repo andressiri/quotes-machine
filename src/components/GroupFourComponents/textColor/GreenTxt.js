@@ -10,13 +10,16 @@ function GreenTxt () {
   if (imgBGColor == 3) {
     greenTxtState = 'buttonDisabled';
   };
+  if (colorNumber == 3) {
+    greenTxtState = `buttonEnabled text-color${imgBGColor}`;
+  };
 
   function handleGreenTxt () {
     setColorNumber(3);
   };
 
   return (
-    <button class={`BG-color3 ${greenTxtState}`} onClick={handleGreenTxt}></button>
+    <button class={`customBtn BG-color3 ${greenTxtState}`} onClick={handleGreenTxt}></button>
   );
 };
 

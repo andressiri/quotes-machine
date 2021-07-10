@@ -4,20 +4,20 @@
   height: $btnSize;
   width: 39px;
   border-radius: 0px $btnRadius $btnRadius 0px;
-  user-select: none;
   font-family: $fontFamily;
-  margin: 10px 10px 10px 1px;    
+  margin: 10px 10px 10px 1px;
+  cursor: pointer;
+  font-weight: bolder;    
 }
 
-.timeBtn:focus {
-  outline: none;
-}
-
-.setBtnOn {
+.timeBtnOn {
+  @extend .timeBtn;  
   border-width: 2px  !important;
+  border-style: solid;
 }
 
-.setBtnOff {    
+.timeBtnOff {
+  @extend .timeBtn;    
   border-top: none;
   border-right: none;
   border-bottom: none;
