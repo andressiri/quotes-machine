@@ -5,7 +5,6 @@ import {faReply} from "@fortawesome/free-solid-svg-icons";
 
 function ShareCancel () {
   const {colors, quote, auto, groups, refs} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
   const [groupRef, setGroupRef] = groups.gRef;
   const [hideCancelBtn, setHideCancelBtn] = groups.cancel;
   const [shareChosen, setShareChosen] = refs.sChosen;
@@ -13,6 +12,7 @@ function ShareCancel () {
   function handleShareCancel () {
     setGroupRef('groupOne');
     setShareChosen('');
+    setHideCancelBtn(true);
   };
   
   if (hideCancelBtn) {
@@ -21,7 +21,7 @@ function ShareCancel () {
     );
   } else {
     return (
-      <FontAwesomeIcon class={`icon cancel text-color${colorNumber}`} onClick={handleShareCancel} icon={faReply} />
+      <FontAwesomeIcon class={`icon cancel`} onClick={handleShareCancel} icon={faReply} />
     );
   };
 };

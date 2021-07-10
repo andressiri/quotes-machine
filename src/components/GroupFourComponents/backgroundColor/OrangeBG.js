@@ -10,13 +10,16 @@ function OrangeBG () {
   if (colorNumber == 1) {
     orangeBGState = 'buttonDisabled';
   };
+  if (imgBGColor == 1) {
+    orangeBGState = `buttonEnabled text-color${colorNumber}`;
+  };
 
   function handleOrangeBG () {
     setImgBGColor(1);
   };
 
   return (
-    <button class={`BG-color1 ${orangeBGState}`} onClick={handleOrangeBG}></button>
+    <button class={`customBtn BG-color1 ${orangeBGState}`} onClick={handleOrangeBG}></button>
   );
 };
 

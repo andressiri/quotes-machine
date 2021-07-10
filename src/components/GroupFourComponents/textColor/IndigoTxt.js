@@ -10,13 +10,16 @@ function IndigoTxt () {
   if (imgBGColor == 5) {
     indigoTxtState = 'buttonDisabled';
   };
+  if (colorNumber == 5) {
+    indigoTxtState = `buttonEnabled text-color${imgBGColor}`;
+  };
 
   function handleIndigoTxt () {
     setColorNumber(5);
   };
 
   return (
-    <button class={`BG-color5 ${indigoTxtState}`} onClick={handleIndigoTxt}></button>
+    <button class={`customBtn BG-color5 ${indigoTxtState}`} onClick={handleIndigoTxt}></button>
   );
 };
 

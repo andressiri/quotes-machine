@@ -1,6 +1,9 @@
 async function fetchRandomQuote() {
   const response = await fetch('https://api.quotable.io/random');
-  const json = await response.json();    
+  let json = await response.json();
+  if (json.content.length > 170) {
+    json = await fetchRandomQuote();
+  };   
   return json;
 }
 

@@ -10,13 +10,16 @@ function BlueTxt () {
   if (imgBGColor == 4) {
     blueTxtState = 'buttonDisabled';
   };
+  if (colorNumber == 4) {
+    blueTxtState = `buttonEnabled text-color${imgBGColor}`;
+  };
 
   function handleBlueTxt () {
     setColorNumber(4);
   };
 
   return (
-    <button class={`BG-color4 ${blueTxtState}`} onClick={handleBlueTxt}></button>
+    <button class={`customBtn BG-color4 ${blueTxtState}`} onClick={handleBlueTxt}></button>
   );
 };
 

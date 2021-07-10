@@ -10,13 +10,16 @@ function BlackTxt () {
   if (imgBGColor == 7) {
     blackTxtState = 'buttonDisabled';
   };
+  if (colorNumber == 7) {
+    blackTxtState = `buttonEnabled text-color${imgBGColor}`;
+  };
 
   function handleBlackTxt () {
     setColorNumber(7);
   };
 
   return (
-    <button class={`BG-color7 ${blackTxtState}`} onClick={handleBlackTxt}></button>
+    <button class={`customBtn BG-color7 ${blackTxtState}`} onClick={handleBlackTxt}></button>
   );
 };
 

@@ -14,7 +14,7 @@ function GroupOneRQ () {
     );
   } else {
     return (
-      <div>
+      <div className={`groupOneRQ`}>
         <AutoBtn/>
         <SetAutoTimeBtn />
         <NewQuoteBtn />

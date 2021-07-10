@@ -5,9 +5,8 @@
     width: 90px;
     height: $btnSize;
     border-radius: $btnRadius;
-    font-family: $fontFamily;    
+    font-family: $fontFamily;
+    cursor: pointer;
+    font-weight: bolder;    
 }
 
-.NQbtn:hover {
-    cursor: pointer;
-}

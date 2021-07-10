@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import {Context} from '../Context.js';
+import Gallery from './GroupOneComponents/Gallery/Gallery.js';
 import GroupOneSharing from './GroupOneComponents/Sharing/GroupOneSharing.js';
 import GroupTwo from './GroupTwoComponents/GroupTwo.js';
 import GroupThree from './GroupThreeComponents/GroupThree.js';
@@ -13,16 +14,19 @@ function GroupContainer() {
   
   switch (groupRef) {
     case 'groupOne':
-      activeGroup = <GroupOneSharing />
+      activeGroup = <div>
+                      <Gallery />
+                      <GroupOneSharing /> 
+                    </div>; 
       break;
     case 'groupTwo':
-      activeGroup = <GroupTwo />
+      activeGroup = <GroupTwo />;
       break;
     case 'groupThree':
-      activeGroup = <GroupThree />
+      activeGroup = <GroupThree />;
       break;
     case 'groupFour':
-      activeGroup = <GroupFour />
+      activeGroup = <GroupFour />;
       break;
   }
   return (
