@@ -7,7 +7,7 @@ function YellowTxt () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   let yellowTxtState = '';
   
-  if (imgBGColor == 2) {
+  if (imgBGColor == 2 || imgBGColor == 8) {
     yellowTxtState = 'buttonDisabled';
   };
   if (colorNumber == 2) {

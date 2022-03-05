@@ -5,7 +5,7 @@ export const Context = createContext();
 export const ContextProvider = (props) => {
   //colors
   const [colorNumber, setColorNumber] = useState(0);
-  const [imgBGColor, setImgBGColor] = useState(8);  
+  const [imgBGColor, setImgBGColor] = useState(7);  
   //quote
   const [quoteText, setQuoteText] = useState('Welcome to my quotes machine.');
   const [author, setAuthor] = useState('Andrés Siri');

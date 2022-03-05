@@ -37,7 +37,7 @@ function Quote() {
   };
 
   return (    
-    <div className={`quote BG-color${imgBGColor} text-color${colorNumber}`} ref={quoteRef} id='refDiv'>
+    <div className={`quote BG-color${imgBGColor} text-color${colorNumber} fade${fadeQuote}`} ref={quoteRef} id='refDiv'>
       <h1 id="text" className={`text fade${fadeQuote}`} style={textStyle} >
         <FontAwesomeIcon icon={faQuoteLeft} class={`quoteIcon fade${fadeQuote}`} />
         {` ${quoteText} `}
