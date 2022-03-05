@@ -14,7 +14,6 @@ $colors: $customRed, $customOrange, $customYellow, $customGreen, $customBlue, $c
   .text-color#{$i - 1} {
     color: nth($colors, $i);
     border-color: nth($colors, $i) !important;
-    transition: color 1s ease, border-color 1s ease;
-        
+    transition: color 1s ease, border-color 1s ease;        
   }
 }

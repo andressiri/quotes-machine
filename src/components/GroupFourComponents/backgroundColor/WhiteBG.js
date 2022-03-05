@@ -7,7 +7,7 @@ function WhiteBG () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   let whiteBGState = '';
 
-  if (colorNumber == 8) {
+  if (colorNumber == 8 || colorNumber == 2) {
     whiteBGState = 'buttonDisabled';
   };
   if (imgBGColor == 8) {

@@ -13,7 +13,6 @@ function useGalleryItem () {
       auxArr.shift();
     };
     setGallArray(auxArr);
-    console.log(auxArr);
   };  
   return galleryItem;
 };

@@ -7,7 +7,7 @@ function YellowBG () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   let yellowBGState = '';
   
-  if (colorNumber == 2) {
+  if (colorNumber == 2 || colorNumber == 8) {
     yellowBGState = 'buttonDisabled';
   };
   if (imgBGColor == 2) {

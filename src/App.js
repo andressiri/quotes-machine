@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {Context} from './Context.js';
 import QuoteBox from './components/QuoteBox.js';
 import './styles/App.scss';
-import './styles/colorChange.scss'
+import './styles/colorChange.scss';
 
 function App() {
   const {colors, quote, auto, groups, refs} = useContext(Context);
@@ -13,6 +13,6 @@ function App() {
       <QuoteBox />
     </div>
   );
-}
+};
 
 export default App;

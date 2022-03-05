@@ -1,5 +1,7 @@
 {
   "name": "quotes-machine",
+  "author": "Andrés Leonel Siri",
+  "description": "A project that started as small FreeCodeCamp challenge but scalated into integrating other knowledge",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,15 +14,15 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "dom-to-image": "^2.6.0",
-    "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-component-export-image": "^1.0.5",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "sass": "^1.49.9",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
-    "start": "set HTTPS=true&&react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

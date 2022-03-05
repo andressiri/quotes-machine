@@ -7,7 +7,7 @@ function WhiteTxt () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   let whiteTxtState = '';
   
-  if (imgBGColor == 8) {
+  if (imgBGColor == 8|| imgBGColor == 2) {
     whiteTxtState = 'buttonDisabled';
   };
   if (colorNumber == 8) {

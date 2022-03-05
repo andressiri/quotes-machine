@@ -1,24 +1,22 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 .autoBtn {
-    height: $btnSize;
-    width: 50px;
-    border-radius: $btnRadius 0px 0px $btnRadius;
-    font-family: $fontFamily;
-    margin: 10px 0px 10px 10px;
-    cursor: pointer;
-    font-weight: bolder;
+  height: $btnSize;
+  width: 50px;
+  border-radius: $btnRadius 0px 0px $btnRadius;
+  font-family: $fontFamily;
+  margin: 10px 0px 10px 10px;
+  cursor: pointer;
+  font-weight: bolder;
 }
 
 .autoBtnOn {
-    border-width: 2px !important;
-    border-style: solid;
-    border-right: none;
-    margin-right: -1px;
-    width: 51px;
+  border-width: 2px !important;
+  border-style: solid;
+  border-right: none;
+  margin-right: -1px;
+  width: 51px;
 }
 .autoBtnOff {
-    border: none;
+  border: none;
 }
-
-     
