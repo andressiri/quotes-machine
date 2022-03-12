@@ -11,7 +11,7 @@ import UppercaseFont from "./UppercaseFont.js";
 import FontSize from "./FontSize.js";
 
 function FontStyle () {
-  const {colors, quote, auto, groups, refs} = useContext(Context);
+  const {colors} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
 

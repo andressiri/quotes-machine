@@ -11,7 +11,7 @@ import VioletBG from './VioletBG.js';
 import BlackBG from './BlackBG.js';
 
 function BackgroundColor () {
-  const {colors, quote, auto, groups, refs} = useContext(Context);
+  const {colors} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
 

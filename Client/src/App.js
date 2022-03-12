@@ -5,8 +5,8 @@ import './styles/App.scss';
 import './styles/colorChange.scss';
 
 function App() {
-  const {colors, quote, auto, groups, refs} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;  
+  const {colors} = useContext(Context);
+  const [colorNumber, setColorNumber] = colors.colorNum;
   
   return (
     <div className={`App BG-color${colorNumber}`}>

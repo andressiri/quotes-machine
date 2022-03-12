@@ -5,7 +5,7 @@ import useStopAuto from '../../../functions/useStopAuto.js';
 import './../../../styles/AutoBtn.scss';
 
 function AutoBtn () {
-  const {colors, quote, auto, groups, refs} = useContext(Context);
+  const {colors, auto} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [handleAuto, setHandleAuto] = auto.hAuto;

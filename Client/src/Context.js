@@ -14,9 +14,6 @@ export const ContextProvider = (props) => {
   const [handleAuto, setHandleAuto] = useState('Interval is off');
   const [autoClass, setAutoClass] = useState(false);
   const [autoTime, setAutoTime] = useState(10000);
-  //groups
-  const [groupRef, setGroupRef] = useState('StartingSet');
-  const [hideCancelBtn, setHideCancelBtn] = useState(true);
   //refs
   const quoteRef = useRef('null');
   const [shareChosen, setShareChosen] = useState('');
@@ -46,10 +43,6 @@ export const ContextProvider = (props) => {
         hAuto: [handleAuto, setHandleAuto],
         aClass: [autoClass, setAutoClass],
         aTime: [autoTime, setAutoTime]
-      },
-      groups: {
-        gRef: [groupRef, setGroupRef],
-        cancel: [hideCancelBtn, setHideCancelBtn],
       },
       refs : {
         refImg: quoteRef,

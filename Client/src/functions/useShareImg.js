@@ -5,7 +5,7 @@ import getImgUrl from './getImgUrl.js';
 import clickLink from './clickLink.js';
 
 function useShareImg () {
-  const {colors, quote, auto, groups, refs} = useContext(Context);
+  const {colors, quote, auto, refs} = useContext(Context);
   const [quoteText, setQuoteText] = quote.quoteTxt;  
   const [author, setAuthor] = quote.auth;
   const quoteRef = refs.refImg;

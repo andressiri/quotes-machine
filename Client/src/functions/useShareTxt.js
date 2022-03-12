@@ -3,7 +3,7 @@ import {Context} from './../Context.js';
 import clickLink from './clickLink.js';
 
 function useShareTxt () {
-  const {colors, quote, auto, groups, refs} = useContext(Context);
+  const {colors, quote, auto, refs} = useContext(Context);
   const [quoteText, setQuoteText] = quote.quoteTxt;  
   const [author, setAuthor] = quote.auth;
   const [shareChosen, setShareChosen] = refs.sChosen;

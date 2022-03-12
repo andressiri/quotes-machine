@@ -11,7 +11,7 @@ import VioletTxt from './VioletTxt.js';
 import BlackTxt from './BlackTxt.js';
 
 function TextColor () {
-  const {colors, quote, auto, groups, refs} = useContext(Context);
+  const {colors} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
 

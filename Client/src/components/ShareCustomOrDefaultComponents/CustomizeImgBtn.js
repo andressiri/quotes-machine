@@ -1,16 +1,17 @@
 import React, {useContext} from "react";
 import {Context} from "../../Context.js";
+import { useNavigate } from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faStar} from "@fortawesome/free-solid-svg-icons";
 
 
 function CustomizeImgBtn () {
-  const {colors, quote, auto, groups, refs} = useContext(Context);
+  const {colors} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
-  const [groupRef, setGroupRef] = groups.gRef;
+  const navigate = useNavigate();
   
   function handleCustomizeImg () {
-    setGroupRef('EditSet');
+    navigate('/edit');
   };  
 
   return (

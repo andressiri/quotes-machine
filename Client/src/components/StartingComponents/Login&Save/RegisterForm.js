@@ -1,16 +1,17 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../../../Context.js";
+import { useNavigate } from "react-router-dom";
 
 function RegisterForm() {
-  const { colors, quote, auto, groups, refs } = useContext(Context);
+  const { colors, refs } = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [groupRef, setGroupRef] = groups.gRef;
   const [messagesArray, setMessagesArray] = refs.msg;
   const [nameValue, setNameValue] = useState("");
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [password2Value, setPassword2Value] = useState("");
+  const navigate = useNavigate();
 
   async function handleSubmitRegister(event) {
     event.preventDefault();
@@ -53,8 +54,8 @@ function RegisterForm() {
       if (json.msg === "Email is already registered") {
         auxArray.push(json.msg);
       } else if (json.msg === "Registered successfully") {
-        setMessagesArray(['Registered Successfully']);
-        setGroupRef("LoginForm");
+        auxArray.push(json.msg);
+        navigate('/login');
       };
     };
     setMessagesArray(auxArray);
@@ -62,7 +63,7 @@ function RegisterForm() {
 
   function handleGoToLogin() {
     setMessagesArray([]);
-    setGroupRef("LoginForm");
+    navigate('/login');
   };
 
   return (

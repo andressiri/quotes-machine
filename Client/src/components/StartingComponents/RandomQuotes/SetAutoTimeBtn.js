@@ -4,7 +4,7 @@ import useStopAuto from '../../../functions/useStopAuto.js';
 import './../../../styles/SetAutoTimeBtn.scss';
 
 function SetAutoTimeBtn() {
-  const {colors, quote, auto, groups, refs} = useContext(Context);
+  const {colors, auto} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [autoTime, setAutoTime] = auto.aTime;
