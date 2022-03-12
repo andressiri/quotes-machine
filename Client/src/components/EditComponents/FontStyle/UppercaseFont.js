@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import {Context} from "../../../Context.js";
 
 function UppercaseFont () {
-  const {colors, quote, auto, groups, refs, custom} = useContext(Context);
+  const {colors, custom} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [upperFont, setUpperFont] = custom.upperF;

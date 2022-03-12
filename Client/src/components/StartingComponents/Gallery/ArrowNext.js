@@ -3,7 +3,7 @@ import {Context} from './../../../Context.js';
 import useStopAuto from '../../../functions/useStopAuto.js';
 
 function ArrowNext () {
-  const {colors, quote, auto, groups, refs, custom, gall} = useContext(Context);
+  const {gall} = useContext(Context);
   const [gallArray, setGallArray] = gall.gallA;
   const [gallChoose, setGallChoose] = gall.gallCh;
   let disableNext = 'gallDisabled';

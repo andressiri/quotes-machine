@@ -6,7 +6,7 @@ import fetchRandomQuote from './fetchRandomQuote.js';
 import setBackground from './setBackground.js';
 
 function useNewQuote () {
-  const {colors, quote, auto, groups, refs, custom, gall} = useContext(Context);
+  const {colors, quote, auto, refs, custom, gall} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [quoteText, setQuoteText] = quote.quoteTxt;  

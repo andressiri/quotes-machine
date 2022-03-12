@@ -3,7 +3,7 @@ import {Context} from './../../../Context.js';
 import useStopAuto from '../../../functions/useStopAuto.js';
 
 function GallFourth () {
-  const {colors, quote, auto, groups, refs, custom, gall} = useContext(Context);
+  const {colors, quote, gall} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [quoteText, setQuoteText] = quote.quoteTxt;  
   const [author, setAuthor] = quote.auth;

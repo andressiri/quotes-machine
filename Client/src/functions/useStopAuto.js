@@ -2,7 +2,7 @@ import {useContext} from "react";
 import { Context } from "../Context.js";
 
 function useStopAuto() {   
-  const {colors, quote, auto, groups, refs} = useContext(Context);
+  const {colors, quote, auto, refs} = useContext(Context);
   const [handleAuto, setHandleAuto] = auto.hAuto;
   const [autoClass, setAutoClass] = auto.aClass;
   

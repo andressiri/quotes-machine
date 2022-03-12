@@ -1,14 +1,15 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../../../Context.js";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
-  const { colors, quote, auto, groups, refs } = useContext(Context);
+  const { colors, refs } = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [groupRef, setGroupRef] = groups.gRef;
   const [messagesArray, setMessagesArray] = refs.msg;
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
+  const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -26,7 +27,7 @@ function LoginForm() {
     });
     let json = await response.json();
     if (json.message === 'Login success') {
-      setGroupRef("LoggedInMenu");
+      navigate('/loggedIn');
     } else {
       auxArray.push(json.message);
     }
@@ -35,7 +36,7 @@ function LoginForm() {
 
   function handleRegister() {
     setMessagesArray([]);
-    setGroupRef("RegisterForm");
+    navigate('/register');
   }
 
   return (

@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import {Context} from "../../../Context.js";
 
 function RedTxt () {
-  const {colors, quote, auto, groups, refs} = useContext(Context);
+  const {colors} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   let redTxtState = '';

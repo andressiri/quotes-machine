@@ -2,7 +2,7 @@ import {useContext} from 'react';
 import {Context} from './../Context.js';
 
 function useGalleryItem () {
-  const {colors, quote, auto, groups, refs, custom, gall} = useContext(Context);
+  const {colors, quote, auto, refs, custom, gall} = useContext(Context);
   const [gallArray, setGallArray] = gall.gallA;
     
   const galleryItem = async function getItemAndPushItToGallery (txt, auth) {

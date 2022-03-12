@@ -1,22 +1,21 @@
 import React, {useContext} from "react";
 import {Context} from "../../Context.js";
+import { useNavigate } from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faStar} from "@fortawesome/free-solid-svg-icons";
 import useShareImg from '../../functions/useShareImg.js';
 
 function SendCustomBtn () {
-  const {colors, quote, auto, groups, refs} = useContext(Context);
-  const [groupRef, setGroupRef] = groups.gRef;
-  const [hideCancelBtn, setHideCancelBtn] = groups.cancel;
+  const {colors, refs} = useContext(Context);
   const [shareChosen, setShareChosen] = refs.sChosen;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const shareImg = useShareImg();  
+  const shareImg = useShareImg();
+  const navigate = useNavigate();  
   
   async function handleSendCustom () {
     await shareImg();
     setShareChosen('');
-    setHideCancelBtn(true);
-    setGroupRef('StartingSet');
+    navigate('/');
     setImgBGColor(8);
   }; 
 

@@ -1,20 +1,25 @@
 import React, {useContext} from "react";
 import {Context} from "../Context.js";
+import { useNavigate, useLocation } from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faReply} from "@fortawesome/free-solid-svg-icons";
 
-function ShareCancel () {
-  const {colors, quote, auto, groups, refs} = useContext(Context);
-  const [groupRef, setGroupRef] = groups.gRef;
-  const [hideCancelBtn, setHideCancelBtn] = groups.cancel;
+function CancelBtn () {
+  const {refs} = useContext(Context);
   const [shareChosen, setShareChosen] = refs.sChosen;
   const [messagesArray, setMessagesArray] = refs.msg;
+  const navigate = useNavigate();
+  const location = useLocation();
+  let hideCancelBtn = true;
+
+  if (location.pathname !== '/') {
+    hideCancelBtn = false;
+  }; 
 
   function handleShareCancel () {
     setMessagesArray([]);
-    setGroupRef('StartingSet');
+    navigate('/');
     setShareChosen('');
-    setHideCancelBtn(true);
   };
   
   if (hideCancelBtn) {
@@ -28,4 +33,4 @@ function ShareCancel () {
   };
 };
 
-export default ShareCancel;
+export default CancelBtn;

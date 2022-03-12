@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {ContextProvider} from './Context.js';
+import {BrowserRouter} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 import './styles/index.scss';
 
 ReactDOM.render(
-  <ContextProvider>
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-  </ContextProvider>,
+  <BrowserRouter>
+    <ContextProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </ContextProvider>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

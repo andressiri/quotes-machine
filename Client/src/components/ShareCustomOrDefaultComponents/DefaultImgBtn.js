@@ -1,22 +1,21 @@
 import React, {useContext} from "react";
 import {Context} from "../../Context.js";
+import { useNavigate } from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCrown} from "@fortawesome/free-solid-svg-icons";
 import useShareImg from '../../functions/useShareImg.js';
 
 function DefaultImgBtn () {
-  const {colors, quote, auto, groups, refs} = useContext(Context);
+  const {colors, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
-  const [groupRef, setGroupRef] = groups.gRef;
-  const [hideCancelBtn, setHideCancelBtn] = groups.cancel;
   const [shareChosen, setShareChosen] = refs.sChosen;
-  const shareImg = useShareImg();  
+  const shareImg = useShareImg(); 
+  const navigate = useNavigate(); 
   
   function handleDefaultImg () {
     shareImg();
     setShareChosen(``);
-    setHideCancelBtn(true);
-    setGroupRef('StartingSet');
+    navigate('/');
   };  
 
   return (

@@ -5,7 +5,7 @@ import useNewQuote from '../../../functions/useNewQuote.js';
 import './../../../styles/NewQuoteButton.scss';
 
 function NewQuoteBtn () {
-  const {colors, quote, auto, groups, refs} = useContext(Context);
+  const {colors} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const stopAuto = useStopAuto();

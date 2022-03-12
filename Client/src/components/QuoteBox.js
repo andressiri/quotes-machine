@@ -3,11 +3,11 @@ import {Context} from '../Context.js';
 import StartingSetRQ from './StartingComponents/RandomQuotes/StartingSetRQ.js';
 import Quote from './Quote.js';
 import GroupContainer from './GroupContainer.js'
-import ShareCancel from './ShareCancel.js';
+import CancelBtn from './CancelBtn.js';
 import './../styles/QuoteBox.scss';
 
 function QuoteBox() {
-  const {colors, quote, auto, groups, refs} = useContext(Context);
+  const {colors} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG; 
   
@@ -16,7 +16,7 @@ function QuoteBox() {
       <StartingSetRQ />
       <Quote />
       <GroupContainer />
-      <ShareCancel />
+      <CancelBtn />
     </div>
   );
 };

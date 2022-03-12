@@ -7,7 +7,7 @@ import './../styles/icon.scss';
 import './../styles/Quote.scss';
 
 function Quote() {
-  const {colors, quote, auto, groups, refs, custom} = useContext(Context);
+  const {colors, quote, refs, custom} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [quoteText, setQuoteText] = quote.quoteTxt;  
