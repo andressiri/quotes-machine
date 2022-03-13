@@ -4,11 +4,13 @@ import { useNavigate } from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function ShareImgBtn () {
-  const {colors} = useContext(Context);
+  const {colors, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
+  const [currentPath, setCurrentPath] = refs.path;
   const navigate = useNavigate();
-   
+  
   function handleShareImg () {
+    setCurrentPath('/customOrDefault');
     navigate('/customOrDefault');
   };  
 

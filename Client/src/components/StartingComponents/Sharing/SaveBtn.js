@@ -5,30 +5,22 @@ import useStopAuto from '../../../functions/useStopAuto.js';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import './../../../styles/CopyToClipboardBtn.scss';
 
-function CopyToClipboardBtn() {
+function SaveBtn() {
   const {colors, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [currentPath, setCurrentPath] = refs.path;
 
   const navigate = useNavigate();
+
   const stopAuto = useStopAuto();
 
-  async function handleLoginBtn () {
+  async function handleSave () {
     stopAuto();
-    const loggedIn = false;
-    if (!loggedIn) {
-        setCurrentPath('/login');
-        navigate('/login');
-    } else {
-        setCurrentPath('/loggedIn');
-        navigate('/loggedIn');
-    };    
   };
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleLoginBtn} icon="user" />
+    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleSave} icon="save" />
   );
 };
 
-export default CopyToClipboardBtn;
+export default SaveBtn;

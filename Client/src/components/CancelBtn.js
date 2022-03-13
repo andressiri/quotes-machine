@@ -7,6 +7,7 @@ function CancelBtn () {
   const {refs} = useContext(Context);
   const [shareChosen, setShareChosen] = refs.sChosen;
   const [messagesArray, setMessagesArray] = refs.msg;
+  const [currentPath, setCurrentPath] = refs.path;
   const navigate = useNavigate();
   const location = useLocation();
   let hideCancelBtn = true;
@@ -17,6 +18,7 @@ function CancelBtn () {
 
   function handleShareCancel () {
     setMessagesArray([]);
+    setCurrentPath('/');
     navigate('/');
     setShareChosen('');
   };

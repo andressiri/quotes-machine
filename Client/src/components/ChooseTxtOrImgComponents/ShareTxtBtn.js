@@ -8,13 +8,15 @@ function ShareTxtBtn () {
   const {colors, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [shareChosen, setShareChosen] = refs.sChosen;
+  const [currentPath, setCurrentPath] = refs.path;
   const shareTxt = useShareTxt(); 
   const navigate = useNavigate();
    
   
   function handleShareTxt () {
     shareTxt();
-    setShareChosen(``);
+    setShareChosen('');
+    setCurrentPath('/');
     navigate('/');
   };  
 

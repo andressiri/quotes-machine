@@ -8,12 +8,14 @@ import './../../../styles/icon.scss';
 function TwitterBtn() {
   const {refs} = useContext(Context);
   const [shareChosen, setShareChosen] = refs.sChosen;
+  const [currentPath, setCurrentPath] = refs.path;
   const stopAuto = useStopAuto();
   const navigate = useNavigate();
 
   function handleTwitter () {
     stopAuto();
     setShareChosen('Twitter');
+    setCurrentPath('/txtOrImg');
     navigate('/txtOrImg');
   };
 

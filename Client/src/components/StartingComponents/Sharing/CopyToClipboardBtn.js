@@ -10,6 +10,7 @@ function CopyToClipboardBtn() {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [shareChosen, setShareChosen] = refs.sChosen;
+  const [currentPath, setCurrentPath] = refs.path;
   const navigate = useNavigate();
 
   const stopAuto = useStopAuto();
@@ -17,6 +18,7 @@ function CopyToClipboardBtn() {
   async function handleCopyToClip () {
     stopAuto();
     setShareChosen('Clipboard');
+    setCurrentPath('/txtOrImg');
     navigate('/txtOrImg');
   };
 

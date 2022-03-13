@@ -19,6 +19,7 @@ export const ContextProvider = (props) => {
   const quoteRef = useRef('null');
   const [shareChosen, setShareChosen] = useState('');
   const [messagesArray, setMessagesArray] = useState([]);
+  const [currentPath, setCurrentPath] = useState('/');
   //custom
   const [fontFam, setFontFam] = useState('Arial, Helvetica, sans-serif');
   const [boldFont, setBoldFont] = useState('normal');
@@ -45,10 +46,11 @@ export const ContextProvider = (props) => {
         aClass: [autoClass, setAutoClass],
         aTime: [autoTime, setAutoTime]
       },
-      refs : {
+      refs: {
         refImg: quoteRef,
         sChosen: [shareChosen, setShareChosen],
-        msg: [messagesArray, setMessagesArray]
+        msg: [messagesArray, setMessagesArray],
+        path: [currentPath, setCurrentPath]
       },
       custom: {
         fontF: [fontFam, setFontFam],
