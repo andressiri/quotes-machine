@@ -7,6 +7,7 @@ function LoginForm() {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [messagesArray, setMessagesArray] = refs.msg;
+  const [currentPath, setCurrentPath] = refs.path;
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ function LoginForm() {
     });
     let json = await response.json();
     if (json.message === 'Login success') {
+      setCurrentPath('/loggedIn');
       navigate('/loggedIn');
     } else {
       auxArray.push(json.message);
@@ -36,6 +38,7 @@ function LoginForm() {
 
   function handleRegister() {
     setMessagesArray([]);
+    setCurrentPath('/register');
     navigate('/register');
   }
 

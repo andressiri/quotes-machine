@@ -7,6 +7,7 @@ function RegisterForm() {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [messagesArray, setMessagesArray] = refs.msg;
+  const [currentPath, setCurrentPath] = refs.path;
   const [nameValue, setNameValue] = useState("");
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
@@ -55,6 +56,7 @@ function RegisterForm() {
         auxArray.push(json.msg);
       } else if (json.msg === "Registered successfully") {
         auxArray.push(json.msg);
+        setCurrentPath('/login');
         navigate('/login');
       };
     };
@@ -63,6 +65,7 @@ function RegisterForm() {
 
   function handleGoToLogin() {
     setMessagesArray([]);
+    setCurrentPath('/login');
     navigate('/login');
   };
 

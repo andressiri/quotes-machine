@@ -8,12 +8,14 @@ import './../../../styles/icon.scss';
 function TumblrBtn() {
   const {refs} = useContext(Context);
   const [shareChosen, setShareChosen] = refs.sChosen;
+  const [currentPath, setCurrentPath] = refs.path;
   const stopAuto = useStopAuto();
   const navigate = useNavigate();
   
   async function handleTumblr () {
     stopAuto();
     setShareChosen('Tumblr');
+    setCurrentPath('/txtOrImg');
     navigate('/txtOrImg');
   };  
 

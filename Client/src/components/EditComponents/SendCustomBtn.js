@@ -6,14 +6,16 @@ import useShareImg from '../../functions/useShareImg.js';
 
 function SendCustomBtn () {
   const {colors, refs} = useContext(Context);
-  const [shareChosen, setShareChosen] = refs.sChosen;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const [shareChosen, setShareChosen] = refs.sChosen;
+  const [currentPath, setCurrentPath] = refs.path;
   const shareImg = useShareImg();
   const navigate = useNavigate();  
   
   async function handleSendCustom () {
     await shareImg();
     setShareChosen('');
+    setCurrentPath('/');
     navigate('/');
     setImgBGColor(8);
   }; 
