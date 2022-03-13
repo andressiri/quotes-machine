@@ -19,13 +19,13 @@ function GallSecond () {
 
   if (gallChoose === 1) {
     chooseSecond = 'Chosen';
-    setQuoteText(gallArray[1].text);
-    setAuthor(gallArray[1].author);
   };
   
   function handleGallSecond () {
     stopAuto(); 
     setGallChoose(1);
+    setQuoteText(gallArray[1].text);
+    setAuthor(gallArray[1].author);
   };
 
   return (

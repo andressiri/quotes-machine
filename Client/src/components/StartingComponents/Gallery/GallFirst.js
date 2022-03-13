@@ -14,13 +14,13 @@ function GallFirst () {
   
   if (gallChoose === 0) {
     chooseFirst = 'Chosen';
-    setQuoteText(gallArray[0].text);
-    setAuthor(gallArray[0].author);
   };
   
   function handleGallFirst () {
     stopAuto(); 
     setGallChoose(0);
+    setQuoteText(gallArray[0].text);
+    setAuthor(gallArray[0].author);
   };
 
   return (

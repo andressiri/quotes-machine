@@ -3,7 +3,6 @@ import {Context} from "../../../Context.js";
 import { useNavigate } from "react-router-dom";
 import useStopAuto from '../../../functions/useStopAuto.js'; 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faPaperclip} from "@fortawesome/free-solid-svg-icons";
 import './../../../styles/CopyToClipboardBtn.scss';
 
 function CopyToClipboardBtn() {
@@ -22,7 +21,7 @@ function CopyToClipboardBtn() {
   };
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleCopyToClip} icon={faPaperclip} />
+    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleCopyToClip} icon="paperclip" />
   );
 };
 

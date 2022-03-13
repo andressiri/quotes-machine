@@ -1,8 +1,6 @@
 import React, {useContext} from 'react';
 import {Context} from '../Context.js';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faQuoteLeft} from "@fortawesome/free-solid-svg-icons";
-import {faQuoteRight} from "@fortawesome/free-solid-svg-icons";
 import './../styles/icon.scss';
 import './../styles/Quote.scss';
 
@@ -39,9 +37,9 @@ function Quote() {
   return (    
     <div className={`quote BG-color${imgBGColor} text-color${colorNumber} fade${fadeQuote}`} ref={quoteRef} id='refDiv'>
       <h1 id="text" className={`text fade${fadeQuote}`} style={textStyle} >
-        <FontAwesomeIcon icon={faQuoteLeft} class={`quoteIcon fade${fadeQuote}`} />
+        <FontAwesomeIcon icon="quote-left" className={`quoteIcon fade${fadeQuote}`} />
         {` ${quoteText} `}
-        <FontAwesomeIcon icon={faQuoteRight} class={`quoteIcon fade${fadeQuote}`} /> 
+        <FontAwesomeIcon icon="quote-right" className={`quoteIcon fade${fadeQuote}`} /> 
       </h1>
       <p id="author" className={`fade${fadeQuote}`} style={authorStyle}>{`- ${author}`}</p>       
     </div >

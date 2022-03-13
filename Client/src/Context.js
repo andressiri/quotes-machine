@@ -1,5 +1,5 @@
 import React, {createContext, useState, useRef} from "react";
-import PropTypes from 'prop-types'; // eslint-plugin-react may not detect props types imported with props and throw error "'children' is missing in props validation"
+import propTypes from 'prop-types'; // eslint-plugin-react may not detect props types imported with props and throw error "'children' is missing in props validation"
 
 export const Context = createContext();
 
@@ -68,5 +68,5 @@ export const ContextProvider = (props) => {
 };
 
 ContextProvider.propTypes = {
-  children: PropTypes.any,
+  children: propTypes.any,
 };

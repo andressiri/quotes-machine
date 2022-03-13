@@ -2,7 +2,6 @@ import React, {useContext} from "react";
 import {Context} from "../../Context.js";
 import { useNavigate } from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faStar} from "@fortawesome/free-solid-svg-icons";
 import useShareImg from '../../functions/useShareImg.js';
 
 function SendCustomBtn () {
@@ -20,7 +19,7 @@ function SendCustomBtn () {
   }; 
 
   return (
-    <FontAwesomeIcon class={`icon`} onClick={handleSendCustom} icon={faStar} />
+    <FontAwesomeIcon className={`icon`} onClick={handleSendCustom} icon="check-square" />
   );
 };
 

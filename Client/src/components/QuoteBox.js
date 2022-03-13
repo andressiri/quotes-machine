@@ -10,7 +10,7 @@ function QuoteBox() {
   const {colors} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG; 
-  
+
   return (
     <div id="quote-box" className={`quoteBox BG-color${imgBGColor} text-color${colorNumber}`}>
       <StartingSetRQ />

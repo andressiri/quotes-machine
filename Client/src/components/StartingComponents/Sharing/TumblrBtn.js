@@ -3,7 +3,6 @@ import {Context} from "../../../Context.js";
 import { useNavigate } from "react-router-dom";
 import useStopAuto from '../../../functions/useStopAuto.js';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faTumblrSquare} from "@fortawesome/free-brands-svg-icons";
 import './../../../styles/icon.scss';
 
 function TumblrBtn() {
@@ -19,7 +18,7 @@ function TumblrBtn() {
   };  
 
   return (    
-    <FontAwesomeIcon class={`icon`} onClick={handleTumblr} icon={faTumblrSquare} />
+    <FontAwesomeIcon className={`icon`} onClick={handleTumblr} icon={["fab", "tumblr-square"]} />
   );
 };
 

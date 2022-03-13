@@ -16,13 +16,13 @@ function GroupContainer() {
   return (
     <div className={`groupContainer BG-color${imgBGColor}`}>
       <Routes>
-        <Route path='/' element={<StartingContainer/>} />
-        <Route path='/txtOrImg' element={<ChooseTxtOrImgSet />} />
-        <Route path='/customOrDefault' element={<ShareCustomOrDefaultSet />} />
-        <Route path='/edit' element={<EditSet />} />
+        <Route path='/' exact element={<StartingContainer />} />
+        <Route path='/txtOrImg' exact element={<ChooseTxtOrImgSet />} />
+        <Route path='/customOrDefault' exact element={<ShareCustomOrDefaultSet />} />
+        <Route path='/edit' exact element={<EditSet />} />
         <Route path='/login' exact element={<LoginForm />} />
-        <Route path='/loggedIn' element={<LoggedInMenu />} />
-        <Route path='/register' element={<RegisterForm />} />
+        <Route path='/loggedIn' exact element={<LoggedInMenu />} />
+        <Route path='/register' exact element={<RegisterForm />} />
       </Routes>
     </div>
   );
