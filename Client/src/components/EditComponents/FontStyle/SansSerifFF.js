@@ -9,7 +9,7 @@ function SansSerifFF () {
   let sansSerifBGColor = imgBGColor;
   let sansSerifTxtColor = colorNumber;
 
-  if (fontFam == 'Arial, Helvetica, sans-serif') {
+  if (fontFam === 'Arial, Helvetica, sans-serif') {
     sansSerifBGColor = colorNumber;
     sansSerifTxtColor = imgBGColor;
   }; 
@@ -19,7 +19,7 @@ function SansSerifFF () {
   };
 
   return (
-    <button class={`customBtn fFam BG-color${sansSerifBGColor} text-color${sansSerifTxtColor}`} style={{fontFamily: "Arial, Helvetica, sans-serif"}} onClick={handleSansSerifFF}>Aa</button>
+    <button className={`customBtn fFam BG-color${sansSerifBGColor} text-color${sansSerifTxtColor}`} style={{fontFamily: "Arial, Helvetica, sans-serif"}} onClick={handleSansSerifFF}>Aa</button>
   );
 };
 

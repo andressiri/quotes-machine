@@ -9,13 +9,13 @@ function ItalicFont () {
   let italicBGColor = imgBGColor;
   let italicTxtColor = colorNumber;
 
-  if (italicFont == 'italic') {
+  if (italicFont === 'italic') {
     italicBGColor = colorNumber;
     italicTxtColor = imgBGColor;
   }; 
 
   function handleItalicFont () {
-    if (italicFont == 'normal') {
+    if (italicFont === 'normal') {
       setItalicFont('italic');
     } else {
       setItalicFont('normal');
@@ -23,7 +23,7 @@ function ItalicFont () {
   };
 
   return (
-    <button class={`customBtn fFam BG-color${italicBGColor} text-color${italicTxtColor}`} style={{fontStyle: 'italic'}} onClick={handleItalicFont}>K</button>
+    <button className={`customBtn fFam BG-color${italicBGColor} text-color${italicTxtColor}`} style={{fontStyle: 'italic'}} onClick={handleItalicFont}>K</button>
   );
 };
 

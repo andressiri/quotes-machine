@@ -7,10 +7,10 @@ function IndigoTxt () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   let indigoTxtState = '';
   
-  if (imgBGColor == 5) {
+  if (imgBGColor === 5) {
     indigoTxtState = 'buttonDisabled';
   };
-  if (colorNumber == 5) {
+  if (colorNumber === 5) {
     indigoTxtState = `buttonEnabled text-color${imgBGColor}`;
   };
 
@@ -19,7 +19,7 @@ function IndigoTxt () {
   };
 
   return (
-    <button class={`customBtn BG-color5 ${indigoTxtState}`} onClick={handleIndigoTxt}></button>
+    <button className={`customBtn BG-color5 ${indigoTxtState}`} onClick={handleIndigoTxt}></button>
   );
 };
 

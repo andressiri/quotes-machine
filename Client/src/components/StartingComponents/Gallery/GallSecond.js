@@ -29,7 +29,7 @@ function GallSecond () {
   };
 
   return (
-    <h1 className={`gallBtn${chooseSecond} BG-color${colorNumber} ${disableSecond} gallTwo`} onClick={handleGallSecond} />
+    <p className={`gallBtn${chooseSecond} BG-color${colorNumber} ${disableSecond} gallTwo`} onClick={handleGallSecond} />
   );
 };
 

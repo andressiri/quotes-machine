@@ -7,10 +7,10 @@ function YellowTxt () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   let yellowTxtState = '';
   
-  if (imgBGColor == 2 || imgBGColor == 8) {
+  if (imgBGColor === 2 || imgBGColor === 8) {
     yellowTxtState = 'buttonDisabled';
   };
-  if (colorNumber == 2) {
+  if (colorNumber === 2) {
     yellowTxtState = `buttonEnabled text-color${imgBGColor}`;
   };
 
@@ -19,7 +19,7 @@ function YellowTxt () {
   };
 
   return (
-    <button class={`customBtn BG-color2 ${yellowTxtState}`} onClick={handleYellowTxt}></button>
+    <button className={`customBtn BG-color2 ${yellowTxtState}`} onClick={handleYellowTxt}></button>
   );
 };
 

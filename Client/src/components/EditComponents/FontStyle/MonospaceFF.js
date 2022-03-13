@@ -9,7 +9,7 @@ function MonospaceFF () {
   let monospaceBGColor = imgBGColor;
   let monospaceTxtColor = colorNumber;
 
-  if (fontFam == '"Courier New", Courier, monospace') {
+  if (fontFam === '"Courier New", Courier, monospace') {
     monospaceBGColor = colorNumber;
     monospaceTxtColor = imgBGColor;
   }; 
@@ -19,7 +19,7 @@ function MonospaceFF () {
   };
 
   return (
-    <button class={`customBtn fFam BG-color${monospaceBGColor} text-color${monospaceTxtColor}`} style={{fontFamily: '"Courier New", Courier, monospace'}} onClick={handleMonospaceFF}><div id="monospaceBtn">Aa</div></button>
+    <button className={`customBtn fFam BG-color${monospaceBGColor} text-color${monospaceTxtColor}`} style={{fontFamily: '"Courier New", Courier, monospace'}} onClick={handleMonospaceFF}><div id="monospaceBtn">Aa</div></button>
   );
 };
 

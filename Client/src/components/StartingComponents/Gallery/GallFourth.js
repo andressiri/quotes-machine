@@ -29,7 +29,7 @@ function GallFourth () {
   };
 
   return (
-    <h1 className={`gallBtn${chooseFourth} BG-color${colorNumber} ${disableFourth} gallFour`} onClick={handleGallFourth} />
+    <p className={`gallBtn${chooseFourth} BG-color${colorNumber} ${disableFourth} gallFour`} onClick={handleGallFourth} />
   );
 };
 

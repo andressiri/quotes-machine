@@ -9,13 +9,13 @@ function UppercaseFont () {
   let upperBGColor = imgBGColor;
   let upperTxtColor = colorNumber;
 
-  if (upperFont == 'uppercase') {
+  if (upperFont === 'uppercase') {
     upperBGColor = colorNumber;
     upperTxtColor = imgBGColor;
   }; 
 
   function handleUppercaseFont () {
-    if (upperFont == 'none') {
+    if (upperFont === 'none') {
       setUpperFont('uppercase');
     } else {
       setUpperFont('none');
@@ -23,7 +23,7 @@ function UppercaseFont () {
   };
 
   return (
-    <button class={`customBtn fFam BG-color${upperBGColor} text-color${upperTxtColor}`} onClick={handleUppercaseFont}>UP</button>
+    <button className={`customBtn fFam BG-color${upperBGColor} text-color${upperTxtColor}`} onClick={handleUppercaseFont}>UP</button>
   );
 };
 

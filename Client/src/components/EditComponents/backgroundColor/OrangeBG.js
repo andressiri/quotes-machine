@@ -7,10 +7,10 @@ function OrangeBG () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   let orangeBGState = '';
 
-  if (colorNumber == 1) {
+  if (colorNumber === 1) {
     orangeBGState = 'buttonDisabled';
   };
-  if (imgBGColor == 1) {
+  if (imgBGColor === 1) {
     orangeBGState = `buttonEnabled text-color${colorNumber}`;
   };
 
@@ -19,7 +19,7 @@ function OrangeBG () {
   };
 
   return (
-    <button class={`customBtn BG-color1 ${orangeBGState}`} onClick={handleOrangeBG}></button>
+    <button className={`customBtn BG-color1 ${orangeBGState}`} onClick={handleOrangeBG}></button>
   );
 };
 

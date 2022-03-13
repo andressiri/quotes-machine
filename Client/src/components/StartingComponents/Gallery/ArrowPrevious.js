@@ -15,7 +15,7 @@ function ArrowPrevious () {
 
   function handleArrowPrevious () {
     stopAuto(); 
-    if (gallChoose == 0) {
+    if (gallChoose === 0) {
       setGallChoose(gallArray.length - 1);
     } else {
       setGallChoose(gallChoose - 1);

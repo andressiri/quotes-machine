@@ -9,7 +9,7 @@ function SerifFF () {
   let serifBGColor = imgBGColor;
   let serifTxtColor = colorNumber;
 
-  if (fontFam == 'Garamond, serif') {
+  if (fontFam === 'Garamond, serif') {
     serifBGColor = colorNumber;
     serifTxtColor = imgBGColor;
   }; 
@@ -19,7 +19,7 @@ function SerifFF () {
   };
 
   return (
-    <button class={`customBtn fFam BG-color${serifBGColor} text-color${serifTxtColor}`} style={{fontFamily: "Garamond, serif"}} onClick={handleSerifFF}>Aa</button>
+    <button className={`customBtn fFam BG-color${serifBGColor} text-color${serifTxtColor}`} style={{fontFamily: "Garamond, serif"}} onClick={handleSerifFF}>Aa</button>
   );
 };
 
