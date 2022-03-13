@@ -5,7 +5,7 @@ import getImgUrl from './getImgUrl.js';
 import clickLink from './clickLink.js';
 
 function useShareImg () {
-  const {colors, quote, auto, refs} = useContext(Context);
+  const {quote, refs} = useContext(Context);
   const [quoteText, setQuoteText] = quote.quoteTxt;  
   const [author, setAuthor] = quote.auth;
   const quoteRef = refs.refImg;
@@ -26,9 +26,10 @@ function useShareImg () {
         break;
       case 'Twitter':
         link = `http://twitter.com/intent/tweet?hashtags=quotes&realted=elsirook&text="${quoteText}"%20-%20${author}`;
-        break;  
+        break;
+      // no default    
     };
-    if (shareChosen != 'Clipboard') {
+    if (shareChosen !== 'Clipboard') {
       clickLink(link);  
     };
   };

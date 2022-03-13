@@ -7,10 +7,10 @@ function RedBG () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   let redBGState = '';
 
-  if (colorNumber == 0) {
+  if (colorNumber === 0) {
     redBGState = 'buttonDisabled';
   };
-  if (imgBGColor == 0) {
+  if (imgBGColor === 0) {
     redBGState = `buttonEnabled text-color${colorNumber}`;
   };
 
@@ -19,7 +19,7 @@ function RedBG () {
   };
 
   return (
-    <button class={`customBtn BG-color0 ${redBGState}`} onClick={handleRedBG}></button>
+    <button className={`customBtn BG-color0 ${redBGState}`} onClick={handleRedBG}></button>
   );
 };
 

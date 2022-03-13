@@ -9,13 +9,13 @@ function BoldFont () {
   let boldBGColor = imgBGColor;
   let boldTxtColor = colorNumber;
 
-  if (boldFont == 'bold') {
+  if (boldFont === 'bold') {
     boldBGColor = colorNumber;
     boldTxtColor = imgBGColor;
   }; 
 
   function handleBoldFont () {
-    if (boldFont == 'normal') {
+    if (boldFont === 'normal') {
       setBoldFont('bold');
     } else {
       setBoldFont('normal');
@@ -23,7 +23,7 @@ function BoldFont () {
   };
 
   return (
-    <button class={`customBtn fFam BG-color${boldBGColor} text-color${boldTxtColor}`} style={{fontWeight: 'bold'}} onClick={handleBoldFont}>N</button>
+    <button className={`customBtn fFam BG-color${boldBGColor} text-color${boldTxtColor}`} style={{fontWeight: 'bold'}} onClick={handleBoldFont}>N</button>
   );
 };
 

@@ -68,8 +68,8 @@ function RegisterForm() {
 
   return (
     <div>
-      {messagesArray.map((msg) => (
-        <p className={`shareIt`}>{msg}</p>
+      {messagesArray.map((msg, i) => (
+        <p className={`shareIt`} key={i} >{msg}</p>
       ))}
       <form id="registerForm">
         <input

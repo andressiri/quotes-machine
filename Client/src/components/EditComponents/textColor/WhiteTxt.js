@@ -7,10 +7,10 @@ function WhiteTxt () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   let whiteTxtState = '';
   
-  if (imgBGColor == 8|| imgBGColor == 2) {
+  if (imgBGColor === 8|| imgBGColor === 2) {
     whiteTxtState = 'buttonDisabled';
   };
-  if (colorNumber == 8) {
+  if (colorNumber === 8) {
     whiteTxtState = `buttonEnabled text-color${imgBGColor}`;
   };
 
@@ -19,7 +19,7 @@ function WhiteTxt () {
   };
 
   return (
-    <button class={`customBtn BG-color8 ${whiteTxtState}`} onClick={handleWhiteTxt}></button>
+    <button className={`customBtn BG-color8 ${whiteTxtState}`} onClick={handleWhiteTxt}></button>
   );
 };
 

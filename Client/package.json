@@ -31,7 +31,7 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest"   
     ]
   },
   "browserslist": {
@@ -46,5 +46,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "http://localhost:3001",
+  "devDependencies": {
+    "eslint-plugin-react": "^7.29.3"
+  }
 }

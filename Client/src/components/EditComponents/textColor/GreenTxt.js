@@ -7,10 +7,10 @@ function GreenTxt () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   let greenTxtState = '';
   
-  if (imgBGColor == 3) {
+  if (imgBGColor === 3) {
     greenTxtState = 'buttonDisabled';
   };
-  if (colorNumber == 3) {
+  if (colorNumber === 3) {
     greenTxtState = `buttonEnabled text-color${imgBGColor}`;
   };
 
@@ -19,7 +19,7 @@ function GreenTxt () {
   };
 
   return (
-    <button class={`customBtn BG-color3 ${greenTxtState}`} onClick={handleGreenTxt}></button>
+    <button className={`customBtn BG-color3 ${greenTxtState}`} onClick={handleGreenTxt}></button>
   );
 };
 

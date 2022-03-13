@@ -7,10 +7,10 @@ function BlueBG () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   let blueBGState= '';
 
-  if (colorNumber == 4) {
+  if (colorNumber === 4) {
     blueBGState = 'buttonDisabled';
   };
-  if (imgBGColor == 4) {
+  if (imgBGColor === 4) {
     blueBGState = `buttonEnabled text-color${colorNumber}`;
   };
 
@@ -19,7 +19,7 @@ function BlueBG () {
   };
 
   return (
-    <button class={`customBtn BG-color4 ${blueBGState}`} onClick={handleBlueBG}></button>
+    <button className={`customBtn BG-color4 ${blueBGState}`} onClick={handleBlueBG}></button>
   );
 };
 

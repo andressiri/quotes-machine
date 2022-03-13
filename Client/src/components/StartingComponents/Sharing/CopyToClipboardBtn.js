@@ -22,7 +22,7 @@ function CopyToClipboardBtn() {
   };
 
   return (
-    <FontAwesomeIcon class={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleCopyToClip} icon={faPaperclip} />
+    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleCopyToClip} icon={faPaperclip} />
   );
 };
 

@@ -36,6 +36,7 @@ function SetAutoTimeBtn() {
         setAutoTime(5000);
         setSeconds('5s');
         break;
+      // no default  
     };
   };
   

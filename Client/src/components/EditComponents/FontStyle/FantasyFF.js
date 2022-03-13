@@ -9,7 +9,7 @@ function FantasyFF () {
   let fantasyBGColor = imgBGColor;
   let fantasyTxtColor = colorNumber;
 
-  if (fontFam == 'Copperplate, Papyrus, fantasy') {
+  if (fontFam === 'Copperplate, Papyrus, fantasy') {
     fantasyBGColor = colorNumber;
     fantasyTxtColor = imgBGColor;
   }; 
@@ -20,7 +20,7 @@ function FantasyFF () {
 
   return (
     <label>
-      <button class={`customBtn fFam BG-color${fantasyBGColor} text-color${fantasyTxtColor}`} style={{fontFamily: "Copperplate, Papyrus, fantasy"}} onClick={handleFantasyFF}><div id="fantasyBtn">Aa</div></button>
+      <button className={`customBtn fFam BG-color${fantasyBGColor} text-color${fantasyTxtColor}`} style={{fontFamily: "Copperplate, Papyrus, fantasy"}} onClick={handleFantasyFF}><div id="fantasyBtn">Aa</div></button>
     </label>
   );
 };

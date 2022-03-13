@@ -24,7 +24,7 @@ function GallFirst () {
   };
 
   return (
-    <h1 className={`gallBtn${chooseFirst} BG-color${colorNumber} gallOne`} onClick={handleGallFirst} />
+    <p className={`gallBtn${chooseFirst} BG-color${colorNumber} gallOne`} onClick={handleGallFirst} />
   );
 };
 

@@ -16,7 +16,7 @@ function FontSize () {
   };
 
   return (
-    <button class={`customBtn fFam BG-color${imgBGColor} text-color${colorNumber}`} onClick={handleFontSize}>{fSize}</button>
+    <button className={`customBtn fFam BG-color${imgBGColor} text-color${colorNumber}`} onClick={handleFontSize}>{fSize}</button>
   );
 };
 

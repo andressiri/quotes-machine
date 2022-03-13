@@ -24,7 +24,7 @@ function AutoBtn () {
   };
   
   async function handleAutoBtn() {
-    if (handleAuto == 'Interval is off') {
+    if (handleAuto === 'Interval is off') {
       setAutoClass(true);
       newQuote();    
       setHandleAuto(setInterval(newQuote, autoTime));

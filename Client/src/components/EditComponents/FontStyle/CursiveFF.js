@@ -9,7 +9,7 @@ function CursiveFF () {
   let cursiveBGColor = imgBGColor;
   let cursiveTxtColor = colorNumber;
 
-  if (fontFam == '"Brush Script MT", cursive') {
+  if (fontFam === '"Brush Script MT", cursive') {
     cursiveBGColor = colorNumber;
     cursiveTxtColor = imgBGColor;
   }; 
@@ -20,7 +20,7 @@ function CursiveFF () {
 
   return (
     <label>
-      <button class={`customBtn fFam BG-color${cursiveBGColor} text-color${cursiveTxtColor}`} style={{fontFamily: '"Brush Script MT", cursive'}} onClick={handleCursiveFF}><div id="cursiveBtn">Aa</div></button>
+      <button className={`customBtn fFam BG-color${cursiveBGColor} text-color${cursiveTxtColor}`} style={{fontFamily: '"Brush Script MT", cursive'}} onClick={handleCursiveFF}><div id="cursiveBtn">Aa</div></button>
 
     </label>
   );

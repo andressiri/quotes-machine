@@ -3,14 +3,14 @@ import {Context} from './../Context.js';
 import clickLink from './clickLink.js';
 
 function useShareTxt () {
-  const {colors, quote, auto, refs} = useContext(Context);
+  const {quote, refs} = useContext(Context);
   const [quoteText, setQuoteText] = quote.quoteTxt;  
   const [author, setAuthor] = quote.auth;
   const [shareChosen, setShareChosen] = refs.sChosen;
   let link = ``;
   
   const shareTxt = async function checkChosenAndShare () {
-    if (shareChosen == 'Clipboard') {
+    if (shareChosen === 'Clipboard') {
       await navigator.clipboard.writeText(`"${quoteText}" - ${author}`);     
       alert(`Copied: "${quoteText}" - ${author}`);
     } else {
@@ -20,7 +20,8 @@ function useShareTxt () {
           break;
         case 'Twitter':
           link = `http://twitter.com/intent/tweet?hashtags=quotes&realted=elsirook&text="${quoteText}"%20-%20${author}`;
-          break;  
+          break;
+        // no default    
        };
       clickLink(link);
     };

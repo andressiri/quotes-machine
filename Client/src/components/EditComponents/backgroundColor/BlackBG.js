@@ -7,10 +7,10 @@ function BlackBG () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   let blackBGState = '';
 
-  if (colorNumber == 7) {
+  if (colorNumber === 7) {
     blackBGState = 'buttonDisabled';
   };
-  if (imgBGColor == 7) {
+  if (imgBGColor === 7) {
     blackBGState = `buttonEnabled text-color${colorNumber}`;
   };
 
@@ -19,7 +19,7 @@ function BlackBG () {
   };
 
   return (
-    <button class={`customBtn BG-color7 ${blackBGState}`} onClick={handleBlackBG}></button>
+    <button className={`customBtn BG-color7 ${blackBGState}`} onClick={handleBlackBG}></button>
   );
 };
 

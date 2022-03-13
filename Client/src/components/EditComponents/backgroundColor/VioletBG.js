@@ -7,10 +7,10 @@ function VioletBG () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   let violetBGState = '';
 
-  if (colorNumber == 6) {
+  if (colorNumber === 6) {
     violetBGState = 'buttonDisabled';
   };
-  if (imgBGColor == 6) {
+  if (imgBGColor === 6) {
     violetBGState = `buttonEnabled text-color${colorNumber}`;
   };
 
@@ -19,7 +19,7 @@ function VioletBG () {
   };
 
   return (
-    <button class={`customBtn BG-color6 ${violetBGState}`} onClick={handleVioletBG}></button>
+    <button className={`customBtn BG-color6 ${violetBGState}`} onClick={handleVioletBG}></button>
   );
 };
 
