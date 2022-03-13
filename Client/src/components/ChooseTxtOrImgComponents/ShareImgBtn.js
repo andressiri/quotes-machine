@@ -2,7 +2,6 @@ import React, {useContext} from "react";
 import {Context} from "./../../Context.js";
 import { useNavigate } from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faReply} from "@fortawesome/free-solid-svg-icons";
 
 function ShareImgBtn () {
   const {colors} = useContext(Context);
@@ -14,7 +13,7 @@ function ShareImgBtn () {
   };  
 
   return (
-    <FontAwesomeIcon class={`icon text-color${colorNumber}`} onClick={handleShareImg} icon={faReply} />
+    <FontAwesomeIcon className={`icon text-color${colorNumber}`} onClick={handleShareImg} icon="image" />
   );
 };
 

@@ -2,8 +2,6 @@ import React, {useContext} from "react";
 import {Context} from "../../Context.js";
 import { useNavigate } from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faStar} from "@fortawesome/free-solid-svg-icons";
-
 
 function CustomizeImgBtn () {
   const {colors} = useContext(Context);
@@ -15,7 +13,7 @@ function CustomizeImgBtn () {
   };  
 
   return (
-    <FontAwesomeIcon class={`icon text-color${colorNumber}`} onClick={handleCustomizeImg} icon={faStar} />
+    <FontAwesomeIcon className={`icon text-color${colorNumber}`} onClick={handleCustomizeImg} icon="pen" />
   );
 };
 

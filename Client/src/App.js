@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import {Context} from './Context.js';
+import {Routes, Route } from 'react-router-dom';
 import QuoteBox from './components/QuoteBox.js';
 import './styles/App.scss';
 import './styles/colorChange.scss';
@@ -10,7 +11,9 @@ function App() {
   
   return (
     <div className={`App BG-color${colorNumber}`}>
-      <QuoteBox />
+      <Routes>
+        <Route path='*' element={<QuoteBox />} />      
+      </Routes>
     </div>
   );
 };

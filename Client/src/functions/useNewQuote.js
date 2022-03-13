@@ -19,13 +19,13 @@ function useNewQuote () {
   const newQuote = async function getQuoteAndChangeColors () {    
     setFadeQuote('Out');
     let quoteObj = await fetchRandomQuote();
-    await setColorNumber(colorNumber => changeColorNumber(colorNumber));
+    setColorNumber(colorNumber => changeColorNumber(colorNumber));
     setImgBGColor(setBackground(colorNumber));
-    await new Promise(resolve => setTimeout(resolve, 250));
-    galleryItem(quoteObj.content, quoteObj.author);
-    setGallChoose(gallArray.length - 1);
+    //await new Promise(resolve => setTimeout(resolve, 250));
     setQuoteText(quoteObj.content);
     setAuthor(quoteObj.author);
+    galleryItem(quoteObj.content, quoteObj.author);
+    setGallChoose(gallArray.length - 1);
     setFadeQuote('In');
   };
   return newQuote;

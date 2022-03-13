@@ -19,13 +19,13 @@ function GallFourth () {
   
   if (gallChoose === 3) {
     chooseFourth = 'Chosen';
-    setQuoteText(gallArray[3].text);
-    setAuthor(gallArray[3].author);
   };
   
   function handleGallFourth () {
     stopAuto(); 
     setGallChoose(3);
+    setQuoteText(gallArray[3].text);
+    setAuthor(gallArray[3].author);
   };
 
   return (

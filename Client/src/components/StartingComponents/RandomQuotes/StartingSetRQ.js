@@ -16,10 +16,10 @@ function StartingSetRQ () {
       <Routes>
         <Route path='/' element={
           <div>
-          <AutoBtn/>
-          <SetAutoTimeBtn />
-          <NewQuoteBtn />
-          <LoginBtn />
+            <AutoBtn/>
+            <SetAutoTimeBtn />
+            <NewQuoteBtn />
+            <LoginBtn />
           </div>
         } />
       </Routes>
