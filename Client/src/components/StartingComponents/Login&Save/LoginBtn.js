@@ -3,9 +3,8 @@ import {Context} from "../../../Context.js";
 import { useNavigate } from "react-router-dom";
 import useStopAuto from '../../../functions/useStopAuto.js'; 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import './../../../styles/CopyToClipboardBtn.scss';
 
-function CopyToClipboardBtn() {
+function LoginBtn() {
   const {colors, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
@@ -31,4 +30,4 @@ function CopyToClipboardBtn() {
   );
 };
 
-export default CopyToClipboardBtn;
+export default LoginBtn;
