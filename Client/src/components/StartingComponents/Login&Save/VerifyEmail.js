@@ -2,50 +2,55 @@ import React, { useContext, useState } from "react";
 import { Context } from "../../../Context.js";
 import { useNavigate } from "react-router-dom";
 
-function LoginForm() {
+function VerifyEmail() {
   const { colors, refs } = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [messagesArray, setMessagesArray] = refs.msg;
   const [currentPath, setCurrentPath] = refs.path;
-  const [emailValue, setEmailValue] = useState("");
+  const [codeValue, setCodeValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const navigate = useNavigate();
 
-  async function handleSubmit(event) {
+  async function handlePostCode(event) {
     event.preventDefault();
     const auxArray = [];
-    const response = await fetch("/users/login", {
+    
+    const response = await fetch("/users/verifyEmail", {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email: emailValue,
-        password: passwordValue,
+        code: codeValue,
       }),
     });
     let json = await response.json();
-    if (json.info.message === 'Login success') {
-      if (json.user.verifiedEmail) {
-        setCurrentPath('/loggedIn');
-        navigate('/loggedIn');
-      } else {
-        setCurrentPath('/verifyEmail');
-        navigate('/verifyEmail');
-      }
-    } else {
-      auxArray.push(json.info.message);
-    }
+    if (json.message === 'Code is correct') {
+      setCurrentPath('/loggedIn');
+      navigate('/loggedIn');
+    } else {      
+      auxArray.push(json.message);
+    };
+
     setMessagesArray(auxArray);
   };
 
-  function handleRegister() {
+  async function handleSendEmail(event) {
+    event.preventDefault();
+    const auxArray = [];    
+    const response = await fetch("/users/sendVerifyEmail")    
+    let json = await response.json();
+    auxArray.push(json.message);
+    setMessagesArray(auxArray);
+  };
+
+  function handleLogOut() {
     setMessagesArray([]);
-    setCurrentPath('/register');
-    navigate('/register');
-  }
+    setCurrentPath('/login');
+    navigate('/login');
+  };
 
   return (
     <div>
@@ -54,29 +59,27 @@ function LoginForm() {
       ))}
       <form id="loginForm">
         <input
-          type="email"
-          placeholder="Email..."
+          type="text"
+          placeholder="Enter code here..."
           className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
-          onChange={(event) => setEmailValue(event.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password..."
-          className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
-          onChange={(event) => setPasswordValue(event.target.value)}
+          onChange={(event) => setCodeValue(event.target.value)}
         />
         <button
           className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
-          onClick={handleSubmit}
-        >
-          Login
+          onClick={handlePostCode}
+        >Check Code
+        </button>
+        <button
+          className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+          onClick={handleSendEmail}
+        >Send Email
         </button>
       </form>
-      <h2 className={`shareIt`} onClick={handleRegister}>
-        Register
+      <h2 className={`shareIt`} onClick={handleLogOut}>
+        Log Out
       </h2>
     </div>
   );
 }
 
-export default LoginForm;
+export default VerifyEmail;

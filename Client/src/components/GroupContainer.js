@@ -6,6 +6,7 @@ import ChooseTxtOrImgSet from "./ChooseTxtOrImgComponents/ChooseTxtOrImgSet.js";
 import ShareCustomOrDefaultSet from "./ShareCustomOrDefaultComponents/ShareCustomOrDefaultSet.js";
 import EditSet from "./EditComponents/EditSet.js";
 import LoginForm from "./StartingComponents/Login&Save/LoginForm.js";
+import VerifyEmail from "./StartingComponents/Login&Save/VerifyEmail.js";
 import LoggedInMenu from "./StartingComponents/Login&Save/LoggedInMenu.js";
 import RegisterForm from "./StartingComponents/Login&Save/RegisterForm";
 
@@ -21,6 +22,7 @@ function GroupContainer() {
         <Route path='/customOrDefault' exact element={<ShareCustomOrDefaultSet />} />
         <Route path='/edit' exact element={<EditSet />} />
         <Route path='/login' exact element={<LoginForm />} />
+        <Route path='/verifyEmail' exact element={<VerifyEmail />} />
         <Route path='/loggedIn' exact element={<LoggedInMenu />} />
         <Route path='/register' exact element={<RegisterForm />} />
       </Routes>

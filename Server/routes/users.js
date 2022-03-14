@@ -20,6 +20,7 @@ router.post("/register", (req, res) => {
         const newUser = new User({
           name: name,
           email: email,
+          verifiedEmail: false,
           password: password
         });
         // Hash Password
@@ -32,7 +33,7 @@ router.post("/register", (req, res) => {
             newUser.save()
               .then( user => {
                 console.log(`New user registered successfully ${newUser}`)
-                res.json({msg: 'Registered successfully'});
+                res.json({msg: 'Registered successfully', verifiedEmail: user.verifiedEmail});
               })
               .catch(err => console.log(err));
         }));
@@ -45,8 +46,30 @@ router.post("/register", (req, res) => {
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', function (err, user, info) {
     if (err) return next(err);
-    return res.json(info);
+    return res.json({user, info});
   })(req, res, next);
+});
+
+// Email Verification Handle
+router.get('/sendVerifyEmail', (req, res) => {
+  //check delay to control spam
+  //if (not ok) response: wait...
+  //else
+  //send email
+  //catch errors
+  //send response
+  res.json({message: 'Email sent'});  
+  console.log('code: 123456')
+});
+
+router.post('/verifyEmail', (req, res) => {
+  //check code with code sent - hash and salt?
+  // if (not ok) response: Incorrect code...
+  //else
+  //update user in database
+  //send response
+  res.json({message: 'Code is correct'});
+  console.log('Email verified');
 });
 
 
