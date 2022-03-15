@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Context } from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
-import useCheckVerified from '../../../functions/useCheckVerified.js';
 
 function LoginForm() {
   const { colors, refs } = useContext(Context);
@@ -12,7 +11,6 @@ function LoginForm() {
   const [verified, setVerified] = refs.ver;
   const [emailValue, setEmailValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
-  const checkVerified = useCheckVerified();
   const redirectTo = useRedirectTo();
 
   async function handleSubmit(event) {
@@ -35,7 +33,12 @@ function LoginForm() {
       if (json.message === 'Login success') {
         setLoggedIn(true);
         setVerified(json.verified);
-        checkVerified();
+        // can't use checkVerified because state won't update properly
+        if (json.verified) {
+          redirectTo('/loggedIn');
+        } else {
+          redirectTo('/verifyEmail');
+        };
       } else {
         auxArray.push(json.message);
       }      
