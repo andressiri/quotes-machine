@@ -43,11 +43,27 @@ router.post("/register", (req, res) => {
 });
 
 // Login Handle
-router.post('/login', (req, res, next) => {
-  passport.authenticate('local', function (err, user, info) {
-    if (err) return next(err);
-    return res.json({user, info});
-  })(req, res, next);
+router.post("/loginAuth", (req, res, next) => {
+  passport.authenticate('local')(req,res,next);
+});
+
+router.post('/login', (req, res) => {
+  console.log(req.session);
+  const msg = req.flash('message');
+  let verified = false;
+  if (req.user) {
+    if (req.user.verifiedEmail) {
+      verified = true;
+    };
+  };
+  res.json({verified: verified, message: msg[0]});
+});
+
+// Log out handle
+router.delete('/logout', (req, res) => {
+  req.logOut();
+  req.session.destroy();
+  console.log('User logged out');
 });
 
 // Email Verification Handle
@@ -55,21 +71,25 @@ router.get('/sendVerifyEmail', (req, res) => {
   //check delay to control spam
   //if (not ok) response: wait...
   //else
+  const randomNum = Math.floor(Math.random() * 1000000); 
+  req.session.code = randomNum.toString();
   //send email
   //catch errors
   //send response
   res.json({message: 'Email sent'});  
-  console.log('code: 123456')
+  console.log(`code: ${req.session.code}`);
 });
 
-router.post('/verifyEmail', (req, res) => {
-  //check code with code sent - hash and salt?
-  // if (not ok) response: Incorrect code...
-  //else
-  //update user in database
-  //send response
-  res.json({message: 'Code is correct'});
-  console.log('Email verified');
+router.put('/verifyEmail', async (req, res) => {
+  if (req.body.code !== req.session.code) {
+    res.json({message: 'Wrong code'});
+    console.log('Wrong code');
+  } else {
+    await User.updateOne({email: req.user.email}, {verifiedEmail: true})
+      .catch(err => console.log(err));
+    res.json({message: 'Code is correct'});
+    console.log('Email verified');
+  };
 });
 
 

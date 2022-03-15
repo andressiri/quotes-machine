@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import {Context} from "../../Context.js";
-import { useNavigate } from "react-router-dom";
+import useRedirectTo from "../../functions/useRedirectTo.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import useShareTxt from '../../functions/useShareTxt.js';
 
@@ -8,16 +8,14 @@ function ShareTxtBtn () {
   const {colors, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [shareChosen, setShareChosen] = refs.sChosen;
-  const [currentPath, setCurrentPath] = refs.path;
   const shareTxt = useShareTxt(); 
-  const navigate = useNavigate();
+  const redirectTo = useRedirectTo();
    
   
   function handleShareTxt () {
     shareTxt();
     setShareChosen('');
-    setCurrentPath('/');
-    navigate('/');
+    redirectTo('/');
   };  
 
   return (

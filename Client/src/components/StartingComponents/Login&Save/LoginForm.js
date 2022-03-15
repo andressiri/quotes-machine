@@ -1,51 +1,55 @@
-import React, { useContext, useState } from "react";
-import { Context } from "../../../Context.js";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useState } from 'react';
+import { Context } from '../../../Context.js';
+import useRedirectTo from '../../../functions/useRedirectTo.js';
+import useCheckVerified from '../../../functions/useCheckVerified.js';
 
 function LoginForm() {
   const { colors, refs } = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [messagesArray, setMessagesArray] = refs.msg;
-  const [currentPath, setCurrentPath] = refs.path;
-  const [emailValue, setEmailValue] = useState("");
-  const [passwordValue, setPasswordValue] = useState("");
-  const navigate = useNavigate();
+  const [loggedIn, setLoggedIn] = refs.logged;
+  const [verified, setVerified] = refs.ver;
+  const [emailValue, setEmailValue] = useState('');
+  const [passwordValue, setPasswordValue] = useState('');
+  const checkVerified = useCheckVerified();
+  const redirectTo = useRedirectTo();
 
   async function handleSubmit(event) {
     event.preventDefault();
     const auxArray = [];
-    const response = await fetch("/users/login", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: emailValue,
-        password: passwordValue,
-      }),
-    });
-    let json = await response.json();
-    if (json.info.message === 'Login success') {
-      if (json.user.verifiedEmail) {
-        setCurrentPath('/loggedIn');
-        navigate('/loggedIn');
+    if (emailValue !== '' && passwordValue !== '') {
+      const passportAuth = await fetch('/users/loginAuth', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: emailValue,
+          password: passwordValue,
+        }),
+      });
+      const response = await fetch('/users/login', {method: 'POST'});
+      let json = await response.json();    
+      if (json.message === 'Login success') {
+        setLoggedIn(true);
+        setVerified(json.verified);
+        checkVerified();
       } else {
-        setCurrentPath('/verifyEmail');
-        navigate('/verifyEmail');
-      }
+        auxArray.push(json.message);
+      }      
     } else {
-      auxArray.push(json.info.message);
-    }
+      auxArray.push('Please fill all fields');
+    };
+
     setMessagesArray(auxArray);
   };
 
   function handleRegister() {
     setMessagesArray([]);
-    setCurrentPath('/register');
-    navigate('/register');
-  }
+    redirectTo('/register');
+  };
 
   return (
     <div>
