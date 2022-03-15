@@ -1,15 +1,13 @@
 import React, {useContext} from "react";
-import {Context} from "../../../Context.js";
-import { useNavigate } from "react-router-dom";
+//import {Context} from "../../../Context.js";
+import useLogout from '../../../functions/useLogout.js';
 
 function LoggedInMenu() {
-  const {refs} = useContext(Context);
-  const [currentPath, setCurrentPath] = refs.path;
-  const navigate = useNavigate();
+  //const {refs} = useContext(Context);
+  const logout = useLogout();
 
   function handleLogOut () {
-    setCurrentPath('/login');
-    navigate('/login');
+    logout();
   };
 
   return (

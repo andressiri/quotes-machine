@@ -20,6 +20,8 @@ export const ContextProvider = (props) => {
   const [shareChosen, setShareChosen] = useState('');
   const [messagesArray, setMessagesArray] = useState([]);
   const [currentPath, setCurrentPath] = useState('/');
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [verified, setVerified] = useState(false);
   //custom
   const [fontFam, setFontFam] = useState('Arial, Helvetica, sans-serif');
   const [boldFont, setBoldFont] = useState('normal');
@@ -50,7 +52,9 @@ export const ContextProvider = (props) => {
         refImg: quoteRef,
         sChosen: [shareChosen, setShareChosen],
         msg: [messagesArray, setMessagesArray],
-        path: [currentPath, setCurrentPath]
+        path: [currentPath, setCurrentPath],
+        logged: [loggedIn, setLoggedIn],
+        ver: [verified, setVerified]
       },
       custom: {
         fontF: [fontFam, setFontFam],

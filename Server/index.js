@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const session = require('express-session');
 const passport = require('passport');
+const flash = require('connect-flash');
 
 const app = express();
 
@@ -25,9 +26,12 @@ app.use(bodyParser.urlencoded({ extended: "false" }));
 // Express Session
 app.use(session({
   secret: 'secret',
-  resave: false,
+  resave: true,
   saveUninitialized: true
 }));
+
+// Connect flash
+app.use(flash());
 
 // Passport middleware
 app.use(passport.initialize());

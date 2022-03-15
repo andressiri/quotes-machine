@@ -1,18 +1,17 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../../../Context.js";
-import { useNavigate } from "react-router-dom";
+import useRedirectTo from "../../../functions/useRedirectTo.js";
 
 function RegisterForm() {
   const { colors, refs } = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [messagesArray, setMessagesArray] = refs.msg;
-  const [currentPath, setCurrentPath] = refs.path;
   const [nameValue, setNameValue] = useState("");
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [password2Value, setPassword2Value] = useState("");
-  const navigate = useNavigate();
+  const redirectTo = useRedirectTo();
 
   async function handleSubmitRegister(event) {
     event.preventDefault();
@@ -56,8 +55,7 @@ function RegisterForm() {
         auxArray.push(json.msg);
       } else if (json.msg === "Registered successfully") {
         auxArray.push(json.msg);
-        setCurrentPath('/login');
-        navigate('/login');
+        redirectTo('/login');
       };
     };
     setMessagesArray(auxArray);
@@ -65,8 +63,7 @@ function RegisterForm() {
 
   function handleGoToLogin() {
     setMessagesArray([]);
-    setCurrentPath('/login');
-    navigate('/login');
+    redirectTo('/login');
   };
 
   return (

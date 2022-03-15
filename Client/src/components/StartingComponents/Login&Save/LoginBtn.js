@@ -1,27 +1,25 @@
 import React, {useContext} from "react";
 import {Context} from "../../../Context.js";
-import { useNavigate } from "react-router-dom";
 import useStopAuto from '../../../functions/useStopAuto.js'; 
+import useCheckVerified from '../../../functions/useCheckVerified.js';
+import useRedirectTo from "../../../functions/useRedirectTo.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function LoginBtn() {
   const {colors, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [currentPath, setCurrentPath] = refs.path;
-
-  const navigate = useNavigate();
+  const [loggedIn, setLoggedIn] = refs.logged;
   const stopAuto = useStopAuto();
+  const checkVerified = useCheckVerified();
+  const redirectTo = useRedirectTo();
 
   async function handleLoginBtn () {
     stopAuto();
-    const loggedIn = false;
-    if (!loggedIn) {
-        setCurrentPath('/login');
-        navigate('/login');
+    if (loggedIn) {
+      checkVerified();
     } else {
-        setCurrentPath('/loggedIn');
-        navigate('/loggedIn');
+      redirectTo('/login');
     };    
   };
 

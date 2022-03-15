@@ -1,37 +1,41 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../../../Context.js";
-import { useNavigate } from "react-router-dom";
+import useRedirectTo from "../../../functions/useRedirectTo.js";
+import useLogout from '../../../functions/useLogout.js';
 
 function VerifyEmail() {
   const { colors, refs } = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [messagesArray, setMessagesArray] = refs.msg;
-  const [currentPath, setCurrentPath] = refs.path;
+  const [verified, setVerified] = refs.ver;
   const [codeValue, setCodeValue] = useState("");
-  const [passwordValue, setPasswordValue] = useState("");
-  const navigate = useNavigate();
+  const logout = useLogout();
+  const redirectTo = useRedirectTo();
 
   async function handlePostCode(event) {
     event.preventDefault();
     const auxArray = [];
-    
-    const response = await fetch("/users/verifyEmail", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        code: codeValue,
-      }),
-    });
-    let json = await response.json();
-    if (json.message === 'Code is correct') {
-      setCurrentPath('/loggedIn');
-      navigate('/loggedIn');
-    } else {      
-      auxArray.push(json.message);
+    if (codeValue !== '') {
+      const response = await fetch("/users/verifyEmail", {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          code: codeValue,
+        }),
+      });
+      let json = await response.json();
+      if (json.message === 'Code is correct') {
+        setVerified(true);
+        redirectTo('/loggedIn');
+      } else {      
+        auxArray.push(json.message);
+      };
+    } else {
+      auxArray.push('Please enter the code sent');
     };
 
     setMessagesArray(auxArray);
@@ -47,9 +51,7 @@ function VerifyEmail() {
   };
 
   function handleLogOut() {
-    setMessagesArray([]);
-    setCurrentPath('/login');
-    navigate('/login');
+    logout();
   };
 
   return (
