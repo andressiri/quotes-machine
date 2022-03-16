@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import { Context } from "../../../Context.js";
-import useRedirectTo from "../../../functions/useRedirectTo.js";
-import useLogout from '../../../functions/useLogout.js';
+import { Context } from "../../Context.js";
+import useRedirectTo from "../../functions/useRedirectTo.js";
+import useLogout from '../../functions/useLogout.js';
 
 function VerifyEmail() {
   const { colors, refs } = useContext(Context);
@@ -21,8 +21,7 @@ function VerifyEmail() {
         method: "PUT",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json",
-        },
+          "Content-Type": "application/json"},
         body: JSON.stringify({
           code: codeValue,
         }),
@@ -43,23 +42,29 @@ function VerifyEmail() {
 
   async function handleSendEmail(event) {
     event.preventDefault();
-    const auxArray = [];    
-    const response = await fetch("/users/sendVerifyEmail")    
+    const auxArray = [];
+    const response  = await fetch('/users/sendVerifyEmail'); 
     let json = await response.json();
     auxArray.push(json.message);
     setMessagesArray(auxArray);
   };
 
-  function handleLogOut() {
+  function handleGoToLogin() {
     logout();
   };
 
   return (
     <div>
+      <p className={`shareIt`} >Get the code from your email in order to verify your id</p>
       {messagesArray.map((msg, i) => (
         <p className={`shareIt`} key={i} >{msg}</p>
       ))}
-      <form id="loginForm">
+      <button
+        className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+        onClick={handleSendEmail}
+        >Send Email
+      </button>
+      <form id="codeForm">
         <input
           type="text"
           placeholder="Enter code here..."
@@ -71,13 +76,8 @@ function VerifyEmail() {
           onClick={handlePostCode}
         >Check Code
         </button>
-        <button
-          className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
-          onClick={handleSendEmail}
-        >Send Email
-        </button>
       </form>
-      <h2 className={`shareIt`} onClick={handleLogOut}>
+      <h2 className={`shareIt`} onClick={handleGoToLogin}>
         Log Out
       </h2>
     </div>

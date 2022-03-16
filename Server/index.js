@@ -1,8 +1,9 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const session = require('express-session');
+const mongoose = require("mongoose");
 const passport = require('passport');
 const flash = require('connect-flash');
+require('dotenv').config();
 
 const app = express();
 
@@ -10,7 +11,7 @@ const app = express();
 require('./config/passport')(passport);
 
 // DB Config
-const db = require("./config/keys").MongoURI;
+const db = process.env.MONGO_URI;
 
 // Connect to Mongo
 mongoose

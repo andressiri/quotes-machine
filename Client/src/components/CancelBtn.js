@@ -16,7 +16,7 @@ function CancelBtn () {
     hideCancelBtn = false;
   }; 
 
-  function handleShareCancel () {
+  function handleCancel () {
     setMessagesArray([]);
     setShareChosen('');
     redirectTo('/');
@@ -28,7 +28,7 @@ function CancelBtn () {
     );
   } else {
     return (
-      <FontAwesomeIcon className={`icon cancel`} onClick={handleShareCancel} icon="times" />
+      <FontAwesomeIcon className={`icon cancel`} onClick={handleCancel} icon="times" />
     );
   };
 };
