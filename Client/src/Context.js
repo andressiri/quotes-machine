@@ -22,6 +22,7 @@ export const ContextProvider = (props) => {
   const [currentPath, setCurrentPath] = useState('/');
   const [loggedIn, setLoggedIn] = useState(false);
   const [verified, setVerified] = useState(false);
+  const [emailToUpdate, setEmailToUpdate] = useState('');
   //custom
   const [fontFam, setFontFam] = useState('Arial, Helvetica, sans-serif');
   const [boldFont, setBoldFont] = useState('normal');
@@ -54,7 +55,8 @@ export const ContextProvider = (props) => {
         msg: [messagesArray, setMessagesArray],
         path: [currentPath, setCurrentPath],
         logged: [loggedIn, setLoggedIn],
-        ver: [verified, setVerified]
+        ver: [verified, setVerified],
+        email: [emailToUpdate, setEmailToUpdate]
       },
       custom: {
         fontF: [fontFam, setFontFam],

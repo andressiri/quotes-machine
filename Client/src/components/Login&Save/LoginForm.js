@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { Context } from '../../../Context.js';
-import useRedirectTo from '../../../functions/useRedirectTo.js';
+import { Context } from '../../Context.js';
+import useRedirectTo from '../../functions/useRedirectTo.js';
+import validateEmail from '../../functions/validateEmail.js';
 
 function LoginForm() {
   const { colors, refs } = useContext(Context);
@@ -16,7 +17,11 @@ function LoginForm() {
   async function handleSubmit(event) {
     event.preventDefault();
     const auxArray = [];
-    if (emailValue !== '' && passwordValue !== '') {
+    if (emailValue === '' || passwordValue === '') {
+      auxArray.push('Please fill all fields');
+    } else if (!validateEmail(emailValue)) {
+      auxArray.push('Please enter a valid email');
+    } else {
       const passportAuth = await fetch('/users/loginAuth', {
         method: 'POST',
         headers: {
@@ -41,12 +46,14 @@ function LoginForm() {
         };
       } else {
         auxArray.push(json.message);
-      }      
-    } else {
-      auxArray.push('Please fill all fields');
+      };  
     };
-
     setMessagesArray(auxArray);
+  };
+  
+  function handleForgotPassword() {
+    setMessagesArray([]);
+    redirectTo('/forgotPassword');
   };
 
   function handleRegister() {
@@ -55,7 +62,7 @@ function LoginForm() {
   };
 
   return (
-    <div>
+    <div>      
       {messagesArray.map((msg, i) => (
         <p className={`shareIt`} key={i} >{msg}</p>
       ))}
@@ -74,11 +81,13 @@ function LoginForm() {
         />
         <button
           className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
-          onClick={handleSubmit}
-        >
+          onClick={handleSubmit} >
           Login
         </button>
       </form>
+      <h2 className={`shareIt`} onClick={handleForgotPassword}>
+        Forgot password
+      </h2>
       <h2 className={`shareIt`} onClick={handleRegister}>
         Register
       </h2>

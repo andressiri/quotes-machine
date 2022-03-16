@@ -5,10 +5,12 @@ import StartingContainer from "./StartingComponents/StartingContainer.js";
 import ChooseTxtOrImgSet from "./ChooseTxtOrImgComponents/ChooseTxtOrImgSet.js";
 import ShareCustomOrDefaultSet from "./ShareCustomOrDefaultComponents/ShareCustomOrDefaultSet.js";
 import EditSet from "./EditComponents/EditSet.js";
-import LoginForm from "./StartingComponents/Login&Save/LoginForm.js";
-import VerifyEmail from "./StartingComponents/Login&Save/VerifyEmail.js";
-import LoggedInMenu from "./StartingComponents/Login&Save/LoggedInMenu.js";
-import RegisterForm from "./StartingComponents/Login&Save/RegisterForm";
+import LoginForm from "./Login&Save/LoginForm.js";
+import VerifyEmail from "./Login&Save/VerifyEmail.js";
+import LoggedInMenu from "./Login&Save/LoggedInMenu.js";
+import RegisterForm from "./Login&Save/RegisterForm";
+import ForgotPassword from "./Login&Save/ForgotPassword.js";
+import ChangePassword from "./Login&Save/ChangePassword.js";
 
 function GroupContainer() {
   const { colors } = useContext(Context);
@@ -25,6 +27,8 @@ function GroupContainer() {
         <Route path='/verifyEmail' exact element={<VerifyEmail />} />
         <Route path='/loggedIn' exact element={<LoggedInMenu />} />
         <Route path='/register' exact element={<RegisterForm />} />
+        <Route path='/forgotPassword' exact element={<ForgotPassword />} />
+        <Route path='/changePassword' exact element={<ChangePassword />} />
       </Routes>
     </div>
   );

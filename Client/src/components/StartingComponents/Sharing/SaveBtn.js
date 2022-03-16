@@ -14,6 +14,7 @@ function SaveBtn() {
 
   async function handleSave () {
     stopAuto();
+    const test = await fetch('/users/test');
   };
 
   return (
