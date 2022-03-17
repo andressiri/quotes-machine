@@ -10,8 +10,8 @@ function useLogout () {
   const redirectTo = useRedirectTo();
     
   const logout = function logoutHandle () {
-    setMessagesArray([]);
     const logout = fetch('/users/logout', {method: "DELETE"});
+    setMessagesArray([]);
     setLoggedIn(false);
     setVerified(false);
     redirectTo('/login');

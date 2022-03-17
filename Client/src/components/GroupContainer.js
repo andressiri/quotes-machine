@@ -5,12 +5,12 @@ import StartingContainer from "./StartingComponents/StartingContainer.js";
 import ChooseTxtOrImgSet from "./ChooseTxtOrImgComponents/ChooseTxtOrImgSet.js";
 import ShareCustomOrDefaultSet from "./ShareCustomOrDefaultComponents/ShareCustomOrDefaultSet.js";
 import EditSet from "./EditComponents/EditSet.js";
-import LoginForm from "./Login&Save/LoginForm.js";
-import VerifyEmail from "./Login&Save/VerifyEmail.js";
-import LoggedInMenu from "./Login&Save/LoggedInMenu.js";
-import RegisterForm from "./Login&Save/RegisterForm";
-import ForgotPassword from "./Login&Save/ForgotPassword.js";
-import ChangePassword from "./Login&Save/ChangePassword.js";
+import LoginForm from "./Login/Login/LoginForm.js";
+import VerifyEmail from "./Login/VerifyEmail/VerifyEmail.js";
+import LoggedInMenu from "./Login/LoggedIn/LoggedInMenu.js";
+import RegisterForm from "./Login/Register/RegisterForm";
+import ForgotPassword from "./Login/PasswordRecovery/ForgotPassword.js";
+import ChangePassword from "./Login/ChangePassword/ChangePassword.js";
 
 function GroupContainer() {
   const { colors } = useContext(Context);
