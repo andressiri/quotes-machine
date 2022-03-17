@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 //import {Context} from "../../../Context.js";
-import useLogout from '../../functions/useLogout.js';
+import useLogout from '../../../functions/useLogout.js';
 
 function LoggedInMenu() {
   //const {refs} = useContext(Context);

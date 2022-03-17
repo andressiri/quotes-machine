@@ -8,6 +8,7 @@ function CancelBtn () {
   const {refs} = useContext(Context);
   const [shareChosen, setShareChosen] = refs.sChosen;
   const [messagesArray, setMessagesArray] = refs.msg;
+  const [emailToUpdate, setEmailToUpdate] = refs.email;
   const redirectTo = useRedirectTo();
   const location = useLocation();
   let hideCancelBtn = true;
@@ -17,6 +18,7 @@ function CancelBtn () {
   }; 
 
   function handleCancel () {
+    setEmailToUpdate('');
     setMessagesArray([]);
     setShareChosen('');
     redirectTo('/');

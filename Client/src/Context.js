@@ -32,6 +32,12 @@ export const ContextProvider = (props) => {
   //gall
   const [gallArray, setGallArray] = useState([{text: quoteText, author: author}]);
   const [gallChoose, setGallChoose] = useState(0);
+  //forms
+  const [nameValue, setNameValue] = useState('');
+  const [emailValue, setEmailValue] = useState('');
+  const [passwordValue, setPasswordValue] = useState('');
+  const [password2Value, setPassword2Value] = useState('');
+  const [codeValue, setCodeValue] = useState('');
   
   return (
     <Context.Provider value={{
@@ -68,6 +74,13 @@ export const ContextProvider = (props) => {
       gall: {
         gallA: [gallArray, setGallArray],
         gallCh: [gallChoose, setGallChoose]
+      },
+      forms: {
+        name: [nameValue, setNameValue],
+        email: [emailValue, setEmailValue],
+        pass: [passwordValue, setPasswordValue],
+        pass2: [password2Value, setPassword2Value],
+        code: [codeValue, setCodeValue]
       }
     }}>
       {props.children}
