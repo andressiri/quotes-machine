@@ -1,19 +1,41 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Context} from '../../../Context.js';
 import validateEmail from '../../../functions/validateEmail.js';
 
 function EmailPasswordBtn () {
-  const {colors, refs, forms} = useContext(Context);
+  const {colors, refs, forms, timers} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [messagesArray, setMessagesArray] = refs.msg;
   const [emailToUpdate, setEmailToUpdate] = refs.email;
   const [emailValue, setEmailValue] = forms.email;
+  const [sendEmailBtnTimer, setSendEmailBtnTimer] = timers.send;
+  const [sendEmailInterval, setSendEmailInterval] = timers.sendInt;
+  const [sendWaitMsg, setSendWaitMsg] = timers.sendWait;
+  const [isLoading, setIsLoading] = useState(false);   
+  let isBlocked = false;
+
+  if (sendEmailBtnTimer !== 0) isBlocked = true;
+
+  useEffect(() => {  
+    if (sendEmailBtnTimer > 0 && sendEmailInterval === 'Interval is off') {
+      setSendEmailInterval(setInterval(() => {
+        setSendEmailBtnTimer(sendEmailBtnTimer => sendEmailBtnTimer - 1);
+      }, 1000));
+    } else if (sendEmailBtnTimer <= 0) {
+      setSendWaitMsg(false);
+      clearInterval(sendEmailInterval);
+      setSendEmailInterval('Interval is off');
+    };
+  }, [sendEmailBtnTimer]); 
 
   async function handleSendEmailPassword(event) {
     event.preventDefault();
+    if (isLoading) return;
+    if (isBlocked) return setSendWaitMsg(true);
     if (emailValue === '') return setMessagesArray(['Please enter your email']);
     if (!validateEmail(emailValue)) return setMessagesArray(['Please enter a valid email']);
+    setIsLoading(true);
     const auxArray = [];    
     const response = await fetch('/users/sendChangePassword', {
       method: 'POST',
@@ -27,14 +49,16 @@ function EmailPasswordBtn () {
     let json = await response.json();
     auxArray.push(json.message);
     if (json.message === 'Email sent') setEmailToUpdate(emailValue);
+    setSendEmailBtnTimer(10);
     setMessagesArray(auxArray);
+    setIsLoading(false);
   };
 
   return (
     <button
       className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSendEmailPassword}
-    >Send Email
+    >{isBlocked ? `${sendEmailBtnTimer}s`: 'Send Email'}
     </button>
   );
 };

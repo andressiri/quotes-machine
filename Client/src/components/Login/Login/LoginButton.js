@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 import validateEmail from '../../../functions/validateEmail.js';
@@ -12,10 +12,13 @@ function LoginButton () {
   const [verified, setVerified] = refs.ver;
   const [emailValue, setEmailValue] = forms.email;
   const [passwordValue, setPasswordValue] = forms.pass;
+  const [isLoading, setIsLoading] = useState(false); 
   const redirectTo = useRedirectTo();
 
   async function handleSubmitLogin(event) {
     event.preventDefault();
+    if (isLoading) return;
+    setIsLoading(true);
     const auxArray = [];
     if (emailValue === '' || passwordValue === '') {
       auxArray.push('Please fill all fields');
@@ -49,6 +52,7 @@ function LoginButton () {
       };  
     };
     setMessagesArray(auxArray);
+    setIsLoading(false);
   };
 
   return (

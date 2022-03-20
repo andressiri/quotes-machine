@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 // Load User Model
 const User = require("../models/User.js");
 
-module.exports = function (passport) {
+module.exports = passport => {
   passport.use(
     new LocalStrategy({ passReqToCallback: true, usernameField: "email" }, (req, email, password, done) => {
       // Match User

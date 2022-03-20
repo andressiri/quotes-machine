@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 import validateEmail from '../../../functions/validateEmail.js';
@@ -12,10 +12,13 @@ function RegisterButton () {
   const [emailValue, setEmailValue] = forms.email;
   const [passwordValue, setPasswordValue] = forms.pass;
   const [password2Value, setPassword2Value] = forms.pass2;
+  const [isLoading, setIsLoading] = useState(false); 
   const redirectTo = useRedirectTo();
 
   async function handleSubmitRegister(event) {
     event.preventDefault();
+    if (isLoading) return;
+    setIsLoading(true);
     const auxArray = [];    
     //Check required fields
     if (nameValue === '' || emailValue === '' || passwordValue === '' || password2Value === '') {
@@ -52,6 +55,7 @@ function RegisterButton () {
       if (json.message === `${nameValue} was registered successfully`) redirectTo('/login');
     };
     setMessagesArray(auxArray);
+    setIsLoading(false);
   };
 
   return (

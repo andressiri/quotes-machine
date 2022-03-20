@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
-let transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
   secure: true, // true for 465, false for other ports
@@ -16,4 +16,15 @@ transporter.verify()
     console.log('Ready to send mails...');
   });
 
-module.exports = transporter;
+//  send email
+const sendEmail = async (sendTo, subject, mailTemplate) => {
+  const mail = await transporter.sendMail({
+    from: 'siri.andres.l@gmail.com', 
+    to: sendTo, 
+    subject: subject,
+    html: mailTemplate 
+  });
+};   
+
+exports.transporter = transporter;
+exports.sendEmail = sendEmail;

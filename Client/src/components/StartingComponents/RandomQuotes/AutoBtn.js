@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useState} from 'react';
 import {Context} from '../../../Context.js';
 import useNewQuote from '../../../functions/useNewQuote.js';
 import useStopAuto from '../../../functions/useStopAuto.js';
@@ -10,7 +10,8 @@ function AutoBtn () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [handleAuto, setHandleAuto] = auto.hAuto;
   const [autoClass, setAutoClass] = auto.aClass;
-  const [autoTime, setAutoTime] = auto.aTime; 
+  const [autoTime, setAutoTime] = auto.aTime;
+  const [isLoading, setIsLoading] = useState(false); 
   const newQuote = useNewQuote();
   const stopAuto = useStopAuto();
   let autoText = imgBGColor;
@@ -24,6 +25,8 @@ function AutoBtn () {
   };
   
   async function handleAutoBtn() {
+    if (isLoading) return;
+    setIsLoading(true);
     if (handleAuto === 'Interval is off') {
       setAutoClass(true);
       newQuote();    
@@ -31,6 +34,9 @@ function AutoBtn () {
     } else {
       stopAuto();
     };
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   };
 
   return (
