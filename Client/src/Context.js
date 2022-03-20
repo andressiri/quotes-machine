@@ -23,7 +23,7 @@ export const ContextProvider = (props) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [verified, setVerified] = useState(false);
   const [emailToUpdate, setEmailToUpdate] = useState('');
-  //custom
+  //custom ---> Edit menu
   const [fontFam, setFontFam] = useState('Arial, Helvetica, sans-serif');
   const [boldFont, setBoldFont] = useState('normal');
   const [italicFont, setItalicFont] = useState('normal');
@@ -38,6 +38,13 @@ export const ContextProvider = (props) => {
   const [passwordValue, setPasswordValue] = useState('');
   const [password2Value, setPassword2Value] = useState('');
   const [codeValue, setCodeValue] = useState('');
+  //timers
+  const [checkCodeBtnTimer, setCheckCodeBtnTimer] = useState(0);
+  const [checkCodeInterval, setCheckCodeInterval] = useState('Interval is off'); 
+  const [checkWaitMsg, setCheckWaitMsg] = useState(false); 
+  const [sendEmailBtnTimer, setSendEmailBtnTimer] = useState(0);  
+  const [sendEmailInterval, setSendEmailInterval] = useState('Interval is off'); 
+  const [sendWaitMsg, setSendWaitMsg] = useState(false); 
   
   return (
     <Context.Provider value={{
@@ -81,6 +88,14 @@ export const ContextProvider = (props) => {
         pass: [passwordValue, setPasswordValue],
         pass2: [password2Value, setPassword2Value],
         code: [codeValue, setCodeValue]
+      },
+      timers: {
+        check: [checkCodeBtnTimer, setCheckCodeBtnTimer],
+        codeInt: [checkCodeInterval, setCheckCodeInterval],
+        checkWait: [checkWaitMsg, setCheckWaitMsg],
+        send: [sendEmailBtnTimer, setSendEmailBtnTimer],
+        sendInt: [sendEmailInterval, setSendEmailInterval],
+        sendWait: [sendWaitMsg, setSendWaitMsg]
       }
     }}>
       {props.children}

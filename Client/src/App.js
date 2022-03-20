@@ -18,7 +18,6 @@ function App() {
       redirectTo('/');
     };  
   }, [location.pathname]);
-  
 
   return (
     <div className={`App BG-color${colorNumber}`}>

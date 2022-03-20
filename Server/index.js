@@ -39,9 +39,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
-app.use("/", require("./routes/app"));
-app.use("/quotes", require("./routes/quotes"));
-app.use("/users", require("./routes/users"));
+app.use('/', require('./routes/app.js'));
+app.use('/quotes', require('./routes/quotes.js'));
+app.use('/users', require('./routes/users/users.js'));
 
 const PORT = process.env.PORT || 3001;
 

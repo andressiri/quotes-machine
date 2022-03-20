@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 
@@ -10,10 +10,13 @@ function ChangePasswordBtn () {
   const [emailToUpdate, setEmailToUpdate] = refs.email;
   const [passwordValue, setPasswordValue] = forms.pass;
   const [password2Value, setPassword2Value] = forms.pass2;
+  const [isLoading, setIsLoading] = useState(false); 
   const redirectTo = useRedirectTo();
 
   async function handleSubmitNewPassword(event) {
     event.preventDefault();
+    if (isLoading) return;
+    setIsLoading(true);
     const auxArray = [];    
     //Check required fields
     if (passwordValue === '' || password2Value === '') {
@@ -45,6 +48,7 @@ function ChangePasswordBtn () {
       redirectTo('/login');
     };
     setMessagesArray(auxArray);
+    setIsLoading(false);
   };
 
   return (
