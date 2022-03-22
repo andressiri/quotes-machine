@@ -14,7 +14,7 @@ function DefaultImgBtn () {
   function handleDefaultImg () {
     shareImg();
     setShareChosen('');
-    redirectTo('/');
+    redirectTo('/box/app');
   };  
 
   return (

@@ -15,6 +15,7 @@ if (process.env.ENVIRONMENT == 'development'){
 
 // Rate limiter to avoid multiple clicking
 exports.multipleClickingLimiter = require('./multipleClickingLimiter.js')(store);
+exports.extraMultipleClickingLimiter = require('./extraMultipleClickingLimiter.js')(store);
 
 // Prevent too many attempts for the same username from the same ip
 exports.tooManyRequestsForUser = require('./tooManyRequestsForUser.js')(store);

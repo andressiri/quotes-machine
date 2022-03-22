@@ -19,7 +19,7 @@ function LoginBtn() {
     if (loggedIn) {
       checkVerified();
     } else {
-      redirectTo('/login');
+      redirectTo('/box/login');
     };    
   };
 

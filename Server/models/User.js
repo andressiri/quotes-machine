@@ -16,8 +16,12 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  userQuotesId: {
+    type: String,
+    required: true
   }
-});
+}, {collection: 'users'});
 
 const User = mongoose.model("User", userSchema);
 

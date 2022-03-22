@@ -32,7 +32,8 @@ registerRouter.post('/',
               name: name,
               email: email,
               verifiedEmail: false,
-              password: password
+              password: password,
+              userQuotesId: 'Create userQuotes at first save'
             });
             // Hash Password
             bcrypt.genSalt(10, (err, salt) =>

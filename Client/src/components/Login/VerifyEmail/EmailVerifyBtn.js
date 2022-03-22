@@ -8,24 +8,11 @@ function EmailVerifyBtn () {
   const [messagesArray, setMessagesArray] = refs.msg;
   const [emailToUpdate, setEmailToUpdate] = refs.email;
   const [sendEmailBtnTimer, setSendEmailBtnTimer] = timers.send;
-  const [sendEmailInterval, setSendEmailInterval] = timers.sendInt;
   const [sendWaitMsg, setSendWaitMsg] = timers.sendWait;
   const [isLoading, setIsLoading] = useState(false);   
   let isBlocked = false;
 
-  if (sendEmailBtnTimer !== 0) isBlocked = true;
-
-  useEffect(() => {  
-    if (sendEmailBtnTimer > 0 && sendEmailInterval === 'Interval is off') {
-      setSendEmailInterval(setInterval(() => {
-        setSendEmailBtnTimer(sendEmailBtnTimer => sendEmailBtnTimer - 1);
-      }, 1000));
-    } else if (sendEmailBtnTimer <= 0) {
-      setSendWaitMsg(false);
-      clearInterval(sendEmailInterval);
-      setSendEmailInterval('Interval is off');
-    };
-  }, [sendEmailBtnTimer]);   
+  if (sendEmailBtnTimer !== 0) isBlocked = true;   
   
   async function handleSendEmailVerify(event) {
     event.preventDefault();

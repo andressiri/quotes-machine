@@ -5,9 +5,10 @@ const rateLimiter = require('../../config/requestsRateLimiter/rateLimiter.js');
 // Login handle - Authorization
 loginRouter.post('/',
   rateLimiter.max500RequestsPerday.prevent,
-  rateLimiter.multipleClickingLimiter.prevent,
+  // different multiple clicking limiter, bacause login makes a two consecutive requests.
+  rateLimiter.extraMultipleClickingLimiter.prevent,
   // prevent too many attempts for the same username from the same ip
-  rateLimiter.tooManyRequestsForUser.getMiddleware({key: (req, res, next) => next(req.body.email)}),
+  rateLimiter.tooManyAttempts.prevent,
   (req, res) => {
     const msg = req.flash('message');
     // check if authentication was requested first

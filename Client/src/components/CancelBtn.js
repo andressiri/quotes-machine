@@ -13,7 +13,7 @@ function CancelBtn () {
   const location = useLocation();
   let hideCancelBtn = true;
 
-  if (location.pathname !== '/') {
+  if (location.pathname !== '/box/app') {
     hideCancelBtn = false;
   }; 
 
@@ -21,7 +21,7 @@ function CancelBtn () {
     setEmailToUpdate('');
     setMessagesArray([]);
     setShareChosen('');
-    redirectTo('/');
+    redirectTo('/box/app');
   };
   
   if (hideCancelBtn) {

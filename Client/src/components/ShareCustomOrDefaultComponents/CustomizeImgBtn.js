@@ -9,7 +9,7 @@ function CustomizeImgBtn () {
   const redirectTo = useRedirectTo();
   
   function handleCustomizeImg () {
-    redirectTo('/edit');
+    redirectTo('/box/edit');
   };  
 
   return (

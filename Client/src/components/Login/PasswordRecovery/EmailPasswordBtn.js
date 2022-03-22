@@ -10,24 +10,11 @@ function EmailPasswordBtn () {
   const [emailToUpdate, setEmailToUpdate] = refs.email;
   const [emailValue, setEmailValue] = forms.email;
   const [sendEmailBtnTimer, setSendEmailBtnTimer] = timers.send;
-  const [sendEmailInterval, setSendEmailInterval] = timers.sendInt;
   const [sendWaitMsg, setSendWaitMsg] = timers.sendWait;
   const [isLoading, setIsLoading] = useState(false);   
   let isBlocked = false;
 
   if (sendEmailBtnTimer !== 0) isBlocked = true;
-
-  useEffect(() => {  
-    if (sendEmailBtnTimer > 0 && sendEmailInterval === 'Interval is off') {
-      setSendEmailInterval(setInterval(() => {
-        setSendEmailBtnTimer(sendEmailBtnTimer => sendEmailBtnTimer - 1);
-      }, 1000));
-    } else if (sendEmailBtnTimer <= 0) {
-      setSendWaitMsg(false);
-      clearInterval(sendEmailInterval);
-      setSendEmailInterval('Interval is off');
-    };
-  }, [sendEmailBtnTimer]); 
 
   async function handleSendEmailPassword(event) {
     event.preventDefault();
@@ -48,7 +35,9 @@ function EmailPasswordBtn () {
     });
     let json = await response.json();
     auxArray.push(json.message);
-    if (json.message === 'Email sent') setEmailToUpdate(emailValue);
+    console.log(json.message);
+    console.log(emailValue);
+    if (json.message === 'Email sent with the code') setEmailToUpdate(emailValue);
     setSendEmailBtnTimer(10);
     setMessagesArray(auxArray);
     setIsLoading(false);

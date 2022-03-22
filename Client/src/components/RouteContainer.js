@@ -12,14 +12,15 @@ import RegisterForm from "./Login/Register/RegisterForm";
 import ForgotPassword from "./Login/PasswordRecovery/ForgotPassword.js";
 import ChangePassword from "./Login/ChangePassword/ChangePassword.js";
 
-function GroupContainer() {
-  const { colors } = useContext(Context);
+function RouteContainer() {
+  const {colors} = useContext(Context);
   const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const [colorNumber, setColorNumber] = colors.colorNum;
 
   return (
-    <div className={`groupContainer BG-color${imgBGColor}`}>
+    <div className={`routeContainer BG-color${imgBGColor}`}>
       <Routes>
-        <Route path='/' exact element={<StartingContainer />} />
+        <Route path='/app' exact element={<StartingContainer />} />
         <Route path='/txtOrImg' exact element={<ChooseTxtOrImgSet />} />
         <Route path='/customOrDefault' exact element={<ShareCustomOrDefaultSet />} />
         <Route path='/edit' exact element={<EditSet />} />
@@ -34,4 +35,4 @@ function GroupContainer() {
   );
 }
 
-export default GroupContainer;
+export default RouteContainer;

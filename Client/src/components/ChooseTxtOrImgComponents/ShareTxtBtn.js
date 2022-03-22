@@ -15,7 +15,7 @@ function ShareTxtBtn () {
   function handleShareTxt () {
     shareTxt();
     setShareChosen('');
-    redirectTo('/');
+    redirectTo('/box/app');
   };  
 
   return (

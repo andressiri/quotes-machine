@@ -12,12 +12,12 @@ function LoginForm() {
   
   function handleForgotPassword() {
     setMessagesArray([]);
-    redirectTo('/forgotPassword');
+    redirectTo('/box/forgotPassword');
   };
 
   function handleRegister() {
     setMessagesArray([]);
-    redirectTo('/register');
+    redirectTo('/box/register');
   };
 
   return (

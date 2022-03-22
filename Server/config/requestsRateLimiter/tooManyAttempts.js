@@ -8,7 +8,7 @@ const tooManyAttemptsCallback = (req, res, next, nextValidRequestDate) => {
   res.status(429).json({message: `You've made too many failed attempts in a short period of time, please try again ${moment(nextValidRequestDate).fromNow()}`});  
 };
   
-// Prevent too many attempts for the same username from the same ip
+// Prevent too many attempts for the same ip
 module.exports = store => {
   return new ExpressBrute(store, {
     freeRetries: 4,

@@ -9,7 +9,7 @@ function ShareImgBtn () {
   const redirectTo = useRedirectTo();
   
   function handleShareImg () {
-    redirectTo('/customOrDefault');
+    redirectTo('/box/customOrDefault');
   };  
 
   return (

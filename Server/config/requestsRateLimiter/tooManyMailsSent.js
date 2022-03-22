@@ -11,7 +11,7 @@ const tooManyMailsSentCallback = (req, res, next, nextValidRequestDate) => {
 // Prevent too many attempts for the same username from the same ip
 module.exports = store => {
   return new ExpressBrute(store, {
-    freeRetries: 2,
+    freeRetries: 4,
     minWait: 5*60*1000, // 5 minutes
     maxWait: 60*60*1000, // 1 hour,
     failCallback: tooManyMailsSentCallback,

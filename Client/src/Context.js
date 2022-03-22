@@ -11,6 +11,7 @@ export const ContextProvider = (props) => {
   const [quoteText, setQuoteText] = useState('Welcome to my quotes machine.');
   const [author, setAuthor] = useState('Andrés Siri');
   const [fadeQuote, setFadeQuote] = useState('In');
+  const [savedQuotesArray, setSavedQuotesArray] = useState([]);
   //auto
   const [handleAuto, setHandleAuto] = useState('Interval is off');
   const [autoClass, setAutoClass] = useState(false);
@@ -19,7 +20,7 @@ export const ContextProvider = (props) => {
   const quoteRef = useRef('null');
   const [shareChosen, setShareChosen] = useState('');
   const [messagesArray, setMessagesArray] = useState([]);
-  const [currentPath, setCurrentPath] = useState('/');
+  const [currentPath, setCurrentPath] = useState('/box/app');
   const [loggedIn, setLoggedIn] = useState(false);
   const [verified, setVerified] = useState(false);
   const [emailToUpdate, setEmailToUpdate] = useState('');
@@ -55,7 +56,8 @@ export const ContextProvider = (props) => {
       quote: {
         quoteTxt: [quoteText, setQuoteText],
         auth: [author, setAuthor],
-        fadQ: [fadeQuote, setFadeQuote]
+        fadQ: [fadeQuote, setFadeQuote],
+        saved: [savedQuotesArray, setSavedQuotesArray]
       },
       auto: {
         hAuto: [handleAuto, setHandleAuto],
