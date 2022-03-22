@@ -1,0 +1,26 @@
+@import '../variables.scss';
+
+.timeBtn {
+  height: $btnSize;
+  width: 39px;
+  border-radius: 0px $btnRadius $btnRadius 0px;
+  font-family: $fontFamily;
+  margin: 10px 10px 10px 1px;
+  cursor: pointer;
+  font-weight: bolder;    
+}
+
+.timeBtnOn {
+  @extend .timeBtn;  
+  border-width: 2px  !important;
+  border-style: solid;
+}
+
+.timeBtnOff {
+  @extend .timeBtn;    
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-left: 1px;
+}
+

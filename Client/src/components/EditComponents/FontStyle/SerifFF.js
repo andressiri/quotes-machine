@@ -2,10 +2,10 @@ import React, {useContext} from "react";
 import {Context} from "../../../Context.js";
 
 function SerifFF () {
-  const {colors, custom} = useContext(Context);
+  const {colors, edit} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [fontFam, setFontFam] = custom.fontF;
+  const [fontFam, setFontFam] = edit.fontF;
   let serifBGColor = imgBGColor;
   let serifTxtColor = colorNumber;
 
@@ -19,7 +19,7 @@ function SerifFF () {
   };
 
   return (
-    <button className={`customBtn fFam BG-color${serifBGColor} text-color${serifTxtColor}`} style={{fontFamily: "Garamond, serif"}} onClick={handleSerifFF}>Aa</button>
+    <button className={`editBtn fFam BG-color${serifBGColor} text-color${serifTxtColor}`} style={{fontFamily: "Garamond, serif"}} onClick={handleSerifFF}>Aa</button>
   );
 };
 

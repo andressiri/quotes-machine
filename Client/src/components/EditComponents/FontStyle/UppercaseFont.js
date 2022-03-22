@@ -2,10 +2,10 @@ import React, {useContext} from "react";
 import {Context} from "../../../Context.js";
 
 function UppercaseFont () {
-  const {colors, custom} = useContext(Context);
+  const {colors, edit} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [upperFont, setUpperFont] = custom.upperF;
+  const [upperFont, setUpperFont] = edit.upperF;
   let upperBGColor = imgBGColor;
   let upperTxtColor = colorNumber;
 
@@ -23,7 +23,7 @@ function UppercaseFont () {
   };
 
   return (
-    <button className={`customBtn fFam BG-color${upperBGColor} text-color${upperTxtColor}`} onClick={handleUppercaseFont}>UP</button>
+    <button className={`editBtn fFam BG-color${upperBGColor} text-color${upperTxtColor}`} onClick={handleUppercaseFont}>UP</button>
   );
 };
 

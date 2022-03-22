@@ -16,7 +16,7 @@ function FontStyle () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
 
   return (
-    <div className={`customGroup BG-color${imgBGColor} text-color${colorNumber}`}>
+    <div className={`editGroup BG-color${imgBGColor} text-color${colorNumber}`}>
       <p className={`text-color${colorNumber}`}  style={{marginRight: "5px"}}>Style</p>
       <div>
         <SansSerifFF />

@@ -19,7 +19,7 @@ function OrangeTxt () {
   };
 
   return (
-    <button className={`customBtn BG-color1 ${orangeTxtState}`} onClick={handleOrangeTxt}></button>
+    <button className={`editBtn BG-color1 ${orangeTxtState}`} onClick={handleOrangeTxt}></button>
   );
 };
 

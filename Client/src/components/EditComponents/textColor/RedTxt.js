@@ -19,7 +19,7 @@ function RedTxt () {
   };
 
   return (
-    <button className={`customBtn BG-color0 ${redTxtState}`} onClick={handleRedTxt}></button>
+    <button className={`editBtn BG-color0 ${redTxtState}`} onClick={handleRedTxt}></button>
   );
 };
 

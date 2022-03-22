@@ -19,7 +19,7 @@ function BlackTxt () {
   };
 
   return (
-    <button className={`customBtn BG-color7 ${blackTxtState}`} onClick={handleBlackTxt}></button>
+    <button className={`editBtn BG-color7 ${blackTxtState}`} onClick={handleBlackTxt}></button>
   );
 };
 

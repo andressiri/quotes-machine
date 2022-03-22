@@ -19,7 +19,7 @@ function VioletTxt () {
   };
 
   return (
-    <button className={`customBtn BG-color6 ${violetTxtState}`} onClick={handleVioletTxt}></button>
+    <button className={`editBtn BG-color6 ${violetTxtState}`} onClick={handleVioletTxt}></button>
   );
 };
 

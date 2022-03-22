@@ -2,10 +2,10 @@ import React, {useContext} from "react";
 import {Context} from "../../../Context.js";
 
 function BoldFont () {
-  const {colors, custom} = useContext(Context);
+  const {colors, edit} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [boldFont, setBoldFont] = custom.boldF;
+  const [boldFont, setBoldFont] = edit.boldF;
   let boldBGColor = imgBGColor;
   let boldTxtColor = colorNumber;
 
@@ -23,7 +23,7 @@ function BoldFont () {
   };
 
   return (
-    <button className={`customBtn fFam BG-color${boldBGColor} text-color${boldTxtColor}`} style={{fontWeight: 'bold'}} onClick={handleBoldFont}>N</button>
+    <button className={`editBtn fFam BG-color${boldBGColor} text-color${boldTxtColor}`} style={{fontWeight: 'bold'}} onClick={handleBoldFont}>N</button>
   );
 };
 

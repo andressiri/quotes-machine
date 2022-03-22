@@ -19,7 +19,7 @@ function BlackBG () {
   };
 
   return (
-    <button className={`customBtn BG-color7 ${blackBGState}`} onClick={handleBlackBG}></button>
+    <button className={`editBtn BG-color7 ${blackBGState}`} onClick={handleBlackBG}></button>
   );
 };
 
