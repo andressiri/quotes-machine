@@ -14,7 +14,7 @@ function ChangePassword() {
   function handleGoToLogin() {
     setEmailToUpdate('');
     setMessagesArray([]);
-    redirectTo('/login');
+    redirectTo('/box/login');
   };
 
   return (

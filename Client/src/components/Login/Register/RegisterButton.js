@@ -52,10 +52,13 @@ function RegisterButton () {
       let json = await response.json();
       auxArray.push(json.message);
       // Check if mail was available
-      if (json.message === `${nameValue} was registered successfully`) redirectTo('/login');
+      if (json.message === `${nameValue} was registered successfully`) {
+        setIsLoading(false);
+        redirectTo('/box/login');
+      };
     };
     setMessagesArray(auxArray);
-    setIsLoading(false);
+    if (isLoading) setIsLoading(false);
   };
 
   return (

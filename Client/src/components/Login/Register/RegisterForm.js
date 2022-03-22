@@ -14,7 +14,7 @@ function RegisterForm() {
 
   function handleGoToLogin() {
     setMessagesArray([]);
-    redirectTo('/login');
+    redirectTo('/box/login');
   };
 
   return (

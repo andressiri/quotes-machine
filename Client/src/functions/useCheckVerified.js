@@ -9,9 +9,9 @@ function useCheckVerified () {
     
   const checkVerified = function checkAndRedirect () {
     if (verified) {
-      redirectTo('/loggedIn');
+      redirectTo('/box/loggedIn');
     } else {
-      redirectTo('/verifyEmail');
+      redirectTo('/box/verifyEmail');
     };
   };  
   return checkVerified;

@@ -45,10 +45,11 @@ function ChangePasswordBtn () {
       let json = await response.json();
       auxArray.push(json.message);
       setEmailToUpdate('');
-      redirectTo('/login');
+      setIsLoading(false);
+      redirectTo('/box/login');
     };
     setMessagesArray(auxArray);
-    setIsLoading(false);
+    if (isLoading) setIsLoading(false);
   };
 
   return (

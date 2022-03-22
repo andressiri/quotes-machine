@@ -5,24 +5,30 @@ const router = express.Router();
 router.use('/register', require('./register.js'));
 
 // Login Handle
-  //  Authentication
+  //Authentication
 router.use('/loginAuth', require('./loginAuth.js'));
-  //  Authorization
+  //Authorization
 router.use('/login', require('./login.js'));
 
 // Logout and session reset handle
 router.use('/logout', require('./logout.js'));
 
 // Email verification and change password handle
-  //  Send email for verification
+  //Send email for verification
 router.use('/sendVerifyEmail', require('./sendVerifyEmail.js'));
-  //  check code
+  //Check code
 router.use('/verifyEmail', require('./verifyEmail.js'));
 
 // Change Password handle
-  // Send email for password recovery
+  //Send email for password recovery
 router.use('/sendChangePassword', require('./sendChangePassword.js'));
-  // Change password
-router.use('/changePassword', require('./changePassword.js'));  
+  //Change password
+router.use('/changePassword', require('./changePassword.js'));
+
+//Save quotes handle
+  //Save new quote
+router.use('/saveQuote', require('./saveQuote.js'));
+  //Get saved quotes
+router.use('/getSavedQuotes', require('./getSavedQuotes.js'));
 
 module.exports = router;

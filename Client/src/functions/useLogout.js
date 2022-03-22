@@ -3,7 +3,8 @@ import {Context} from './../Context.js';
 import useRedirectTo from './useRedirectTo.js';
 
 function useLogout () {
-  const {refs} = useContext(Context);
+  const {quote, refs} = useContext(Context);
+  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [messagesArray, setMessagesArray] = refs.msg;
   const [loggedIn, setLoggedIn] = refs.logged;
   const [verified, setVerified] = refs.ver;
@@ -11,10 +12,11 @@ function useLogout () {
     
   const logout = function logoutHandle () {
     const logout = fetch('/users/logout', {method: "DELETE"});
+    setSavedQuotesArray([]);
     setMessagesArray([]);
     setLoggedIn(false);
     setVerified(false);
-    redirectTo('/login');
+    redirectTo('/box/login');
   };  
   return logout;
 };

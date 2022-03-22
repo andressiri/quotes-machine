@@ -39,20 +39,21 @@ function LoginButton () {
       const response = await fetch('/users/login', {method: 'POST'});
       let json = await response.json();    
       if (json.message === 'Login success') {
+        setIsLoading(false);
         setLoggedIn(true);
         setVerified(json.verified);        
         // can't use checkVerified because state won't update properly
-        if (json.verified) {
-          redirectTo('/loggedIn');
+        if (json.verified) {          
+          redirectTo('/box/loggedIn');
         } else {
-          redirectTo('/verifyEmail');
+          redirectTo('/box/verifyEmail');
         };
       } else {
         auxArray.push(json.message);
       };  
     };
     setMessagesArray(auxArray);
-    setIsLoading(false);
+    if (isLoading) setIsLoading(false);
   };
 
   return (

@@ -14,7 +14,7 @@ function SendCustomBtn () {
   async function handleSendCustom () {
     await shareImg();
     setShareChosen('');
-    redirectTo('/');
+    redirectTo('/box/app');
     setImgBGColor(8);
   }; 
 

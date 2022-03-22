@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {Context} from '../Context.js';
 import StartingSetRQ from './StartingComponents/RandomQuotes/StartingSetRQ.js';
 import Quote from './Quote.js';
-import GroupContainer from './GroupContainer.js'
+import RouteContainer from './RouteContainer.js'
 import CancelBtn from './CancelBtn.js';
 import './../styles/QuoteBox.scss';
 
@@ -15,7 +15,7 @@ function QuoteBox() {
     <div id="quote-box" className={`quoteBox BG-color${imgBGColor} text-color${colorNumber}`}>
       <StartingSetRQ />
       <Quote />
-      <GroupContainer />
+      <RouteContainer />
       <CancelBtn />
     </div>
   );

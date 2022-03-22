@@ -3,6 +3,7 @@ import CopyToClipboardBtn from './CopyToClipboardBtn.js';
 import TumblrBtn from './TumblrBtn.js';
 import TwitterBtn from './TwitterBtn.js';
 import SaveBtn from './SaveBtn.js';
+import SavedWallBtn from './SavedWallBtn.js';
 
 function StartingSetSharing () {
   return (
@@ -12,6 +13,7 @@ function StartingSetSharing () {
       <TumblrBtn />
       <TwitterBtn />
       <SaveBtn />
+      <SavedWallBtn />
     </div>    
   );
 };

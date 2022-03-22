@@ -14,7 +14,7 @@ function StartingSetRQ () {
   return (
     <div className={`StartingSetRQ BG-color${imgBGColor} text-color${colorNumber}`}>
       <Routes>
-        <Route path='/' element={
+        <Route path='/app'  element={
           <div>
             <AutoBtn/>
             <SetAutoTimeBtn />

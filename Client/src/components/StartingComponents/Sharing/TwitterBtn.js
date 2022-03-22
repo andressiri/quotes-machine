@@ -14,7 +14,7 @@ function TwitterBtn() {
   function handleTwitter () {
     stopAuto();
     setShareChosen('Twitter');
-    redirectTo('/txtOrImg');
+    redirectTo('/box/txtOrImg');
   };
 
   return (
