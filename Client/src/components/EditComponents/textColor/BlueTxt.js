@@ -19,7 +19,7 @@ function BlueTxt () {
   };
 
   return (
-    <button className={`customBtn BG-color4 ${blueTxtState}`} onClick={handleBlueTxt}></button>
+    <button className={`editBtn BG-color4 ${blueTxtState}`} onClick={handleBlueTxt}></button>
   );
 };
 

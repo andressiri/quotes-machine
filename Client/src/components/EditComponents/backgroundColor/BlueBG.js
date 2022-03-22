@@ -19,7 +19,7 @@ function BlueBG () {
   };
 
   return (
-    <button className={`customBtn BG-color4 ${blueBGState}`} onClick={handleBlueBG}></button>
+    <button className={`editBtn BG-color4 ${blueBGState}`} onClick={handleBlueBG}></button>
   );
 };
 

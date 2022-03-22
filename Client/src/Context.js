@@ -73,7 +73,7 @@ export const ContextProvider = (props) => {
         ver: [verified, setVerified],
         email: [emailToUpdate, setEmailToUpdate]
       },
-      custom: {
+      edit: {
         fontF: [fontFam, setFontFam],
         boldF: [boldFont, setBoldFont],
         italicF: [italicFont, setItalicFont],

@@ -5,7 +5,9 @@ import useRedirectTo from "../functions/useRedirectTo.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function CancelBtn () {
-  const {refs} = useContext(Context);
+  const {colors, refs} = useContext(Context);
+  const [colorNumber, setColorNumber] = colors.colorNum;
+  const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [shareChosen, setShareChosen] = refs.sChosen;
   const [messagesArray, setMessagesArray] = refs.msg;
   const [emailToUpdate, setEmailToUpdate] = refs.email;
@@ -30,7 +32,7 @@ function CancelBtn () {
     );
   } else {
     return (
-      <FontAwesomeIcon className={`icon cancel`} onClick={handleCancel} icon="times" />
+      <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleCancel} icon="times" />
     );
   };
 };

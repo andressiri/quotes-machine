@@ -6,14 +6,15 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 function ShareImgBtn () {
   const {colors, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
+  const [imgBGColor, setImgBGColor] = colors.imgBG;
   const redirectTo = useRedirectTo();
   
   function handleShareImg () {
-    redirectTo('/box/customOrDefault');
+    redirectTo('/box/editOrOk');
   };  
 
   return (
-    <FontAwesomeIcon className={`icon text-color${colorNumber}`} onClick={handleShareImg} icon="image" />
+    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleShareImg} icon="image" />
   );
 };
 

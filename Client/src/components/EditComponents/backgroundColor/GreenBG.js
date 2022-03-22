@@ -18,7 +18,7 @@ function GreenBG () {
   };
 
   return (
-    <button className={`customBtn BG-color3 ${greenBGState}`} onClick={handleGreenBG}></button>
+    <button className={`editBtn BG-color3 ${greenBGState}`} onClick={handleGreenBG}></button>
   );
 };
 

@@ -19,7 +19,7 @@ function IndigoBG () {
   };
 
   return (
-    <button className={`customBtn BG-color5 ${indigoBGState}`} onClick={handleIndigoBG}></button>
+    <button className={`editBtn BG-color5 ${indigoBGState}`} onClick={handleIndigoBG}></button>
   );
 };
 

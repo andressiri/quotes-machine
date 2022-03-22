@@ -2,10 +2,10 @@ import React, {useContext} from "react";
 import {Context} from "../../../Context.js";
 
 function SansSerifFF () {
-  const {colors, custom} = useContext(Context);
+  const {colors, edit} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [fontFam, setFontFam] = custom.fontF;
+  const [fontFam, setFontFam] = edit.fontF;
   let sansSerifBGColor = imgBGColor;
   let sansSerifTxtColor = colorNumber;
 
@@ -19,7 +19,7 @@ function SansSerifFF () {
   };
 
   return (
-    <button className={`customBtn fFam BG-color${sansSerifBGColor} text-color${sansSerifTxtColor}`} style={{fontFamily: "Arial, Helvetica, sans-serif"}} onClick={handleSansSerifFF}>Aa</button>
+    <button className={`editBtn fFam BG-color${sansSerifBGColor} text-color${sansSerifTxtColor}`} style={{fontFamily: "Arial, Helvetica, sans-serif"}} onClick={handleSansSerifFF}>Aa</button>
   );
 };
 

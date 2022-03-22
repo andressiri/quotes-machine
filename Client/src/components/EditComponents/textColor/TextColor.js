@@ -16,7 +16,7 @@ function TextColor () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
 
   return (
-   <div className={`customGroup reSized BG-color${colorNumber} text-color${imgBGColor}`}>
+   <div className={`editGroup reSized BG-color${colorNumber} text-color${imgBGColor}`}>
      <p className={`text-color${imgBGColor}`} style={{marginRight: "10px"}}>Text</p>
      <div>
      <WhiteTxt />

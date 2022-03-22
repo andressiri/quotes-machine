@@ -7,6 +7,7 @@ import useShareTxt from '../../functions/useShareTxt.js';
 function ShareTxtBtn () {
   const {colors, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
+  const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [shareChosen, setShareChosen] = refs.sChosen;
   const shareTxt = useShareTxt(); 
   const redirectTo = useRedirectTo();
@@ -19,7 +20,7 @@ function ShareTxtBtn () {
   };  
 
   return (
-    <FontAwesomeIcon className={`icon text-color${colorNumber}`} onClick={handleShareTxt} icon="file-word" />
+    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleShareTxt} icon="file-word" />
   );
 };
 

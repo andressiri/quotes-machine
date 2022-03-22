@@ -1,0 +1,31 @@
+@import '../variables.scss';
+
+.quote {
+  box-sizing: border-box;
+  font-family: serif, sans-serif;
+  text-align: center;    
+  height: $boxWidth;
+  width: $boxWidth;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  margin: 30px;
+}
+
+.quoteIcon {
+  width: 20px;
+}
+
+.fadeIn {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.fadeOut {
+  opacity: 0;
+  transition: opacity 0.3s;
+}

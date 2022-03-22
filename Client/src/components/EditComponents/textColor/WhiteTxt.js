@@ -19,7 +19,7 @@ function WhiteTxt () {
   };
 
   return (
-    <button className={`customBtn BG-color8 ${whiteTxtState}`} onClick={handleWhiteTxt}></button>
+    <button className={`editBtn BG-color8 ${whiteTxtState}`} onClick={handleWhiteTxt}></button>
   );
 };
 

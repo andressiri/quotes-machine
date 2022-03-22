@@ -2,10 +2,10 @@ import React, {useContext} from "react";
 import {Context} from "../../../Context.js";
 
 function MonospaceFF () {
-  const {colors, custom} = useContext(Context);
+  const {colors, edit} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [fontFam, setFontFam] = custom.fontF;
+  const [fontFam, setFontFam] = edit.fontF;
   let monospaceBGColor = imgBGColor;
   let monospaceTxtColor = colorNumber;
 
@@ -19,7 +19,7 @@ function MonospaceFF () {
   };
 
   return (
-    <button className={`customBtn fFam BG-color${monospaceBGColor} text-color${monospaceTxtColor}`} style={{fontFamily: '"Courier New", Courier, monospace'}} onClick={handleMonospaceFF}><div id="monospaceBtn">Aa</div></button>
+    <button className={`editBtn fFam BG-color${monospaceBGColor} text-color${monospaceTxtColor}`} style={{fontFamily: '"Courier New", Courier, monospace'}} onClick={handleMonospaceFF}><div id="monospaceBtn">Aa</div></button>
   );
 };
 

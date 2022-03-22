@@ -1,10 +1,8 @@
 import React, {useContext} from 'react';
 import {Context} from './Context.js';
 import {Routes, Route} from 'react-router-dom';
-import QuoteBox from './components/QuoteBox.js';
-import SavedWall from './components/SavedWall.js';
-import './styles/App.scss';
-import './styles/colorChange.scss';
+import QuoteBox from './components/QuoteBox/QuoteBox.js';
+import SavedWall from './components/SavedWall/SavedWall.js';
 
 function AppRouter() {
   const {colors} = useContext(Context);

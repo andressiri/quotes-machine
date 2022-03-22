@@ -19,7 +19,7 @@ function GreenTxt () {
   };
 
   return (
-    <button className={`customBtn BG-color3 ${greenTxtState}`} onClick={handleGreenTxt}></button>
+    <button className={`editBtn BG-color3 ${greenTxtState}`} onClick={handleGreenTxt}></button>
   );
 };
 

@@ -2,10 +2,10 @@ import React, {useContext} from "react";
 import {Context} from "../../../Context.js";
 
 function ItalicFont () {
-  const {colors, custom} = useContext(Context);
+  const {colors, edit} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [italicFont, setItalicFont] = custom.italicF;
+  const [italicFont, setItalicFont] = edit.italicF;
   let italicBGColor = imgBGColor;
   let italicTxtColor = colorNumber;
 
@@ -23,7 +23,7 @@ function ItalicFont () {
   };
 
   return (
-    <button className={`customBtn fFam BG-color${italicBGColor} text-color${italicTxtColor}`} style={{fontStyle: 'italic'}} onClick={handleItalicFont}>K</button>
+    <button className={`editBtn fFam BG-color${italicBGColor} text-color${italicTxtColor}`} style={{fontStyle: 'italic'}} onClick={handleItalicFont}>K</button>
   );
 };
 

@@ -19,7 +19,7 @@ function WhiteBG () {
   };
 
   return (
-    <button className={`customBtn BG-color8 ${whiteBGState}`} onClick={handleWhiteBG}></button>
+    <button className={`editBtn BG-color8 ${whiteBGState}`} onClick={handleWhiteBG}></button>
   );
 };
 
