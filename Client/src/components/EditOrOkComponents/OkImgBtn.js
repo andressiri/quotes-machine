@@ -9,13 +9,16 @@ function OkImgBtn () {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [shareChosen, setShareChosen] = refs.sChosen;
+  const [messagesArray, setMessagesArray] = refs.msg;
   const shareImg = useShareImg(); 
   const redirectTo = useRedirectTo(); 
   
   function handleOkImgBtn () {
     shareImg();
+    setMessagesArray(['Quote has been shared']);
+    if (shareChosen === 'Clipboard') setMessagesArray(['Quote has been copied to clipboard']);
     setShareChosen('');
-    redirectTo('/box/app');
+    redirectTo('/box/message');
   };  
 
   return (

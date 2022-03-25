@@ -3,7 +3,7 @@ import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-function AcceptBtn () {
+function WallAcceptBtn () {
   const {colors, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
@@ -11,14 +11,14 @@ function AcceptBtn () {
   const redirectTo = useRedirectTo();
 
   
-  async function handleAcceptBtn () {
+  async function handleWallAcceptBtn () {
     setMessagesArray([]);
-    redirectTo('/box/app');  
+    redirectTo('/wall');  
   }; 
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleAcceptBtn} icon='check' />
+    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleWallAcceptBtn} icon='check' />
   );
 };
 
-export default AcceptBtn;
+export default WallAcceptBtn;

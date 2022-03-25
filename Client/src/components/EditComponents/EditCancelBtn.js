@@ -7,19 +7,21 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function EditCancelBtn ({parentToChild}) {
   const {refs} = useContext(Context);
-  const [shareChosen, setShareChosen] = refs.sChosen; 
+  const [shareChosen, setShareChosen] = refs.sChosen;
+  const [messagesArray, setMessagesArray] = refs.msg;
   const redirectTo = useRedirectTo();
   const restartDefault = useRestartDefault();
   const cancelEdition = useCancelEdition(); 
   
   async function handleEditCancelBtn () {
+    setMessagesArray(['Edition has been canceled']);
     if (parentToChild.config._id === 'This was called by QuoteBox') {
       restartDefault();
       setShareChosen('');
-      redirectTo('/box/app');
+      redirectTo('/box/message');
     } else {
       cancelEdition(parentToChild.index);
-      redirectTo('/wall');      
+      redirectTo(`/wall/${parentToChild.config._id}/message`);      
     }
   }; 
 

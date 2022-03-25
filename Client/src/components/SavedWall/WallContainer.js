@@ -3,6 +3,7 @@ import {Routes, Route } from 'react-router-dom';
 import StartingWallComponents from "./WallStartingComponents/StartingWallComponents.js";
 import SavedSharingContainer from './Sharing/SavedSharingContainer.js';
 import EditSet from "../EditComponents/EditSet.js";
+import WallMessages from "./WallMessages/WallMessages.js";
 
 function WallContainer({parentToChild}) {
 
@@ -11,7 +12,8 @@ function WallContainer({parentToChild}) {
       <Routes>
         <Route path={`/*`} exact element={<StartingWallComponents parentToChild={parentToChild} />} />
         <Route path={`/${parentToChild.config._id}/savedSharing`} exact element={<SavedSharingContainer parentToChild={parentToChild} />} />
-        <Route path={`/${parentToChild.config._id}/savedEdit`} exact element={<EditSet parentToChild={parentToChild} />} />        
+        <Route path={`/${parentToChild.config._id}/savedEdit`} exact element={<EditSet parentToChild={parentToChild} />} />
+        <Route path={`/${parentToChild.config._id}/message`} exact element={<WallMessages parentToChild={parentToChild} />} />                
       </Routes>
     </div>
   );
