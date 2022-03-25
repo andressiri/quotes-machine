@@ -42,8 +42,7 @@ function EditOkBtn ({parentToChild}) {
             Accept: 'application/json',
             'Content-Type': 'application/json'},
           body: JSON.stringify({
-            quoteObj: quoteObj,
-            index: index  
+            quoteObj: quoteObj 
             })
         });
         let json = await response.json();
