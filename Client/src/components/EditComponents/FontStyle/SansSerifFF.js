@@ -1,21 +1,30 @@
 import React, {useContext} from "react";
 import {Context} from "../../../Context.js";
 
-function SansSerifFF () {
-  const {colors, edit} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
+function SansSerifFF ({parentToChild}) {
+  const {edit, quote, force} = useContext(Context);
   const [fontFam, setFontFam] = edit.fontF;
-  let sansSerifBGColor = imgBGColor;
-  let sansSerifTxtColor = colorNumber;
+  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
+  const [forceUpdate, setForceUpdate] = force.update;
+  let sansSerifBGColor = parentToChild.config.imgBG;
+  let sansSerifTxtColor = parentToChild.config.colorNum;
 
-  if (fontFam === 'Arial, Helvetica, sans-serif') {
-    sansSerifBGColor = colorNumber;
-    sansSerifTxtColor = imgBGColor;
+  if (parentToChild.config.fontF === 'Arial, Helvetica, sans-serif') {
+    sansSerifBGColor = parentToChild.config.colorNum;
+    sansSerifTxtColor = parentToChild.config.imgBG;
   }; 
 
   function handleSansSerifFF () {
-    setFontFam('Arial, Helvetica, sans-serif');
+    if (parentToChild.config._id === 'This was called by QuoteBox') {
+      setFontFam('Arial, Helvetica, sans-serif');
+    } else {
+      let auxArray = savedQuotesArray;
+      let auxObj = auxArray[parentToChild.index];
+      auxObj.fontF = 'Arial, Helvetica, sans-serif';
+      auxArray[parentToChild.index] = auxObj;
+      setSavedQuotesArray(auxArray);
+      setForceUpdate(forceUpdate => forceUpdate + 1);
+    };  
   };
 
   return (

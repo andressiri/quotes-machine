@@ -7,7 +7,8 @@ const UserQuotes = require('../../models/UserQuotes.js');
 
 getSavedQuotesRouter.get('/', 
   rateLimiter.max500RequestsPerday.prevent,
-  rateLimiter.multipleClickingLimiter.prevent,
+  // different multiple clicking limiter, bacause save can make two consecutive requests if it needs to update savedQuotesArray.
+  rateLimiter.extraMultipleClickingLimiter.prevent,
   (req, res) => {
     if (!req.user) {
       console.log('Not logged in');
@@ -19,7 +20,7 @@ getSavedQuotesRouter.get('/',
       UserQuotes.findById(req.user.userQuotesId)
         .then(userQ => {
           console.log(`${req.user.name} quotes retrieved successfully`);
-          res.json({message:`${req.user.name} quotes retrieved successfully`, quotesArray: userQ.quotesArray});        
+          res.json({message:'Quotes retrieved successfully', quotesArray: userQ.quotesArray});        
         })
         .catch(err => console.log(err));
     }; 

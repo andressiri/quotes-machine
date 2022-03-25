@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {Context} from '../../Context.js';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function Quote() {
   const {colors, quote, refs, edit} = useContext(Context);
@@ -33,13 +33,13 @@ function Quote() {
   };
 
   return (    
-    <div className={`quote BG-color${imgBGColor} text-color${colorNumber} fade${fadeQuote}`} ref={quoteRef} id='refDiv'>
-      <h1 id="text" className={`text fade${fadeQuote}`} style={textStyle} >
-        <FontAwesomeIcon icon="quote-left" className={`quoteIcon fade${fadeQuote}`} />
+    <div className={`quote BG-color${imgBGColor} text-color${colorNumber}`} ref={quoteRef} id='refDiv'>
+      <h1 id='text' className={`text fade${fadeQuote}`} style={textStyle} >
+        <FontAwesomeIcon icon='quote-left' className={`quoteIcon fade${fadeQuote}`} />
         {` ${quoteText} `}
-        <FontAwesomeIcon icon="quote-right" className={`quoteIcon fade${fadeQuote}`} /> 
+        <FontAwesomeIcon icon='quote-right' className={`quoteIcon fade${fadeQuote}`} /> 
       </h1>
-      <p id="author" className={`fade${fadeQuote}`} style={authorStyle}>{`- ${author}`}</p>       
+      <p id='author' className={`fade${fadeQuote}`} style={authorStyle}>{`- ${author}`}</p>       
     </div >
   );
 };

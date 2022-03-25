@@ -1,5 +1,4 @@
-import React, {useContext} from "react";
-import {Context} from "./../../../Context.js";
+import React from "react";
 import WhiteTxt from './WhiteTxt.js';
 import RedTxt from './RedTxt.js';
 import OrangeTxt from './OrangeTxt.js';
@@ -10,26 +9,23 @@ import IndigoTxt from './IndigoTxt.js';
 import VioletTxt from './VioletTxt.js';
 import BlackTxt from './BlackTxt.js';
 
-function TextColor () {
-  const {colors} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
-
+function TextColor ({parentToChild}) {
+  
   return (
-   <div className={`editGroup reSized BG-color${colorNumber} text-color${imgBGColor}`}>
-     <p className={`text-color${imgBGColor}`} style={{marginRight: "10px"}}>Text</p>
-     <div>
-     <WhiteTxt />
-     <RedTxt />
-     <OrangeTxt />
-     <YellowTxt />
-     <GreenTxt />
-     <BlueTxt />
-     <IndigoTxt />
-     <VioletTxt />
-     <BlackTxt />
-     </div>
-     <p className={`text-color${imgBGColor}`} style={{marginLeft: "10px"}}>Text</p>
+    <div className={`editGroup reSized BG-color${parentToChild.config.colorNum} text-color${parentToChild.config.imgBG}`}>
+      <p className={`text-color${parentToChild.config.imgBG}`} style={{marginRight: "10px"}}>Text</p>
+      <div>
+        <WhiteTxt parentToChild={parentToChild} />
+        <RedTxt parentToChild={parentToChild} />
+        <OrangeTxt parentToChild={parentToChild} />
+        <YellowTxt parentToChild={parentToChild} />
+        <GreenTxt parentToChild={parentToChild} />
+        <BlueTxt parentToChild={parentToChild} />
+        <IndigoTxt parentToChild={parentToChild} />
+        <VioletTxt parentToChild={parentToChild} />
+        <BlackTxt parentToChild={parentToChild} />
+      </div>
+      <p className={`text-color${parentToChild.config.imgBG}`} style={{marginLeft: "10px"}}>Text</p>
    </div>    
   );
 };

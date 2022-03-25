@@ -23,7 +23,7 @@ function EmailPasswordBtn () {
     if (emailValue === '') return setMessagesArray(['Please enter your email']);
     if (!validateEmail(emailValue)) return setMessagesArray(['Please enter a valid email']);
     setIsLoading(true);
-    const auxArray = [];    
+    const msgArray = [];    
     const response = await fetch('/users/sendChangePassword', {
       method: 'POST',
       headers: {
@@ -34,12 +34,12 @@ function EmailPasswordBtn () {
       }),
     });
     let json = await response.json();
-    auxArray.push(json.message);
+    msgArray.push(json.message);
     console.log(json.message);
     console.log(emailValue);
     if (json.message === 'Email sent with the code') setEmailToUpdate(emailValue);
     setSendEmailBtnTimer(10);
-    setMessagesArray(auxArray);
+    setMessagesArray(msgArray);
     setIsLoading(false);
   };
 

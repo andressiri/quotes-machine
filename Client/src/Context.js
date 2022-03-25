@@ -6,16 +6,20 @@ export const Context = createContext();
 export const ContextProvider = (props) => {
   //colors
   const [colorNumber, setColorNumber] = useState(0);
-  const [imgBGColor, setImgBGColor] = useState(7);  
+  const [imgBGColor, setImgBGColor] = useState(7);
+  const [autoColorChange, setAutoColorChange] = useState(true);  
   //quote
   const [quoteText, setQuoteText] = useState('Welcome to my quotes machine.');
   const [author, setAuthor] = useState('Andrés Siri');
   const [fadeQuote, setFadeQuote] = useState('In');
-  const [savedQuotesArray, setSavedQuotesArray] = useState([]);
+  const [savedQuotesArray, setSavedQuotesArray] = useState(['Empty Array']);
+  const [savedQuotesBackup, setSavedQuotesBackup] = useState(['Empty Array']);
   //auto
   const [handleAuto, setHandleAuto] = useState('Interval is off');
   const [autoClass, setAutoClass] = useState(false);
   const [autoTime, setAutoTime] = useState(10000);
+  const [autoSeconds, setAutoSeconds] = useState(10);
+  const [autoTimer, setAutoTimer] = useState('Interval is off');
   //refs
   const quoteRef = useRef('null');
   const [shareChosen, setShareChosen] = useState('');
@@ -24,12 +28,14 @@ export const ContextProvider = (props) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [verified, setVerified] = useState(false);
   const [emailToUpdate, setEmailToUpdate] = useState('');
-  //custom ---> Edit menu
+  //Edit menu
   const [fontFam, setFontFam] = useState('Arial, Helvetica, sans-serif');
   const [boldFont, setBoldFont] = useState('normal');
   const [italicFont, setItalicFont] = useState('normal');
   const [upperFont, setUpperFont] = useState('none');
   const [fSize, setFSize] = useState(35);
+  const [restartDefault, setRestartDefault] = useState(true);
+  const [configBackup, setConfigBackup] = useState({});
   //gall
   const [gallArray, setGallArray] = useState([{text: quoteText, author: author}]);
   const [gallChoose, setGallChoose] = useState(0);
@@ -45,24 +51,31 @@ export const ContextProvider = (props) => {
   const [checkWaitMsg, setCheckWaitMsg] = useState(false); 
   const [sendEmailBtnTimer, setSendEmailBtnTimer] = useState(0);  
   const [sendEmailInterval, setSendEmailInterval] = useState('Interval is off'); 
-  const [sendWaitMsg, setSendWaitMsg] = useState(false); 
+  const [sendWaitMsg, setSendWaitMsg] = useState(false);
+  //force
+  const [forceUpdate, setForceUpdate] = useState(0);
+  const [updateForced, setUpdateForced] = useState(0); 
   
   return (
     <Context.Provider value={{
       colors: {
         colorNum: [colorNumber, setColorNumber],
         imgBG: [imgBGColor, setImgBGColor],
+        auto: [autoColorChange, setAutoColorChange]
       },
       quote: {
         quoteTxt: [quoteText, setQuoteText],
         auth: [author, setAuthor],
         fadQ: [fadeQuote, setFadeQuote],
-        saved: [savedQuotesArray, setSavedQuotesArray]
+        saved: [savedQuotesArray, setSavedQuotesArray],
+        backup: [savedQuotesBackup, setSavedQuotesBackup]
       },
       auto: {
         hAuto: [handleAuto, setHandleAuto],
         aClass: [autoClass, setAutoClass],
-        aTime: [autoTime, setAutoTime]
+        aTime: [autoTime, setAutoTime],
+        sec: [autoSeconds, setAutoSeconds],
+        timer: [autoTimer, setAutoTimer]
       },
       refs: {
         refImg: quoteRef,
@@ -78,7 +91,9 @@ export const ContextProvider = (props) => {
         boldF: [boldFont, setBoldFont],
         italicF: [italicFont, setItalicFont],
         upperF: [upperFont, setUpperFont],
-        fontS: [fSize, setFSize]
+        fontS: [fSize, setFSize],
+        auto: [restartDefault, setRestartDefault],
+        cBackup: [configBackup, setConfigBackup]
       },
       gall: {
         gallA: [gallArray, setGallArray],
@@ -98,6 +113,10 @@ export const ContextProvider = (props) => {
         send: [sendEmailBtnTimer, setSendEmailBtnTimer],
         sendInt: [sendEmailInterval, setSendEmailInterval],
         sendWait: [sendWaitMsg, setSendWaitMsg]
+      },
+      force: {
+        update: [forceUpdate, setForceUpdate],
+        forced: [updateForced, setUpdateForced]
       }
     }}>
       {props.children}

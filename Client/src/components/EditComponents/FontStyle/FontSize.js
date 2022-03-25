@@ -1,22 +1,32 @@
 import React, {useContext} from "react";
 import {Context} from "../../../Context.js";
 
-function FontSize () {
-  const {colors, edit} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
+function FontSize ({parentToChild}) {
+  const {edit, quote, force} = useContext(Context);  
   const [fSize, setFSize] = edit.fontS;
+  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
+  const [forceUpdate, setForceUpdate] = force.update;
 
   function handleFontSize () {
-    if (fSize !== 40) {
+    if (parentToChild.config._id === 'This was called by QuoteBox') {
+      if (parentToChild.config.fontS === 40) return setFSize(30);
       setFSize(n => n + 1);
     } else {
-      setFSize(30);
-    };
+      let auxArray = savedQuotesArray;
+      let auxObj = auxArray[parentToChild.index];
+      if (parentToChild.config.fontS === 40) {
+        auxObj.fontS = 30;
+      } else {
+        auxObj.fontS = parentToChild.config.fontS + 1;
+      }; 
+      auxArray[parentToChild.index] = auxObj;
+      setSavedQuotesArray(auxArray);
+      setForceUpdate(forceUpdate => forceUpdate + 1);
+    }
   };
 
   return (
-    <button className={`editBtn fFam BG-color${imgBGColor} text-color${colorNumber}`} onClick={handleFontSize}>{fSize}</button>
+    <button className={`editBtn fFam BG-color${parentToChild.config.imgBG} text-color${parentToChild.config.colorNum}`} onClick={handleFontSize}>{parentToChild.config.fontS}</button>
   );
 };
 

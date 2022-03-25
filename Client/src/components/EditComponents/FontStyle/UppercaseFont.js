@@ -1,26 +1,36 @@
 import React, {useContext} from "react";
 import {Context} from "../../../Context.js";
 
-function UppercaseFont () {
-  const {colors, edit} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
+function UppercaseFont ({parentToChild}) {
+  const {edit, quote, force} = useContext(Context);
   const [upperFont, setUpperFont] = edit.upperF;
-  let upperBGColor = imgBGColor;
-  let upperTxtColor = colorNumber;
+  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
+  const [forceUpdate, setForceUpdate] = force.update;
+  let upperBGColor = parentToChild.config.imgBG;
+  let upperTxtColor = parentToChild.config.colorNum;
 
-  if (upperFont === 'uppercase') {
-    upperBGColor = colorNumber;
-    upperTxtColor = imgBGColor;
+  if (parentToChild.config.upperF === 'uppercase') {
+    upperBGColor = parentToChild.config.colorNum;
+    upperTxtColor = parentToChild.config.imgBG;
   }; 
 
   function handleUppercaseFont () {
-    if (upperFont === 'none') {
-      setUpperFont('uppercase');
-    } else {
+    if (parentToChild.config._id === 'This was called by QuoteBox') {
+      if (parentToChild.config.upperF === 'none') return setUpperFont('uppercase');
       setUpperFont('none');
+    } else {
+      let auxArray = savedQuotesArray;
+      let auxObj = auxArray[parentToChild.index];
+      if (parentToChild.config.upperF === 'none') {
+        auxObj.upperF = 'uppercase';
+      } else {
+        auxObj.upperF = 'none';
+      };  
+      auxArray[parentToChild.index] = auxObj;
+      setSavedQuotesArray(auxArray);
+      setForceUpdate(forceUpdate => forceUpdate + 1);
     };
-  };
+  }; 
 
   return (
     <button className={`editBtn fFam BG-color${upperBGColor} text-color${upperTxtColor}`} onClick={handleUppercaseFont}>UP</button>

@@ -1,20 +1,16 @@
-import React, {useContext} from "react";
-import {Context} from "../../../Context.js";
+import React from "react";
 import useRedirectTo from "../../../functions/useRedirectTo.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-function SavedSharingBtn() {
-  const {colors} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
+function SavedSharingBtn({parentToChild}) {
   const redirectTo = useRedirectTo();
 
   async function handleSavedSharingBtn () {
-    redirectTo('/wall/savedSharing');        
+    redirectTo(`/wall/${parentToChild.config._id}/savedSharing`);        
   };
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleSavedSharingBtn} icon="share-alt" />
+    <FontAwesomeIcon className={`clipBtn BG-color${parentToChild.config.colorNum} text-color${parentToChild.config.imgBG}`} onClick={handleSavedSharingBtn} icon='share-alt' />
   );
 };
 

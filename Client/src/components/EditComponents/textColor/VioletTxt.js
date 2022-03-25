@@ -1,21 +1,31 @@
 import React, {useContext} from "react";
 import {Context} from "./../../../Context.js";
 
-function VioletTxt () {
-  const {colors} = useContext(Context);
+function VioletTxt ({parentToChild}) {
+  const {colors, quote, force} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
+  const [forceUpdate, setForceUpdate] = force.update;
   let violetTxtState = '';
   
-  if (imgBGColor === 6) {
+  if (parentToChild.config.imgBG === 6) {
     violetTxtState = 'buttonDisabled';
   };
-  if (colorNumber === 6) {
-    violetTxtState = `buttonEnabled text-color${imgBGColor}`;
+  if (parentToChild.config.colorNum === 6) {
+    violetTxtState = `buttonEnabled text-color${parentToChild.config.imgBG}`;
   };
 
   function handleVioletTxt () {
-    setColorNumber(6);
+    if (parentToChild.config._id === 'This was called by QuoteBox') {
+      setColorNumber(6);
+    } else {
+      let auxArray = savedQuotesArray;
+      let auxObj = auxArray[parentToChild.index];
+      auxObj.colorNum = 6;
+      auxArray[parentToChild.index] = auxObj;
+      setSavedQuotesArray(auxArray);
+      setForceUpdate(forceUpdate => forceUpdate + 1);
+    };
   };
 
   return (

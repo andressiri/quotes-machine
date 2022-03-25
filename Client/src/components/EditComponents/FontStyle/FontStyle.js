@@ -1,5 +1,4 @@
-import React, {useContext} from "react";
-import {Context} from "../../../Context.js";
+import React from "react";
 import SansSerifFF from './SansSerifFF.js';
 import SerifFF from './SerifFF.js';
 import MonospaceFF from './MonospaceFF.js';
@@ -10,26 +9,23 @@ import ItalicFont from "./ItalicFont.js";
 import UppercaseFont from "./UppercaseFont.js";
 import FontSize from "./FontSize.js";
 
-function FontStyle () {
-  const {colors} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
+function FontStyle ({parentToChild}) {
 
   return (
-    <div className={`editGroup BG-color${imgBGColor} text-color${colorNumber}`}>
-      <p className={`text-color${colorNumber}`}  style={{marginRight: "5px"}}>Style</p>
+    <div className={`editGroup BG-color${parentToChild.config.imgBG} text-color${parentToChild.config.colorNum}`}>
+      <p className={`text-color${parentToChild.config.colorNum}`}  style={{marginRight: "5px"}}>Style</p>
       <div>
-        <SansSerifFF />
-        <SerifFF />
-        <MonospaceFF />
-        <CursiveFF />
-        <FantasyFF />
-        <BoldFont />
-        <ItalicFont />
-        <UppercaseFont />
-        <FontSize />
+        <SansSerifFF parentToChild={parentToChild} />
+        <SerifFF parentToChild={parentToChild} />
+        <MonospaceFF parentToChild={parentToChild} />
+        <CursiveFF parentToChild={parentToChild} />
+        <FantasyFF parentToChild={parentToChild} />
+        <BoldFont parentToChild={parentToChild} />
+        <ItalicFont parentToChild={parentToChild} />
+        <UppercaseFont parentToChild={parentToChild} />
+        <FontSize parentToChild={parentToChild} />
       </div>
-      <p className={`text-color${colorNumber}`} style={{marginLeft: "5px"}}>Style</p>
+      <p className={`text-color${parentToChild.config.colorNum}`} style={{marginLeft: "5px"}}>Style</p>
     </div>    
   );
 };

@@ -1,21 +1,30 @@
 import React, {useContext} from "react";
 import {Context} from "../../../Context.js";
 
-function FantasyFF () {
-  const {colors, edit} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
+function FantasyFF ({parentToChild}) {
+  const {edit, quote, force} = useContext(Context);
   const [fontFam, setFontFam] = edit.fontF;
-  let fantasyBGColor = imgBGColor;
-  let fantasyTxtColor = colorNumber;
+  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
+  const [forceUpdate, setForceUpdate] = force.update;
+  let fantasyBGColor = parentToChild.config.imgBG;
+  let fantasyTxtColor = parentToChild.config.colorNum;
 
-  if (fontFam === 'Copperplate, Papyrus, fantasy') {
-    fantasyBGColor = colorNumber;
-    fantasyTxtColor = imgBGColor;
+  if (parentToChild.config.fontF === 'Copperplate, Papyrus, fantasy') {
+    fantasyBGColor = parentToChild.config.colorNum;
+    fantasyTxtColor = parentToChild.config.imgBG;
   }; 
 
   function handleFantasyFF () {
-    setFontFam('Copperplate, Papyrus, fantasy');
+    if (parentToChild.config._id === 'This was called by QuoteBox') {
+      setFontFam('Copperplate, Papyrus, fantasy');
+    } else {
+      let auxArray = savedQuotesArray;
+      let auxObj = auxArray[parentToChild.index];
+      auxObj.fontF = 'Copperplate, Papyrus, fantasy';
+      auxArray[parentToChild.index] = auxObj;
+      setSavedQuotesArray(auxArray);
+      setForceUpdate(forceUpdate => forceUpdate + 1);
+    };  
   };
 
   return (

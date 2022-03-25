@@ -1,8 +1,8 @@
-import React, {useContext} from "react";
-import {Context} from "../Context.js";
-import { useLocation } from "react-router-dom";
-import useRedirectTo from "../functions/useRedirectTo.js";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import React, {useContext} from 'react';
+import {Context} from '../Context.js';
+import { useLocation } from 'react-router-dom';
+import useRedirectTo from '../functions/useRedirectTo.js';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function CancelBtn () {
   const {colors, refs} = useContext(Context);
@@ -32,7 +32,7 @@ function CancelBtn () {
     );
   } else {
     return (
-      <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleCancel} icon="times" />
+      <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleCancel} icon='times' />
     );
   };
 };

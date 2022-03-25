@@ -2,38 +2,29 @@ import React, {useContext, useState} from "react";
 import {Context} from "../../../../Context.js";
 import useStopAuto from '../../../../functions/useStopAuto.js'; 
 import useRedirectTo from "../../../../functions/useRedirectTo.js";
+import useGetSavedQuotes from "../../../../functions/useGetSavedQuotes.js";
+import useCheckLoginCondition from "../../../../functions/useCheckLoginCondition.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function SavedWallBtn() {
-  const {colors, quote, refs} = useContext(Context);
+  const {colors, quote} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [messagesArray, setMessagesArray] = refs.msg;
-  const [loggedIn, setLoggedIn] = refs.logged;
-  const [verified, setVerified] = refs.ver;
   const [isLoading, setIsLoading] = useState(false);  
   const stopAuto = useStopAuto();
   const redirectTo = useRedirectTo();
+  const getSavedQuotes = useGetSavedQuotes();
+  const checkLoginCondition = useCheckLoginCondition();
 
   async function handleSavedWallBtn () {
     if (isLoading) return;
-    setIsLoading(true);
     stopAuto();
-    if (!loggedIn) {
-      setMessagesArray(['You have to be logged in to see the wall']);
-      setIsLoading(false);
-      redirectTo('/box/login');
-    } else if (!verified) {
-      setMessagesArray(['You should verify your email to see the wall']);
-      setIsLoading(false);
-      redirectTo('/box/verifyEmail');
-    } else {
+    if (checkLoginCondition()) {
+      setIsLoading(true);
       // check it was not loaded before
-      if (savedQuotesArray !== []) {
-        const response = await fetch('/users/getSavedQuotes');
-        let json = await response.json();
-        setSavedQuotesArray(json.quotesArray);
+      if (savedQuotesArray[0] === 'Empty Array') {
+        getSavedQuotes();        
       };
       setIsLoading(false);
       redirectTo('/wall');
@@ -41,7 +32,7 @@ function SavedWallBtn() {
   };
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleSavedWallBtn} icon="save" />
+    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleSavedWallBtn} icon="list" />
   );
 };
 

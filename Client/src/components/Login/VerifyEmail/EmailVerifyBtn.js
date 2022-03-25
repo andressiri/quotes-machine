@@ -19,13 +19,13 @@ function EmailVerifyBtn () {
     if (isLoading) return;
     if (isBlocked) return setSendWaitMsg(true);
     setIsLoading(true);
-    const auxArray = [];
+    const msgArray = [];
     const response  = await fetch('/users/sendVerifyEmail'); 
     let json = await response.json();
     setEmailToUpdate('To check if code was requested');
     setSendEmailBtnTimer(10);
-    auxArray.push(json.message);
-    setMessagesArray(auxArray);
+    msgArray.push(json.message);
+    setMessagesArray(msgArray);
     setIsLoading(false);
   };
 
