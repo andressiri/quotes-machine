@@ -19,17 +19,19 @@ saveModifiedQuoteRouter.put('/',
         quotesArray: [req.body.quoteObj]
       });
       const validationError = validationUserQuotes.validateSync();
-      // check index required for process had been sent ---> better change it for quote id
       if (validationError) {
         console.log('Bad request'),
         res.status(400).json({message: 'Please send all the information required'});
       } else {
         UserQuotes.findOne({userId: req.user.id})
           .then(userQ => {
-            // index of id
-            userQ.quotesArray[req.body.index] = req.body.quoteObj;
+            // search index of quote to be modified and update it
+            const index = userQ.quotesArray.map(quote => {
+              return quote.id;
+            }).indexOf(req.body.quoteObj._id);
+            userQ.quotesArray[index] = req.body.quoteObj;
             userQ.save();
-            console.log('Quote chenges saved successfully');
+            console.log('Quote changes saved successfully');
             res.status(201).json({message: 'Quote changes saved successfully'});
           })
           .catch(err => console.log(err));
