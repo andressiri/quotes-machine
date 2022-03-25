@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
-import BoxAcceptBtn from './BoxAcceptBtn.js';
+import WallAcceptBtn from './WallAcceptBtn.js';
 
-function BoxMessages () {
+function WallMessages () {
   const {refs} = useContext(Context);
   const [messagesArray, setMessagesArray] = refs.msg;
 
@@ -11,9 +11,9 @@ function BoxMessages () {
       {messagesArray.map((msg, i) => (
         <p className={`shareIt`} key={i} >{msg}</p>
       ))}
-      <BoxAcceptBtn />
+      <WallAcceptBtn />
     </div>    
   );
 };
 
-export default BoxMessages;
+export default WallMessages;
