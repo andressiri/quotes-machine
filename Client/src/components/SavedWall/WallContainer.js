@@ -1,24 +1,20 @@
-import React, { useContext } from "react";
-import { Context } from "../../Context.js";
+import React from "react";
 import {Routes, Route } from 'react-router-dom';
 import StartingWallComponents from "./WallStartingComponents/StartingWallComponents.js";
 import SavedSharingContainer from './Sharing/SavedSharingContainer.js';
 import EditSet from "../EditComponents/EditSet.js";
 
 function WallContainer({parentToChild}) {
-  const {colors} = useContext(Context);
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [colorNumber, setColorNumber] = colors.colorNum;
 
   return (
-    <div className={`routeContainer BG-color${imgBGColor}`}>
+    <div className={`routeContainer BG-color${parentToChild.config.imgBG}`}>
       <Routes>
-        <Route path='/' exact element={<StartingWallComponents />} />
-        <Route path='/savedSharing' exact element={<SavedSharingContainer />} />
-        <Route path='/savedEdit' exact element={<EditSet />} />        
+        <Route path={`/*`} exact element={<StartingWallComponents parentToChild={parentToChild} />} />
+        <Route path={`/${parentToChild.config._id}/savedSharing`} exact element={<SavedSharingContainer parentToChild={parentToChild} />} />
+        <Route path={`/${parentToChild.config._id}/savedEdit`} exact element={<EditSet parentToChild={parentToChild} />} />        
       </Routes>
     </div>
   );
-}
+};
 
 export default WallContainer;

@@ -17,13 +17,14 @@ function LoginButton () {
 
   async function handleSubmitLogin(event) {
     event.preventDefault();
-    if (isLoading) return;
+    if (isLoading) return;  
     setIsLoading(true);
-    const auxArray = [];
+    let auxBool = true; //State won't update for final check, so isLoading can't be used in the conditional. Without that conditional isLoading would be updated after redirect leading to the error: "Can't perform a React state update on an unmounted component"
+    const msgArray = [];
     if (emailValue === '' || passwordValue === '') {
-      auxArray.push('Please fill all fields');
+      msgArray.push('Please fill all fields');
     } else if (!validateEmail(emailValue)) {
-      auxArray.push('Please enter a valid email');
+      msgArray.push('Please enter a valid email');
     } else {
       const passportAuth = await fetch('/users/loginAuth', {
         method: 'POST',
@@ -40,20 +41,21 @@ function LoginButton () {
       let json = await response.json();    
       if (json.message === 'Login success') {
         setIsLoading(false);
+        auxBool = false;
         setLoggedIn(true);
         setVerified(json.verified);        
-        // can't use checkVerified because state won't update properly
+        // can't use checkVerified because state won't update before the conditional check
         if (json.verified) {          
           redirectTo('/box/loggedIn');
         } else {
           redirectTo('/box/verifyEmail');
         };
       } else {
-        auxArray.push(json.message);
+        msgArray.push(json.message);
       };  
     };
-    setMessagesArray(auxArray);
-    if (isLoading) setIsLoading(false);
+    if (auxBool) setIsLoading(false);  //final check
+    setMessagesArray(msgArray);
   };
 
   return (

@@ -3,19 +3,25 @@ import {Context} from './Context.js';
 import {Routes, Route, useLocation} from 'react-router-dom';
 import AppRouter from './AppRouter.js';
 import useRedirectTo from './functions/useRedirectTo.js';
+import useNewQuote from './functions/useNewQuote.js';
 import './styles/App.scss';
 import './styles/colorChange.scss';
 
 function App() {
-  const {colors, refs, timers} = useContext(Context);
+  const {colors, auto, refs, timers} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
+  const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const [autoColorChange, setAutoColorChange] = colors.auto;
   const [currentPath, setCurrentPath] = refs.path;
+  const [handleAuto, setHandleAuto] = auto.hAuto;
+  const [autoTime, setAutoTime] = auto.aTime;
   const [sendEmailBtnTimer, setSendEmailBtnTimer] = timers.send;
   const [sendEmailInterval, setSendEmailInterval] = timers.sendInt;
   const [sendWaitMsg, setSendWaitMsg] = timers.sendWait;
   const [checkCodeBtnTimer, setCheckCodeBtnTimer] = timers.check;
   const [checkCodeInterval, setCheckCodeInterval] = timers.codeInt;
   const [checkWaitMsg, setCheckWaitMsg] = timers.sendWait;
+  const newQuote = useNewQuote();
   const redirectTo = useRedirectTo();
   const location = useLocation();
 
@@ -50,6 +56,16 @@ function App() {
       setCheckCodeInterval('Interval is off');
     };
   }, [checkCodeBtnTimer]);
+
+  useEffect(() => {
+    if (autoColorChange && currentPath !== '/box/edit') {
+      if ([0, 2, 4, 6].includes(colorNumber)) {
+        setImgBGColor(7);
+      } else {
+        setImgBGColor(8);
+      };
+    }; 
+  }, [colorNumber]);
 
   return (
     <div className={`App BG-color${colorNumber}`}>

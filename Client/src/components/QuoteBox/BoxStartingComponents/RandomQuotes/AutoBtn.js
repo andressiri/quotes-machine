@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Context} from '../../../../Context.js';
 import useNewQuote from '../../../../functions/useNewQuote.js';
 import useStopAuto from '../../../../functions/useStopAuto.js';
@@ -10,6 +10,8 @@ function AutoBtn () {
   const [handleAuto, setHandleAuto] = auto.hAuto;
   const [autoClass, setAutoClass] = auto.aClass;
   const [autoTime, setAutoTime] = auto.aTime;
+  const [autoSeconds, setAutoSeconds] = auto.sec;
+  const [autoTimer, setAutoTimer] = auto.timer;
   const [isLoading, setIsLoading] = useState(false); 
   const newQuote = useNewQuote();
   const stopAuto = useStopAuto();
@@ -22,6 +24,10 @@ function AutoBtn () {
     autoBG = imgBGColor;
     autoOnOff = 'autoBtn autoBtnOn';
   };
+
+  useEffect(() => {
+    if (autoSeconds === 0 || autoTimer === 'Interval is off') setAutoSeconds(autoTime/1000);
+  }, [autoSeconds]);
   
   async function handleAutoBtn() {
     if (isLoading) return;
@@ -30,8 +36,12 @@ function AutoBtn () {
       setAutoClass(true);
       newQuote();    
       setHandleAuto(setInterval(newQuote, autoTime));
+      setAutoTimer(setInterval(() => {
+        setAutoSeconds(autoSeconds => autoSeconds - 1);
+      }, 1000));
     } else {
       stopAuto();
+      setAutoSeconds(autoTime/1000);
     };
     setTimeout(() => {
       setIsLoading(false);

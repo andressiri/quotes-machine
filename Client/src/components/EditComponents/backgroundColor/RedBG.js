@@ -1,21 +1,31 @@
 import React, {useContext} from "react";
 import {Context} from "../../../Context.js";
 
-function RedBG () {
-  const {colors} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
+function RedBG ({parentToChild}) {
+  const {colors, quote, force} = useContext(Context);
   const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
+  const [forceUpdate, setForceUpdate] = force.update;
   let redBGState = '';
 
-  if (colorNumber === 0) {
+  if (parentToChild.config.colorNum === 0) {
     redBGState = 'buttonDisabled';
   };
-  if (imgBGColor === 0) {
-    redBGState = `buttonEnabled text-color${colorNumber}`;
+  if (parentToChild.config.imgBG === 0) {
+    redBGState = `buttonEnabled text-color${parentToChild.config.colorNum}`;
   };
 
   function handleRedBG () {
-    setImgBGColor(0);
+    if (parentToChild.config._id === 'This was called by QuoteBox') {
+      setImgBGColor(0);
+    } else {
+      let auxArray = savedQuotesArray;
+      let auxObj = auxArray[parentToChild.index];
+      auxObj.imgBG = 0;
+      auxArray[parentToChild.index] = auxObj;
+      setSavedQuotesArray(auxArray);
+      setForceUpdate(forceUpdate => forceUpdate + 1);
+    };
   };
 
   return (

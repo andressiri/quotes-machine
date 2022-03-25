@@ -2,10 +2,10 @@ import React from 'react';
 import EditImgBtn from './EditImgBtn';
 import OkImgBtn from './OkImgBtn';
 
-function EditOrOkSet () {
+function EditOrOkSet ({parentToChild}) {
   return (
     <div>
-      <EditImgBtn />
+      <EditImgBtn parentToChild={parentToChild} />
       <OkImgBtn />
     </div>    
   );

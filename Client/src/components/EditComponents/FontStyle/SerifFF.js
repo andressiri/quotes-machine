@@ -1,23 +1,31 @@
 import React, {useContext} from "react";
 import {Context} from "../../../Context.js";
 
-function SerifFF () {
-  const {colors, edit} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
+function SerifFF ({parentToChild}) {
+  const {edit, quote, force} = useContext(Context);
   const [fontFam, setFontFam] = edit.fontF;
-  let serifBGColor = imgBGColor;
-  let serifTxtColor = colorNumber;
+  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
+  const [forceUpdate, setForceUpdate] = force.update;
+  let serifBGColor = parentToChild.config.imgBG;
+  let serifTxtColor = parentToChild.config.colorNum;
 
-  if (fontFam === 'Garamond, serif') {
-    serifBGColor = colorNumber;
-    serifTxtColor = imgBGColor;
+  if (parentToChild.config.fontF === 'Garamond, serif') {
+    serifBGColor = parentToChild.config.colorNum;
+    serifTxtColor = parentToChild.config.imgBG;
   }; 
 
   function handleSerifFF () {
-    setFontFam('Garamond, serif');
+    if (parentToChild.config._id === 'This was called by QuoteBox') {
+      setFontFam('Garamond, serif');
+    } else {
+      let auxArray = savedQuotesArray;
+      let auxObj = auxArray[parentToChild.index];
+      auxObj.fontF = 'Garamond, serif';
+      auxArray[parentToChild.index] = auxObj;
+      setSavedQuotesArray(auxArray);
+      setForceUpdate(forceUpdate => forceUpdate + 1);
+    };  
   };
-
   return (
     <button className={`editBtn fFam BG-color${serifBGColor} text-color${serifTxtColor}`} style={{fontFamily: "Garamond, serif"}} onClick={handleSerifFF}>Aa</button>
   );

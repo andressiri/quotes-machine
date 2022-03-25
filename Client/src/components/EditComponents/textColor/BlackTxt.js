@@ -1,21 +1,31 @@
 import React, {useContext} from "react";
 import {Context} from "./../../../Context.js";
 
-function BlackTxt () {
-  const {colors} = useContext(Context);
+function BlackTxt ({parentToChild}) {
+  const {colors, quote, force} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
+  const [forceUpdate, setForceUpdate] = force.update;
   let blackTxtState = '';
 
-  if (imgBGColor === 7) {
+  if (parentToChild.config.imgBG === 7) {
     blackTxtState = 'buttonDisabled';
   };
-  if (colorNumber === 7) {
-    blackTxtState = `buttonEnabled text-color${imgBGColor}`;
+  if (parentToChild.config.colorNum === 7) {
+    blackTxtState = `buttonEnabled text-color${parentToChild.config.imgBG}`;
   };
 
   function handleBlackTxt () {
-    setColorNumber(7);
+    if (parentToChild.config._id === 'This was called by QuoteBox') {
+      setColorNumber(7);
+    } else {
+      let auxArray = savedQuotesArray;
+      let auxObj = auxArray[parentToChild.index];
+      auxObj.colorNum = 7;
+      auxArray[parentToChild.index] = auxObj;
+      setSavedQuotesArray(auxArray);
+      setForceUpdate(forceUpdate => forceUpdate + 1);
+    };
   };
 
   return (

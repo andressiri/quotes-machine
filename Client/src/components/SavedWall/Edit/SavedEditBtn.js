@@ -1,19 +1,16 @@
-import React, {useContext} from "react";
-import {Context} from "../../../Context.js";
+import React from "react";
 import useRedirectTo from "../../../functions/useRedirectTo.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-function SavedEditBtn () {
-  const {colors} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
+function SavedEditBtn ({parentToChild}) {
   const redirectTo = useRedirectTo();
   
   function handleSavedEditBtn () {
-    redirectTo('/wall/savedEdit');
+    redirectTo(`/wall/${parentToChild.config._id}/savedEdit`);
   };  
 
   return (
-    <FontAwesomeIcon className={`icon text-color${colorNumber}`} onClick={handleSavedEditBtn} icon="pen" />
+    <FontAwesomeIcon className={`clipBtn BG-color${parentToChild.config.colorNum} text-color${parentToChild.config.imgBG}`} onClick={handleSavedEditBtn} icon="pen" />
   );
 };
 

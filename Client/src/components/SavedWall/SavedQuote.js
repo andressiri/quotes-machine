@@ -3,41 +3,33 @@ import {Context} from './../../Context.js';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function SavedQuote({parentToChild}) {
-  const {colors, quote, refs, edit} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [fadeQuote, setFadeQuote] = quote.fadQ; 
+  const {refs} = useContext(Context);
   const quoteRef = refs.refImg;
-  const [fontFam, setFontFam] = edit.fontF;
-  const [boldFont, setBoldFont] = edit.boldF;
-  const [italicFont, setItalicFont] = edit.italicF;
-  const [upperFont, setUpperFont] = edit.upperF;
-  const [fSize, setFSize] = edit.fontS;
-  let adjustFSize = fSize - 15;
+  let adjustFontSize = parentToChild.config.fontS - 15;
 
   const textStyle = {
-    fontFamily: `${fontFam}`,
-    fontWeight: `${boldFont}`,
-    fontStyle: `${italicFont}`,
-    textTransform: `${upperFont}`, 
-    fontSize: `${fSize}px`
+    fontFamily: `${parentToChild.config.fontF}`,
+    fontWeight: `${parentToChild.config.boldF}`,
+    fontStyle: `${parentToChild.config.italicF}`,
+    textTransform: `${parentToChild.config.upperF}`, 
+    fontSize: `${parentToChild.config.fontS}px`
   };
   const authorStyle = {
-    fontFamily: `${fontFam}`,
-    fontWeight: `${boldFont}`,
-    fontStyle: `${italicFont}`,
-    textTransform: `${upperFont}`, 
-    fontSize: `${adjustFSize}px`
+    fontFamily: `${parentToChild.config.fontF}`,
+    fontWeight: `${parentToChild.config.boldF}`,
+    fontStyle: `${parentToChild.config.italicF}`,
+    textTransform: `${parentToChild.config.upperF}`, 
+    fontSize: `${adjustFontSize}px`
   };
 
   return (    
-    <div className={`quote BG-color${imgBGColor} text-color${colorNumber} fade${fadeQuote}`} ref={quoteRef} id='refDiv'>
-      <h1 id="text" className={`text fade${fadeQuote}`} style={textStyle} >
-        <FontAwesomeIcon icon="quote-left" className={`quoteIcon fade${fadeQuote}`} />
-        {` ${parentToChild.content} `}
-        <FontAwesomeIcon icon="quote-right" className={`quoteIcon fade${fadeQuote}`} /> 
+    <div className={`quote BG-color${parentToChild.config.imgBG} text-color${parentToChild.config.colorNum}`} ref={quoteRef} id='refDiv'>
+      <h1 id="text" className={`text`} style={textStyle} >
+        <FontAwesomeIcon icon="quote-left" className={`quoteIcon`} />
+        {` ${parentToChild.config.content} `}
+        <FontAwesomeIcon icon="quote-right" className={`quoteIcon`} /> 
       </h1>
-      <p id="author" className={`fade${fadeQuote}`} style={authorStyle}>{`- ${parentToChild.author}`}</p>       
+      <p id="author" style={authorStyle}>{`- ${parentToChild.config.author}`}</p>       
     </div >
   );
 };

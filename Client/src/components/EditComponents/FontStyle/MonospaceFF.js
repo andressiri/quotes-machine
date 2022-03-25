@@ -1,21 +1,30 @@
 import React, {useContext} from "react";
 import {Context} from "../../../Context.js";
 
-function MonospaceFF () {
-  const {colors, edit} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
+function MonospaceFF ({parentToChild}) {
+  const {edit, quote, force} = useContext(Context);
   const [fontFam, setFontFam] = edit.fontF;
-  let monospaceBGColor = imgBGColor;
-  let monospaceTxtColor = colorNumber;
+  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
+  const [forceUpdate, setForceUpdate] = force.update;
+  let monospaceBGColor = parentToChild.config.imgBG;
+  let monospaceTxtColor = parentToChild.config.colorNum;
 
-  if (fontFam === '"Courier New", Courier, monospace') {
-    monospaceBGColor = colorNumber;
-    monospaceTxtColor = imgBGColor;
+  if (parentToChild.config.fontF === '"Courier New", Courier, monospace') {
+    monospaceBGColor = parentToChild.config.colorNum;
+    monospaceTxtColor = parentToChild.config.imgBG;
   }; 
 
   function handleMonospaceFF () {
-    setFontFam('"Courier New", Courier, monospace');
+    if (parentToChild.config._id === 'This was called by QuoteBox') {
+      setFontFam('"Courier New", Courier, monospace');
+    } else {
+      let auxArray = savedQuotesArray;
+      let auxObj = auxArray[parentToChild.index];
+      auxObj.fontF = '"Courier New", Courier, monospace';
+      auxArray[parentToChild.index] = auxObj;
+      setSavedQuotesArray(auxArray);
+      setForceUpdate(forceUpdate => forceUpdate + 1);
+    };  
   };
 
   return (

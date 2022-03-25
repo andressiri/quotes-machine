@@ -1,11 +1,8 @@
-import React, {useContext} from "react";
-import {Context} from "../../../Context.js";
+import React from "react";
 import useRedirectTo from "../../../functions/useRedirectTo.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-function SavedDeleteBtn () {
-  const {colors} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
+function SavedDeleteBtn ({parentToChild}) {
   const redirectTo = useRedirectTo();
   
   function handleSavedDeleteBtn () {
@@ -13,7 +10,7 @@ function SavedDeleteBtn () {
   };  
 
   return (
-    <FontAwesomeIcon className={`icon text-color${colorNumber}`} onClick={handleSavedDeleteBtn} icon="trash" />
+    <FontAwesomeIcon className={`clipBtn BG-color${parentToChild.config.colorNum} text-color${parentToChild.config.imgBG}`} onClick={handleSavedDeleteBtn} icon="trash-alt" />
   );
 };
 

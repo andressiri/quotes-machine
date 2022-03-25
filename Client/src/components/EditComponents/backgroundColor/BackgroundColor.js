@@ -1,5 +1,4 @@
-import React, {useContext} from "react";
-import {Context} from "./../../../Context.js";
+import React from "react";
 import WhiteBG from './WhiteBG.js';
 import RedBG from './RedBG.js';
 import OrangeBG from './OrangeBG.js';
@@ -10,26 +9,23 @@ import IndigoBG from './IndigoBG.js';
 import VioletBG from './VioletBG.js';
 import BlackBG from './BlackBG.js';
 
-function BackgroundColor () {
-  const {colors} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
+function BackgroundColor ({parentToChild}) {
 
   return (
-    <div className={`editGroup BG-color${imgBGColor} text-color${colorNumber}`}>
-      <p className={`text-color${colorNumber}`}  style={{marginRight: "5px"}}>BackG</p>
+    <div className={`editGroup BG-color${parentToChild.config.imgBG} text-color${parentToChild.config.colorNum}`}>
+      <p className={`text-color${parentToChild.config.colorNum}`}  style={{marginRight: "5px"}}>BackG</p>
       <div>
-        <WhiteBG />
-        <RedBG />
-        <OrangeBG />
-        <YellowBG />
-        <GreenBG />
-        <BlueBG />
-        <IndigoBG />
-        <VioletBG />
-        <BlackBG />
+        <WhiteBG parentToChild={parentToChild} />
+        <RedBG parentToChild={parentToChild} />
+        <OrangeBG parentToChild={parentToChild} />
+        <YellowBG parentToChild={parentToChild} />
+        <GreenBG parentToChild={parentToChild} />
+        <BlueBG parentToChild={parentToChild} />
+        <IndigoBG parentToChild={parentToChild} />
+        <VioletBG parentToChild={parentToChild} />
+        <BlackBG parentToChild={parentToChild} />
       </div>
-      <p className={`text-color${colorNumber}`} style={{marginLeft: "5px"}}>BackG</p>
+      <p className={`text-color${parentToChild.config.colorNum}`} style={{marginLeft: "5px"}}>BackG</p>
     </div>    
   );
 };

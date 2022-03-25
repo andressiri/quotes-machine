@@ -1,7 +1,7 @@
 
 function changeColorNumber(number) {
     let num = number;                       
-    if (num < 6 ) {  // related to colorChange.scss list length
+    if (num < 7 ) {  // related to colorChange.scss list length
     num++;
     } else {
       num = 0;  

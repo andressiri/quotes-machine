@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const userQuotesSchema = new mongoose.Schema({
   userId: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   quotesArray: [
     {
@@ -14,7 +15,35 @@ const userQuotesSchema = new mongoose.Schema({
       author: {
         type: String,
         required: true
-      }
+      },
+      colorNum: {
+        type: Number,
+        required: true
+      },
+      imgBG: {
+        type: Number,
+        required: true
+      },
+      fontF: {
+        type: String,
+        required: true
+      },
+      boldF: {
+        type: String,
+        required: true
+      },
+      italicF: {
+        type: String,
+        required: true
+      },
+      upperF: {
+        type: String,
+        required: true
+      },
+      fontS: {
+        type: Number,
+        required: true
+      } 
     }
   ]
 }, {collection: 'usersQuotes'});

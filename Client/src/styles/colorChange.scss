@@ -6,7 +6,7 @@ $colors: $customRed, $customOrange, $customYellow, $customGreen, $customBlue, $c
 @for $i from 1 through length($colors) {
   .BG-color#{$i - 1} {
     background-color: nth($colors, $i);
-    transition: background-color 1s ease;               
+    transition: all 1s ease;               
   }
 }
 
@@ -14,6 +14,6 @@ $colors: $customRed, $customOrange, $customYellow, $customGreen, $customBlue, $c
   .text-color#{$i - 1} {
     color: nth($colors, $i);
     border-color: nth($colors, $i) !important;
-    transition: color 1s ease, border-color 1s ease;        
+    transition: all 1s ease;        
   }
 }
