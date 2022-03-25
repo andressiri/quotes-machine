@@ -1,20 +1,13 @@
-import React, {useContext} from "react";
-//import {Context} from "../../../Context.js";
-import useLogout from '../../../functions/useLogout.js';
+import React from "react";
+import KeepLoggedBtn from "./KeepLoggedBtn.js";
+import LogoutBtn from "./LogoutBtn.js";
 
 function LoggedInMenu() {
-  //const {refs} = useContext(Context);
-  const logout = useLogout();
-
-  function handleLogOut () {
-    logout();
-  };
-
   return (
     <div>
-        <h2 className={`shareIt`} >My Quotes</h2>
-        <h2 className={`shareIt`} >Config</h2>
-        <h2 className={`shareIt`} onClick={handleLogOut} >Log out</h2>
+        <h2 className={`shareIt`} >You are already logged in, do you want to log out?</h2>
+        <KeepLoggedBtn />
+        <LogoutBtn />
     </div>
     );
 };

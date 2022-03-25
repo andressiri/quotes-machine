@@ -45,8 +45,9 @@ function LoginButton () {
         setLoggedIn(true);
         setVerified(json.verified);        
         // can't use checkVerified because state won't update before the conditional check
-        if (json.verified) {          
-          redirectTo('/box/loggedIn');
+        if (json.verified) { 
+          msgArray.push(json.message)         
+          redirectTo('/box/message');
         } else {
           redirectTo('/box/verifyEmail');
         };
