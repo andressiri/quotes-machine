@@ -15,7 +15,7 @@ verifyEmailRouter.put('/',
     // check a code was sent
     if (!req.body.code) {
       console.log('No code sent');
-      res.status(400).json({message: 'Please enter the code sent to your email'});
+      res.status(412).json({message: 'Please enter the code sent to your email'});
     // check there is a code to compare
     } else if (!req.session.code) {
       console.log('No code required');
@@ -49,16 +49,19 @@ verifyEmailRouter.put('/',
           req.session.checkCodeTimestamp = Date.now();
           //  check the account required is registered and update as verified if it is
           await User.findOneAndUpdate({email: userToUpdate}, {verifiedEmail: true})
-          .then(user => {
-            if (!user) {
-              console.log('User not found');
-              res.status(404).json({message: 'There is no user with that email'});
-            } else {    
-              res.json({message: 'Code is correct'});
-              console.log('Email verified');
-            };  
-          })
-          .catch(err => console.log(err));
+            .then(user => {
+              if (!user) {
+                console.log('User not found');
+                res.status(404).json({message: 'There is no user with that email'});
+              } else {    
+                res.json({message: 'Code is correct'});
+                console.log('Email verified');
+              };  
+            })
+            .catch(err => {
+              console.log(err);
+              res.status(500).json({message: 'There was an error verifying your email, please try again'});
+            });
         };  
       };
     };

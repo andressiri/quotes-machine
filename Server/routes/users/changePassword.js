@@ -14,7 +14,7 @@ changePasswordRouter.put('/',
     // check new password was sent
     if (!req.body.password) {
       console.log('No password sent');
-      res.status(400).json({message: 'Please enter a new password'});
+      res.status(412).json({message: 'Please enter a new password'});
     } else {
       let newPassword = req.body.password;
       bcrypt.genSalt(10, (err, salt) => {
@@ -24,16 +24,19 @@ changePasswordRouter.put('/',
           newPassword = hash;
           //  check the account required is registered and update the password if it is
           User.findOneAndUpdate({email: req.body.email}, {password: newPassword})
-          .then((user) => {
-            if (!user) {
-              console.log('User not found');
-              res.status(404).json({message: 'There is no user with that email'});
-            } else {
-              console.log('Password changed');
-              res.status(201).json({message: 'Password changed'}); 
-            };
-          })
-          .catch(err => console.log(err));
+            .then(user => {
+              if (!user) {
+                console.log('User not found');
+                res.status(404).json({message: 'There is no user with that email'});
+              } else {
+                console.log('Password changed');
+                res.status(201).json({message: 'Password changed'}); 
+              };
+            })
+            .catch(err => { 
+              console.log(err);
+              res.status(500).json({message: 'There was an error updating your password, please try again'});
+            });
         });     
       });
     }; 

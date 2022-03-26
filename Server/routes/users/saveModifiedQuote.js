@@ -1,6 +1,7 @@
 const express = require('express');
 const saveModifiedQuoteRouter = express.Router();
 const rateLimiter = require('../../config/requestsRateLimiter/rateLimiter.js');
+const checkAuthenticated = require('../../config/checkAuthenticated.js');
 
 // UserQuotes model
 const UserQuotes = require('../../models/UserQuotes.js');
@@ -8,36 +9,39 @@ const UserQuotes = require('../../models/UserQuotes.js');
 saveModifiedQuoteRouter.put('/', 
   rateLimiter.max500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,
+  checkAuthenticated,
   (req, res) => {
-    if (!req.user) {
-      console.log('Not logged in');
-      res.status(428).json({message: 'You should be logged in order to do this'})    
-    } else {
-      // check data required for updating a quote has been sent
+    // check data required for updating a quote has been sent
+    let notValidInfo = 'Not valid info';
+    if (req.body.quoteObj && typeof req.body.quoteObj === 'object') {
       const validationUserQuotes = new UserQuotes({
         userId: req.user.id,
         quotesArray: [req.body.quoteObj]
       });
-      const validationError = validationUserQuotes.validateSync();
-      if (validationError) {
-        console.log('Bad request'),
-        res.status(400).json({message: 'Please send all the information required'});
-      } else {
-        UserQuotes.findOne({userId: req.user.id})
-          .then(userQ => {
-            // search index of quote to be modified and update it
-            const index = userQ.quotesArray.map(quote => {
-              return quote.id;
-            }).indexOf(req.body.quoteObj._id);
-            userQ.quotesArray[index] = req.body.quoteObj;
-            userQ.save();
-            console.log('Quote changes saved successfully');
-            res.status(201).json({message: 'Quote changes saved successfully'});
-          })
-          .catch(err => console.log(err));
-      };    
-    };  
-  }
+      notValidInfo = validationUserQuotes.validateSync(); // it returns undefined if validation was passed - no errors
+    };
+    if (typeof notValidInfo !== 'undefined') {
+      console.log('Bad request'),
+      res.status(412).json({message: 'Please send all the information required'});
+    } else {
+      UserQuotes.findOne({userId: req.user.id})
+        .then(userQ => {
+          // search index of quote to be modified and update it
+          const index = userQ.quotesArray.map(quote => {
+            return quote.id;
+          }).indexOf(req.body.quoteObj._id);
+          userQ.quotesArray[index] = req.body.quoteObj;
+          userQ.save();
+          console.log('Quote changes saved successfully');
+          res.status(201).json({message: 'Quote changes saved successfully'});
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(500).json({message: 'There was an error finding or updating the quote'});
+        });
+          
+    };
+  }  
 );
 
 module.exports = saveModifiedQuoteRouter;
