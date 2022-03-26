@@ -1,4 +1,5 @@
 import React, {useContext, useEffect} from 'react';
+import {useBeforeunload} from 'react-beforeunload';
 import {Context} from './Context.js';
 import {Routes, Route, useLocation} from 'react-router-dom';
 import AppRouter from './AppRouter.js';
@@ -66,6 +67,10 @@ function App() {
       };
     }; 
   }, [colorNumber]);
+
+  useBeforeunload(() => {
+    const logout = fetch('/users/logout', {method: "DELETE", keepalive: true});
+  });
 
   return (
     <div className={`App BG-color${colorNumber}`}>
