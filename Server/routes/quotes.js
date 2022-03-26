@@ -13,7 +13,7 @@ router.get('/:id', (req, res) => {
         const auxArr = quotes.filter(quote => quote.id === req.params.id);
         res.json(auxArr[0]);
     } else {
-        res.status(400).json({msg: `No quote with the id of ${req.params.id}` })
+        res.status(404).json({msg: `No quote with the id of ${req.params.id}` })
     };    
 });
 

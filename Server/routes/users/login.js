@@ -12,7 +12,7 @@ loginRouter.post('/',
   (req, res) => {
     const msg = req.flash('message');
     // check if authentication was requested first
-    if (!msg[0] && !req.user) {
+    if (!msg[0] && !req.isAuthenticated()) {
       console.log('No user authenticated');
       res.status(428).json({message: 'Need to authenticate a user first'});
     } else {

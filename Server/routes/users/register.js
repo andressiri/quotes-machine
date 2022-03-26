@@ -18,7 +18,7 @@ registerRouter.post('/',
       let msg = 'Please send all the information required';
       if (req.body.email && !validateEmail(req.body.email)) msg = 'Please enter a valid email';
       console.log('Bad request');
-      res.status(400).json({message: msg});
+      res.status(412).json({message: msg});
     } else {
       const { name, email, password } = req.body;
       User.findOne({ email: email})
@@ -47,11 +47,17 @@ registerRouter.post('/',
                     console.log(`New user registered successfully ${newUser}`);
                     res.status(201).json({message: `${user.name} was registered successfully`});
                   })
-                  .catch(err => console.log(err));
+                  .catch(err => {
+                    console.log(err);
+                    res.status(500).json({message: 'There was an error saving your registration, please try again'});
+                  });
             }));
           }
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+          console.log(err);
+          res.status(500).json({message: 'There was an error with your registration, please try again'});
+        });
     };
   }
 );

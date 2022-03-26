@@ -17,7 +17,7 @@ loginAuthRouter.post('/',
       if (req.body.email && !validateEmail(req.body.email)) msg = 'Please enter a valid email'; 
       console.log('Bad request');
       req.flash('message', msg);
-      res.status(400).json({message: msg});
+      res.status(412).json({message: msg});
     } else {
       // Autheticate with passport to create session
       passport.authenticate('local', {
