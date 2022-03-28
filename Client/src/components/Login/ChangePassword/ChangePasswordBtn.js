@@ -16,42 +16,38 @@ function ChangePasswordBtn () {
   async function handleSubmitNewPassword(event) {
     event.preventDefault();
     if (isLoading) return;
-    setIsLoading(true);
-    let auxBool = true; //State won't update for final check, so isLoading can't be used in the conditional. Without that conditional isLoading would be updated after redirect leading to the error: "Can't perform a React state update on an unmounted component"
-    const msgArray = [];    
-    //Check required fields
+      //Check required fields
     if (passwordValue === '' || password2Value === '') {
-      msgArray.push('Please fill in all fields');
-    };
-    //Check passwords match
+      return setMessagesArray(['Please fill in all fields']);
+    };  //Check passwords match
     if (passwordValue !== '' && passwordValue !== password2Value) {
-      msgArray.push('Passwords do not match');
-    };
-    //Check password length
+      return setMessagesArray(['Passwords do not match']);
+    };  //Check password length
     if (passwordValue !== '' && passwordValue.length < 6) {
-      msgArray.push('Password should be at least 6 characters');
-    };
-    // POST the form if it meets requirements
-    if (msgArray.length === 0) {
-      const response = await fetch('/users/changePassword', {
-        method: 'PUT',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          email: emailToUpdate,
-          password: passwordValue
-        }),
-      });
-      let json = await response.json();
-      msgArray.push(json.message);
+      return setMessagesArray(['Password should be at least 6 characters']);
+    };  // POST the form if it meets requirements    
+    setIsLoading(true); 
+    const response = await fetch('/users/changePassword', {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        email: emailToUpdate,
+        password: passwordValue
+      }),
+    });
+    let json = await response.json();
+    setIsLoading(false);
+    if (json.message === 'Password changed') {
       setEmailToUpdate('');
-      setIsLoading(false);
-      auxBool = false;
+      setTimeout(() => {  // Timeout to handle transition
+        setMessagesArray([json.message]);
+      }, 250);
       redirectTo('/box/login');
+    } else {
+      setMessagesArray([json.message]);
     };
-    setMessagesArray(msgArray);
-    if (auxBool) setIsLoading(false);  // final check
   };
 
   return (

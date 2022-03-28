@@ -11,12 +11,16 @@ function LoginForm() {
   const redirectTo = useRedirectTo();
   
   function handleForgotPassword() {
-    setMessagesArray([]);
+    setTimeout(() => {  // Timeout to handle transition
+      setMessagesArray([]);         
+    }, 250);
     redirectTo('/box/forgotPassword');
   };
 
   function handleRegister() {
-    setMessagesArray([]);
+    setTimeout(() => {  // Timeout to handle transition
+      setMessagesArray([]);         
+    }, 250);
     redirectTo('/box/register');
   };
 

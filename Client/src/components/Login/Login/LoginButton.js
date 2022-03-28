@@ -17,15 +17,13 @@ function LoginButton () {
 
   async function handleSubmitLogin(event) {
     event.preventDefault();
-    if (isLoading) return;  
-    setIsLoading(true);
-    let auxBool = true; //State won't update for final check, so isLoading can't be used in the conditional. Without that conditional isLoading would be updated after redirect leading to the error: "Can't perform a React state update on an unmounted component"
-    const msgArray = [];
+    if (isLoading) return;
     if (emailValue === '' || passwordValue === '') {
-      msgArray.push('Please fill all fields');
+      setMessagesArray(['Please fill all fields']);
     } else if (!validateEmail(emailValue)) {
-      msgArray.push('Please enter a valid email');
+      setMessagesArray(['Please enter a valid email']);
     } else {
+      setIsLoading(true);
       const passportAuth = await fetch('/users/loginAuth', {
         method: 'POST',
         headers: {
@@ -41,22 +39,25 @@ function LoginButton () {
       let json = await response.json();    
       if (json.message === 'Login success') {
         setIsLoading(false);
-        auxBool = false;
         setLoggedIn(true);
         setVerified(json.verified);        
         // can't use checkVerified because state won't update before the conditional check
-        if (json.verified) { 
-          msgArray.push(json.message)         
+        if (json.verified) {
+          setTimeout(() => {  // Timeout to handle transition
+            setMessagesArray([json.message]);         
+          }, 250); 
           redirectTo('/box/message');
         } else {
+          setTimeout(() => {  // Timeout to handle transition
+            setMessagesArray([]);         
+          }, 250);
           redirectTo('/box/verifyEmail');
         };
       } else {
-        msgArray.push(json.message);
+        setIsLoading(false);
+        setMessagesArray([json.message]);
       };  
     };
-    if (auxBool) setIsLoading(false);  //final check
-    setMessagesArray(msgArray);
   };
 
   return (

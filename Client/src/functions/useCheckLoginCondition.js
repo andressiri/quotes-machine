@@ -11,11 +11,15 @@ function useCheckLoginCondition () {
     
   const checkLoginCondition = function checkLoggedCondition () {
     if (!loggedIn) {
-      setMessagesArray(['You have to be logged in to save']);
+      setTimeout(() => {  // Timeout to handle transition
+        setMessagesArray(['You have to be logged in to save']);
+      }, 250);
       redirectTo('/box/login');
       return false;
     } else if (!verified) {
-      setMessagesArray(['You should verify your email to save']);
+      setTimeout(() => {  // Timeout to handle transition
+        setMessagesArray(['You should verify your email to save']);
+      }, 250);
       redirectTo('/box/verifyEmail');
       return false;
     } else {

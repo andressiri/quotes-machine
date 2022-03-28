@@ -13,7 +13,9 @@ function RegisterForm() {
   const redirectTo = useRedirectTo();
 
   function handleGoToLogin() {
-    setMessagesArray([]);
+    setTimeout(() => {  // Timeout to handle transition
+      setMessagesArray([]);         
+    }, 250);
     redirectTo('/box/login');
   };
 

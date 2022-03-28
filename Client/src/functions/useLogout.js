@@ -15,7 +15,9 @@ function useLogout () {
     const logout = fetch('/users/logout', {method: "DELETE"});
     setSavedQuotesArray(['Empty Array']);
     setSavedQuotesBackup(['Empty Array']);
-    setMessagesArray([]);
+    setTimeout(() => {  // Timeout to handle transition
+      setMessagesArray([]);         
+    }, 250);
     setLoggedIn(false);
     setVerified(false);
     redirectTo('/box/login');

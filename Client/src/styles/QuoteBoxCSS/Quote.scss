@@ -22,10 +22,10 @@
 
 .fadeIn {
   opacity: 1;
-  transition: opacity 1s;
+  transition: opacity 1.1s ease;
 }
 
 .fadeOut {
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.25s ease;
 }

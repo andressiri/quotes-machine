@@ -12,7 +12,9 @@ function BoxAcceptBtn () {
 
   
   async function handleBoxAcceptBtn () {
-    setMessagesArray([]);
+    setTimeout(() => {  // Timeout to handle transition
+      setMessagesArray([]);
+    }, 250);
     redirectTo('/box/app');  
   }; 
 

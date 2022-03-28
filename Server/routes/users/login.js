@@ -16,7 +16,6 @@ loginRouter.post('/',
       console.log('No user authenticated');
       res.status(428).json({message: 'Need to authenticate a user first'});
     } else {
-      console.log(req.session);
       let verified = false;
       let status = 500;
       switch (msg[0]) {

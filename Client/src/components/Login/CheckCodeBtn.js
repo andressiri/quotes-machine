@@ -23,12 +23,9 @@ function CheckCodeBtn () {
     event.preventDefault();
     if (isLoading) return;
     if (isBlocked) return setCheckWaitMsg(true);
-    console.log(emailToUpdate);
     if (emailToUpdate === '') return setMessagesArray(['No code was requested yet']);
     if (codeValue === '') return setMessagesArray(['Please enter the code sent']);
     setIsLoading(true);
-    let auxBool = true; //State won't update for final check, so isLoading can't be used in the conditional. Without that conditional isLoading would be updated after redirect leading to the error: "Can't perform a React state update on an unmounted component"
-    const msgArray = [];
     const response = await fetch("/users/verifyEmail", {
       method: 'PUT',
       headers: {
@@ -42,19 +39,20 @@ function CheckCodeBtn () {
     let json = await response.json();
     if (json.message === 'Code is correct') {
       setIsLoading(false);
-      auxBool = false
+      setTimeout(() => {  // Timeout to handle transition
+        setMessagesArray([]);
+      }, 250);
       if (loggedIn) {
         setVerified(true);
-        redirectTo('/box/loggedIn');
+        redirectTo('/box/app');
       } else {
         redirectTo('/box/changePassword'); 
       };
     } else {
+      setIsLoading(false);
       setCheckCodeBtnTimer(5);      
-      msgArray.push(json.message);
+      setMessagesArray([json.message]);
     };
-    setMessagesArray(msgArray);
-    if (auxBool) setIsLoading(false);  // final check
   };
 
   return (

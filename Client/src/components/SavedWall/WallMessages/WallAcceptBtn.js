@@ -12,7 +12,9 @@ function WallAcceptBtn () {
 
   
   async function handleWallAcceptBtn () {
-    setMessagesArray([]);
+    setTimeout(() => {  // Timeout to handle transition
+      setMessagesArray([]);         
+    }, 250);
     redirectTo('/wall');  
   }; 
 

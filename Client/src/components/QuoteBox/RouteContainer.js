@@ -16,11 +16,12 @@ import OptionsMenu from './Options/OptionsMenu.js';
 import BoxMessages from './BoxMessages/BoxMessages.js';
 
 function RouteContainer() {
-  const {colors, quote, edit} = useContext(Context);
+  const {colors, quote, fade, edit} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [quoteText, setQuoteText] = quote.quoteTxt;
   const [author, setAuthor] = quote.auth;
+  const [fadeMenu, setFadeMenu] = fade.fadM;
   const [fontFam, setFontFam] = edit.fontF;
   const [boldFont, setBoldFont] = edit.boldF;
   const [italicFont, setItalicFont] = edit.italicF;
@@ -43,6 +44,7 @@ function RouteContainer() {
 
   return (
     <div className={`routeContainer BG-color${imgBGColor}`}>
+      <div className={`fadeRoute${fadeMenu}`}>
       <Routes>
         <Route path='/app' exact element={<BoxStartingContainer />} />
         <Route path='/sharing' exact element={<BoxSharingSet />} />
@@ -58,6 +60,7 @@ function RouteContainer() {
         <Route path='/options' exact element={<OptionsMenu />} />
         <Route path='/message' exact element={<BoxMessages />} />
       </Routes>
+      </div>
     </div>
   );
 }

@@ -11,9 +11,12 @@ export const ContextProvider = (props) => {
   //quote
   const [quoteText, setQuoteText] = useState('Welcome to my quotes machine.');
   const [author, setAuthor] = useState('Andrés Siri');
-  const [fadeQuote, setFadeQuote] = useState('In');
   const [savedQuotesArray, setSavedQuotesArray] = useState(['Empty Array']);
   const [savedQuotesBackup, setSavedQuotesBackup] = useState(['Empty Array']);
+  //fade
+  const [fadeWall, setFadeWall] = useState('In');
+  const [fadeQuote, setFadeQuote] = useState('In');
+  const [fadeMenu, setFadeMenu] = useState('In');
   //auto
   const [handleAuto, setHandleAuto] = useState('Interval is off');
   const [autoClass, setAutoClass] = useState(false);
@@ -66,9 +69,13 @@ export const ContextProvider = (props) => {
       quote: {
         quoteTxt: [quoteText, setQuoteText],
         auth: [author, setAuthor],
-        fadQ: [fadeQuote, setFadeQuote],
         saved: [savedQuotesArray, setSavedQuotesArray],
         backup: [savedQuotesBackup, setSavedQuotesBackup]
+      },
+      fade: {
+        fadW: [fadeWall, setFadeWall],
+        fadQ: [fadeQuote, setFadeQuote],
+        fadM: [fadeMenu, setFadeMenu]
       },
       auto: {
         hAuto: [handleAuto, setHandleAuto],

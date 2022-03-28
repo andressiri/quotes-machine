@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import {Context} from '../Context.js';
 import { useLocation } from 'react-router-dom';
 import useRedirectTo from '../functions/useRedirectTo.js';
+import useRedirectToWall from '../functions/useRedirectToWall.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function CancelBtn () {
@@ -12,6 +13,7 @@ function CancelBtn () {
   const [messagesArray, setMessagesArray] = refs.msg;
   const [emailToUpdate, setEmailToUpdate] = refs.email;
   const redirectTo = useRedirectTo();
+  const redirectToWall = useRedirectToWall();
   const location = useLocation();
   let hideCancelBtn = true;
 
@@ -20,10 +22,16 @@ function CancelBtn () {
   }; 
 
   function handleCancel () {
+    setTimeout(() => {  // Timeout to handle transition
+      setMessagesArray([]);
+    }, 250);
     setEmailToUpdate('');
-    setMessagesArray([]);
     setShareChosen('');
-    redirectTo('/box/app');
+    if (/\/wall/.test(location.pathname)) {
+      redirectToWall('/box/app');
+    } else {
+      redirectTo('/box/app');
+    };
   };
   
   if (hideCancelBtn) {
