@@ -6,9 +6,10 @@ import RouteContainer from './RouteContainer.js'
 import CancelBtn from '../CancelBtn.js';
 
 function QuoteBox() {
-  const {colors, force} = useContext(Context);
+  const {colors, fade, force} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const [fadeWall, setFadeWall] = fade.fadW;
   const [forceUpdate, setForceUpdate] = force.update;
   const [updateForced, setUpdateForced] = force.forced;
   

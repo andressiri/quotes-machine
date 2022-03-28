@@ -1,14 +1,18 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
 import useLogout from '../../../functions/useLogout.js';
 
 function LogoutBtn () {
-  const {colors} = useContext(Context);
+  const {colors, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const [messagesArray, setMessagesArray] = refs.msg;
   const logout = useLogout();
 
   async function handleLogoutBtn() {    
+    setTimeout(() => {  // Timeout to handle transition
+      setMessagesArray(['Logged out, log in again?']);
+    }, 250);
     logout();
   };
 

@@ -5,10 +5,11 @@ import WallContainer from './WallContainer.js'
 import CancelBtn from '../CancelBtn.js';
 
 function SavedWall() {
-  const {colors, quote, force} = useContext(Context);
+  const {colors, quote, fade, force} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG; 
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
+  const [fadeWall, setFadeWall] = fade.fadW;
   const [forceUpdate, setForceUpdate] = force.update;
   const [updateForced, setUpdateForced] = force.forced;
   

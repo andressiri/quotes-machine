@@ -4,15 +4,20 @@ import {useNavigate} from 'react-router-dom';
 import useResetInputs from './useResetInputs.js';
 
 function useRedirectTo () {
-  const {refs} = useContext(Context);
+  const {fade, refs} = useContext(Context);
+  const [fadeMenu, setFadeMenu] = fade.fadM;
   const [currentPath, setCurrentPath] = refs.path;
   const resetInputs = useResetInputs();
   const navigate = useNavigate();
     
   const redirectTo = function setCurrentPathAndNavigate (path) {
+    setFadeMenu('Out');
     resetInputs();
-    setCurrentPath(path);
-    navigate(path);
+    setTimeout(() => {
+      setCurrentPath(path);
+      navigate(path);
+      setFadeMenu('In');
+    }, 250);
   };  
   return redirectTo;
 };
