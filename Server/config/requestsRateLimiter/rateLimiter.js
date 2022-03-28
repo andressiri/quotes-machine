@@ -31,3 +31,6 @@ exports.tooManyAttempts = require('./tooManyAttempts.js')(store);
 
 // No more than 500 attempts per day per IP
 exports.max500RequestsPerday = require('./max500RequestsPerDay.js')(store);
+
+// No more than 2500 attempts per day per IP
+exports.max2500RequestsPerday = require('./max2500RequestsPerDay.js')(store);

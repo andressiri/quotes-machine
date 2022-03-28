@@ -32,5 +32,7 @@ router.use('/saveQuote', require('./saveQuote.js'));
 router.use('/getSavedQuotes', require('./getSavedQuotes.js'));
   //Save quote changes
 router.use('/saveModifiedQuote', require('./saveModifiedQuote.js'));
+  //Delete Quote
+router.use('/deleteSavedQuote', require('./deleteSavedQuote.js'));
 
 module.exports = router;

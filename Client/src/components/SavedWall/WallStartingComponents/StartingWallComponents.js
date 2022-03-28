@@ -1,7 +1,7 @@
 import React from 'react';
 import SavedSharingBtn from '../Sharing/SavedSharingBtn.js';
 import SavedEditBtn from '../Edit/SavedEditBtn.js';
-import SavedDeleteBtn from './SavedDeleteBtn.js';
+import SavedDeleteBtn from '../Delete/SavedDeleteBtn.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function StartingWallComponents({parentToChild}) {

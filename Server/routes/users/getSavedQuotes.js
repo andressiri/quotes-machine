@@ -7,7 +7,7 @@ const checkAuthenticated = require('../../config/checkAuthenticated.js');
 const UserQuotes = require('../../models/UserQuotes.js');
 
 getSavedQuotesRouter.get('/', 
-  rateLimiter.max500RequestsPerday.prevent,
+  rateLimiter.max2500RequestsPerday.prevent,
   // different multiple clicking limiter, bacause save can make two consecutive requests if it needs to update savedQuotesArray.
   rateLimiter.extraMultipleClickingLimiter.prevent,
   checkAuthenticated,

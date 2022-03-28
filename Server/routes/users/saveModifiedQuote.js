@@ -7,7 +7,7 @@ const checkAuthenticated = require('../../config/checkAuthenticated.js');
 const UserQuotes = require('../../models/UserQuotes.js');
 
 saveModifiedQuoteRouter.put('/', 
-  rateLimiter.max500RequestsPerday.prevent,
+  rateLimiter.max2500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,
   checkAuthenticated,
   (req, res) => {
