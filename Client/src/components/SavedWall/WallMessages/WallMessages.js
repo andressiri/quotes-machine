@@ -4,13 +4,11 @@ import WallAcceptBtn from './WallAcceptBtn.js';
 
 function WallMessages () {
   const {refs} = useContext(Context);
-  const [messagesArray, setMessagesArray] = refs.msg;
+  const [message, setMessage] = refs.msg;
 
   return (
     <div>
-      {messagesArray.map((msg, i) => (
-        <p className={`shareIt`} key={i} >{msg}</p>
-      ))}
+      {message !== '' && <p className={`shareIt`} >{message}</p>}
       <WallAcceptBtn />
     </div>    
   );

@@ -10,7 +10,7 @@ function EditOkBtn ({parentToChild}) {
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [savedQuotesBackup, setSavedQuotesBackup] = quote.backup;
   const [shareChosen, setShareChosen] = refs.sChosen;
-  const [messagesArray, setMessagesArray] = refs.msg;
+  const [message, setMessage] = refs.msg;
   const [restartDefault, setRestartDefault] = edit.auto;
   const [isLoading, setIsLoading] = useState(false); 
   const shareImg = useShareImg();
@@ -19,18 +19,20 @@ function EditOkBtn ({parentToChild}) {
   
   async function handleEditOkBtn () {
     if (isLoading) return;
+    // if in quote box
     if (parentToChild.config._id === 'This was called by QuoteBox') {
-      setMessagesArray(['Style has been saved']);
+      setMessage('Style has been saved');
       if (shareChosen !== '') {
         await shareImg();
-        setMessagesArray(['Quotes has been shared']);
-        if (shareChosen === 'Clipboard') setMessagesArray(['Quote has been copied to clipboard']);
+        setMessage('Quotes has been shared');
+        if (shareChosen === 'Clipboard') setMessage('Quote has been copied to clipboard');
         setShareChosen('');
       };  
       if (restartDefault) restartToDefault();
       redirectTo('/box/message');            
     } else {
-      setMessagesArray(['There is no change to save']);
+    // if at wall  
+      setMessage('There is no change to save');
       // check if there are changes to save
       if (JSON.stringify(savedQuotesArray[parentToChild.index]) !== JSON.stringify(savedQuotesBackup[parentToChild.index])) {
         setIsLoading(true);
@@ -51,7 +53,7 @@ function EditOkBtn ({parentToChild}) {
           backupArrayAux[parentToChild.index] = quoteObj;
           setSavedQuotesBackup(backupArrayAux); 
         };
-        setMessagesArray([json.message]);      
+        setMessage(json.message);      
         setIsLoading(false);
       };
       redirectTo(`/wall/${parentToChild.config._id}/message`);

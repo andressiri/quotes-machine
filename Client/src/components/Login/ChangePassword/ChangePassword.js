@@ -7,14 +7,14 @@ import ChangePasswordBtn from './ChangePasswordBtn.js';
 
 function ChangePassword() {
   const {refs} = useContext(Context);
-  const [messagesArray, setMessagesArray] = refs.msg;
+  const [message, setMessage] = refs.msg;
   const [emailToUpdate, setEmailToUpdate] = refs.email;
   const redirectTo = useRedirectTo();
 
   function handleGoToLogin() {
     setEmailToUpdate('');
     setTimeout(() => {  // Timeout to handle transition
-      setMessagesArray([]);
+      setMessage('');
     }, 250);
     redirectTo('/box/login');
   };
@@ -22,9 +22,7 @@ function ChangePassword() {
   return (
     <div>
       <p className={`shareIt`} >Create your new password</p>
-      {messagesArray.map((msg, i) => (
-        <p className={`shareIt`} key={i} >{msg}</p>
-      ))}
+      {message !== '' && <p className={`shareIt`} >{message}</p>}
       <form id="registerForm">
         <PasswordInput />
         <Password2Input />

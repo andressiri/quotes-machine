@@ -7,7 +7,7 @@ function LoginButton () {
   const {colors, refs, forms} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [messagesArray, setMessagesArray] = refs.msg;
+  const [message, setMessage] = refs.msg;
   const [loggedIn, setLoggedIn] = refs.logged;
   const [verified, setVerified] = refs.ver;
   const [emailValue, setEmailValue] = forms.email;
@@ -19,9 +19,9 @@ function LoginButton () {
     event.preventDefault();
     if (isLoading) return;
     if (emailValue === '' || passwordValue === '') {
-      setMessagesArray(['Please fill all fields']);
+      setMessage('Please fill all fields');
     } else if (!validateEmail(emailValue)) {
-      setMessagesArray(['Please enter a valid email']);
+      setMessage('Please enter a valid email');
     } else {
       setIsLoading(true);
       const passportAuth = await fetch('/users/loginAuth', {
@@ -44,18 +44,18 @@ function LoginButton () {
         // can't use checkVerified because state won't update before the conditional check
         if (json.verified) {
           setTimeout(() => {  // Timeout to handle transition
-            setMessagesArray([json.message]);         
+            setMessage(json.message);         
           }, 250); 
           redirectTo('/box/message');
         } else {
           setTimeout(() => {  // Timeout to handle transition
-            setMessagesArray([]);         
+            setMessage('');         
           }, 250);
           redirectTo('/box/verifyEmail');
         };
       } else {
         setIsLoading(false);
-        setMessagesArray([json.message]);
+        setMessage(json.message);
       };  
     };
   };

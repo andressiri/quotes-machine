@@ -6,7 +6,7 @@ function useLogout () {
   const {quote, refs} = useContext(Context);
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [savedQuotesBackup, setSavedQuotesBackup] = quote.backup;
-  const [messagesArray, setMessagesArray] = refs.msg;
+  const [message, setMessage] = refs.msg;
   const [loggedIn, setLoggedIn] = refs.logged;
   const [verified, setVerified] = refs.ver;
   const redirectTo = useRedirectTo();
@@ -16,7 +16,7 @@ function useLogout () {
     setSavedQuotesArray(['Empty Array']);
     setSavedQuotesBackup(['Empty Array']);
     setTimeout(() => {  // Timeout to handle transition
-      setMessagesArray([]);         
+      setMessage('');         
     }, 250);
     setLoggedIn(false);
     setVerified(false);

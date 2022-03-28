@@ -5,7 +5,7 @@ function EmailVerifyBtn () {
   const {colors, refs, timers} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [messagesArray, setMessagesArray] = refs.msg;
+  const [message, setMessage] = refs.msg;
   const [emailToUpdate, setEmailToUpdate] = refs.email;
   const [sendEmailBtnTimer, setSendEmailBtnTimer] = timers.send;
   const [sendWaitMsg, setSendWaitMsg] = timers.sendWait;
@@ -21,7 +21,7 @@ function EmailVerifyBtn () {
     setIsLoading(true);
     const response  = await fetch('/users/sendVerifyEmail'); 
     let json = await response.json();
-    setMessagesArray([json.message]);
+    setMessage(json.message);
     setSendEmailBtnTimer(10);
     if (json.message === 'Email sent with the code') setEmailToUpdate('To check if code was requested');
     setIsLoading(false);

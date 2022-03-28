@@ -9,15 +9,15 @@ function ShareTxtBtn () {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [shareChosen, setShareChosen] = refs.sChosen;
-  const [messagesArray, setMessagesArray] = refs.msg;
+  const [message, setMessage] = refs.msg;
   const shareTxt = useShareTxt(); 
   const redirectTo = useRedirectTo();
    
   
   function handleShareTxt () {
     shareTxt();
-    setMessagesArray(['Quote has been shared']);
-    if (shareChosen === 'Clipboard') setMessagesArray(['Quote has been copied to clipboard']);
+    setMessage('Quote has been shared');
+    if (shareChosen === 'Clipboard') setMessage('Quote has been copied to clipboard');
     setShareChosen('');
     redirectTo('/box/message');
   };  

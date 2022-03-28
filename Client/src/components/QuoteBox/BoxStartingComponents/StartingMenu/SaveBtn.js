@@ -14,7 +14,7 @@ function SaveBtn() {
   const [quoteText, setQuoteText] = quote.quoteTxt;  
   const [author, setAuthor] = quote.auth;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [messagesArray, setMessagesArray] = refs.msg;
+  const [message, setMessage] = refs.msg;
   const [isLoading, setIsLoading] = useState(false);
   const redirectTo = useRedirectTo();
   const stopAuto = useStopAuto();
@@ -42,7 +42,7 @@ function SaveBtn() {
       if (savedQuotesArray[0] !== 'Empty Array') {
         getSavedQuotes();        
       };
-      setMessagesArray([json.message]);
+      setMessage(json.message);
       setIsLoading(false);
       redirectTo('/box/message');
     };   

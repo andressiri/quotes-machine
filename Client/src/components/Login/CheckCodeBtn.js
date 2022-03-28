@@ -6,7 +6,7 @@ function CheckCodeBtn () {
   const {colors, refs, forms, timers} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [messagesArray, setMessagesArray] = refs.msg;
+  const [message, setMessage] = refs.msg;
   const [verified, setVerified] = refs.ver;
   const [emailToUpdate, setEmailToUpdate] = refs.email;
   const [loggedIn, setLoggedIn] = refs.logged;
@@ -23,8 +23,8 @@ function CheckCodeBtn () {
     event.preventDefault();
     if (isLoading) return;
     if (isBlocked) return setCheckWaitMsg(true);
-    if (emailToUpdate === '') return setMessagesArray(['No code was requested yet']);
-    if (codeValue === '') return setMessagesArray(['Please enter the code sent']);
+    if (emailToUpdate === '') return setMessage('No code was requested yet');
+    if (codeValue === '') return setMessage('Please enter the code sent');
     setIsLoading(true);
     const response = await fetch("/users/verifyEmail", {
       method: 'PUT',
@@ -40,7 +40,7 @@ function CheckCodeBtn () {
     if (json.message === 'Code is correct') {
       setIsLoading(false);
       setTimeout(() => {  // Timeout to handle transition
-        setMessagesArray([]);
+        setMessage('');
       }, 250);
       if (loggedIn) {
         setVerified(true);
@@ -51,7 +51,7 @@ function CheckCodeBtn () {
     } else {
       setIsLoading(false);
       setCheckCodeBtnTimer(5);      
-      setMessagesArray([json.message]);
+      setMessage(json.message);
     };
   };
 

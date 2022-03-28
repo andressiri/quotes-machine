@@ -7,13 +7,13 @@ function WallAcceptBtn () {
   const {colors, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [messagesArray, setMessagesArray] = refs.msg;
+  const [message, setMessage] = refs.msg;
   const redirectTo = useRedirectTo();
 
   
   async function handleWallAcceptBtn () {
     setTimeout(() => {  // Timeout to handle transition
-      setMessagesArray([]);         
+      setMessage('');         
     }, 250);
     redirectTo('/wall');  
   }; 

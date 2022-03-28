@@ -9,12 +9,12 @@ import RegisterButton from './RegisterButton.js';
 
 function RegisterForm() {
   const {refs} = useContext(Context);
-  const [messagesArray, setMessagesArray] = refs.msg;
+  const [message, setMessage] = refs.msg;
   const redirectTo = useRedirectTo();
 
   function handleGoToLogin() {
     setTimeout(() => {  // Timeout to handle transition
-      setMessagesArray([]);         
+      setMessage('');         
     }, 250);
     redirectTo('/box/login');
   };
@@ -22,9 +22,7 @@ function RegisterForm() {
   return (
     <div>
       <p className={`shareIt`} >Fill all fields to create an account</p>
-      {messagesArray.map((msg, i) => (
-        <p className={`shareIt`} key={i} >{msg}</p>
-      ))}
+      {message !== '' && <p className={`shareIt`} >{message}</p>}
       <form id='registerForm'>
         <NameInput />
         <EmailInput />

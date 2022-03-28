@@ -26,7 +26,7 @@ export const ContextProvider = (props) => {
   //refs
   const quoteRef = useRef('null');
   const [shareChosen, setShareChosen] = useState('');
-  const [messagesArray, setMessagesArray] = useState([]);
+  const [message, setMessage] = useState('');
   const [currentPath, setCurrentPath] = useState('/box/app');
   const [loggedIn, setLoggedIn] = useState(false);
   const [verified, setVerified] = useState(false);
@@ -87,7 +87,7 @@ export const ContextProvider = (props) => {
       refs: {
         refImg: quoteRef,
         sChosen: [shareChosen, setShareChosen],
-        msg: [messagesArray, setMessagesArray],
+        msg: [message, setMessage],
         path: [currentPath, setCurrentPath],
         logged: [loggedIn, setLoggedIn],
         ver: [verified, setVerified],
