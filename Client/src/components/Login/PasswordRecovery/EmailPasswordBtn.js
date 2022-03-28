@@ -6,7 +6,7 @@ function EmailPasswordBtn () {
   const {colors, refs, forms, timers} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [messagesArray, setMessagesArray] = refs.msg;
+  const [message, setMessage] = refs.msg;
   const [emailToUpdate, setEmailToUpdate] = refs.email;
   const [emailValue, setEmailValue] = forms.email;
   const [sendEmailBtnTimer, setSendEmailBtnTimer] = timers.send;
@@ -20,8 +20,8 @@ function EmailPasswordBtn () {
     event.preventDefault();
     if (isLoading) return;
     if (isBlocked) return setSendWaitMsg(true);
-    if (emailValue === '') return setMessagesArray(['Please enter your email']);
-    if (!validateEmail(emailValue)) return setMessagesArray(['Please enter a valid email']);
+    if (emailValue === '') return setMessage('Please enter your email');
+    if (!validateEmail(emailValue)) return setMessage('Please enter a valid email');
     setIsLoading(true);
     const response = await fetch('/users/sendChangePassword', {
       method: 'POST',
@@ -33,7 +33,7 @@ function EmailPasswordBtn () {
       }),
     });
     let json = await response.json();
-    setMessagesArray([json.message]);
+    setMessage(json.message);
     setSendEmailBtnTimer(10);
     if (json.message === 'Email sent with the code') setEmailToUpdate(emailValue);
     setIsLoading(false);

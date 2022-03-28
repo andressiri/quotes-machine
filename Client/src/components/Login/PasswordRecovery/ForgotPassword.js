@@ -8,7 +8,7 @@ import useLogout from '../../../functions/useLogout.js';
 
 function ForgotPassword() {
   const {refs, timers} = useContext(Context);
-  const [messagesArray, setMessagesArray] = refs.msg;
+  const [message, setMessage] = refs.msg;
   const [emailToUpdate, setEmailToUpdate] = refs.email;
   const [checkCodeBtnTimer, setCheckCodeBtnTimer] = timers.check;
   const [sendEmailBtnTimer, setSendEmailBtnTimer] = timers.send;
@@ -24,9 +24,7 @@ function ForgotPassword() {
   return (
     <div>
       <p className={`shareIt`} >Get the code from your email in order to verify your id</p>
-      {messagesArray.map((msg, i) => (
-        <p className={`shareIt`} key={i} >{msg}</p>
-      ))}
+      {message !== '' && <p className={`shareIt`} >{message}</p>}
       {(sendEmailBtnTimer !== 0 && sendWaitMsg) && <p className={`shareIt`}>You have to wait {sendEmailBtnTimer}s to send email again</p>}
       {(checkCodeBtnTimer !== 0 && checkWaitMsg) && <p className={`shareIt`}>You have to wait {checkCodeBtnTimer}s to check code again</p>}
       <form id='sendEmail'>

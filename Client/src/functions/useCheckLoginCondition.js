@@ -4,7 +4,7 @@ import useRedirectTo from "./useRedirectTo.js";
 
 function useCheckLoginCondition () {
   const {refs} = useContext(Context);
-  const [messagesArray, setMessagesArray] = refs.msg;
+  const [message, setMessage] = refs.msg;
   const [loggedIn, setLoggedIn] = refs.logged;
   const [verified, setVerified] = refs.ver;
   const redirectTo = useRedirectTo();
@@ -12,13 +12,13 @@ function useCheckLoginCondition () {
   const checkLoginCondition = function checkLoggedCondition () {
     if (!loggedIn) {
       setTimeout(() => {  // Timeout to handle transition
-        setMessagesArray(['You have to be logged in to save']);
+        setMessage('You have to be logged in to save');
       }, 250);
       redirectTo('/box/login');
       return false;
     } else if (!verified) {
       setTimeout(() => {  // Timeout to handle transition
-        setMessagesArray(['You should verify your email to save']);
+        setMessage('You should verify your email to save');
       }, 250);
       redirectTo('/box/verifyEmail');
       return false;

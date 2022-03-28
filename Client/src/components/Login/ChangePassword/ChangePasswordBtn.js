@@ -6,7 +6,7 @@ function ChangePasswordBtn () {
   const {colors, refs, forms} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [messagesArray, setMessagesArray] = refs.msg;
+  const [message, setMessage] = refs.msg;
   const [emailToUpdate, setEmailToUpdate] = refs.email;
   const [passwordValue, setPasswordValue] = forms.pass;
   const [password2Value, setPassword2Value] = forms.pass2;
@@ -18,13 +18,13 @@ function ChangePasswordBtn () {
     if (isLoading) return;
       //Check required fields
     if (passwordValue === '' || password2Value === '') {
-      return setMessagesArray(['Please fill in all fields']);
+      return setMessage('Please fill in all fields');
     };  //Check passwords match
     if (passwordValue !== '' && passwordValue !== password2Value) {
-      return setMessagesArray(['Passwords do not match']);
+      return setMessage('Passwords do not match');
     };  //Check password length
     if (passwordValue !== '' && passwordValue.length < 6) {
-      return setMessagesArray(['Password should be at least 6 characters']);
+      return setMessage('Password should be at least 6 characters');
     };  // POST the form if it meets requirements    
     setIsLoading(true); 
     const response = await fetch('/users/changePassword', {
@@ -42,11 +42,11 @@ function ChangePasswordBtn () {
     if (json.message === 'Password changed') {
       setEmailToUpdate('');
       setTimeout(() => {  // Timeout to handle transition
-        setMessagesArray([json.message]);
+        setMessage(json.message);
       }, 250);
       redirectTo('/box/login');
     } else {
-      setMessagesArray([json.message]);
+      setMessage(json.message);
     };
   };
 

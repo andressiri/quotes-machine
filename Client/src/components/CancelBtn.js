@@ -10,7 +10,7 @@ function CancelBtn () {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [shareChosen, setShareChosen] = refs.sChosen;
-  const [messagesArray, setMessagesArray] = refs.msg;
+  const [message, setMessage] = refs.msg;
   const [emailToUpdate, setEmailToUpdate] = refs.email;
   const redirectTo = useRedirectTo();
   const redirectToWall = useRedirectToWall();
@@ -23,7 +23,7 @@ function CancelBtn () {
 
   function handleCancel () {
     setTimeout(() => {  // Timeout to handle transition
-      setMessagesArray([]);
+      setMessage('');
     }, 250);
     setEmailToUpdate('');
     setShareChosen('');

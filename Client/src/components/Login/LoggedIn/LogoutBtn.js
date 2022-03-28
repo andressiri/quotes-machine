@@ -6,12 +6,12 @@ function LogoutBtn () {
   const {colors, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [messagesArray, setMessagesArray] = refs.msg;
+  const [message, setMessage] = refs.msg;
   const logout = useLogout();
 
   async function handleLogoutBtn() {    
     setTimeout(() => {  // Timeout to handle transition
-      setMessagesArray(['Logged out, log in again?']);
+      setMessage('Logged out, log in again?');
     }, 250);
     logout();
   };
