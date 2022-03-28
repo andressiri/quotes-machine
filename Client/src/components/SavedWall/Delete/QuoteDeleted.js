@@ -1,17 +1,17 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Context} from '../../../Context.js';
-import WallAcceptBtn from './WallAcceptBtn.js';
+import DeletedOkBtn from './DeletedOkBtn.js';
 
-function WallMessages ({parentToChild}) {
+function QuoteDeleted ({parentToChild}) {
   const {refs} = useContext(Context);
   const [message, setMessage] = refs.msg;
 
   return (
     <div className={`BG-color${parentToChild.config.imgBG} text-color${parentToChild.config.colorNum}`}>
       {message !== '' && <p className={`shareIt`} >{message}</p>}
-      <WallAcceptBtn parentToChild={parentToChild} />
+      <DeletedOkBtn parentToChild={parentToChild} />
     </div>    
   );
 };
 
-export default WallMessages;
+export default QuoteDeleted;

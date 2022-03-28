@@ -6,7 +6,7 @@ function SavedDeleteBtn ({parentToChild}) {
   const redirectTo = useRedirectTo();
   
   function handleSavedDeleteBtn () {
-    console.log('deleted');
+    redirectTo(`/wall/${parentToChild.config._id}/deleteConfirm`);
   };  
 
   return (

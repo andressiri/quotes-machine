@@ -9,7 +9,7 @@ const User = require('../../models/User.js');
 const UserQuotes = require('../../models/UserQuotes.js');
 
 saveQuoteRouter.put('/', 
-  rateLimiter.max500RequestsPerday.prevent,
+  rateLimiter.max2500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,
   checkAuthenticated,
   (req, res) => {
