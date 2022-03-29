@@ -38,7 +38,15 @@ export const ContextProvider = (props) => {
   const [upperFont, setUpperFont] = useState('none');
   const [fSize, setFSize] = useState(35);
   const [restartDefault, setRestartDefault] = useState(true);
-  const [configBackup, setConfigBackup] = useState({});
+  const [configBackup, setConfigBackup] = useState({
+    colorNum: 0,
+    imgBG: 7,
+    fontF: 'Arial, Helvetica, sans-serif',
+    boldF: 'normal',
+    italicF: 'normal',
+    upperF: 'none',
+    fontS: 35
+  });
   //gall
   const [gallArray, setGallArray] = useState([{text: quoteText, author: author}]);
   const [gallChoose, setGallChoose] = useState(0);

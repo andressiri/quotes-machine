@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 import {Context} from './Context.js';
 import {Routes, Route} from 'react-router-dom';
-import QuoteBox from './components/QuoteBox/QuoteBox.js';
-import SavedWall from './components/SavedWall/SavedWall.js';
+import QuoteBox from './Components/QuoteBox/QuoteBox.js';
+import SavedWall from './Components/SavedWall/SavedWall.js';
 
 function AppRouter() {
   const {colors, fade} = useContext(Context);

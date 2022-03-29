@@ -17,6 +17,7 @@ loginRouter.post('/',
       res.status(428).json({message: 'Need to authenticate a user first'});
     } else {
       let verified = false;
+      let userOpt = {message: 'No user options found'};
       let status = 500;
       switch (msg[0]) {
         case 'Please fill all the fields': status = 400; break;
@@ -26,8 +27,11 @@ loginRouter.post('/',
         case 'Password incorrect': status = 401; break;
         default: status = 500;
       };     
-      if (req.user) {if (req.user.verifiedEmail) verified = true;};
-      res.status(status).json({verified: verified, message: msg[0]});
+      if (req.user) {
+        if (req.user.verifiedEmail) verified = true;
+        if (req.user.userOptions) userOpt = {message: 'User options loaded', userOptionsObj: req.user.userOptions};
+      };
+      res.status(status).json({message: msg[0], verified: verified, userOptions: userOpt});
     };
   }
 );

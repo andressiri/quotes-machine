@@ -4,12 +4,15 @@ import useRedirectTo from '../../../functions/useRedirectTo.js';
 import validateEmail from '../../../functions/validateEmail.js';
 
 function LoginButton () {
-  const {colors, refs, forms} = useContext(Context);
+  const {colors, refs, edit, forms, force} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const [autoColorChange, setAutoColorChange] = colors.auto;
   const [message, setMessage] = refs.msg;
   const [loggedIn, setLoggedIn] = refs.logged;
   const [verified, setVerified] = refs.ver;
+  const [restartDefault, setRestartDefault] = edit.auto;
+  const [configBackup, setConfigBackup] = edit.cBackup;
   const [emailValue, setEmailValue] = forms.email;
   const [passwordValue, setPasswordValue] = forms.pass;
   const [isLoading, setIsLoading] = useState(false); 
@@ -38,9 +41,16 @@ function LoginButton () {
       const response = await fetch('/users/login', {method: 'POST'});
       let json = await response.json();    
       if (json.message === 'Login success') {
-        setIsLoading(false);
+        //Load options
+        if (json.userOptions.message === 'User options loaded') {
+          const {userOptionsObj} = json.userOptions;
+          setConfigBackup(userOptionsObj.quoteConfig);
+          setRestartDefault(userOptionsObj.restartAfterShare);
+          setAutoColorChange(userOptionsObj.automaticColor);
+        };
         setLoggedIn(true);
         setVerified(json.verified);        
+        setIsLoading(false);
         // can't use checkVerified because state won't update before the conditional check
         if (json.verified) {
           setTimeout(() => {  // Timeout to handle transition

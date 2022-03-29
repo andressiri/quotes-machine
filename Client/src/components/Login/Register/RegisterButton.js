@@ -1,19 +1,23 @@
 import React, {useContext, useState} from 'react';
 import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
+import useCreateOptionsObj from '../../../functions/useCreateOptionsObj.js';
 import validateEmail from '../../../functions/validateEmail.js';
+import EditAndShareImgBtn from '../../SharingChoices/EditAndShareImgBtn.js';
 
 function RegisterButton () {
-  const {colors, refs, forms} = useContext(Context);
+  const {colors, refs, edit, forms} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [message, setMessage] = refs.msg;
+  const [configBackup, setConfigBackup] = edit.cBackup;
   const [nameValue, setNameValue] = forms.name;
   const [emailValue, setEmailValue] = forms.email;
   const [passwordValue, setPasswordValue] = forms.pass;
   const [password2Value, setPassword2Value] = forms.pass2;
   const [isLoading, setIsLoading] = useState(false); 
   const redirectTo = useRedirectTo();
+  const createOptionsObj = useCreateOptionsObj();
 
   async function handleSubmitRegister(event) {
     event.preventDefault();
@@ -32,6 +36,7 @@ function RegisterButton () {
       return setMessage('Password should be at least 6 characters');
     };  // POST the form if it meets requirements
     setIsLoading(true);
+    const userOpt = createOptionsObj(configBackup);
     const response = await fetch('/users/register', {
       method: 'POST',
       headers: {
@@ -41,6 +46,7 @@ function RegisterButton () {
         name: nameValue,
         email: emailValue,
         password: passwordValue,
+        userOptions: userOpt
       }),
     });
     let json = await response.json();

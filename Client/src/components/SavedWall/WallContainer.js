@@ -14,7 +14,7 @@ function WallContainer({parentToChild}) {
       <Routes>
         <Route path={`/*`} exact element={<StartingWallComponents parentToChild={parentToChild} />} />
         <Route path={`/${config._id}/savedSharing`} exact element={<SavedSharingContainer parentToChild={parentToChild} />} />
-        <Route path={`/${config._id}/savedEdit`} exact element={<EditSet parentToChild={parentToChild} />} />
+        <Route path={`/${config._id}/editSaved`} exact element={<EditSet parentToChild={parentToChild} />} />
         <Route path={`/${config._id}/message`} exact element={<WallMessages parentToChild={parentToChild} />} />                
         <Route path={`/${config._id}/deleteConfirm`} exact element={<DeleteQuoteConfirmation parentToChild={parentToChild} />} />                
       </Routes>

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Context} from '../../Context.js';
 import {Routes, Route } from 'react-router-dom';
 import BoxStartingContainer from './BoxStartingComponents/BoxStartingContainer.js';
@@ -27,7 +27,6 @@ function RouteContainer() {
   const [upperFont, setUpperFont] = edit.upperF;
   const [fSize, setFSize] = edit.fontS;
 
-
   const editConfiguration = {
     _id: 'This was called by QuoteBox',
     content: quoteText,
@@ -45,17 +44,18 @@ function RouteContainer() {
     <div className={`routeContainer BG-color${imgBGColor}`}>
       <div className={`fadeRoute${fadeMenu}`}>
       <Routes>
-        <Route path='/app' exact element={<BoxStartingContainer />} />
+        <Route path='/app' exact element={<BoxStartingContainer parentToChild={{config: editConfiguration, index: null}} />} />
         <Route path='/sharing' exact element={<BoxSharingSet />} />
         <Route path='/sharingChoices' exact element={<SharingChoices parentToChild={{config: editConfiguration, index: null}} />} />
-        <Route path='/edit' exact element={<EditSet parentToChild={{config: editConfiguration, index: null}} />} />
+        <Route path='/editSharing' exact element={<EditSet parentToChild={{config: editConfiguration, index: null}} />} />
+        <Route path='/editConfig' exact element={<EditSet parentToChild={{config: editConfiguration, index: null}} />} />
         <Route path='/login' exact element={<LoginForm />} />
         <Route path='/verifyEmail' exact element={<VerifyEmail />} />
         <Route path='/loggedIn' exact element={<LoggedInMenu />} />
         <Route path='/register' exact element={<RegisterForm />} />
         <Route path='/forgotPassword' exact element={<ForgotPassword />} />
         <Route path='/changePassword' exact element={<ChangePassword />} />
-        <Route path='/options' exact element={<OptionsMenu />} />
+        <Route path='/options' exact element={<OptionsMenu parentToChild={{config: editConfiguration, index: null}} />} />
         <Route path='/message' exact element={<BoxMessages />} />
       </Routes>
       </div>

@@ -2,11 +2,11 @@ import React from "react";
 import Gallery from "./Gallery/Gallery.js";
 import StartingMenu from "./StartingMenu/StartingMenu.js";
 
-function BoxStartingContainer() {
+function BoxStartingContainer({parentToChild}) {
   return (
     <div>
       <Gallery />
-      <StartingMenu />
+      <StartingMenu parentToChild={parentToChild} />
     </div>   
   );
 };
