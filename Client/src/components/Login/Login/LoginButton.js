@@ -63,9 +63,8 @@ function LoginButton () {
   return (
     <button
       className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
-      onClick={handleSubmitLogin} >
-      Login
-    </button>
+      onClick={handleSubmitLogin}
+      >Login</button>
   );
 };
 

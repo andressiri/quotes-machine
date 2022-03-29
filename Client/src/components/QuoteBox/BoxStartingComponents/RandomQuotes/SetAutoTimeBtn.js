@@ -40,7 +40,11 @@ function SetAutoTimeBtn() {
   };
   
   return (
-    <button className={`${setOnOff} text-color${setText} BG-color${setBG}`} aria-label="Set time for Auto" onClick={handleTime} >{autoSeconds}s</button>
+    <button
+      className={`${setOnOff} text-color${setText} BG-color${setBG}`}
+      aria-label="Set time for Auto"
+      onClick={handleTime}
+      >{autoSeconds}s</button>
   );
 };
 

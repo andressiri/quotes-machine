@@ -3,14 +3,18 @@ import useRedirectTo from "../../../functions/useRedirectTo.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function SavedEditBtn ({parentToChild}) {
+  const {config} = parentToChild;
   const redirectTo = useRedirectTo();
   
   function handleSavedEditBtn () {
-    redirectTo(`/wall/${parentToChild.config._id}/savedEdit`);
+    redirectTo(`/wall/${config._id}/savedEdit`);
   };  
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${parentToChild.config.colorNum} text-color${parentToChild.config.imgBG}`} onClick={handleSavedEditBtn} icon="pen" />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
+      onClick={handleSavedEditBtn}
+      icon="pen" />
   );
 };
 

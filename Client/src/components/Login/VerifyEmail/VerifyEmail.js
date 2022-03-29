@@ -22,10 +22,17 @@ function VerifyEmail() {
 
   return (
     <div>
-      <p className={`shareIt`} >Get the code from your email in order to verify your id</p>
-      {message !== '' && <p className={`shareIt`} >{message}</p>}
-      {(sendEmailBtnTimer !== 0 && sendWaitMsg) && <p className={`shareIt`}>You have to wait {sendEmailBtnTimer}s to send email again</p>}
-      {(checkCodeBtnTimer !== 0 && checkWaitMsg) && <p className={`shareIt`}>You have to wait {checkCodeBtnTimer}s to check code again</p>}
+      <p className={`shareIt`}
+        >Get the code from your email in order to verify your id</p>
+      {message !== ''
+        &&  <p className={`shareIt`}
+              >{message}</p>}
+      {(sendEmailBtnTimer !== 0 && sendWaitMsg)
+        &&  <p className={`shareIt`}
+              >You have to wait {sendEmailBtnTimer}s to send email again</p>}
+      {(checkCodeBtnTimer !== 0 && checkWaitMsg)
+        &&  <p className={`shareIt`}
+              >You have to wait {checkCodeBtnTimer}s to check code again</p>}
       <EmailVerifyBtn />
       <form id='codeForm'>
         <CodeInput />

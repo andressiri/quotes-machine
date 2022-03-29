@@ -16,7 +16,10 @@ function EditImgBtn ({parentToChild}) {
   };  
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleEditImgBtn} icon="pen" />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleEditImgBtn}
+      icon="pen" />
   );
 };
 

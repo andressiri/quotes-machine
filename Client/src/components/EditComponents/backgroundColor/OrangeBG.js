@@ -6,23 +6,24 @@ function OrangeBG ({parentToChild}) {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [forceUpdate, setForceUpdate] = force.update;
+  const {config, index} = parentToChild;
   let orangeBGState = '';
 
-  if (parentToChild.config.colorNum === 1) {
+  if (config.colorNum === 1) {
     orangeBGState = 'buttonDisabled';
   };
-  if (parentToChild.config.imgBG === 1) {
-    orangeBGState = `buttonEnabled text-color${parentToChild.config.colorNum}`;
+  if (config.imgBG === 1) {
+    orangeBGState = `buttonEnabled text-color${config.colorNum}`;
   };
 
   function handleOrangeBG () {
-    if (parentToChild.config._id === 'This was called by QuoteBox') {
+    if (config._id === 'This was called by QuoteBox') {
       setImgBGColor(1);
     } else {
       let auxArray = savedQuotesArray;
-      let auxObj = auxArray[parentToChild.index];
+      let auxObj = auxArray[index];
       auxObj.imgBG = 1;
-      auxArray[parentToChild.index] = auxObj;
+      auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
     };

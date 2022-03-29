@@ -7,15 +7,19 @@ function CancelDeleteBtn ({parentToChild}) {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [message, setMessage] = refs.msg;
+  const {config, index} = parentToChild;
   const redirectTo = useRedirectTo();
 
   async function handleCancelDeleteBtn() {    
     setMessage('Quote elimination canceled');
-    redirectTo(`/wall/${parentToChild.config._id}/message`);
+    redirectTo(`/wall/${config._id}/message`);
   };
 
   return (
-    <button className={`NQbtn BG-color${parentToChild.config.colorNum} text-color${parentToChild.config.imgBG}`} onClick={handleCancelDeleteBtn} >No, thanks</button>
+    <button
+      className={`NQbtn BG-color${config.colorNum} text-color${config.imgBG}`}
+      onClick={handleCancelDeleteBtn}
+      >No, thanks</button>
   );
 };
 

@@ -6,23 +6,24 @@ function BlueTxt ({parentToChild}) {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [forceUpdate, setForceUpdate] = force.update;
+  const {config, index} = parentToChild;
   let blueTxtState = '';
   
-  if (parentToChild.config.imgBG === 4) {
+  if (config.imgBG === 4) {
     blueTxtState = 'buttonDisabled';
   };
-  if (parentToChild.config.colorNum === 4) {
-    blueTxtState = `buttonEnabled text-color${parentToChild.config.imgBG}`;
+  if (config.colorNum === 4) {
+    blueTxtState = `buttonEnabled text-color${config.imgBG}`;
   };
 
   function handleBlueTxt () {
-    if (parentToChild.config._id === 'This was called by QuoteBox') {
+    if (config._id === 'This was called by QuoteBox') {
       setColorNumber(4);
     } else {
       let auxArray = savedQuotesArray;
-      let auxObj = auxArray[parentToChild.index];
+      let auxObj = auxArray[index];
       auxObj.colorNum = 4;
-      auxArray[parentToChild.index] = auxObj;
+      auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
     };

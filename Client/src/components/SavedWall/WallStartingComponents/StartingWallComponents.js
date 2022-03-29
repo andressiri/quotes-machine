@@ -5,7 +5,8 @@ import SavedDeleteBtn from '../Delete/SavedDeleteBtn.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function StartingWallComponents({parentToChild}) {
-  const epochTime = parseInt(parentToChild.config._id.substring(0, 8), 16);
+  const {config} = parentToChild;
+  const epochTime = parseInt(config._id.substring(0, 8), 16);
   const savedDate = new Date(epochTime*1000).toLocaleDateString();
   const savedDateTime = new Date(epochTime*1000).toLocaleTimeString();
 
@@ -14,7 +15,7 @@ function StartingWallComponents({parentToChild}) {
       <SavedSharingBtn parentToChild={parentToChild} />
       <SavedEditBtn parentToChild={parentToChild} />
       <SavedDeleteBtn parentToChild={parentToChild} />
-      <p className={`text-color${parentToChild.config.colorNum}`}>
+      <p className={`text-color${config.colorNum}`}>
       <FontAwesomeIcon className={`quoteIcon`} icon='globe-americas' /> 
       {` ${savedDate}`} at {savedDateTime}</p>
     </div>   

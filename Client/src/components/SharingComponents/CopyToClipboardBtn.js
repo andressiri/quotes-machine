@@ -20,7 +20,10 @@ function CopyToClipboardBtn() {
   };
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleCopyToClip} icon="paperclip" />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleCopyToClip}
+      icon="paperclip" />
   );
 };
 

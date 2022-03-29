@@ -18,7 +18,10 @@ function SearchBtn() {
   };
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleSearchBtn} icon='search' />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleSearchBtn}
+      icon='search' />
   );
 };
 

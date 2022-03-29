@@ -29,7 +29,9 @@ function GallSecond () {
   };
 
   return (
-    <p className={`gallBtn${chooseSecond} BG-color${colorNumber} ${disableSecond} gallTwo`} onClick={handleGallSecond} />
+    <p
+      className={`gallBtn${chooseSecond} BG-color${colorNumber} ${disableSecond} gallTwo`}
+      onClick={handleGallSecond} />
   );
 };
 

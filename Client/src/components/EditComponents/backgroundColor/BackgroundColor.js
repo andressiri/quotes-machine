@@ -10,10 +10,11 @@ import VioletBG from './VioletBG.js';
 import BlackBG from './BlackBG.js';
 
 function BackgroundColor ({parentToChild}) {
+  const {config} = parentToChild;
 
   return (
-    <div className={`editGroup BG-color${parentToChild.config.imgBG} text-color${parentToChild.config.colorNum}`}>
-      <p className={`text-color${parentToChild.config.colorNum}`}  style={{marginRight: "5px"}}>BackG</p>
+    <div className={`editGroup BG-color${config.imgBG} text-color${config.colorNum}`}>
+      <p className={`text-color${config.colorNum}`}  style={{marginRight: "5px"}}>BackG</p>
       <div>
         <WhiteBG parentToChild={parentToChild} />
         <RedBG parentToChild={parentToChild} />
@@ -25,7 +26,7 @@ function BackgroundColor ({parentToChild}) {
         <VioletBG parentToChild={parentToChild} />
         <BlackBG parentToChild={parentToChild} />
       </div>
-      <p className={`text-color${parentToChild.config.colorNum}`} style={{marginLeft: "5px"}}>BackG</p>
+      <p className={`text-color${config.colorNum}`} style={{marginLeft: "5px"}}>BackG</p>
     </div>    
   );
 };

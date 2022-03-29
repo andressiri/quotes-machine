@@ -12,7 +12,8 @@ function EditOkBtn ({parentToChild}) {
   const [shareChosen, setShareChosen] = refs.sChosen;
   const [message, setMessage] = refs.msg;
   const [restartDefault, setRestartDefault] = edit.auto;
-  const [isLoading, setIsLoading] = useState(false); 
+  const [isLoading, setIsLoading] = useState(false);
+  const {config, index} = parentToChild; 
   const shareImg = useShareImg();
   const redirectTo = useRedirectTo();
   const restartToDefault = useRestartDefault();  
@@ -20,7 +21,7 @@ function EditOkBtn ({parentToChild}) {
   async function handleEditOkBtn () {
     if (isLoading) return;
     // if in quote box
-    if (parentToChild.config._id === 'This was called by QuoteBox') {
+    if (config._id === 'This was called by QuoteBox') {
       setMessage('Style has been saved');
       if (shareChosen !== '') {
         await shareImg();
@@ -34,10 +35,10 @@ function EditOkBtn ({parentToChild}) {
     // if at wall  
       setMessage('There is no change to save');
       // check if there are changes to save
-      if (JSON.stringify(savedQuotesArray[parentToChild.index]) !== JSON.stringify(savedQuotesBackup[parentToChild.index])) {
+      if (JSON.stringify(savedQuotesArray[index]) !== JSON.stringify(savedQuotesBackup[index])) {
         setIsLoading(true);
-        const quoteObj = await JSON.parse(JSON.stringify(savedQuotesArray[parentToChild.index]));
-        const index = parentToChild.index;
+        const quoteObj = await JSON.parse(JSON.stringify(savedQuotesArray[index]));
+        const index = index;
         const response = await fetch("/users/saveModifiedQuote", {
           method: 'PUT',
           headers: {
@@ -50,18 +51,21 @@ function EditOkBtn ({parentToChild}) {
         let json = await response.json();
         if (json.message === 'Quote changes saved successfully') {
           let backupArrayAux = await JSON.parse(JSON.stringify(savedQuotesBackup));
-          backupArrayAux[parentToChild.index] = quoteObj;
+          backupArrayAux[index] = quoteObj;
           setSavedQuotesBackup(backupArrayAux); 
         };
         setMessage(json.message);      
         setIsLoading(false);
       };
-      redirectTo(`/wall/${parentToChild.config._id}/message`);
+      redirectTo(`/wall/${config._id}/message`);
     };      
   }; 
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${parentToChild.config.colorNum} text-color${parentToChild.config.imgBG}`} onClick={handleEditOkBtn} icon='check' />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
+      onClick={handleEditOkBtn}
+      icon='check' />
   );
 };
 

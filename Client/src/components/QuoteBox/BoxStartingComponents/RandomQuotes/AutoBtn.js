@@ -49,7 +49,10 @@ function AutoBtn () {
   };
 
   return (
-    <button className={`${autoOnOff} text-color${autoText} BG-color${autoBG}`} onClick={handleAutoBtn} >Auto</button>
+    <button
+      className={`${autoOnOff} text-color${autoText} BG-color${autoBG}`}
+      onClick={handleAutoBtn}
+      >Auto</button>
   );
 };
 

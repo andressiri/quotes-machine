@@ -6,23 +6,24 @@ function IndigoTxt ({parentToChild}) {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [forceUpdate, setForceUpdate] = force.update;
+  const {config, index} = parentToChild;
   let indigoTxtState = '';
   
-  if (parentToChild.config.imgBG === 5) {
+  if (config.imgBG === 5) {
     indigoTxtState = 'buttonDisabled';
   };
-  if (parentToChild.config.colorNum === 5) {
-    indigoTxtState = `buttonEnabled text-color${parentToChild.config.imgBG}`;
+  if (config.colorNum === 5) {
+    indigoTxtState = `buttonEnabled text-color${config.imgBG}`;
   };
 
   function handleIndigoTxt () {
-    if (parentToChild.config._id === 'This was called by QuoteBox') {
+    if (config._id === 'This was called by QuoteBox') {
       setColorNumber(5);
     } else {
       let auxArray = savedQuotesArray;
-      let auxObj = auxArray[parentToChild.index];
+      let auxObj = auxArray[index];
       auxObj.colorNum = 5;
-      auxArray[parentToChild.index] = auxObj;
+      auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
     };

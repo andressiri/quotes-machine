@@ -19,7 +19,10 @@ function TwitterBtn() {
   };
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleTwitter} icon={['fab', 'twitter']} />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleTwitter}
+      icon={['fab', 'twitter']} />
   );
 };
 

@@ -6,34 +6,38 @@ function UppercaseFont ({parentToChild}) {
   const [upperFont, setUpperFont] = edit.upperF;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [forceUpdate, setForceUpdate] = force.update;
-  let upperBGColor = parentToChild.config.imgBG;
-  let upperTxtColor = parentToChild.config.colorNum;
+  const {config, index} = parentToChild;
+  let upperBGColor = config.imgBG;
+  let upperTxtColor = config.colorNum;
 
-  if (parentToChild.config.upperF === 'uppercase') {
-    upperBGColor = parentToChild.config.colorNum;
-    upperTxtColor = parentToChild.config.imgBG;
+  if (config.upperF === 'uppercase') {
+    upperBGColor = config.colorNum;
+    upperTxtColor = config.imgBG;
   }; 
 
   function handleUppercaseFont () {
-    if (parentToChild.config._id === 'This was called by QuoteBox') {
-      if (parentToChild.config.upperF === 'none') return setUpperFont('uppercase');
+    if (config._id === 'This was called by QuoteBox') {
+      if (config.upperF === 'none') return setUpperFont('uppercase');
       setUpperFont('none');
     } else {
       let auxArray = savedQuotesArray;
-      let auxObj = auxArray[parentToChild.index];
-      if (parentToChild.config.upperF === 'none') {
+      let auxObj = auxArray[index];
+      if (config.upperF === 'none') {
         auxObj.upperF = 'uppercase';
       } else {
         auxObj.upperF = 'none';
       };  
-      auxArray[parentToChild.index] = auxObj;
+      auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
     };
   }; 
 
   return (
-    <button className={`editBtn fFam BG-color${upperBGColor} text-color${upperTxtColor}`} onClick={handleUppercaseFont}>UP</button>
+    <button
+    className={`editBtn fFam BG-color${upperBGColor} text-color${upperTxtColor}`}
+    onClick={handleUppercaseFont}
+    >UP</button>
   );
 };
 

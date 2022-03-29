@@ -9,7 +9,8 @@ function ConfirmDeleteBtn ({parentToChild}) {
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [message, setMessage] = refs.msg;
   const [forceUpdate, setForceUpdate] = force.update;
-  const [isLoading, setIsLoading] = useState(false); 
+  const [isLoading, setIsLoading] = useState(false);
+  const {config, index} = parentToChild;
   const redirectTo = useRedirectTo();
 
   async function handleConfirmDeleteBtn() {    
@@ -21,7 +22,7 @@ function ConfirmDeleteBtn ({parentToChild}) {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({id: parentToChild.config._id}),
+      body: JSON.stringify({id: config._id}),
     });
     let json = await response.json();
     setMessage(json.message);
@@ -29,21 +30,24 @@ function ConfirmDeleteBtn ({parentToChild}) {
     if (json.message === 'Quote has been deleted') {
       let auxArray = savedQuotesArray;
       let auxObj = {
-          _id: parentToChild.config._id,
-          colorNum: parentToChild.config.colorNum,
-          imgBG: parentToChild.config.imgBG
+          _id: config._id,
+          colorNum: config.colorNum,
+          imgBG: config.imgBG
       };
-      auxArray[parentToChild.index] = auxObj;
+      auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);   
       redirectTo('/wall');
     } else {
-      redirectTo(`/wall/${parentToChild.config._id}/message`);
+      redirectTo(`/wall/${config._id}/message`);
     };
   };
 
   return (
-    <button className={`NQbtn BG-color${parentToChild.config.colorNum} text-color${parentToChild.config.imgBG}`} onClick={handleConfirmDeleteBtn} >Confirm</button>
+    <button
+      className={`NQbtn BG-color${config.colorNum} text-color${config.imgBG}`}
+      onClick={handleConfirmDeleteBtn}
+      >Confirm</button>
   );
 };
 

@@ -10,10 +10,11 @@ import UppercaseFont from "./UppercaseFont.js";
 import FontSize from "./FontSize.js";
 
 function FontStyle ({parentToChild}) {
+  const {config} = parentToChild;
 
   return (
-    <div className={`editGroup BG-color${parentToChild.config.imgBG} text-color${parentToChild.config.colorNum}`}>
-      <p className={`text-color${parentToChild.config.colorNum}`}  style={{marginRight: "5px"}}>Style</p>
+    <div className={`editGroup BG-color${config.imgBG} text-color${config.colorNum}`}>
+      <p className={`text-color${config.colorNum}`} style={{marginRight: "5px"}}>Style</p>
       <div>
         <SansSerifFF parentToChild={parentToChild} />
         <SerifFF parentToChild={parentToChild} />
@@ -25,7 +26,7 @@ function FontStyle ({parentToChild}) {
         <UppercaseFont parentToChild={parentToChild} />
         <FontSize parentToChild={parentToChild} />
       </div>
-      <p className={`text-color${parentToChild.config.colorNum}`} style={{marginLeft: "5px"}}>Style</p>
+      <p className={`text-color${config.colorNum}`} style={{marginLeft: "5px"}}>Style</p>
     </div>    
   );
 };

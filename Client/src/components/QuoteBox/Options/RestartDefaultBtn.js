@@ -19,10 +19,16 @@ function RestartDefaultBtn () {
 
   return (
     <div>
-    {restartDefault === true
-      ? <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleRestartDefaultBtn} icon="check" />
-      : <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleRestartDefaultBtn} icon="times" />
-    }
+      {restartDefault === true
+        ? <FontAwesomeIcon
+            className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+            onClick={handleRestartDefaultBtn}
+            icon="check" />
+        : <FontAwesomeIcon
+            className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+            onClick={handleRestartDefaultBtn}
+            icon="times" />
+      }
     </div>
   );
 };

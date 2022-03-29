@@ -6,22 +6,23 @@ function FantasyFF ({parentToChild}) {
   const [fontFam, setFontFam] = edit.fontF;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [forceUpdate, setForceUpdate] = force.update;
-  let fantasyBGColor = parentToChild.config.imgBG;
-  let fantasyTxtColor = parentToChild.config.colorNum;
+  const {config, index} = parentToChild;
+  let fantasyBGColor = config.imgBG;
+  let fantasyTxtColor = config.colorNum;
 
-  if (parentToChild.config.fontF === 'Copperplate, Papyrus, fantasy') {
-    fantasyBGColor = parentToChild.config.colorNum;
-    fantasyTxtColor = parentToChild.config.imgBG;
+  if (config.fontF === 'Copperplate, Papyrus, fantasy') {
+    fantasyBGColor = config.colorNum;
+    fantasyTxtColor = config.imgBG;
   }; 
 
   function handleFantasyFF () {
-    if (parentToChild.config._id === 'This was called by QuoteBox') {
+    if (config._id === 'This was called by QuoteBox') {
       setFontFam('Copperplate, Papyrus, fantasy');
     } else {
       let auxArray = savedQuotesArray;
-      let auxObj = auxArray[parentToChild.index];
+      let auxObj = auxArray[index];
       auxObj.fontF = 'Copperplate, Papyrus, fantasy';
-      auxArray[parentToChild.index] = auxObj;
+      auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
     };  
@@ -29,7 +30,11 @@ function FantasyFF ({parentToChild}) {
 
   return (
     <label>
-      <button className={`editBtn fFam BG-color${fantasyBGColor} text-color${fantasyTxtColor}`} style={{fontFamily: "Copperplate, Papyrus, fantasy"}} onClick={handleFantasyFF}><div id="fantasyBtn">Aa</div></button>
+      <button
+        className={`editBtn fFam BG-color${fantasyBGColor} text-color${fantasyTxtColor}`}
+        style={{fontFamily: "Copperplate, Papyrus, fantasy"}}
+        onClick={handleFantasyFF}
+        ><div id="fantasyBtn">Aa</div></button>
     </label>
   );
 };

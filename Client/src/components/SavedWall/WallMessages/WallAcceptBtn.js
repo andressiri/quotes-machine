@@ -4,12 +4,9 @@ import useRedirectTo from '../../../functions/useRedirectTo.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function WallAcceptBtn ({parentToChild}) {
-  const {colors, quote, refs} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [savedQuotesBackup, setSavedQuotesBackup] = quote.backup;
+  const {refs} = useContext(Context);
   const [message, setMessage] = refs.msg;
+  const {config} = parentToChild;
   const redirectTo = useRedirectTo();
 
   
@@ -21,7 +18,10 @@ function WallAcceptBtn ({parentToChild}) {
   }; 
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${parentToChild.config.colorNum} text-color${parentToChild.config.imgBG}`} onClick={handleWallAcceptBtn} icon='check' />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
+      onClick={handleWallAcceptBtn}
+      icon='check' />
   );
 };
 

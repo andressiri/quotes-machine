@@ -43,8 +43,7 @@ function EmailPasswordBtn () {
     <button
       className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSendEmailPassword}
-    >{isBlocked ? `${sendEmailBtnTimer}s`: 'Send Email'}
-    </button>
+    >{isBlocked ? `${sendEmailBtnTimer}s`: 'Send Email'}</button>
   );
 };
 
