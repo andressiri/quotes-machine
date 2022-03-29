@@ -15,11 +15,12 @@ saveUserOptionsRouter.put('/',
     console.log(req.body.userOptions);
     // check correct data required for updating a quote has been sent
     let notValidInfo = 'Not valid info';
+    let validationUserOptions = {message: 'No proper userOptions'};
     if (req.body.userOptions && typeof req.body.userOptions === 'object') {
       const random = generateCode();
       const random2 = generateCode();
       const random3 = generateCode();
-      const validationUserOptions = new User({
+      validationUserOptions = new User({
         name: 'Jhon Doe',
         email: `someEmail${random}@${random2}.${random3}`,
         verifiedEmail: false,
