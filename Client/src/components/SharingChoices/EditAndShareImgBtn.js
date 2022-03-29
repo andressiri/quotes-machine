@@ -1,24 +1,26 @@
 import React, {useContext} from "react";
-import {Context} from "./../../Context.js";
+import {Context} from "../../Context.js";
 import useRedirectTo from "../../functions/useRedirectTo.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-function ShareImgBtn () {
-  const {colors} = useContext(Context);
+function EditAndShareImgBtn ({parentToChild}) {
+  const {colors, edit} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const [configBackup, setConfigBackup] = edit.cBackup;
   const redirectTo = useRedirectTo();
   
-  function handleShareImg () {    
-    redirectTo('/box/editOrOk');
+  function handleEditAndShareImgBtn () {
+    setConfigBackup(parentToChild.config);
+    redirectTo('/box/edit');
   };  
 
   return (
     <FontAwesomeIcon
       className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
-      onClick={handleShareImg}
-      icon="image" />
+      onClick={handleEditAndShareImgBtn}
+      icon="pen" />
   );
 };
 
-export default ShareImgBtn;
+export default EditAndShareImgBtn;

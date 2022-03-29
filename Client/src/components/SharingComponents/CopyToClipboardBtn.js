@@ -16,7 +16,7 @@ function CopyToClipboardBtn() {
   async function handleCopyToClip () {
     stopAuto();
     setShareChosen('Clipboard');
-    redirectTo('/box/txtOrImg');
+    redirectTo('/box/sharingChoices');
   };
 
   return (

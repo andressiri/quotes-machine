@@ -3,8 +3,7 @@ import {Context} from '../../Context.js';
 import {Routes, Route } from 'react-router-dom';
 import BoxStartingContainer from './BoxStartingComponents/BoxStartingContainer.js';
 import BoxSharingSet from '../SharingComponents/BoxSharingSet.js';
-import ChooseTxtOrImgSet from '../ChooseTxtOrImgComponents/ChooseTxtOrImgSet.js';
-import EditOrOkSet from '../EditOrOkComponents/EditOrOkSet.js';
+import SharingChoices from '../SharingChoices/SharingChoices.js';
 import EditSet from '../EditComponents/EditSet.js';
 import LoginForm from '../Login/Login/LoginForm.js';
 import VerifyEmail from '../Login/VerifyEmail/VerifyEmail.js';
@@ -48,8 +47,7 @@ function RouteContainer() {
       <Routes>
         <Route path='/app' exact element={<BoxStartingContainer />} />
         <Route path='/sharing' exact element={<BoxSharingSet />} />
-        <Route path='/txtOrImg' exact element={<ChooseTxtOrImgSet />} />
-        <Route path='/editOrOk' exact element={<EditOrOkSet parentToChild={{config: editConfiguration, index: null}} />} />
+        <Route path='/sharingChoices' exact element={<SharingChoices parentToChild={{config: editConfiguration, index: null}} />} />
         <Route path='/edit' exact element={<EditSet parentToChild={{config: editConfiguration, index: null}} />} />
         <Route path='/login' exact element={<LoginForm />} />
         <Route path='/verifyEmail' exact element={<VerifyEmail />} />

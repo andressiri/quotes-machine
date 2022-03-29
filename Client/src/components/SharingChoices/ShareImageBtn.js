@@ -2,20 +2,19 @@ import React, {useContext} from "react";
 import {Context} from "../../Context.js";
 import useRedirectTo from "../../functions/useRedirectTo.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import useShareTxt from '../../functions/useShareTxt.js';
+import useShareImg from '../../functions/useShareImg.js';
 
-function ShareTxtBtn () {
+function ShareImageBtn () {
   const {colors, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [shareChosen, setShareChosen] = refs.sChosen;
   const [message, setMessage] = refs.msg;
-  const shareTxt = useShareTxt(); 
-  const redirectTo = useRedirectTo();
-   
+  const shareImg = useShareImg(); 
+  const redirectTo = useRedirectTo(); 
   
-  function handleShareTxt () {
-    shareTxt();
+  function handleShareImageBtn () {
+    shareImg();
     setMessage('Quote has been shared');
     if (shareChosen === 'Clipboard') setMessage('Quote has been copied to clipboard');
     setShareChosen('');
@@ -25,9 +24,9 @@ function ShareTxtBtn () {
   return (
     <FontAwesomeIcon
       className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
-      onClick={handleShareTxt}
-      icon="file-word" />
+      onClick={handleShareImageBtn}
+      icon="image" />
   );
 };
 
-export default ShareTxtBtn;
+export default ShareImageBtn;
