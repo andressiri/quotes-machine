@@ -3,22 +3,22 @@ import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-function OptionsEditBtn ({parentToChild}) {
+function OptionsEditOkBtn () {
   const {colors, edit} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const redirectTo = useRedirectTo();
-   
-  function handleOptionsEditBtn () {
-    redirectTo('/box/editConfig');
-  };  
+  
+  async function handleOptionsEditOkBtn () {
+    redirectTo('/box/options');
+  }; 
 
   return (
     <FontAwesomeIcon
       className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
-      onClick={handleOptionsEditBtn}
-      icon='pen' />
+      onClick={handleOptionsEditOkBtn}
+      icon='check' />
   );
 };
 
-export default OptionsEditBtn;
+export default OptionsEditOkBtn;

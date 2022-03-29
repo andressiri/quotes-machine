@@ -20,7 +20,7 @@ registerRouter.post('/',
       console.log('Bad request');
       res.status(412).json({message: msg});
     } else {
-      const { name, email, password } = req.body;
+      const { name, email, password, userOptions } = req.body;
       User.findOne({ email: email})
         .then(user => {
           if (user) {
@@ -33,7 +33,8 @@ registerRouter.post('/',
               email: email,
               verifiedEmail: false,
               password: password,
-              userQuotesId: 'Create userQuotes at first save'
+              userQuotesId: 'Create userQuotes at first save',
+              userOptions: userOptions
             });
             // Hash Password
             bcrypt.genSalt(10, (err, salt) =>

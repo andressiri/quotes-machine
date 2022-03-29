@@ -3,7 +3,6 @@ import {Context} from '../../Context.js';
 import StartingSetRQ from './BoxStartingComponents/RandomQuotes/StartingSetRQ.js';
 import Quote from './Quote.js';
 import RouteContainer from './RouteContainer.js'
-import CancelBtn from '../CancelBtn.js';
 
 function QuoteBox() {
   const {colors, fade, force} = useContext(Context);
@@ -18,11 +17,10 @@ function QuoteBox() {
   }, [forceUpdate]);
 
   return (
-    <div id="quote-box" className={`quoteBox BG-color${imgBGColor} text-color${colorNumber}`}>
+    <div id="quote-box" className={`quoteBox BG-color${imgBGColor} text-color${colorNumber}`}> 
       <StartingSetRQ />
       <Quote />
       <RouteContainer />
-      <CancelBtn />
     </div>
   );
 };

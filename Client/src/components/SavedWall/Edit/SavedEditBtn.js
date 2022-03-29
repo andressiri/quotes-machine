@@ -7,7 +7,7 @@ function SavedEditBtn ({parentToChild}) {
   const redirectTo = useRedirectTo();
   
   function handleSavedEditBtn () {
-    redirectTo(`/wall/${config._id}/savedEdit`);
+    redirectTo(`/wall/${config._id}/editSaved`);
   };  
 
   return (

@@ -1,31 +1,30 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import useRestartDefault from '../../../functions/useRestartDefault.js';
 
-function BoxAcceptBtn () {
+function SharingEditCancelBtn () {
   const {colors, refs} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const [shareChosen, setShareChosen] = refs.sChosen;
   const [message, setMessage] = refs.msg;
   const redirectTo = useRedirectTo();
   const restartDefault = useRestartDefault();
   
-  async function handleBoxAcceptBtn () {
-    if (message === 'Login success') restartDefault();
-    setTimeout(() => {  // Timeout to handle transition
-      setMessage('');
-    }, 250);
-    redirectTo('/box/app');  
+  function handleSharingEditCancelBtn () {
+    setMessage('Edition has been canceled');
+    restartDefault();
+    setShareChosen('');
+    redirectTo('/box/message');
   }; 
 
   return (
-    <FontAwesomeIcon
-      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
-      onClick={handleBoxAcceptBtn}
-      icon='check' />
+    <button
+    className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+    onClick={handleSharingEditCancelBtn}
+    >Cancel</button>
   );
 };
 
-export default BoxAcceptBtn;
+export default SharingEditCancelBtn;

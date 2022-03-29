@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import {Context} from "./../../../Context.js";
+import {Context} from "../../../Context.js";
 
 function IndigoBG ({parentToChild}) {
   const {colors, quote, force} = useContext(Context);

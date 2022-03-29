@@ -1,0 +1,52 @@
+import React, {useContext, useState} from 'react';
+import {Context} from '../../../Context.js';
+import useRedirectTo from '../../../functions/useRedirectTo.js';
+import useCreateOptionsObj from '../../../functions/useCreateOptionsObj.js';
+import useCheckLoginCondition from '../../../functions/useCheckLoginCondition.js';
+import useRestartDefault from '../../../functions/useRestartDefault.js';
+
+function SaveOptionsBtn ({parentToChild}) {
+  const {colors, refs, edit} = useContext(Context);
+  const [colorNumber, setColorNumber] = colors.colorNum;
+  const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const [message, setMessage] = refs.msg;
+  const [configBackup, setConfigBackup] = edit.cBackup;
+  const [isLoading, setIsLoading] = useState(false);
+  const redirectTo = useRedirectTo();
+  const createOptionsObj = useCreateOptionsObj();
+  const checkLoginCondition = useCheckLoginCondition();
+  const restartDefault = useRestartDefault();
+  
+  async function handleSaveOptionsBtn () {
+    if (isLoading) return;
+    if (checkLoginCondition()) {
+      setIsLoading(true);
+      const userOpt = createOptionsObj(parentToChild.config);
+      const response = await fetch('/users/saveUserOptions', {
+        method: 'PUT',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',},
+        body: JSON.stringify({userOptions: userOpt}),
+      });
+      let json = await response.json();
+      if (json.message === 'Options have been saved') {
+        setConfigBackup(parentToChild.config);
+      } else {
+        restartDefault();
+      }
+      setMessage(json.message);
+      setIsLoading(false);
+      redirectTo('/box/message');
+    }
+  }; 
+
+  return (
+    <button
+    className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+    onClick={handleSaveOptionsBtn}
+    >Save</button>
+  );
+};
+
+export default SaveOptionsBtn;

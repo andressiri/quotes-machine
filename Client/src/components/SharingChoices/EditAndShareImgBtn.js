@@ -12,7 +12,7 @@ function EditAndShareImgBtn ({parentToChild}) {
   
   function handleEditAndShareImgBtn () {
     setConfigBackup(parentToChild.config);
-    redirectTo('/box/edit');
+    redirectTo('/box/editSharing');
   };  
 
   return (

@@ -7,7 +7,7 @@ import SavedWallBtn from './SavedWallBtn.js';
 import SearchBtn from './SearchBtn.js';
 import OptionsBtn from './OptionsBtn.js';
 
-function StartingMenu () {
+function StartingMenu ({parentToChild}) {
   return (
     <div>
       <h2 className={`shareIt`} >Menu</h2>
@@ -17,7 +17,7 @@ function StartingMenu () {
       <SaveBtn />
       <SavedWallBtn />
       <SearchBtn />
-      <OptionsBtn />
+      <OptionsBtn parentToChild={parentToChild} />
     </div>    
   );
 };
