@@ -15,7 +15,7 @@ function TumblrBtn() {
   async function handleTumblr () {
     stopAuto();
     setShareChosen('Tumblr');
-    redirectTo('/box/txtOrImg');
+    redirectTo('/box/sharingChoices');
   };  
 
   return (    
