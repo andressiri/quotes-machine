@@ -3,7 +3,9 @@ import {Context} from '../../../../Context.js';
 import useStopAuto from '../../../../functions/useStopAuto.js';
 
 function ArrowPrevious () {
-  const {gall} = useContext(Context);
+  const {quote, gall} = useContext(Context);
+  const [quoteText, setQuoteText] = quote.quoteTxt;  
+  const [author, setAuthor] = quote.auth;
   const [gallArray, setGallArray] = gall.gallA;
   const [gallChoose, setGallChoose] = gall.gallCh;
   let disablePrevious = 'gallDisabled';
@@ -16,9 +18,16 @@ function ArrowPrevious () {
   function handleArrowPrevious () {
     stopAuto(); 
     if (gallChoose === 0) {
-      setGallChoose(gallArray.length - 1);
+      const auxIndex = gallArray.length - 1;
+      setQuoteText(gallArray[auxIndex].text);
+      setAuthor(gallArray[auxIndex].author);      
+      setGallChoose(auxIndex);
+
     } else {
-      setGallChoose(gallChoose - 1);
+      const index = gallChoose - 1;
+      setQuoteText(gallArray[index].text);
+      setAuthor(gallArray[index].author);
+      setGallChoose(gallChoose => gallChoose - 1);
     };
   };
 
