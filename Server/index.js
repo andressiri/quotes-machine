@@ -40,7 +40,7 @@ app.use(passport.session());
 
 // Routes
 app.use('/', require('./routes/app.js'));
-app.use('/quotes', require('./routes/quotes.js'));
+app.use('/quotes', require('./routes/quotes/quotes.js'));
 app.use('/users', require('./routes/users/users.js'));
 
 const PORT = process.env.PORT || 3001;

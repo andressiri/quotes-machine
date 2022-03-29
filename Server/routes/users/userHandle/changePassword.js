@@ -1,10 +1,10 @@
 const express = require("express");
 const changePasswordRouter = express.Router();
 const bcrypt = require('bcryptjs');
-const rateLimiter = require('../../config/requestsRateLimiter/rateLimiter.js');
+const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
 
 // User model
-const User = require('../../models/User.js');
+const User = require('../../../models/User.js');
 
 // Logout and session reset handle
 changePasswordRouter.put('/',
