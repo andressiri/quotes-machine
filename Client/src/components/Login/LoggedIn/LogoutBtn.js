@@ -17,7 +17,10 @@ function LogoutBtn () {
   };
 
   return (
-    <button className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleLogoutBtn} >Log Out</button>
+    <button
+      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleLogoutBtn}
+      >Log Out</button>
   );
 };
 

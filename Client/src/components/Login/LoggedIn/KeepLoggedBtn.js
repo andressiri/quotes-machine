@@ -13,7 +13,10 @@ function KeepLoggedBtn () {
   };
 
   return (
-    <button className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleKeepLoggedBtn} >No, thanks</button>
+    <button
+      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleKeepLoggedBtn}
+      >No, thanks</button>
   );
 };
 

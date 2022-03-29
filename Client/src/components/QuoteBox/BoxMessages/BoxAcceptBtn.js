@@ -19,7 +19,10 @@ function BoxAcceptBtn () {
   }; 
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleBoxAcceptBtn} icon='check' />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleBoxAcceptBtn}
+      icon='check' />
   );
 };
 

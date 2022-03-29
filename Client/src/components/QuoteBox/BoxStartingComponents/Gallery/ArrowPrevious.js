@@ -23,7 +23,10 @@ function ArrowPrevious () {
   };
 
   return (
-    <h1 className={`gallArrowPrevious ${disablePrevious}`} onClick={handleArrowPrevious} >&lt;</h1>
+    <h1
+      className={`gallArrowPrevious ${disablePrevious}`}
+      onClick={handleArrowPrevious}
+      >&lt;</h1>
   );
 };
 

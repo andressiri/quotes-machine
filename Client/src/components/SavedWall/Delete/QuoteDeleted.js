@@ -5,10 +5,13 @@ import DeletedOkBtn from './DeletedOkBtn.js';
 function QuoteDeleted ({parentToChild}) {
   const {refs} = useContext(Context);
   const [message, setMessage] = refs.msg;
+  const {config} = parentToChild;
 
   return (
-    <div className={`BG-color${parentToChild.config.imgBG} text-color${parentToChild.config.colorNum}`}>
-      {message !== '' && <p className={`shareIt`} >{message}</p>}
+    <div className={`BG-color${config.imgBG} text-color${config.colorNum}`}>
+      {message !== ''
+        &&  <p className={`shareIt`}
+              >{message}</p>}
       <DeletedOkBtn parentToChild={parentToChild} />
     </div>    
   );

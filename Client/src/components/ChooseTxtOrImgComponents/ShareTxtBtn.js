@@ -23,7 +23,10 @@ function ShareTxtBtn () {
   };  
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleShareTxt} icon="file-word" />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleShareTxt}
+      icon="file-word" />
   );
 };
 

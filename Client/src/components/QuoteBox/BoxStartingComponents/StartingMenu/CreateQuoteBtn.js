@@ -19,7 +19,10 @@ function CreateQuoteBtn() {
   };
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleCreateQuoteBtn} icon='lightbulb' />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleCreateQuoteBtn}
+      icon='lightbulb' />
   );
 };
 

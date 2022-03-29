@@ -22,7 +22,10 @@ function OkImgBtn () {
   };  
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleOkImgBtn} icon="check" />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleOkImgBtn}
+      icon="check" />
   );
 };
 

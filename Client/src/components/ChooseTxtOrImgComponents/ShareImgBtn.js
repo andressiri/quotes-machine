@@ -14,7 +14,10 @@ function ShareImgBtn () {
   };  
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleShareImg} icon="image" />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleShareImg}
+      icon="image" />
   );
 };
 

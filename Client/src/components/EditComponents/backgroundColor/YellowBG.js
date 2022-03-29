@@ -6,23 +6,24 @@ function YellowBG ({parentToChild}) {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [forceUpdate, setForceUpdate] = force.update;
+  const {config, index} = parentToChild;
   let yellowBGState = '';
   
-  if (parentToChild.config.colorNum === 2 || parentToChild.config.colorNum === 8) {
+  if (config.colorNum === 2 || config.colorNum === 8) {
     yellowBGState = 'buttonDisabled';
   };
-  if (parentToChild.config.imgBG === 2) {
-    yellowBGState = `buttonEnabled text-color${parentToChild.config.colorNum}`;
+  if (config.imgBG === 2) {
+    yellowBGState = `buttonEnabled text-color${config.colorNum}`;
   };
 
   function handleYellowBG () {
-    if (parentToChild.config._id === 'This was called by QuoteBox') {
+    if (config._id === 'This was called by QuoteBox') {
       setImgBGColor(2);
     } else {
       let auxArray = savedQuotesArray;
-      let auxObj = auxArray[parentToChild.index];
+      let auxObj = auxArray[index];
       auxObj.imgBG = 2;
-      auxArray[parentToChild.index] = auxObj;
+      auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
     };

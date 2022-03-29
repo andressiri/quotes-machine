@@ -40,7 +40,10 @@ function CancelBtn () {
     );
   } else {
     return (
-      <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleCancel} icon='times' />
+      <FontAwesomeIcon
+        className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+        onClick={handleCancel}
+        icon='times' />
     );
   };
 };

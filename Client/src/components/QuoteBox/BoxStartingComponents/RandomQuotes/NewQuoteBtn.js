@@ -22,7 +22,11 @@ function NewQuoteBtn () {
   };
 
   return (
-    <button className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleNewQuote} id="new-quote">New quote</button>
+    <button
+      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleNewQuote}
+      id="new-quote"
+      >New quote</button>
   );
 };
 

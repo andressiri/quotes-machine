@@ -18,7 +18,10 @@ function OptionsBtn() {
   };
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleOptionsBtn} icon='cog' />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleOptionsBtn}
+      icon='cog' />
   );
 };
 

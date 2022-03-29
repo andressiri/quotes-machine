@@ -6,23 +6,24 @@ function WhiteTxt ({parentToChild}) {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [forceUpdate, setForceUpdate] = force.update;
+  const {config, index} = parentToChild;
   let whiteTxtState = '';
   
-  if (parentToChild.config.imgBG === 8 || parentToChild.config.imgBG === 2) {
+  if (config.imgBG === 8 || config.imgBG === 2) {
     whiteTxtState = 'buttonDisabled';
   };
-  if (parentToChild.config.colorNum === 8) {
-    whiteTxtState = `buttonEnabled text-color${parentToChild.config.imgBG}`;
+  if (config.colorNum === 8) {
+    whiteTxtState = `buttonEnabled text-color${config.imgBG}`;
   };
 
   function handleWhiteTxt () {
-    if (parentToChild.config._id === 'This was called by QuoteBox') {
+    if (config._id === 'This was called by QuoteBox') {
       setColorNumber(8);
     } else {
       let auxArray = savedQuotesArray;
-      let auxObj = auxArray[parentToChild.index];
+      let auxObj = auxArray[index];
       auxObj.colorNum = 8;
-      auxArray[parentToChild.index] = auxObj;
+      auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
     };

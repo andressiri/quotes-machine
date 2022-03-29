@@ -24,7 +24,10 @@ function LoginBtn() {
   };
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleLoginBtn} icon="user" />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleLoginBtn}
+      icon="user" />
   );
 };
 

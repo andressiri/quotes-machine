@@ -16,7 +16,7 @@ function ChangePasswordBtn () {
   async function handleSubmitNewPassword(event) {
     event.preventDefault();
     if (isLoading) return;
-      //Check required fields
+        //Check required fields
     if (passwordValue === '' || password2Value === '') {
       return setMessage('Please fill in all fields');
     };  //Check passwords match
@@ -25,7 +25,7 @@ function ChangePasswordBtn () {
     };  //Check password length
     if (passwordValue !== '' && passwordValue.length < 6) {
       return setMessage('Password should be at least 6 characters');
-    };  // POST the form if it meets requirements    
+    };  //Send the form if it meets requirements    
     setIsLoading(true); 
     const response = await fetch('/users/changePassword', {
       method: 'PUT',

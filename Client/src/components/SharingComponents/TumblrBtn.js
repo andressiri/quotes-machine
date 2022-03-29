@@ -19,7 +19,10 @@ function TumblrBtn() {
   };  
 
   return (    
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleTumblr} icon={["fab", "tumblr"]} />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleTumblr}
+      icon={["fab", "tumblr"]} />
   );
 };
 

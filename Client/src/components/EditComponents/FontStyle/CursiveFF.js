@@ -6,22 +6,23 @@ function CursiveFF ({parentToChild}) {
   const [fontFam, setFontFam] = edit.fontF;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [forceUpdate, setForceUpdate] = force.update;
-  let cursiveBGColor = parentToChild.config.imgBG;
-  let cursiveTxtColor = parentToChild.config.colorNum;
+  const {config, index} = parentToChild;
+  let cursiveBGColor = config.imgBG;
+  let cursiveTxtColor = config.colorNum;
 
-  if (parentToChild.config.fontF === '"Brush Script MT", cursive') {
-    cursiveBGColor = parentToChild.config.colorNum;
-    cursiveTxtColor = parentToChild.config.imgBG;
+  if (config.fontF === '"Brush Script MT", cursive') {
+    cursiveBGColor = config.colorNum;
+    cursiveTxtColor = config.imgBG;
   }; 
 
   function handleCursiveFF () {
-    if (parentToChild.config._id === 'This was called by QuoteBox') {
+    if (config._id === 'This was called by QuoteBox') {
       setFontFam('"Brush Script MT", cursive');
     } else {
       let auxArray = savedQuotesArray;
-      let auxObj = auxArray[parentToChild.index];
+      let auxObj = auxArray[index];
       auxObj.fontF = '"Brush Script MT", cursive';
-      auxArray[parentToChild.index] = auxObj;
+      auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
     };  
@@ -29,8 +30,11 @@ function CursiveFF ({parentToChild}) {
 
   return (
     <label>
-      <button className={`editBtn fFam BG-color${cursiveBGColor} text-color${cursiveTxtColor}`} style={{fontFamily: '"Brush Script MT", cursive'}} onClick={handleCursiveFF}><div id="cursiveBtn">Aa</div></button>
-
+      <button
+        className={`editBtn fFam BG-color${cursiveBGColor} text-color${cursiveTxtColor}`}
+        style={{fontFamily: '"Brush Script MT", cursive'}}
+        onClick={handleCursiveFF}
+        ><div id="cursiveBtn">Aa</div></button>
     </label>
   );
 };

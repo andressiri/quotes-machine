@@ -6,29 +6,34 @@ function SansSerifFF ({parentToChild}) {
   const [fontFam, setFontFam] = edit.fontF;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [forceUpdate, setForceUpdate] = force.update;
-  let sansSerifBGColor = parentToChild.config.imgBG;
-  let sansSerifTxtColor = parentToChild.config.colorNum;
+  const {config, index} = parentToChild;
+  let sansSerifBGColor = config.imgBG;
+  let sansSerifTxtColor = config.colorNum;
 
-  if (parentToChild.config.fontF === 'Arial, Helvetica, sans-serif') {
-    sansSerifBGColor = parentToChild.config.colorNum;
-    sansSerifTxtColor = parentToChild.config.imgBG;
+  if (config.fontF === 'Arial, Helvetica, sans-serif') {
+    sansSerifBGColor = config.colorNum;
+    sansSerifTxtColor = config.imgBG;
   }; 
 
   function handleSansSerifFF () {
-    if (parentToChild.config._id === 'This was called by QuoteBox') {
+    if (config._id === 'This was called by QuoteBox') {
       setFontFam('Arial, Helvetica, sans-serif');
     } else {
       let auxArray = savedQuotesArray;
-      let auxObj = auxArray[parentToChild.index];
+      let auxObj = auxArray[index];
       auxObj.fontF = 'Arial, Helvetica, sans-serif';
-      auxArray[parentToChild.index] = auxObj;
+      auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
     };  
   };
 
   return (
-    <button className={`editBtn fFam BG-color${sansSerifBGColor} text-color${sansSerifTxtColor}`} style={{fontFamily: "Arial, Helvetica, sans-serif"}} onClick={handleSansSerifFF}>Aa</button>
+    <button
+    className={`editBtn fFam BG-color${sansSerifBGColor} text-color${sansSerifTxtColor}`}
+    style={{fontFamily: "Arial, Helvetica, sans-serif"}}
+    onClick={handleSansSerifFF}
+    >Aa</button>
   );
 };
 

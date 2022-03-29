@@ -11,22 +11,26 @@ function EditCancelBtn ({parentToChild}) {
   const [message, setMessage] = refs.msg;
   const redirectTo = useRedirectTo();
   const restartDefault = useRestartDefault();
-  const cancelEdition = useCancelEdition(); 
+  const cancelEdition = useCancelEdition();
+  const {config, index} = parentToChild; 
   
   async function handleEditCancelBtn () {
     setMessage('Edition has been canceled');
-    if (parentToChild.config._id === 'This was called by QuoteBox') {
+    if (config._id === 'This was called by QuoteBox') {
       restartDefault();
       setShareChosen('');
       redirectTo('/box/message');
     } else {
-      cancelEdition(parentToChild.index);
-      redirectTo(`/wall/${parentToChild.config._id}/message`);      
+      cancelEdition(index);
+      redirectTo(`/wall/${config._id}/message`);      
     }
   }; 
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${parentToChild.config.colorNum} text-color${parentToChild.config.imgBG}`} onClick={handleEditCancelBtn} icon='ban' />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
+      onClick={handleEditCancelBtn}
+      icon='ban' />
   );
 };
 

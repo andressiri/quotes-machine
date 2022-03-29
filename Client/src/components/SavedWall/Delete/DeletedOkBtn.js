@@ -11,13 +11,14 @@ function DeletedOkBtn ({parentToChild}) {
   const [savedQuotesBackup, setSavedQuotesBackup] = quote.backup;
   const [message, setMessage] = refs.msg;
   const [forceUpdate, setForceUpdate] = force.update;
+  const {config, index} = parentToChild;
   const redirectTo = useRedirectTo();
 
   
   async function handleDeletedOkBtn () {
     if (message === 'Quote has been deleted') {
-      savedQuotesArray.splice(parentToChild.index, 1);
-      savedQuotesBackup.splice(parentToChild.index, 1);
+      savedQuotesArray.splice(index, 1);
+      savedQuotesBackup.splice(index, 1);
       setForceUpdate(forceUpdate => forceUpdate + 1);
     };
     setTimeout(() => {  // Timeout to handle transition
@@ -27,7 +28,10 @@ function DeletedOkBtn ({parentToChild}) {
   }; 
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${parentToChild.config.colorNum} text-color${parentToChild.config.imgBG}`} onClick={handleDeletedOkBtn} icon='check' />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
+      onClick={handleDeletedOkBtn}
+      icon='check' />
   );
 };
 

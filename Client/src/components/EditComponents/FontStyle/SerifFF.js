@@ -6,28 +6,33 @@ function SerifFF ({parentToChild}) {
   const [fontFam, setFontFam] = edit.fontF;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [forceUpdate, setForceUpdate] = force.update;
-  let serifBGColor = parentToChild.config.imgBG;
-  let serifTxtColor = parentToChild.config.colorNum;
+  const {config, index} = parentToChild;
+  let serifBGColor = config.imgBG;
+  let serifTxtColor = config.colorNum;
 
-  if (parentToChild.config.fontF === 'Garamond, serif') {
-    serifBGColor = parentToChild.config.colorNum;
-    serifTxtColor = parentToChild.config.imgBG;
+  if (config.fontF === 'Garamond, serif') {
+    serifBGColor = config.colorNum;
+    serifTxtColor = config.imgBG;
   }; 
 
   function handleSerifFF () {
-    if (parentToChild.config._id === 'This was called by QuoteBox') {
+    if (config._id === 'This was called by QuoteBox') {
       setFontFam('Garamond, serif');
     } else {
       let auxArray = savedQuotesArray;
-      let auxObj = auxArray[parentToChild.index];
+      let auxObj = auxArray[index];
       auxObj.fontF = 'Garamond, serif';
-      auxArray[parentToChild.index] = auxObj;
+      auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
     };  
   };
   return (
-    <button className={`editBtn fFam BG-color${serifBGColor} text-color${serifTxtColor}`} style={{fontFamily: "Garamond, serif"}} onClick={handleSerifFF}>Aa</button>
+    <button
+      className={`editBtn fFam BG-color${serifBGColor} text-color${serifTxtColor}`}
+      style={{fontFamily: "Garamond, serif"}}
+      onClick={handleSerifFF}
+      >Aa</button>
   );
 };
 

@@ -3,14 +3,18 @@ import useRedirectTo from "../../../functions/useRedirectTo.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function SavedDeleteBtn ({parentToChild}) {
+  const {config} = parentToChild;
   const redirectTo = useRedirectTo();
   
   function handleSavedDeleteBtn () {
-    redirectTo(`/wall/${parentToChild.config._id}/deleteConfirm`);
+    redirectTo(`/wall/${config._id}/deleteConfirm`);
   };  
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${parentToChild.config.colorNum} text-color${parentToChild.config.imgBG}`} onClick={handleSavedDeleteBtn} icon="trash-alt" />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
+      onClick={handleSavedDeleteBtn}
+      icon="trash-alt" />
   );
 };
 

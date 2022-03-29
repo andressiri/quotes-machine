@@ -19,10 +19,16 @@ function AutoColorBtn () {
 
   return (
     <div>
-    {autoColorChange === true
-      ? <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleAutoColorBtn} icon="check" />
-      : <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleAutoColorBtn} icon="times" />
-    }
+      {autoColorChange === true
+        ? <FontAwesomeIcon
+            className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+            onClick={handleAutoColorBtn}
+            icon="check" />
+        : <FontAwesomeIcon
+            className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+            onClick={handleAutoColorBtn}
+            icon="times" />
+      }
     </div>
   );
 };

@@ -13,7 +13,10 @@ function OptionsEditBtn () {
   };  
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleOptionsEditBtn} icon="pen" />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleOptionsEditBtn}
+      icon="pen" />
   );
 };
 

@@ -6,23 +6,24 @@ function GreenTxt ({parentToChild}) {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [forceUpdate, setForceUpdate] = force.update;
+  const {config, index} = parentToChild;
   let greenTxtState = '';
   
-  if (parentToChild.config.imgBG === 3) {
+  if (config.imgBG === 3) {
     greenTxtState = 'buttonDisabled';
   };
-  if (parentToChild.config.colorNum === 3) {
-    greenTxtState = `buttonEnabled text-color${parentToChild.config.imgBG}`;
+  if (config.colorNum === 3) {
+    greenTxtState = `buttonEnabled text-color${config.imgBG}`;
   };
 
   function handleGreenTxt () {
-    if (parentToChild.config._id === 'This was called by QuoteBox') {
+    if (config._id === 'This was called by QuoteBox') {
       setColorNumber(3);
     } else {
       let auxArray = savedQuotesArray;
-      let auxObj = auxArray[parentToChild.index];
+      let auxObj = auxArray[index];
       auxObj.colorNum = 3;
-      auxArray[parentToChild.index] = auxObj;
+      auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
     };

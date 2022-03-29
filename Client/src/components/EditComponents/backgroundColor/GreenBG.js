@@ -6,22 +6,23 @@ function GreenBG ({parentToChild}) {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [forceUpdate, setForceUpdate] = force.update;
+  const {config, index} = parentToChild;
   let greenBGState = '';
 
-  if (parentToChild.config.colorNum === 3) {
+  if (config.colorNum === 3) {
     greenBGState = 'buttonDisabled';
   };
-  if (parentToChild.config.imgBG === 3) {
-    greenBGState = `buttonEnabled text-color${parentToChild.config.colorNum}`;
+  if (config.imgBG === 3) {
+    greenBGState = `buttonEnabled text-color${config.colorNum}`;
   };
   function handleGreenBG () {
-    if (parentToChild.config._id === 'This was called by QuoteBox') {
+    if (config._id === 'This was called by QuoteBox') {
       setImgBGColor(3);
     } else {
       let auxArray = savedQuotesArray;
-      let auxObj = auxArray[parentToChild.index];
+      let auxObj = auxArray[index];
       auxObj.imgBG = 3;
-      auxArray[parentToChild.index] = auxObj;
+      auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
     };

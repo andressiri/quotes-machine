@@ -32,7 +32,10 @@ function SavedWallBtn() {
   };
 
   return (
-    <FontAwesomeIcon className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`} onClick={handleSavedWallBtn} icon="list" />
+    <FontAwesomeIcon
+      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleSavedWallBtn}
+      icon="list" />
   );
 };
 

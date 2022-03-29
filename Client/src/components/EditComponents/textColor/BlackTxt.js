@@ -6,23 +6,24 @@ function BlackTxt ({parentToChild}) {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [forceUpdate, setForceUpdate] = force.update;
+  const {config, index} = parentToChild;
   let blackTxtState = '';
 
-  if (parentToChild.config.imgBG === 7) {
+  if (config.imgBG === 7) {
     blackTxtState = 'buttonDisabled';
   };
-  if (parentToChild.config.colorNum === 7) {
-    blackTxtState = `buttonEnabled text-color${parentToChild.config.imgBG}`;
+  if (config.colorNum === 7) {
+    blackTxtState = `buttonEnabled text-color${config.imgBG}`;
   };
 
   function handleBlackTxt () {
-    if (parentToChild.config._id === 'This was called by QuoteBox') {
+    if (config._id === 'This was called by QuoteBox') {
       setColorNumber(7);
     } else {
       let auxArray = savedQuotesArray;
-      let auxObj = auxArray[parentToChild.index];
+      let auxObj = auxArray[index];
       auxObj.colorNum = 7;
-      auxArray[parentToChild.index] = auxObj;
+      auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
     };

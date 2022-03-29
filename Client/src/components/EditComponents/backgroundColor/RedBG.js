@@ -6,23 +6,24 @@ function RedBG ({parentToChild}) {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [forceUpdate, setForceUpdate] = force.update;
+  const {config, index} = parentToChild;
   let redBGState = '';
 
-  if (parentToChild.config.colorNum === 0) {
+  if (config.colorNum === 0) {
     redBGState = 'buttonDisabled';
   };
-  if (parentToChild.config.imgBG === 0) {
-    redBGState = `buttonEnabled text-color${parentToChild.config.colorNum}`;
+  if (config.imgBG === 0) {
+    redBGState = `buttonEnabled text-color${config.colorNum}`;
   };
 
   function handleRedBG () {
-    if (parentToChild.config._id === 'This was called by QuoteBox') {
+    if (config._id === 'This was called by QuoteBox') {
       setImgBGColor(0);
     } else {
       let auxArray = savedQuotesArray;
-      let auxObj = auxArray[parentToChild.index];
+      let auxObj = auxArray[index];
       auxObj.imgBG = 0;
-      auxArray[parentToChild.index] = auxObj;
+      auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
     };
