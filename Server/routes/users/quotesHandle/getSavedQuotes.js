@@ -1,10 +1,10 @@
 const express = require('express');
 const getSavedQuotesRouter = express.Router();
-const rateLimiter = require('../../config/requestsRateLimiter/rateLimiter.js');
-const checkAuthenticated = require('../../config/checkAuthenticated.js');
+const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
+const checkAuthenticated = require('../../../config/checkAuthenticated.js');
 
 // UserQuotes model
-const UserQuotes = require('../../models/UserQuotes.js');
+const UserQuotes = require('../../../models/UserQuotes.js');
 
 getSavedQuotesRouter.get('/', 
   rateLimiter.max2500RequestsPerday.prevent,

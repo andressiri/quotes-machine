@@ -1,11 +1,11 @@
 const express = require("express");
 const registerRouter = express.Router();
-const rateLimiter = require('../../config/requestsRateLimiter/rateLimiter.js');
+const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
 const bcrypt = require('bcryptjs');
-const validateEmail = require('../../functions/validateEmail.js');
+const validateEmail = require('../../../functions/validateEmail.js');
 
 // User model
-const User = require('../../models/User.js');
+const User = require('../../../models/User.js');
 
 // Register handle
 registerRouter.post('/',

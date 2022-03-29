@@ -1,9 +1,9 @@
 const express = require("express");
 const sendVerifyEmailRouter = express.Router();
-const rateLimiter = require('../../config/requestsRateLimiter/rateLimiter.js');
-const mailer = require('../../config/mailer.js');
-const generateCode = require('../../functions/generateCode.js');
-const checkAuthenticated = require('../../config/checkAuthenticated.js');
+const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
+const mailer = require('../../../config/mailer.js');
+const generateCode = require('../../../functions/generateCode.js');
+const checkAuthenticated = require('../../../config/checkAuthenticated.js');
 
 // Logout and session reset handle
 sendVerifyEmailRouter.get('/',

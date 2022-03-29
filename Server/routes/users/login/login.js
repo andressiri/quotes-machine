@@ -1,6 +1,6 @@
 const express = require("express");
 const loginRouter = express.Router();
-const rateLimiter = require('../../config/requestsRateLimiter/rateLimiter.js');
+const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
 
 // Login handle - Authorization
 loginRouter.post('/',

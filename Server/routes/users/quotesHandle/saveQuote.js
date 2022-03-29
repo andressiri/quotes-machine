@@ -1,12 +1,12 @@
 const express = require('express');
 const saveQuoteRouter = express.Router();
-const rateLimiter = require('../../config/requestsRateLimiter/rateLimiter.js');
-const checkAuthenticated = require('../../config/checkAuthenticated.js');
+const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
+const checkAuthenticated = require('../../../config/checkAuthenticated.js');
 
 // User model
-const User = require('../../models/User.js');
+const User = require('../../../models/User.js');
 // UserQuotes model
-const UserQuotes = require('../../models/UserQuotes.js');
+const UserQuotes = require('../../../models/UserQuotes.js');
 
 saveQuoteRouter.put('/', 
   rateLimiter.max2500RequestsPerday.prevent,

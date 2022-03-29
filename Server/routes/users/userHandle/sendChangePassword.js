@@ -1,12 +1,12 @@
 const express = require("express");
 const sendChangePasswordRouter = express.Router();
-const rateLimiter = require('../../config/requestsRateLimiter/rateLimiter.js');
-const mailer = require('../../config/mailer.js');
-const generateCode = require('../../functions/generateCode.js');
-const validateEmail = require('../../functions/validateEmail');
+const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
+const mailer = require('../../../config/mailer.js');
+const generateCode = require('../../../functions/generateCode.js');
+const validateEmail = require('../../../functions/validateEmail');
 
 // User model
-const User = require('../../models/User.js');
+const User = require('../../../models/User.js');
 
 // Logout and session reset handle
 sendChangePasswordRouter.post('/',

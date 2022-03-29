@@ -1,11 +1,11 @@
 const express = require('express');
 const saveUserOptionsRouter = express.Router();
-const rateLimiter = require('../../config/requestsRateLimiter/rateLimiter.js');
-const checkAuthenticated = require('../../config/checkAuthenticated.js');
-const generateCode = require('../../functions/generateCode.js');
+const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
+const checkAuthenticated = require('../../../config/checkAuthenticated.js');
+const generateCode = require('../../../functions/generateCode.js');
 
 // User model
-const User = require('../../models/User.js');
+const User = require('../../../models/User.js');
 
 saveUserOptionsRouter.put('/', 
   rateLimiter.max2500RequestsPerday.prevent,

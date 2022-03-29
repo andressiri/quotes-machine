@@ -1,8 +1,8 @@
 const express = require("express");
 const loginAuthRouter = express.Router();
 const passport = require('passport');
-const rateLimiter = require('../../config/requestsRateLimiter/rateLimiter.js');
-const validateEmail = require('../../functions/validateEmail.js');
+const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
+const validateEmail = require('../../../functions/validateEmail.js');
 
 // Register handle - Authentication
 loginAuthRouter.post('/',

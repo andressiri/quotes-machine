@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const quotes = require("../Quotes.js");
+const quotes = require("../../Quotes.js");
 
 router.get('/randomQuote', (req, res) => {
     const randomQuote = quotes[Math.floor(Math.random() * 10)];
