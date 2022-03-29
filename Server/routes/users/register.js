@@ -13,8 +13,8 @@ registerRouter.post('/',
   rateLimiter.multipleClickingLimiter.prevent,
   rateLimiter.tooManyRegistrations.prevent,
   (req, res) => {
-    // Check correct data was sent in the request
-    if (!req.body.name || !req.body.email || !req.body.password || !validateEmail(req.body.email)) {
+    // Check needed data was sent in the request
+    if (!req.body.name || !req.body.email || !req.body.password || !validateEmail(req.body.email) || !req.body.userOptions) {
       let msg = 'Please send all the information required';
       if (req.body.email && !validateEmail(req.body.email)) msg = 'Please enter a valid email';
       console.log('Bad request');
@@ -28,6 +28,7 @@ registerRouter.post('/',
             console.log('Email taken');
             res.status(409).json({message: 'Email is already registered'});
           } else {
+            let notValidInfo = 'Not valid info';
             const newUser = new User({
               name: name,
               email: email,
@@ -36,8 +37,14 @@ registerRouter.post('/',
               userQuotesId: 'Create userQuotes at first save',
               userOptions: userOptions
             });
-            // Hash Password
-            bcrypt.genSalt(10, (err, salt) =>
+            //  Validate data to save
+            notValidInfo = newUser.validateSync();
+            if (typeof notValidInfo !== 'undefined') {
+              console.log('Not valid info'),
+              res.status(412).json({message: 'Could not validate information sent'});
+            } else {
+              // Hash Password
+              bcrypt.genSalt(10, (err, salt) =>
               bcrypt.hash(newUser.password, salt, (err, hash) => {
                 if (err) throw err;
                 // Set password to hashed
@@ -52,8 +59,9 @@ registerRouter.post('/',
                     console.log(err);
                     res.status(500).json({message: 'There was an error saving your registration, please try again'});
                   });
-            }));
-          }
+              }));
+            };
+          };
         })
         .catch(err => {
           console.log(err);

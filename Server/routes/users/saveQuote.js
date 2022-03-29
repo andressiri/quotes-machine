@@ -13,10 +13,11 @@ saveQuoteRouter.put('/',
   rateLimiter.multipleClickingLimiter.prevent,
   checkAuthenticated,
   (req, res) => {
-    // check data required for saving a new quote has been sent
+    // check data required for saving a new quote has been sent properly
     let notValidInfo = 'Not valid info';
+    let newUserQuotes = {message: 'No proper quoteObj'};
     if (req.body.quoteObj && typeof req.body.quoteObj === 'object') {
-      const newUserQuotes = new UserQuotes({
+      newUserQuotes = new UserQuotes({
         userId: req.user.id,
         quotesArray: [req.body.quoteObj]
       });

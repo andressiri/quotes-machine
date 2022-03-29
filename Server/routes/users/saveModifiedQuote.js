@@ -13,8 +13,9 @@ saveModifiedQuoteRouter.put('/',
   (req, res) => {
     // check data required for updating a quote has been sent
     let notValidInfo = 'Not valid info';
+    let validationUserQuotes = {message: 'No proper quoteObj'};
     if (req.body.quoteObj && typeof req.body.quoteObj === 'object') {
-      const validationUserQuotes = new UserQuotes({
+      validationUserQuotes = new UserQuotes({
         userId: req.user.id,
         quotesArray: [req.body.quoteObj]
       });
