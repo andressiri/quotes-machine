@@ -1,9 +1,9 @@
 import React, {useContext, useState} from "react";
 import {Context} from "../../../../Context.js";
 import useRedirectTo from "../../../../functions/useRedirectTo.js";
-import useStopAuto from '../../../../functions/useStopAuto.js';
-import useGetSavedQuotes from "../../../../functions/useGetSavedQuotes.js"; 
-import useCheckLoginCondition from "../../../../functions/useCheckLoginCondition.js";
+import useStopAuto from '../../../../functions/quoteFunctions/useStopAuto.js';
+import useGetSavedQuotes from "../../../../functions/userFunctions/useGetSavedQuotes.js"; 
+import useCheckLoginCondition from "../../../../functions/userFunctions/useCheckLoginCondition.js";
 import useCreateQuoteObj from "../../../../functions/useCreateQuoteObj.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 

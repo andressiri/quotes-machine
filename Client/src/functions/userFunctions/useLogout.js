@@ -1,6 +1,6 @@
 import {useContext} from 'react';
-import {Context} from './../Context.js';
-import useRedirectTo from './useRedirectTo.js';
+import {Context} from '../../Context.js';
+import useRedirectTo from '../useRedirectTo.js';
 
 function useLogout () {
   const {quote, refs} = useContext(Context);

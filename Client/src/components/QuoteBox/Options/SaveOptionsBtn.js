@@ -2,8 +2,8 @@ import React, {useContext, useState} from 'react';
 import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 import useCreateOptionsObj from '../../../functions/useCreateOptionsObj.js';
-import useCheckLoginCondition from '../../../functions/useCheckLoginCondition.js';
-import useRestartDefault from '../../../functions/useRestartDefault.js';
+import useCheckLoginCondition from '../../../functions/userFunctions/useCheckLoginCondition.js';
+import useRestartDefault from '../../../functions/DOMFunctions/useRestartDefault.js';
 
 function SaveOptionsBtn ({parentToChild}) {
   const {colors, refs, edit} = useContext(Context);

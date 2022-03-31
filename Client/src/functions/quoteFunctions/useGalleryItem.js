@@ -1,5 +1,5 @@
 import {useContext} from 'react';
-import {Context} from './../Context.js';
+import {Context} from '../../Context.js';
 
 function useGalleryItem () {
   const {gall} = useContext(Context);

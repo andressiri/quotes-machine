@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
-import useLogout from '../../../functions/useLogout.js';
+import useLogout from '../../../functions/userFunctions/useLogout.js';
 
 function LogoutBtn () {
   const {colors, refs} = useContext(Context);

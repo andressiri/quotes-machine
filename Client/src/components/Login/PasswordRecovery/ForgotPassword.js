@@ -4,7 +4,7 @@ import EmailInput from '../EmailInput.js';
 import EmailPasswordBtn from './EmailPasswordBtn.js';
 import CodeInput from '../CodeInput.js';
 import CheckCodeBtn from '../CheckCodeBtn.js';
-import useLogout from '../../../functions/useLogout.js';
+import useLogout from '../../../functions/userFunctions/useLogout.js';
 
 function ForgotPassword() {
   const {refs, timers} = useContext(Context);

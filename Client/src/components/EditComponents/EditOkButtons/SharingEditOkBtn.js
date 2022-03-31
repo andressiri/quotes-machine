@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
-import useShareImg from '../../../functions/useShareImg.js';
-import useRestartDefault from '../../../functions/useRestartDefault.js';
+import useShareImg from '../../../functions/sharingFunctions/useShareImg.js';
+import useRestartDefault from '../../../functions/DOMFunctions/useRestartDefault.js';
 
 function SharingEditOkBtn ({parentToChild}) {
   const {colors, refs, edit} = useContext(Context);

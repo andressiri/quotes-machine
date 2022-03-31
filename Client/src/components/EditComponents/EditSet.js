@@ -5,7 +5,7 @@ import TextColor from './TextColor/TextColor.js';
 import FontStyle from './FontStyle/FontStyle.js'
 import SharingEditCancelBtn from './CancelButtons/SharingEditCancelBtn.js';
 import SharingEditOkBtn from './EditOkButtons/SharingEditOkBtn.js';
-import OptionsEditCancelBtn from "./CancelButtons/OptionsEditCancelBtn copy 2.js";
+import OptionsEditCancelBtn from "./CancelButtons/OptionsEditCancelBtn.js";
 import OptionsEditOkBtn from "./EditOkButtons/OptionsEditOkBtn.js";
 import WallEditCancelBtn from "./CancelButtons/WallEditCancelBtn.js";
 import WallEditOkBtn from "./EditOkButtons/WallEditOkBtn.js";

@@ -1,5 +1,5 @@
 import {useContext} from 'react';
-import {Context} from './../Context.js';
+import {Context} from '../../Context.js';
 import clickLink from './clickLink.js';
 
 function useShareTxt () {

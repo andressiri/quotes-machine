@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import {Context} from "../../Context.js";
 import useRedirectTo from "../../functions/useRedirectTo.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import useShareImg from '../../functions/useShareImg.js';
+import useShareImg from '../../functions/sharingFunctions/useShareImg.js';
 
 function ShareImageBtn ({parentToChild}) {
   const {refs} = useContext(Context);
