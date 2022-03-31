@@ -10,7 +10,7 @@ import LoginForm from '../Login/Login/LoginForm.js';
 import VerifyEmail from '../Login/VerifyEmail/VerifyEmail.js';
 import LoggedInMenu from '../Login/LoggedIn/LoggedInMenu.js';
 import RegisterForm from '../Login/Register/RegisterForm';
-import ForgotPassword from '../Login/PasswordRecovery/ForgotPassword.js';
+import ForgotPassword from '../Login/ChangePassword/ForgotPassword/ForgotPassword.js';
 import ChangePassword from '../Login/ChangePassword/ChangePassword.js';
 import BoxMessages from './BoxMessages/BoxMessages.js';
 

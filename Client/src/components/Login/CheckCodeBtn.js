@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Context} from '../../Context.js';
 import useRedirectTo from '../../functions/useRedirectTo.js';
 
@@ -7,9 +7,9 @@ function CheckCodeBtn () {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [message, setMessage] = refs.msg;
-  const [verified, setVerified] = refs.ver;
   const emailReference = refs.email;
   const [loggedIn, setLoggedIn] = refs.logged;
+  const [verified, setVerified] = refs.ver;
   const [codeValue, setCodeValue] = forms.code;
   const [checkCodeBtnTimer, setCheckCodeBtnTimer] = timers.check;
   const [checkWaitMsg, setCheckWaitMsg] = timers.sendWait;
@@ -42,7 +42,7 @@ function CheckCodeBtn () {
       setTimeout(() => {  // Timeout to handle transition
         setMessage('');
       }, 250);
-      if (loggedIn) {
+      if (loggedIn && !verified) {
         setVerified(true);
         redirectTo('/box/app');
       } else {

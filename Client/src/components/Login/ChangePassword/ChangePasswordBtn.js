@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {Context} from '../../../Context.js';
-import useRedirectTo from '../../../functions/useRedirectTo.js';
+import useLogout from '../../../functions/userFunctions/useLogout.js';
 
 function ChangePasswordBtn () {
   const {colors, refs, forms} = useContext(Context);
@@ -11,7 +11,7 @@ function ChangePasswordBtn () {
   const [passwordValue, setPasswordValue] = forms.pass;
   const [password2Value, setPassword2Value] = forms.pass2;
   const [isLoading, setIsLoading] = useState(false); 
-  const redirectTo = useRedirectTo();
+  const logout = useLogout();
 
   async function handleSubmitNewPassword(event) {
     event.preventDefault();
@@ -44,7 +44,7 @@ function ChangePasswordBtn () {
       setTimeout(() => {  // Timeout to handle transition
         setMessage(json.message);
       }, 250);
-      redirectTo('/box/login');
+      logout();
     } else {
       setMessage(json.message);
     };

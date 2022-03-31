@@ -4,20 +4,30 @@ import EmailVerifyBtn from './EmailVerifyBtn.js';
 import CodeInput from '../CodeInput.js';
 import CheckCodeBtn from '../CheckCodeBtn.js';
 import useLogout from '../../../functions/userFunctions/useLogout.js';
+import useRedirectTo from '../../../functions/useRedirectTo.js';
 
 function VerifyEmail() {
   const {refs, timers} = useContext(Context);
   const [message, setMessage] = refs.msg;
   const emailReference = refs.email;
+  const [verified, setVerified] = refs.ver;
   const [checkCodeBtnTimer, setCheckCodeBtnTimer] = timers.check;
   const [sendEmailBtnTimer, setSendEmailBtnTimer] = timers.send;
   const [sendWaitMsg, setSendWaitMsg] = timers.sendWait;
   const [checkWaitMsg, setCheckWaitMsg] = timers.sendWait;
   const logout = useLogout();
+  const redirectTo = useRedirectTo();
+  // Difference between first verification and change password/name verification
+  let auxString = 'Log out';
+  if (verified) auxString = 'Go back';
 
-  function handleGoToLogin() {
+  function handleGoBack() {
     emailReference.current = '';
-    logout();
+    if (verified) {
+      redirectTo('/box/loggedIn');
+    } else {
+      logout();
+    };
   };
 
   return (
@@ -38,7 +48,8 @@ function VerifyEmail() {
         <CodeInput />
         <CheckCodeBtn />
       </form>
-      <h2 className={`shareIt`} onClick={handleGoToLogin}>Log Out</h2>
+      <h2 className={`shareIt`} onClick={handleGoBack}>{auxString}</h2>
+ 
     </div>
   );
 }

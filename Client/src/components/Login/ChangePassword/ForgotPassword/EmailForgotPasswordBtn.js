@@ -1,8 +1,8 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Context} from '../../../Context.js';
-import validateEmail from '../../../functions/validateEmail.js';
+import React, {useContext, useState} from 'react';
+import {Context} from '../../../../Context.js';
+import validateEmail from '../../../../functions/validateEmail.js';
 
-function EmailPasswordBtn () {
+function EmailForgotPasswordBtn () {
   const {colors, refs, forms, timers} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
@@ -16,7 +16,7 @@ function EmailPasswordBtn () {
 
   if (sendEmailBtnTimer !== 0) isBlocked = true;
 
-  async function handleSendEmailPassword(event) {
+  async function handleSendEmailForgotPassword(event) {
     event.preventDefault();
     if (isLoading) return;
     if (isBlocked) return setSendWaitMsg(true);
@@ -42,9 +42,9 @@ function EmailPasswordBtn () {
   return (
     <button
       className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
-      onClick={handleSendEmailPassword}
+      onClick={handleSendEmailForgotPassword}
     >{isBlocked ? `${sendEmailBtnTimer}s`: 'Send Email'}</button>
   );
 };
 
-export default EmailPasswordBtn;
+export default EmailForgotPasswordBtn;

@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
-import {Context} from '../../../Context.js';
-import EmailInput from '../EmailInput.js';
-import EmailPasswordBtn from './EmailPasswordBtn.js';
-import CodeInput from '../CodeInput.js';
-import CheckCodeBtn from '../CheckCodeBtn.js';
-import useLogout from '../../../functions/userFunctions/useLogout.js';
+import {Context} from '../../../../Context.js';
+import EmailInput from '../../EmailInput.js';
+import EmailForgotPasswordBtn from './EmailForgotPasswordBtn.js';
+import CodeInput from '../../CodeInput.js';
+import CheckCodeBtn from '../../CheckCodeBtn.js';
+import useLogout from '../../../../functions/userFunctions/useLogout.js';
 
 function ForgotPassword() {
   const {refs, timers} = useContext(Context);
@@ -23,8 +23,7 @@ function ForgotPassword() {
 
   return (
     <div>
-      <p className={`shareIt`}
-        >Get the code from your email in order to verify your id</p>
+      <p className={`shareIt`}>Get the code from your email to verify your id</p>
       {message !== ''
         &&  <p className={`shareIt`}
               >{message}</p>}
@@ -36,7 +35,7 @@ function ForgotPassword() {
               >You have to wait {checkCodeBtnTimer}s to check code again</p>}
       <form id='sendEmail'>
         <EmailInput />
-        <EmailPasswordBtn />
+        <EmailForgotPasswordBtn />
       </form>
       <form id="codeForm">
         <CodeInput />
