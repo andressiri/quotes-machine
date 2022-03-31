@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
-import useCancelEdition from '../../../functions/useCancelEdition';
+import useCancelEdition from '../../../functions/DOMFunctions/useCancelEdition';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function WallEditCancelBtn ({parentToChild}) {

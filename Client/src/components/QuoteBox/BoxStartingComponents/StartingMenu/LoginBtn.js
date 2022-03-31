@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import {Context} from "../../../../Context.js";
-import useStopAuto from '../../../../functions/useStopAuto.js'; 
-import useCheckVerified from '../../../../functions/useCheckVerified.js';
+import useStopAuto from '../../../../functions/quoteFunctions/useStopAuto.js'; 
+import useCheckVerified from '../../../../functions/userFunctions/useCheckVerified.js';
 import useRedirectTo from "../../../../functions/useRedirectTo.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 

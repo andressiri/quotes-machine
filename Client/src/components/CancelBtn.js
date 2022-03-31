@@ -3,7 +3,7 @@ import {Context} from '../Context.js';
 import { useLocation } from 'react-router-dom';
 import useRedirectTo from '../functions/useRedirectTo.js';
 import useRedirectToWall from '../functions/useRedirectToWall.js';
-import useRestartDefault from '../functions/useRestartDefault.js';
+import useRestartDefault from '../functions/DOMFunctions/useRestartDefault.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function CancelBtn () {

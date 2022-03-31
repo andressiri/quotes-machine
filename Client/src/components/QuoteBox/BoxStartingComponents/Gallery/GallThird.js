@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../../Context.js';
-import useStopAuto from '../../../../functions/useStopAuto.js';
+import useStopAuto from '../../../../functions/quoteFunctions/useStopAuto.js';
 
 function GallThird () {
   const {colors, quote, gall} = useContext(Context);

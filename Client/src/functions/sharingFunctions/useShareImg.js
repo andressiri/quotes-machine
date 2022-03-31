@@ -1,5 +1,5 @@
 import {useContext} from 'react';
-import {Context} from './../Context.js';
+import {Context} from '../../Context.js';
 import domtoimage from 'dom-to-image';
 import getImgUrl from './getImgUrl.js';
 import clickLink from './clickLink.js';

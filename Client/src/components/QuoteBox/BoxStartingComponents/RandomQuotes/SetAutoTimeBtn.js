@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import{Context} from './../../../../Context.js';
-import useStopAuto from '../../../../functions/useStopAuto.js';
+import useStopAuto from '../../../../functions/quoteFunctions/useStopAuto.js';
 
 function SetAutoTimeBtn() {
   const {colors, auto} = useContext(Context);

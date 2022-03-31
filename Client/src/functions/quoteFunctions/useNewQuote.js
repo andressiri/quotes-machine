@@ -1,7 +1,7 @@
 import {useContext} from 'react';
-import {Context} from '../Context.js';
+import {Context} from '../../Context.js';
 import useGalleryItem from './useGalleryItem.js';
-import changeColorNumber from './changeColorNumber.js';
+import changeColorNumber from '../DOMFunctions/changeColorNumber.js';
 import fetchRandomQuote from './fetchRandomQuote.js';
 
 function useNewQuote () {

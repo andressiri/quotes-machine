@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {Context} from '../../../../Context.js';
-import useStopAuto from '../../../../functions/useStopAuto.js';
-import useNewQuote from '../../../../functions/useNewQuote.js';
+import useStopAuto from '../../../../functions/quoteFunctions/useStopAuto.js';
+import useNewQuote from '../../../../functions/quoteFunctions/useNewQuote.js';
 
 function NewQuoteBtn () {
   const {colors} = useContext(Context);
