@@ -32,13 +32,13 @@ sendVerifyEmailRouter.get('/',
       req.session.code = generateCode();
       const mailTemplate = `
         <h1>Welcome to Quotes Machine</h1>
-        <p>Hello ${req.user.name}! In order to verify your account you should use the following code:</p>
+        <p>Hello ${req.user.name}! In order to verify your identity you should use the following code:</p>
         <h2>Code: ${req.session.code}</h2>
-        <p>Thanks for joining us, we hope you enjoy it!</p>`;
+        <p>Sorry for the trouble, we hope you enjoy it!</p>`;
       const emailSuccess = await mailer.sendEmail(req.user.email, 'Quotes machine email verification', mailTemplate);
       if (emailSuccess.accepted[0] === `${req.user.email}`) {
         console.log(`Email sent to ${req.user.email}`);
-        res.status(201).json({message: 'Email sent with the code'});  
+        res.status(201).json({message: 'Email sent with the code', userEmail: req.user.email});  
         console.log(`code: ${req.session.code}`);
       } else {
         console.log('Mail rejected');

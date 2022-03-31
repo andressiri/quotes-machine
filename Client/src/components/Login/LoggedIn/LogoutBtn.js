@@ -9,7 +9,7 @@ function LogoutBtn () {
   const [message, setMessage] = refs.msg;
   const logout = useLogout();
 
-  async function handleLogoutBtn() {    
+  function handleLogoutBtn() {    
     setTimeout(() => {  // Timeout to handle transition
       setMessage('Logged out, log in again?');
     }, 250);

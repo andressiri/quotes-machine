@@ -8,15 +8,23 @@ import ChangePasswordBtn from './ChangePasswordBtn.js';
 function ChangePassword() {
   const {refs} = useContext(Context);
   const [message, setMessage] = refs.msg;
+  const [loggedIn, setLoggedIn] = refs.logged;
   const emailReference = refs.email;
   const redirectTo = useRedirectTo();
 
-  function handleGoToLogin() {
+  let redirectPath = '/box/login';
+  let auxString = 'Go to login';
+  if (loggedIn) {
+    redirectPath = '/box/loggedIn';
+    auxString = 'Go back';
+  };
+
+  function handleGoBack() {
     emailReference.current = '';
     setTimeout(() => {  // Timeout to handle transition
       setMessage('');
     }, 250);
-    redirectTo('/box/login');
+    redirectTo(redirectPath);
   };
 
   return (
@@ -28,7 +36,7 @@ function ChangePassword() {
         <Password2Input />
         <ChangePasswordBtn />
       </form>
-      <h2 className={`shareIt`} onClick={handleGoToLogin}>Go to login</h2>
+      <h2 className={`shareIt`} onClick={handleGoBack}>{auxString}</h2>
     </div>
   );
 };
