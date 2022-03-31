@@ -11,7 +11,7 @@ function LoginButton () {
   const [message, setMessage] = refs.msg;
   const [loggedIn, setLoggedIn] = refs.logged;
   const [verified, setVerified] = refs.ver;
-  const [restartDefault, setRestartDefault] = edit.auto;
+  const [restartDefaultObj, setRestartDefaultObj] = edit.auto;
   const [configBackup, setConfigBackup] = edit.cBackup;
   const [emailValue, setEmailValue] = forms.email;
   const [passwordValue, setPasswordValue] = forms.pass;
@@ -45,7 +45,7 @@ function LoginButton () {
         if (json.userOptions.message === 'User options loaded') {
           const {userOptionsObj} = json.userOptions;
           setConfigBackup(userOptionsObj.quoteConfig);
-          setRestartDefault(userOptionsObj.restartAfterShare);
+          setRestartDefaultObj(userOptionsObj.restartAfterShare);
           setAutoColorChange(userOptionsObj.automaticColor);
         };
         setLoggedIn(true);

@@ -27,7 +27,7 @@ function useCreateQuoteObj () {
     };
     return quoteObj;
   };  
-  return createQuoteObj
+  return createQuoteObj;
 };
 
 export default useCreateQuoteObj;

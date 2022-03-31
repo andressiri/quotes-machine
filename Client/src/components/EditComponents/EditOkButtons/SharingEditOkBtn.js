@@ -11,20 +11,20 @@ function SharingEditOkBtn ({parentToChild}) {
   const quoteRef = refs.refImg;
   const shareChosen = refs.sChosen;
   const [message, setMessage] = refs.msg;
-  const [restartDefault, setRestartDefault] = edit.auto;
+  const [restartDefaultObj, setRestartDefaultObj] = edit.auto;
   const [configBackup, setConfigBackup] = edit.cBackup;
   const {config} = parentToChild;
   const shareImg = useShareImg();
   const redirectTo = useRedirectTo();
-  const restartToDefault = useRestartDefault();  
+  const restartDefault = useRestartDefault();  
   
   async function handleSharingEditOkBtn () {
     const msg = await shareImg(quoteRef, config);
     setMessage(`Quote image has been shared on ${shareChosen.current}`);
     if (msg === 'There was an error getting the image, try again') setMessage(msg);
     shareChosen.current = '';
-    if (restartDefault) {
-      restartToDefault();
+    if (restartDefaultObj) {
+      restartDefault();
     } else {
       setConfigBackup(config);
     };

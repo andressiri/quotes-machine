@@ -37,7 +37,7 @@ export const ContextProvider = (props) => {
   const [italicFont, setItalicFont] = useState('normal');
   const [upperFont, setUpperFont] = useState('none');
   const [fSize, setFSize] = useState(35);
-  const [restartDefault, setRestartDefault] = useState(true);
+  const [restartDefaultObj, setRestartDefaultObj] = useState(true);
   const [configBackup, setConfigBackup] = useState({
     colorNum: 0,
     imgBG: 7,
@@ -107,7 +107,7 @@ export const ContextProvider = (props) => {
         italicF: [italicFont, setItalicFont],
         upperF: [upperFont, setUpperFont],
         fontS: [fSize, setFSize],
-        auto: [restartDefault, setRestartDefault],
+        auto: [restartDefaultObj, setRestartDefaultObj],
         cBackup: [configBackup, setConfigBackup]
       },
       gall: {
