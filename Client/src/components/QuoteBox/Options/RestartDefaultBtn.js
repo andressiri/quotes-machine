@@ -6,20 +6,20 @@ function RestartDefaultBtn () {
   const {colors, edit} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [restartDefault, setRestartDefault] = edit.auto;
+  const [restartDefaultObj, setRestartDefaultObj] = edit.auto;
   const [isLoading, setIsLoading] = useState(false);
   
   function handleRestartDefaultBtn () {
     if (isLoading) return;
     setIsLoading(true);
-    setRestartDefault(!restartDefault);
+    setRestartDefaultObj(!restartDefaultObj);
     //TODO: update at user
     setIsLoading(false);
   };  
 
   return (
     <div>
-      {restartDefault === true
+      {restartDefaultObj === true
         ? <FontAwesomeIcon
             className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
             onClick={handleRestartDefaultBtn}
