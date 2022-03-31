@@ -12,7 +12,7 @@ sendVerifyEmailRouter.get('/',
   // prevent too many mail sents 
   rateLimiter.tooManyMailsSent.prevent,
   checkAuthenticated,
-  (req, res) => {
+  async (req, res) => {
     // check at least 10 seconds have passed from last mail sent
     let timePassedBetweenRequests = 0;
     if (!req.session.sendVerifyEmailTimestamp) {
@@ -27,7 +27,7 @@ sendVerifyEmailRouter.get('/',
       console.log(`You will have to wait ${Math.floor((10000 - timePassedBetweenRequests)/1000)} seconds to do another request`);
       res.status(429).json({message: `You will have to wait ${Math.floor((10000 - timePassedBetweenRequests)/1000)} seconds to do another request`});
     } else {
-      //  send email
+      //  Everything seems OK => Send email
       req.session.sendVerifyEmailTimestamp = Date.now();
       req.session.code = generateCode();
       const mailTemplate = `
@@ -35,10 +35,15 @@ sendVerifyEmailRouter.get('/',
         <p>Hello ${req.user.name}! In order to verify your account you should use the following code:</p>
         <h2>Code: ${req.session.code}</h2>
         <p>Thanks for joining us, we hope you enjoy it!</p>`;
-      mailer.sendEmail(req.user.email, 'Quotes machine email verification', mailTemplate);
-      console.log('Email sent');
-      res.status(201).json({message: 'Email sent with the code'});  
-      console.log(`code: ${req.session.code}`);
+      const emailSuccess = await mailer.sendEmail(req.user.email, 'Quotes machine email verification', mailTemplate);
+      if (emailSuccess.accepted[0] === `${req.user.email}`) {
+        console.log(`Email sent to ${req.user.email}`);
+        res.status(201).json({message: 'Email sent with the code'});  
+        console.log(`code: ${req.session.code}`);
+      } else {
+        console.log('Mail rejected');
+        res.status(500).json({message: `There was a problem sending the email, please try again`});  
+      };   
     };
   }
 );

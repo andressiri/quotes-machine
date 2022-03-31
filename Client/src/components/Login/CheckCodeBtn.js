@@ -8,7 +8,7 @@ function CheckCodeBtn () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [message, setMessage] = refs.msg;
   const [verified, setVerified] = refs.ver;
-  const [emailToUpdate, setEmailToUpdate] = refs.email;
+  const emailReference = refs.email;
   const [loggedIn, setLoggedIn] = refs.logged;
   const [codeValue, setCodeValue] = forms.code;
   const [checkCodeBtnTimer, setCheckCodeBtnTimer] = timers.check;
@@ -23,7 +23,7 @@ function CheckCodeBtn () {
     event.preventDefault();
     if (isLoading) return;
     if (isBlocked) return setCheckWaitMsg(true);
-    if (emailToUpdate === '') return setMessage('No code was requested yet');
+    if (emailReference.current === '') return setMessage('No code was requested yet');
     if (codeValue === '') return setMessage('Please enter the code sent');
     setIsLoading(true);
     const response = await fetch("/users/verifyEmail", {
@@ -33,7 +33,7 @@ function CheckCodeBtn () {
         'Content-Type': 'application/json'},
       body: JSON.stringify({
         code: codeValue,
-        email: emailToUpdate  
+        email: emailReference.current  
         })
     });
     let json = await response.json();

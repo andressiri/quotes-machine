@@ -7,7 +7,7 @@ function ChangePasswordBtn () {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [message, setMessage] = refs.msg;
-  const [emailToUpdate, setEmailToUpdate] = refs.email;
+  const emailReference = refs.email;
   const [passwordValue, setPasswordValue] = forms.pass;
   const [password2Value, setPassword2Value] = forms.pass2;
   const [isLoading, setIsLoading] = useState(false); 
@@ -33,14 +33,14 @@ function ChangePasswordBtn () {
         Accept: 'application/json',
         'Content-Type': 'application/json'},
       body: JSON.stringify({
-        email: emailToUpdate,
+        email: emailReference.current,
         password: passwordValue
       }),
     });
     let json = await response.json();
     setIsLoading(false);
     if (json.message === 'Password changed') {
-      setEmailToUpdate('');
+      emailReference.current = '';
       setTimeout(() => {  // Timeout to handle transition
         setMessage(json.message);
       }, 250);

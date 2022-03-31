@@ -8,7 +8,7 @@ import useLogout from '../../../functions/userFunctions/useLogout.js';
 function VerifyEmail() {
   const {refs, timers} = useContext(Context);
   const [message, setMessage] = refs.msg;
-  const [emailToUpdate, setEmailToUpdate] = refs.email;
+  const emailReference = refs.email;
   const [checkCodeBtnTimer, setCheckCodeBtnTimer] = timers.check;
   const [sendEmailBtnTimer, setSendEmailBtnTimer] = timers.send;
   const [sendWaitMsg, setSendWaitMsg] = timers.sendWait;
@@ -16,7 +16,7 @@ function VerifyEmail() {
   const logout = useLogout();
 
   function handleGoToLogin() {
-    setEmailToUpdate('');
+    emailReference.current = '';
     logout();
   };
 

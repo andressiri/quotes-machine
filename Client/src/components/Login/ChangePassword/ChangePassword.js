@@ -8,11 +8,11 @@ import ChangePasswordBtn from './ChangePasswordBtn.js';
 function ChangePassword() {
   const {refs} = useContext(Context);
   const [message, setMessage] = refs.msg;
-  const [emailToUpdate, setEmailToUpdate] = refs.email;
+  const emailReference = refs.email;
   const redirectTo = useRedirectTo();
 
   function handleGoToLogin() {
-    setEmailToUpdate('');
+    emailReference.current = '';
     setTimeout(() => {  // Timeout to handle transition
       setMessage('');
     }, 250);

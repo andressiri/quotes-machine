@@ -16,14 +16,16 @@ transporter.verify()
     console.log('Ready to send mails...');
   });
 
-//  send email
-const sendEmail = async (sendTo, subject, mailTemplate) => {
-  const mail = await transporter.sendMail({
+//  Send email
+const sendEmail = async (sendTo, subject, mailTemplate, replyTo) => {
+  const mailSuccess = await transporter.sendMail({
     from: 'siri.andres.l@gmail.com', 
     to: sendTo, 
     subject: subject,
-    html: mailTemplate 
-  });
+    html: mailTemplate,
+    replyTo: replyTo || 'no-reply@quotesmachine.com'
+  });  
+  return mailSuccess;
 };   
 
 exports.transporter = transporter;
