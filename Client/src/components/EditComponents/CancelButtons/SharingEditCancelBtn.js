@@ -8,6 +8,7 @@ function SharingEditCancelBtn () {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const shareChosen = refs.sChosen;
+  const emailReference = refs.email;
   const [message, setMessage] = refs.msg;
   const redirectTo = useRedirectTo();
   const restartDefault = useRestartDefault();
@@ -15,6 +16,7 @@ function SharingEditCancelBtn () {
   function handleSharingEditCancelBtn () {
     setMessage('Edition has been canceled');
     restartDefault();
+    if (shareChosen.current === 'Email') emailReference.current = '';
     shareChosen.current = '';
     redirectTo('/box/message');
   }; 

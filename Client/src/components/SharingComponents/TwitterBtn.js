@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Context} from '../../Context.js';
+import {Context} from './../../Context.js';
 import useShareTxt from '../../functions/sharingFunctions/useShareTxt.js';
 import useRedirectTo from './../../functions/useRedirectTo.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';

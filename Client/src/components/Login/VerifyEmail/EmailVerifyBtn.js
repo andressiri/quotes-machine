@@ -6,7 +6,7 @@ function EmailVerifyBtn () {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [message, setMessage] = refs.msg;
-  const [emailToUpdate, setEmailToUpdate] = refs.email;
+  const emailReference = refs.email;
   const [sendEmailBtnTimer, setSendEmailBtnTimer] = timers.send;
   const [sendWaitMsg, setSendWaitMsg] = timers.sendWait;
   const [isLoading, setIsLoading] = useState(false);   
@@ -23,7 +23,7 @@ function EmailVerifyBtn () {
     let json = await response.json();
     setMessage(json.message);
     setSendEmailBtnTimer(10);
-    if (json.message === 'Email sent with the code') setEmailToUpdate('To check if code was requested');
+    if (json.message === 'Email sent with the code') emailReference.current = 'To check if code was requested';
     setIsLoading(false);
   };
 

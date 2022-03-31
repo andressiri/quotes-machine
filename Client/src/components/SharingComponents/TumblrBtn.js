@@ -1,7 +1,7 @@
-import React, {useContext} from "react";
-import {Context} from "./../../Context.js";
-import useRedirectTo from "./../../functions/useRedirectTo.js";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import React, {useContext} from 'react';
+import {Context} from './../../Context.js';
+import useRedirectTo from './../../functions/useRedirectTo.js';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function TumblrBtn({parentToChild}) {
   const {refs} = useContext(Context);
@@ -12,7 +12,7 @@ function TumblrBtn({parentToChild}) {
   function handleTumblr () {
     shareChosen.current = 'Tumblr';
     let redirectPath = '/box/sharingChoices';
-    if (config._id !== 'This was called by QuoteBox') redirectPath = `/wall/${config._id}/wallShareChoice`
+    if (config._id !== 'This was called by QuoteBox') redirectPath = `/wall/${config._id}/wallShareChoice`;
     redirectTo(redirectPath);
   };  
 

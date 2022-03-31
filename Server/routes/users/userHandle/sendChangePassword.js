@@ -22,7 +22,7 @@ sendChangePasswordRouter.post('/',
     } else {
       // check if user to change password exists
       await User.findOne({email: req.body.email})
-        .then((user) => {
+        .then(async (user) => {
           if (!user) {
             console.log('Email not registered');
             res.status(404).json({message: 'That email is not registered'});
@@ -41,7 +41,7 @@ sendChangePasswordRouter.post('/',
               console.log(`You will have to wait ${Math.floor((10000 - timePassedBetweenRequests)/1000)} seconds to do another request`);
               res.status(429).json({message: `You will have to wait ${Math.floor((10000 - timePassedBetweenRequests)/1000)} seconds to do another request`});
             } else {
-              //  send email
+              //  Everything seems OK => Send email
               req.session.sendChangePasswordTimestamp = Date.now();
               req.session.code = generateCode();
               const mailTemplate = `
@@ -49,16 +49,21 @@ sendChangePasswordRouter.post('/',
                 <p>Hello ${user.name}! In order to recover your password you should use the following code:</p>
                 <h2>Code: ${req.session.code}</h2>
                 <p>Thanks for coming back, we hope you enjoy it!</p>`;
-              mailer.sendEmail(user.email, 'Quotes machine password recovery', mailTemplate);
-              console.log('Email sent');
-              res.status(201).json({message: 'Email sent with the code'});  
-              console.log(`code: ${req.session.code}`);
+              const emailSuccess = await mailer.sendEmail(user.email, 'Quotes machine password recovery', mailTemplate);
+              if (emailSuccess.accepted[0] === `${user.email}`) {
+                console.log(`Email sent to ${user.email}`);
+                res.status(201).json({message: 'Email sent with the code'});  
+                console.log(`code: ${req.session.code}`);
+              } else {
+                console.log('Mail rejected');
+                res.status(500).json({message: `There was a problem sending the email, please try again`});  
+              };  
             };
           }; 
         })
         .catch(err => {
           console.log(err);
-          res.status(500).json({message: 'There was an trying to find your account, please try again'});
+          res.status(500).json({message: 'There was an error trying to find your account, please try again'});
         });
     };
   }

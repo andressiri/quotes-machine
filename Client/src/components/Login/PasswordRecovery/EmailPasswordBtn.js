@@ -7,7 +7,7 @@ function EmailPasswordBtn () {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [message, setMessage] = refs.msg;
-  const [emailToUpdate, setEmailToUpdate] = refs.email;
+  const emailReference = refs.email;
   const [emailValue, setEmailValue] = forms.email;
   const [sendEmailBtnTimer, setSendEmailBtnTimer] = timers.send;
   const [sendWaitMsg, setSendWaitMsg] = timers.sendWait;
@@ -35,7 +35,7 @@ function EmailPasswordBtn () {
     let json = await response.json();
     setMessage(json.message);
     setSendEmailBtnTimer(10);
-    if (json.message === 'Email sent with the code') setEmailToUpdate(emailValue);
+    if (json.message === 'Email sent with the code') emailReference.current = emailValue;
     setIsLoading(false);
   };
 
