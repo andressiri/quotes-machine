@@ -3,6 +3,7 @@ function clickLink (linkUrl) {
     link.href = linkUrl;
     link.target = '_blank';
     link.click();
+    link.remove();
 };
 
 export default clickLink;

@@ -1,26 +1,24 @@
 import React, {useContext} from "react";
 import {Context} from "./../../Context.js";
 import useRedirectTo from "./../../functions/useRedirectTo.js";
-import useStopAuto from './../../functions/useStopAuto.js';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-function TumblrBtn() {
-  const {colors, refs} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [shareChosen, setShareChosen] = refs.sChosen;
-  const stopAuto = useStopAuto();
+function TumblrBtn({parentToChild}) {
+  const {refs} = useContext(Context);
+  const shareChosen = refs.sChosen;
+  const {config} = parentToChild;
   const redirectTo = useRedirectTo();
   
-  async function handleTumblr () {
-    stopAuto();
-    setShareChosen('Tumblr');
-    redirectTo('/box/sharingChoices');
+  function handleTumblr () {
+    shareChosen.current = 'Tumblr';
+    let redirectPath = '/box/sharingChoices';
+    if (config._id !== 'This was called by QuoteBox') redirectPath = `/wall/${config._id}/wallShareChoice`
+    redirectTo(redirectPath);
   };  
 
   return (    
     <FontAwesomeIcon
-      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
       onClick={handleTumblr}
       icon={["fab", "tumblr"]} />
   );

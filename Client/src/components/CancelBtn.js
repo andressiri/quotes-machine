@@ -10,7 +10,7 @@ function CancelBtn () {
   const {colors, refs, edit} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [shareChosen, setShareChosen] = refs.sChosen;
+  const shareChosen = refs.sChosen;
   const [message, setMessage] = refs.msg;
   const [emailToUpdate, setEmailToUpdate] = refs.email;
   const [configBackup, setConfigBackup] = edit.cBackup;
@@ -30,7 +30,7 @@ function CancelBtn () {
     }, 250);
     if (['/box/options', '/box/editConfig', '/box/editSharing'].includes(location.pathname)) restartDefault();
     setEmailToUpdate('');
-    setShareChosen('');
+    shareChosen.current = '';
     if (/\/wall/.test(location.pathname)) {
       redirectToWall('/box/app');
     } else {

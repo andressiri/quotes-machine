@@ -1,13 +1,13 @@
-import React from "react";
-import useRedirectTo from "../../../functions/useRedirectTo.js";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import React from 'react';
+import useRedirectTo from '../../../functions/useRedirectTo.js';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function SavedSharingBtn({parentToChild}) {
   const {config} = parentToChild;
   const redirectTo = useRedirectTo();
 
   async function handleSavedSharingBtn () {
-    redirectTo(`/wall/${config._id}/savedSharing`);        
+    redirectTo(`/wall/${config._id}/wallSharing`);        
   };
 
   return (

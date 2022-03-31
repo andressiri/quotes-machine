@@ -24,8 +24,8 @@ export const ContextProvider = (props) => {
   const [autoSeconds, setAutoSeconds] = useState(10);
   const [autoTimer, setAutoTimer] = useState('Interval is off');
   //refs
-  const quoteRef = useRef('null');
-  const [shareChosen, setShareChosen] = useState('');
+  const quoteRef = useRef();
+  const shareChosen = useRef('');
   const [message, setMessage] = useState('');
   const [currentPath, setCurrentPath] = useState('/box/app');
   const [loggedIn, setLoggedIn] = useState(false);
@@ -94,7 +94,7 @@ export const ContextProvider = (props) => {
       },
       refs: {
         refImg: quoteRef,
-        sChosen: [shareChosen, setShareChosen],
+        sChosen: shareChosen,
         msg: [message, setMessage],
         path: [currentPath, setCurrentPath],
         logged: [loggedIn, setLoggedIn],

@@ -4,26 +4,33 @@ import useRedirectTo from "../../functions/useRedirectTo.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import useShareImg from '../../functions/useShareImg.js';
 
-function ShareImageBtn () {
-  const {colors, refs} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [shareChosen, setShareChosen] = refs.sChosen;
+function ShareImageBtn ({parentToChild}) {
+  const {refs} = useContext(Context);
+  const quoteRef = refs.refImg;
+  const shareChosen = refs.sChosen;
   const [message, setMessage] = refs.msg;
+  const {config} = parentToChild;
   const shareImg = useShareImg(); 
   const redirectTo = useRedirectTo(); 
   
-  function handleShareImageBtn () {
-    shareImg();
-    setMessage('Quote has been shared');
-    if (shareChosen === 'Clipboard') setMessage('Quote has been copied to clipboard');
-    setShareChosen('');
-    redirectTo('/box/message');
+  async function handleShareImageBtn () {
+    let redirectPath = '/box/message';
+    let msg = '';
+    if (config._id !== 'This was called by QuoteBox') {
+      redirectPath = `/wall/${config._id}/message`;
+      msg = await shareImg(window[`ref${config._id}`], config);
+    } else {      
+      msg = await shareImg(quoteRef, config);
+    }; 
+    setMessage(`Quote image has been shared on ${shareChosen.current}`);
+    if (msg === 'There was an error getting the image, try again') setMessage(msg);
+    shareChosen.current = '';
+    redirectTo(redirectPath);
   };  
 
   return (
     <FontAwesomeIcon
-      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
       onClick={handleShareImageBtn}
       icon="image" />
   );
