@@ -1,28 +1,25 @@
 import React, {useContext} from "react";
 import {Context} from "./../../Context.js";
 import useRedirectTo from "./../../functions/useRedirectTo.js";
-import useStopAuto from './../../functions/useStopAuto.js'; 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-function CopyToClipboardBtn() {
-  const {colors, refs} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [shareChosen, setShareChosen] = refs.sChosen;
+function CopyToClipboardBtn({parentToChild}) {
+  const {refs} = useContext(Context);
+  const shareChosen = refs.sChosen;
+  const {config} = parentToChild;
   const redirectTo = useRedirectTo();
 
-  const stopAuto = useStopAuto();
-
-  async function handleCopyToClip () {
-    stopAuto();
-    setShareChosen('Clipboard');
-    redirectTo('/box/sharingChoices');
+  async function handleCopyToClipboardBtn () {
+    shareChosen.current ='Clipboard';
+    let redirectPath = '/box/sharingChoices';
+    if (config._id !== 'This was called by QuoteBox') redirectPath = `/wall/${config._id}/wallShareChoice`
+    redirectTo(redirectPath);
   };
 
   return (
     <FontAwesomeIcon
-      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
-      onClick={handleCopyToClip}
+      className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
+      onClick={handleCopyToClipboardBtn}
       icon="paperclip" />
   );
 };

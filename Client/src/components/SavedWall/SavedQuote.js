@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
+import React, {useContext, useRef} from 'react';
 import {Context} from './../../Context.js';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function SavedQuote({parentToChild}) {
   const {refs} = useContext(Context);
-  const quoteRef = refs.refImg;
   const {config} = parentToChild;
+  window[`ref${config._id}`] = useRef();
   let adjustFontSize = config.fontS - 15;
 
   const textStyle = {
@@ -24,13 +24,15 @@ function SavedQuote({parentToChild}) {
   };
 
   return (    
-    <div className={`quote BG-color${config.imgBG} text-color${config.colorNum}`} ref={quoteRef} id='refDiv'>
-      <h1 id="text" className={`text`} style={textStyle} >
-        <FontAwesomeIcon icon="quote-left" className={`quoteIcon`} />
-        {` ${config.content} `}
-        <FontAwesomeIcon icon="quote-right" className={`quoteIcon`} /> 
-      </h1>
-      <p id="author" style={authorStyle}>{`- ${config.author}`}</p>       
+    <div className={`quote BG-color${config.imgBG} text-color${config.colorNum}`} ref={window[`ref${config._id}`]} id={`wallRefDiv${config._id}`}>
+      <div>{/*This div helps to form a more accurate blob for image*/}
+        <h1 className={`text`} style={textStyle} >
+          <FontAwesomeIcon icon="quote-left" className={`quoteIcon`} />
+          {` ${config.content} `}
+          <FontAwesomeIcon icon="quote-right" className={`quoteIcon`} /> 
+        </h1>
+        <p style={authorStyle}>{`- ${config.author}`}</p>       
+      </div>
     </div >
   );
 };

@@ -8,23 +8,25 @@ function SharingEditOkBtn ({parentToChild}) {
   const {colors, refs, edit} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [shareChosen, setShareChosen] = refs.sChosen;
+  const quoteRef = refs.refImg;
+  const shareChosen = refs.sChosen;
   const [message, setMessage] = refs.msg;
   const [restartDefault, setRestartDefault] = edit.auto;
   const [configBackup, setConfigBackup] = edit.cBackup;
+  const {config} = parentToChild;
   const shareImg = useShareImg();
   const redirectTo = useRedirectTo();
   const restartToDefault = useRestartDefault();  
   
   async function handleSharingEditOkBtn () {
-    await shareImg();
-    setMessage('Quote has been shared');
-    if (shareChosen === 'Clipboard') setMessage('Quote has been copied to clipboard');
-    setShareChosen(''); 
+    const msg = await shareImg(quoteRef, config);
+    setMessage(`Quote image has been shared on ${shareChosen.current}`);
+    if (msg === 'There was an error getting the image, try again') setMessage(msg);
+    shareChosen.current = '';
     if (restartDefault) {
       restartToDefault();
     } else {
-      setConfigBackup(parentToChild.config);
+      setConfigBackup(config);
     };
     redirectTo('/box/message');
   }; 

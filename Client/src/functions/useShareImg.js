@@ -1,37 +1,39 @@
 import {useContext} from 'react';
-import {Context} from '../Context.js';
+import {Context} from './../Context.js';
 import domtoimage from 'dom-to-image';
 import getImgUrl from './getImgUrl.js';
 import clickLink from './clickLink.js';
 
 function useShareImg () {
-  const {quote, refs} = useContext(Context);
-  const [quoteText, setQuoteText] = quote.quoteTxt;  
-  const [author, setAuthor] = quote.auth;
-  const quoteRef = refs.refImg;
-  const [shareChosen, setShareChosen] = refs.sChosen;
+  const {refs} = useContext(Context);
+  const shareChosen = refs.sChosen;
   const {ClipboardItem} = window;
   let link = ``;
 
-  const shareImg = async function checkChosenAndShare () {
-    const blob = await domtoimage.toBlob(quoteRef.current);
-    switch (shareChosen) {
+  const shareImg = async function checkChosenAndShare (referenceDiv, config) {
+    const blob = await domtoimage.toBlob(referenceDiv.current);
+    const imgurData = await getImgUrl(blob);
+    if (imgurData.data.error) {
+      console.log(imgurData.data.error);
+      const message = 'There was an error getting the image, try again';
+      return message;
+    };
+    const imgUrl = imgurData.data.link; 
+    switch (shareChosen.current) {
       case 'Clipboard':
         await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob})]);
-        alert('Screenshot took on clipboard'); 
+        alert('Screenshot took on Clipboard'); 
         break;
       case 'Tumblr':
-        const imgUrl = await getImgUrl(blob);
-        link = `https://www.tumblr.com/widgets/share/tool?posttype=photo&tags=quotes&content=${imgUrl}&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons`;  
+        link = `https://www.tumblr.com/widgets/share/tool?posttype=photo&tags=quotes&content=${imgUrl}&caption="${config.content}"%20-%20${config.author}%20&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons`;  
         break;
       case 'Twitter':
-        link = `http://twitter.com/intent/tweet?hashtags=quotes&realted=elsirook&text="${quoteText}"%20-%20${author}`;
+        link = `http://twitter.com/intent/tweet?url=${imgUrl}%20&hashtags=quotes&text="${config.content}"%20-%20${config.author}`;
         break;
       // no default    
     };
-    if (shareChosen !== 'Clipboard') {
-      clickLink(link);  
-    };
+    if (shareChosen.current !== 'Clipboard') clickLink(link);    
+    return null;
   };
   return shareImg;
 };

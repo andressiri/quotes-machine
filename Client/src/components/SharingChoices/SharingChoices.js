@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 import ShareImageBtn from './ShareImageBtn.js';
 import ShareTextBtn from './ShareTextBtn.js';
 import EditAndShareImgBtn from "./EditAndShareImgBtn.js";
 
-function ChooseTxtOrImgSet ({parentToChild}) {
+function SharingChoices ({parentToChild}) {
   return (
     <div>
-      <ShareTextBtn />
-      <ShareImageBtn />
+      <ShareTextBtn parentToChild={parentToChild} />
+      <ShareImageBtn parentToChild={parentToChild} />
       <EditAndShareImgBtn parentToChild={parentToChild} />
     </div>    
   );
 };
 
-export default ChooseTxtOrImgSet;
+export default SharingChoices;

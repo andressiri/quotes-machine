@@ -4,12 +4,12 @@ import TumblrBtn from './TumblrBtn.js';
 import TwitterBtn from './TwitterBtn.js';
 
 
-function BoxSharingSet() {
+function BoxSharingSet({parentToChild}) {
   return (
     <div>
-      <CopyToClipboardBtn />
-      <TumblrBtn />
-      <TwitterBtn />
+      <CopyToClipboardBtn parentToChild={parentToChild} />
+      <TumblrBtn parentToChild={parentToChild} />
+      <TwitterBtn parentToChild={parentToChild} />
     </div>   
   );
 };

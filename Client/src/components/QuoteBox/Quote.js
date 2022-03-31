@@ -9,12 +9,12 @@ function Quote() {
   const [quoteText, setQuoteText] = quote.quoteTxt;  
   const [author, setAuthor] = quote.auth;
   const [fadeQuote, setFadeQuote] = fade.fadQ; 
-  const quoteRef = refs.refImg;
   const [fontFam, setFontFam] = edit.fontF;
   const [boldFont, setBoldFont] = edit.boldF;
   const [italicFont, setItalicFont] = edit.italicF;
   const [upperFont, setUpperFont] = edit.upperF;
   const [fSize, setFSize] = edit.fontS;
+  const quoteRef = refs.refImg;
   let adjustFSize = fSize - 15;
 
   const textStyle = {
@@ -33,14 +33,14 @@ function Quote() {
   };
 
   return (    
-    <div className={`quote BG-color${imgBGColor} text-color${colorNumber}`} ref={quoteRef} id='refDiv'>
+    <div className={`quote BG-color${imgBGColor} text-color${colorNumber}`} ref={quoteRef} id='boxRefDiv'>
       <div className={`fade${fadeQuote}`}>        
-      <h1 id='text' className={`text`} style={textStyle} >
-        <FontAwesomeIcon icon='quote-left' />
-        {` ${quoteText} `}
-        <FontAwesomeIcon icon='quote-right' /> 
-      </h1>
-      <p id='author' style={authorStyle}>{`- ${author}`}</p>       
+        <h1 id='text' className={`text`} style={textStyle} >
+          <FontAwesomeIcon icon='quote-left' />
+          {` ${quoteText} `}
+          <FontAwesomeIcon icon='quote-right' /> 
+        </h1>
+        <p id='author' style={authorStyle}>{`- ${author}`}</p>       
       </div>
     </div >
   );
