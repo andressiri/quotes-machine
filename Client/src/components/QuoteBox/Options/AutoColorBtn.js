@@ -13,7 +13,6 @@ function AutoColorBtn () {
     if (isLoading) return;
     setIsLoading(true);
     setAutoColorChange(!autoColorChange);
-    //TODO: update at user
     setIsLoading(false);
   };  
 

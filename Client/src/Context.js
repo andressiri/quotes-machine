@@ -31,6 +31,7 @@ export const ContextProvider = (props) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [verified, setVerified] = useState(false);
   const emailReference = useRef('');
+  const auxRef = useRef('');
   //Edit menu
   const [fontFam, setFontFam] = useState('Arial, Helvetica, sans-serif');
   const [boldFont, setBoldFont] = useState('normal');
@@ -99,7 +100,8 @@ export const ContextProvider = (props) => {
         path: [currentPath, setCurrentPath],
         logged: [loggedIn, setLoggedIn],
         ver: [verified, setVerified],
-        email: emailReference
+        email: emailReference,
+        aux: auxRef
       },
       edit: {
         fontF: [fontFam, setFontFam],

@@ -9,8 +9,9 @@ import useRedirectTo from '../../../functions/useRedirectTo.js';
 function VerifyEmail() {
   const {refs, timers} = useContext(Context);
   const [message, setMessage] = refs.msg;
-  const emailReference = refs.email;
   const [verified, setVerified] = refs.ver;
+  const emailReference = refs.email;
+  const auxRef = refs.aux;
   const [checkCodeBtnTimer, setCheckCodeBtnTimer] = timers.check;
   const [sendEmailBtnTimer, setSendEmailBtnTimer] = timers.send;
   const [sendWaitMsg, setSendWaitMsg] = timers.sendWait;
@@ -24,6 +25,7 @@ function VerifyEmail() {
   function handleGoBack() {
     emailReference.current = '';
     if (verified) {
+      auxRef.current = '';
       redirectTo('/box/loggedIn');
     } else {
       logout();

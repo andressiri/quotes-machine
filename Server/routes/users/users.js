@@ -25,6 +25,9 @@ router.use('/sendChangePassword', require('./userHandle/sendChangePassword.js'))
   //Change password
 router.use('/changePassword', require('./userHandle/changePassword.js'));
 
+//  Change Name handle
+router.use('/changeName', require('./userHandle/changeName.js'));
+
 // Save user options
 router.use('/saveUserOptions', require('./userHandle/saveUserOptions.js'));
 
