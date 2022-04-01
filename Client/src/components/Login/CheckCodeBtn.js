@@ -8,6 +8,7 @@ function CheckCodeBtn () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [message, setMessage] = refs.msg;
   const emailReference = refs.email;
+  const auxRef = refs.aux;
   const [loggedIn, setLoggedIn] = refs.logged;
   const [verified, setVerified] = refs.ver;
   const [codeValue, setCodeValue] = forms.code;
@@ -42,11 +43,14 @@ function CheckCodeBtn () {
       setTimeout(() => {  // Timeout to handle transition
         setMessage('');
       }, 250);
+      //check if it is first verification or change password/name
       if (loggedIn && !verified) {
         setVerified(true);
         redirectTo('/box/app');
       } else {
-        redirectTo('/box/changePassword'); 
+        let path = '/box/changePassword';
+        if (auxRef.current === 'name') path = '/box/changeName';
+        redirectTo(path); 
       };
     } else {
       setIsLoading(false);

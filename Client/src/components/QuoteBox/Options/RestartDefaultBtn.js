@@ -13,7 +13,6 @@ function RestartDefaultBtn () {
     if (isLoading) return;
     setIsLoading(true);
     setRestartDefaultObj(!restartDefaultObj);
-    //TODO: update at user
     setIsLoading(false);
   };  
 

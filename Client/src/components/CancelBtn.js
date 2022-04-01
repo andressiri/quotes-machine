@@ -13,6 +13,7 @@ function CancelBtn () {
   const shareChosen = refs.sChosen;
   const [message, setMessage] = refs.msg;
   const emailReference = refs.email;
+  const auxRef = refs.aux;
   const redirectTo = useRedirectTo();
   const redirectToWall = useRedirectToWall();
   const restartDefault = useRestartDefault();
@@ -28,8 +29,9 @@ function CancelBtn () {
       setMessage('');
     }, 250);
     if (['/box/options', '/box/editConfig', '/box/editSharing'].includes(location.pathname)) restartDefault();
-    emailReference.current = '';
     shareChosen.current = '';
+    emailReference.current = '';
+    auxRef.current = '';
     if (/\/wall/.test(location.pathname)) {
       redirectToWall('/box/app');
     } else {

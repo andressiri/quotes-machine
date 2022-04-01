@@ -12,6 +12,7 @@ import LoggedInMenu from '../Login/LoggedIn/LoggedInMenu.js';
 import RegisterForm from '../Login/Register/RegisterForm';
 import ForgotPassword from '../Login/ChangePassword/ForgotPassword/ForgotPassword.js';
 import ChangePassword from '../Login/ChangePassword/ChangePassword.js';
+import ChangeName from '../Login/ChangeName/ChangeName.js';
 import BoxMessages from './BoxMessages/BoxMessages.js';
 
 function RouteContainer() {
@@ -56,6 +57,7 @@ function RouteContainer() {
         <Route path='/register' exact element={<RegisterForm />} />
         <Route path='/forgotPassword' exact element={<ForgotPassword />} />
         <Route path='/changePassword' exact element={<ChangePassword />} />
+        <Route path='/changeName' exact element={<ChangeName />} />
         <Route path='/message' exact element={<BoxMessages />} />
       </Routes>
       </div>
