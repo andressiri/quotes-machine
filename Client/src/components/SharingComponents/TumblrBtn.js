@@ -20,7 +20,7 @@ function TumblrBtn({parentToChild}) {
     <FontAwesomeIcon
       className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
       onClick={handleTumblr}
-      icon={["fab", "tumblr"]} />
+      icon={['fab', 'tumblr']} />
   );
 };
 

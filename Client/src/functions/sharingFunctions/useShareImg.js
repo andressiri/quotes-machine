@@ -34,6 +34,10 @@ function useShareImg () {
         link = `http://twitter.com/intent/tweet?url=${imgUrl}%20&hashtags=quotes&text="${config.content}"%20-%20${config.author}`;
         clickLink(link);
         break;
+      case 'Facebook':
+        link = `https://www.facebook.com/sharer.php?u=${imgUrl}`;        
+        clickLink(link);
+        break;
       case 'Email':        
         await fetch('/shareOnEmail', {
           method: 'POST',
