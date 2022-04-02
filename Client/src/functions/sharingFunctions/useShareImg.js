@@ -20,7 +20,8 @@ function useShareImg () {
       const message = 'There was an error getting the image, try again';
       return message;
     };
-    const imgUrl = imgurData.data.link; 
+    const imgUrl = imgurData.data.link;
+    const encodedUrl = encodeURIComponent(imgUrl); 
     switch (shareChosen.current) {
       case 'Clipboard':
         await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob})]);
@@ -35,7 +36,7 @@ function useShareImg () {
         clickLink(link);
         break;
       case 'Facebook':
-        link = `https://www.facebook.com/sharer.php?u=${imgUrl}`;        
+        link = `https://www.facebook.com/sharer.php?u=${encodedUrl}`;        
         clickLink(link);
         break;
       case 'Email':        

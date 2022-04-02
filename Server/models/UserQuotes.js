@@ -16,6 +16,14 @@ const userQuotesSchema = new mongoose.Schema({
         type: String,
         required: true
       },
+      custom: {
+        type: Boolean,
+        required: true
+      },
+      favorite: {
+        type: Boolean,
+        required: true
+      },
       colorNum: {
         type: Number,
         required: true

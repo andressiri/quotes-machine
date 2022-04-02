@@ -7,13 +7,18 @@ import useRestartDefault from '../functions/DOMFunctions/useRestartDefault.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function CancelBtn () {
-  const {colors, refs, edit} = useContext(Context);
+  const {colors, quote, fade, refs, edit, gall} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const [quoteText, setQuoteText] = quote.quoteTxt;  
+  const [author, setAuthor] = quote.auth;
+  const [fadeQuote, setFadeQuote] = fade.fadQ;
   const shareChosen = refs.sChosen;
   const [message, setMessage] = refs.msg;
   const emailReference = refs.email;
   const auxRef = refs.aux;
+  const [gallArray, setGallArray] = gall.gallA;
+  const [gallChoose, setGallChoose] = gall.gallCh;
   const redirectTo = useRedirectTo();
   const redirectToWall = useRedirectToWall();
   const restartDefault = useRestartDefault();
@@ -29,6 +34,14 @@ function CancelBtn () {
       setMessage('');
     }, 250);
     if (['/box/options', '/box/editConfig', '/box/editSharing'].includes(location.pathname)) restartDefault();
+    if (location.pathname === '/box/customQuote') {
+      setFadeQuote('Out');
+      setTimeout(() => {  // Timeout to handle transition
+        setQuoteText(gallArray[gallChoose].text);
+        setAuthor(gallArray[gallChoose].author);
+        setFadeQuote('In');
+      }, 250);
+    };
     shareChosen.current = '';
     emailReference.current = '';
     auxRef.current = '';

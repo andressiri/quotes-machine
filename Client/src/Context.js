@@ -49,7 +49,7 @@ export const ContextProvider = (props) => {
     fontS: 35
   });
   //gall
-  const [gallArray, setGallArray] = useState([{text: quoteText, author: author}]);
+  const [gallArray, setGallArray] = useState([{text: quoteText, author: author, custom: false}]);
   const [gallChoose, setGallChoose] = useState(0);
   //forms
   const [nameValue, setNameValue] = useState('');
@@ -57,6 +57,8 @@ export const ContextProvider = (props) => {
   const [passwordValue, setPasswordValue] = useState('');
   const [password2Value, setPassword2Value] = useState('');
   const [codeValue, setCodeValue] = useState('');
+  const [customQuoteValue, setCustomQuoteValue] = useState('');
+  const [customAuthorValue, setCustomAuthorValue] = useState('');
   //timers
   const [checkCodeBtnTimer, setCheckCodeBtnTimer] = useState(0);
   const [checkCodeInterval, setCheckCodeInterval] = useState('Interval is off'); 
@@ -121,7 +123,9 @@ export const ContextProvider = (props) => {
         email: [emailValue, setEmailValue],
         pass: [passwordValue, setPasswordValue],
         pass2: [password2Value, setPassword2Value],
-        code: [codeValue, setCodeValue]
+        code: [codeValue, setCodeValue],
+        customQ: [customQuoteValue, setCustomQuoteValue],
+        customA: [customAuthorValue, setCustomAuthorValue]
       },
       timers: {
         check: [checkCodeBtnTimer, setCheckCodeBtnTimer],

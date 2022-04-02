@@ -7,22 +7,25 @@ import SetAutoTimeBtn from './SetAutoTimeBtn.js';
 import NewQuoteBtn from './NewQuoteBtn.js';
 
 function StartingSetRQ () {
-  const {colors} = useContext(Context);
+  const {colors, fade} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const [fadeMenu, setFadeMenu] = fade.fadM;
 
   return (
     <div className={`StartingSetRQ BG-color${imgBGColor} text-color${colorNumber}`}>
-      <CancelBtn />
-      <Routes>
-        <Route path='/app'  element={
-          <div>
-            <AutoBtn/>
-            <SetAutoTimeBtn />
-            <NewQuoteBtn />
-          </div>
-        } />
-      </Routes>
+      <div className={`fadeRoute${fadeMenu}`}>
+        <CancelBtn />
+        <Routes>
+          <Route path='/app'  element={
+            <div>
+              <AutoBtn/>
+              <SetAutoTimeBtn />
+              <NewQuoteBtn />
+            </div>
+          } />
+        </Routes>
+      </div>
     </div>
   );
 };

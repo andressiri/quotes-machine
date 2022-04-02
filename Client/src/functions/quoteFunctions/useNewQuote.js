@@ -1,6 +1,6 @@
 import {useContext} from 'react';
 import {Context} from '../../Context.js';
-import useGalleryItem from './useGalleryItem.js';
+import useNewGalleryItem from './useNewGalleryItem.js';
 import changeColorNumber from '../DOMFunctions/changeColorNumber.js';
 import fetchRandomQuote from './fetchRandomQuote.js';
 
@@ -14,13 +14,13 @@ function useNewQuote () {
   const [fadeQuote, setFadeQuote] = fade.fadQ;
   const [gallArray, setGallArray] = gall.gallA;
   const [gallChosse, setGallChoose] = gall.gallCh;
-  const galleryItem = useGalleryItem();
+  const newGalleryItem = useNewGalleryItem();
     
   const newQuote = async function getQuoteAndChangeColors () {     
     setFadeQuote('Out');
     let quoteObj = await fetchRandomQuote();
     if (autoColorChange) setColorNumber(colorNumber => changeColorNumber(colorNumber));
-    galleryItem(quoteObj.content, quoteObj.author);
+    newGalleryItem(quoteObj.content, quoteObj.author, false);
     setGallChoose(gallArray.length - 1);
     setTimeout(() => {
       setQuoteText(quoteObj.content);

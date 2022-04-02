@@ -31,7 +31,7 @@ function ChangePassword() {
     <div>
       <p className={`shareIt`} >Create your new password</p>
       {message !== '' && <p className={`shareIt`} >{message}</p>}
-      <form id="registerForm">
+      <form id="changePasswordForm">
         <PasswordInput />
         <Password2Input />
         <ChangePasswordBtn />
