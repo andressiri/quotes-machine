@@ -1,37 +1,33 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
+import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWallQuoteState.js';
 
 function VioletBG ({parentToChild}) {
-  const {colors, quote, force} = useContext(Context);
+  const {colors} = useContext(Context);
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [forceUpdate, setForceUpdate] = force.update;
   const {config, index} = parentToChild;
+  const updateWallQuoteState = useUpdateWallQuoteState();
+  const violetNum = 6;
   let violetBGState = '';
 
-  if (config.colorNum === 6) {
+  if (config.colorNum === violetNum) {
     violetBGState = 'buttonDisabled';
   };
-  if (config.imgBG === 6) {
+  if (config.imgBG === violetNum) {
     violetBGState = `buttonEnabled text-color${config.colorNum}`;
   };
 
   const handleVioletBG = () => {
     if (config._id === 'This was called by QuoteBox') {
-      setImgBGColor(6);
+      setImgBGColor(violetNum);
     } else {
-      let auxArray = savedQuotesArray;
-      let auxObj = auxArray[index];
-      auxObj.imgBG = 6;
-      auxArray[index] = auxObj;
-      setSavedQuotesArray(auxArray);
-      setForceUpdate(forceUpdate => forceUpdate + 1);
+      updateWallQuoteState(index, violetNum, 'imgBG');
     };
   };
 
   return (
     <button
-      className={`editBtn BG-color6 ${violetBGState}`}
+      className={`editBtn BG-color${violetNum} ${violetBGState}`}
       onClick={handleVioletBG}
     ></button>
   );

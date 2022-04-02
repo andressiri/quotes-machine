@@ -1,37 +1,33 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
+import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWallQuoteState.js';
 
 function GreenTxt ({parentToChild}) {
-  const {colors, quote, force} = useContext(Context);
+  const {colors} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [forceUpdate, setForceUpdate] = force.update;
   const {config, index} = parentToChild;
+  const updateWallQuoteState = useUpdateWallQuoteState();
+  const greenNum = 3;
   let greenTxtState = '';
   
-  if (config.imgBG === 3) {
+  if (config.imgBG === greenNum) {
     greenTxtState = 'buttonDisabled';
   };
-  if (config.colorNum === 3) {
+  if (config.colorNum === greenNum) {
     greenTxtState = `buttonEnabled text-color${config.imgBG}`;
   };
 
   const handleGreenTxt = () => {
     if (config._id === 'This was called by QuoteBox') {
-      setColorNumber(3);
+      setColorNumber(greenNum);
     } else {
-      let auxArray = savedQuotesArray;
-      let auxObj = auxArray[index];
-      auxObj.colorNum = 3;
-      auxArray[index] = auxObj;
-      setSavedQuotesArray(auxArray);
-      setForceUpdate(forceUpdate => forceUpdate + 1);
+      updateWallQuoteState(index, greenNum, 'colorNum');
     };
   };
 
   return (
     <button
-      className={`editBtn BG-color3 ${greenTxtState}`}
+      className={`editBtn BG-color${greenNum} ${greenTxtState}`}
       onClick={handleGreenTxt}
     ></button>
   );

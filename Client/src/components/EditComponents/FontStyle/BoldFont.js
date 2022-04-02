@@ -1,12 +1,12 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
+import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWallQuoteState.js';
 
 function BoldFont ({parentToChild}) {
-  const {edit, quote, force} = useContext(Context);
+  const {edit} = useContext(Context);
   const [boldFont, setBoldFont] = edit.boldF;
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [forceUpdate, setForceUpdate] = force.update;
   const {config, index} = parentToChild;
+  const updateWallQuoteState = useUpdateWallQuoteState();
   let boldBGColor = config.imgBG;
   let boldTxtColor = config.colorNum;
 
@@ -20,16 +20,9 @@ function BoldFont ({parentToChild}) {
       if (config.boldF === 'normal') return setBoldFont('bold');
       setBoldFont('normal');
     } else {
-      let auxArray = savedQuotesArray;
-      let auxObj = auxArray[index];
-      if (config.boldF === 'normal') {
-        auxObj.boldF = 'bold';
-      } else {
-        auxObj.boldF = 'normal';
-      };
-      auxArray[index] = auxObj;
-      setSavedQuotesArray(auxArray);
-      setForceUpdate(forceUpdate => forceUpdate + 1);
+      let auxValue = 'normal';
+      if (config.boldF === 'normal') auxValue = 'bold';
+      updateWallQuoteState(index, auxValue, 'boldF');
     };
   };
 

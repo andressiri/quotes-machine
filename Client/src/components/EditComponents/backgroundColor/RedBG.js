@@ -1,37 +1,33 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
+import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWallQuoteState.js';
 
 function RedBG ({parentToChild}) {
-  const {colors, quote, force} = useContext(Context);
+  const {colors} = useContext(Context);
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [forceUpdate, setForceUpdate] = force.update;
   const {config, index} = parentToChild;
+  const updateWallQuoteState = useUpdateWallQuoteState();
+  const redNum = 0;
   let redBGState = '';
 
-  if (config.colorNum === 0) {
+  if (config.colorNum === redNum) {
     redBGState = 'buttonDisabled';
   };
-  if (config.imgBG === 0) {
+  if (config.imgBG === redNum) {
     redBGState = `buttonEnabled text-color${config.colorNum}`;
   };
 
   const handleRedBG = () => {
     if (config._id === 'This was called by QuoteBox') {
-      setImgBGColor(0);
+      setImgBGColor(redNum);
     } else {
-      let auxArray = savedQuotesArray;
-      let auxObj = auxArray[index];
-      auxObj.imgBG = 0;
-      auxArray[index] = auxObj;
-      setSavedQuotesArray(auxArray);
-      setForceUpdate(forceUpdate => forceUpdate + 1);
+      updateWallQuoteState(index, redNum, 'imgBG');
     };
   };
 
   return (
     <button
-      className={`editBtn BG-color0 ${redBGState}`}
+      className={`editBtn BG-color${redNum} ${redBGState}`}
       onClick={handleRedBG}
     ></button>
   );

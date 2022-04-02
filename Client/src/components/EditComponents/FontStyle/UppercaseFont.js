@@ -1,12 +1,12 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
+import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWallQuoteState.js';
 
 function UppercaseFont ({parentToChild}) {
-  const {edit, quote, force} = useContext(Context);
+  const {edit} = useContext(Context);
   const [upperFont, setUpperFont] = edit.upperF;
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [forceUpdate, setForceUpdate] = force.update;
   const {config, index} = parentToChild;
+  const updateWallQuoteState = useUpdateWallQuoteState();
   let upperBGColor = config.imgBG;
   let upperTxtColor = config.colorNum;
 
@@ -20,16 +20,9 @@ function UppercaseFont ({parentToChild}) {
       if (config.upperF === 'none') return setUpperFont('uppercase');
       setUpperFont('none');
     } else {
-      let auxArray = savedQuotesArray;
-      let auxObj = auxArray[index];
-      if (config.upperF === 'none') {
-        auxObj.upperF = 'uppercase';
-      } else {
-        auxObj.upperF = 'none';
-      };  
-      auxArray[index] = auxObj;
-      setSavedQuotesArray(auxArray);
-      setForceUpdate(forceUpdate => forceUpdate + 1);
+      let auxValue = 'none';
+      if (config.upperF === 'none') auxValue = 'uppercase';
+      updateWallQuoteState(index, auxValue, 'upperF');
     };
   };
 

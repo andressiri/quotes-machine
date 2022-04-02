@@ -1,15 +1,15 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
+import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWallQuoteState.js';
 
 function SerifFF ({parentToChild}) {
-  const {edit, quote, force} = useContext(Context);
+  const {edit} = useContext(Context);
   const [fontFam, setFontFam] = edit.fontF;
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [forceUpdate, setForceUpdate] = force.update;
   const {config, index} = parentToChild;
+  const updateWallQuoteState = useUpdateWallQuoteState();
+  const font = 'Garamond, serif';
   let serifBGColor = config.imgBG;
   let serifTxtColor = config.colorNum;
-  const font = 'Garamond, serif';
 
   if (config.fontF === font) {
     serifBGColor = config.colorNum;
@@ -20,14 +20,10 @@ function SerifFF ({parentToChild}) {
     if (config._id === 'This was called by QuoteBox') {
       setFontFam(font);
     } else {
-      let auxArray = savedQuotesArray;
-      let auxObj = auxArray[index];
-      auxObj.fontF = font;
-      auxArray[index] = auxObj;
-      setSavedQuotesArray(auxArray);
-      setForceUpdate(forceUpdate => forceUpdate + 1);
+      updateWallQuoteState(index, font, 'fontF');
     };
   };
+  
   return (
     <button
       className={`editBtn fFam BG-color${serifBGColor} text-color${serifTxtColor}`}
