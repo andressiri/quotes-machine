@@ -23,7 +23,7 @@ function EmailVerifyBtn () {
     let json = await response.json();
     setMessage(json.message);
     setSendEmailBtnTimer(10);
-    if (json.message === 'Email sent with the code') emailReference.current = json.userEmail;
+    if (json.success) emailReference.current = json.userEmail;
     setIsLoading(false);
   };
 

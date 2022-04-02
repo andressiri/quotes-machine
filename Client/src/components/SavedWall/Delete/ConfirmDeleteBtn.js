@@ -25,7 +25,7 @@ function ConfirmDeleteBtn ({parentToChild}) {
     let json = await response.json();
     setMessage(json.message);
     setIsLoading(false);
-    if (json.message === 'Quote has been deleted') {
+    if (json.success) {
       let auxArray = savedQuotesArray;
       let auxObj = {
           _id: config._id,

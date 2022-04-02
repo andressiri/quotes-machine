@@ -44,7 +44,7 @@ function SaveCustomQuoteBtn () {
       getSavedQuotes();
     };
     setIsLoading(false);
-    if (json.message === 'Quote saved successfully') {
+    if (json.success) {
       newGalleryItem(customQuoteValue, customAuthorValue, true);
       setGallChoose(gallArray.length - 1);
       setTimeout(() => {  // Timeout to handle transition

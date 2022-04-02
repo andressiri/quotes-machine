@@ -52,7 +52,7 @@ function RegisterButton () {
     setMessage(json.message);
     setIsLoading(false);
     // Check if mail was available and registration was successfull
-    if (json.message === `${nameValue} was registered successfully`) redirectTo('/box/login');
+    if (json.success) redirectTo('/box/login');
   };
 
   return (

@@ -25,7 +25,7 @@ deleteSavedQuoteRouter.delete('/',
           userQ.quotesArray.splice(index, 1);
           userQ.save();
           console.log('Quote has been deleted');
-          res.status(201).json({message: 'Quote has been deleted'});
+          res.status(201).json({message: 'Quote has been deleted', success: true});
         })
         .catch(err => {
           console.log(err);

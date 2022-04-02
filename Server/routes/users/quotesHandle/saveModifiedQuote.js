@@ -34,7 +34,7 @@ saveModifiedQuoteRouter.put('/',
           userQ.quotesArray[index] = req.body.quoteObj;
           userQ.save();
           console.log('Quote changes saved successfully');
-          res.status(201).json({message: 'Quote changes saved successfully'});
+          res.status(201).json({message: 'Quote changes saved successfully', success: true});
         })
         .catch(err => {
           console.log(err);
