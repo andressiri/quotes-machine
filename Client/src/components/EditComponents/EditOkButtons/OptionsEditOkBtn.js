@@ -9,9 +9,9 @@ function OptionsEditOkBtn () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const redirectTo = useRedirectTo();
   
-  async function handleOptionsEditOkBtn () {
+  const handleOptionsEditOkBtn = () => {
     redirectTo('/box/options');
-  }; 
+  };
 
   return (
     <FontAwesomeIcon

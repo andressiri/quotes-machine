@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const verifyEmailRouter = express.Router();
 const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
 
@@ -11,7 +11,7 @@ verifyEmailRouter.put('/',
   rateLimiter.multipleClickingLimiter.prevent,
   // prevent too many mails sent
   rateLimiter.tooManyAttempts.prevent,
-  async (req, res) => {
+  (req, res) => {
     // check a code was sent
     if (!req.body.code) {
       console.log('No code sent');
@@ -20,7 +20,7 @@ verifyEmailRouter.put('/',
     } else if (!req.session.code) {
       console.log('No code required');
       res.status(428).json({message: 'No code was required before'});
-    // compare codes  
+    // compare codes
     } else if (req.body.code !== req.session.code) {
       console.log('Wrong code');
       res.status(401).json({message: 'Wrong code'});
@@ -48,21 +48,21 @@ verifyEmailRouter.put('/',
         } else {
           req.session.checkCodeTimestamp = Date.now();
           //  check the account required is registered and update as verified if it is
-          await User.findOneAndUpdate({email: userToUpdate}, {verifiedEmail: true})
+          User.findOneAndUpdate({email: userToUpdate}, {verifiedEmail: true})
             .then(user => {
               if (!user) {
                 console.log('User not found');
                 res.status(404).json({message: 'There is no user with that email'});
-              } else {    
+              } else {
                 res.json({message: 'Code is correct'});
                 console.log('Email verified');
-              };  
+              };
             })
             .catch(err => {
               console.log(err);
               res.status(500).json({message: 'There was an error verifying your email, please try again'});
             });
-        };  
+        };
       };
     };
   }

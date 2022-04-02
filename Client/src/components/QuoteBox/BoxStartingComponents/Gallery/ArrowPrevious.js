@@ -15,12 +15,12 @@ function ArrowPrevious () {
     disablePrevious = '';
   };
 
-  function handleArrowPrevious () {
+  const handleArrowPrevious = () => {
     stopAuto(); 
     if (gallChoose === 0) {
       const auxIndex = gallArray.length - 1;
       setQuoteText(gallArray[auxIndex].text);
-      setAuthor(gallArray[auxIndex].author);      
+      setAuthor(gallArray[auxIndex].author);
       setGallChoose(auxIndex);
 
     } else {

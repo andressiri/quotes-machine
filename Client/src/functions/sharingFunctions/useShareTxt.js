@@ -6,12 +6,12 @@ function useShareTxt () {
   const {refs} = useContext(Context);
   const shareChosen = refs.sChosen;
   const emailReference = refs.email;
-  let link = ``;
+  let link = '';
   
-  const shareTxt = async function checkChosenAndShare (config) {
+  const shareTxt = async (config) => {
     switch (shareChosen.current) {
       case 'Clipboard':
-        await navigator.clipboard.writeText(`"${config.content}" - ${config.author}`);     
+        await navigator.clipboard.writeText(`"${config.content}" - ${config.author}`);
         alert(`Copied: "${config.content}" - ${config.author}`);
         break;
       case 'Tumblr':
@@ -26,7 +26,7 @@ function useShareTxt () {
         link = `https://www.facebook.com/sharer.php?u=${window.location.href}&quote="${config.content}"%20-%20${config.author}`;
         clickLink(link);
         break;
-      case 'Email':        
+      case 'Email':
         await fetch('/shareOnEmail', {
           method: 'POST',
           headers: {
@@ -39,9 +39,9 @@ function useShareTxt () {
           }),
         })
           .catch(err => console.log(err));
-        emailReference.current = '';          
-        break;  
-      // no default    
+        emailReference.current = '';
+        break;
+      // no default
     };
   };
   return shareTxt;

@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const sendVerifyEmailRouter = express.Router();
 const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
 const mailer = require('../../../config/mailer.js');
@@ -38,12 +38,12 @@ sendVerifyEmailRouter.get('/',
       const emailSuccess = await mailer.sendEmail(req.user.email, 'Quotes machine email verification', mailTemplate);
       if (emailSuccess.accepted[0] === `${req.user.email}`) {
         console.log(`Email sent to ${req.user.email}`);
-        res.status(201).json({message: 'Email sent with the code', userEmail: req.user.email});  
+        res.status(201).json({message: 'Email sent with the code', userEmail: req.user.email});
         console.log(`code: ${req.session.code}`);
       } else {
         console.log('Mail rejected');
-        res.status(500).json({message: `There was a problem sending the email, please try again`});  
-      };   
+        res.status(500).json({message: `There was a problem sending the email, please try again`});
+      };
     };
   }
 );

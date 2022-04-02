@@ -18,7 +18,7 @@ function StartingMenu ({parentToChild}) {
       <SavedWallBtn />
       <SearchBtn />
       <OptionsBtn parentToChild={parentToChild} />
-    </div>    
+    </div>
   );
 };
 

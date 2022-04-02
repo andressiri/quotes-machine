@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import {Context} from "../../../Context.js";
+import React, {useContext} from 'react';
+import {Context} from '../../../Context.js';
 
 function UppercaseFont ({parentToChild}) {
   const {edit, quote, force} = useContext(Context);
@@ -13,9 +13,9 @@ function UppercaseFont ({parentToChild}) {
   if (config.upperF === 'uppercase') {
     upperBGColor = config.colorNum;
     upperTxtColor = config.imgBG;
-  }; 
+  };
 
-  function handleUppercaseFont () {
+  const handleUppercaseFont = () => {
     if (config._id === 'This was called by QuoteBox') {
       if (config.upperF === 'none') return setUpperFont('uppercase');
       setUpperFont('none');
@@ -31,12 +31,12 @@ function UppercaseFont ({parentToChild}) {
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
     };
-  }; 
+  };
 
   return (
     <button
-    className={`editBtn fFam BG-color${upperBGColor} text-color${upperTxtColor}`}
-    onClick={handleUppercaseFont}
+      className={`editBtn fFam BG-color${upperBGColor} text-color${upperTxtColor}`}
+      onClick={handleUppercaseFont}
     >UP</button>
   );
 };

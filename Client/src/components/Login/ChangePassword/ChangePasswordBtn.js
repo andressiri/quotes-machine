@@ -10,10 +10,10 @@ function ChangePasswordBtn () {
   const emailReference = refs.email;
   const [passwordValue, setPasswordValue] = forms.pass;
   const [password2Value, setPassword2Value] = forms.pass2;
-  const [isLoading, setIsLoading] = useState(false); 
+  const [isLoading, setIsLoading] = useState(false);
   const logout = useLogout();
 
-  async function handleSubmitNewPassword(event) {
+  const handleSubmitNewPassword = async (event) => {
     event.preventDefault();
     if (isLoading) return;
         //Check required fields
@@ -25,8 +25,8 @@ function ChangePasswordBtn () {
     };  //Check password length
     if (passwordValue !== '' && passwordValue.length < 6) {
       return setMessage('Password should be at least 6 characters');
-    };  //Send the form if it meets requirements    
-    setIsLoading(true); 
+    };  //Send the form if it meets requirements
+    setIsLoading(true);
     const response = await fetch('/users/changePassword', {
       method: 'PUT',
       headers: {
@@ -54,8 +54,7 @@ function ChangePasswordBtn () {
     <button
       className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSubmitNewPassword}
-    > Confirm
-    </button>
+    >Confirm</button>
   );
 };
 

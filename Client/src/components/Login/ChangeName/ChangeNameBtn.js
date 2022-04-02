@@ -12,7 +12,7 @@ function ChangeNameBtn () {
   const [isLoading, setIsLoading] = useState(false);
   const redirectTo = useRedirectTo();
 
-  async function handleChangeNameBtn(event) {
+  const handleChangeNameBtn = async (event) => {
     event.preventDefault();
     if (isLoading) return;
     if (nameValue === '') return setMessage('Please enter a new name');
@@ -43,8 +43,7 @@ function ChangeNameBtn () {
     <button
       className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleChangeNameBtn}
-    > Confirm
-    </button>
+    > Confirm</button>
   );
 };
 

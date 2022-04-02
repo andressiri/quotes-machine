@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const loginAuthRouter = express.Router();
 const passport = require('passport');
 const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
@@ -14,15 +14,15 @@ loginAuthRouter.post('/',
     // Check correct data was sent in the request
     if (!req.body.email || !req.body.password || !validateEmail(req.body.email)) {
       let msg = 'Please fill all the fields';
-      if (req.body.email && !validateEmail(req.body.email)) msg = 'Please enter a valid email'; 
+      if (req.body.email && !validateEmail(req.body.email)) msg = 'Please enter a valid email';
       console.log('Bad request');
       req.flash('message', msg);
       res.status(412).json({message: msg});
     } else {
       // Autheticate with passport to create session
       passport.authenticate('local', {
-      successRedirect: "/",  
-      failureRedirect: "/",
+      successRedirect: '/',
+      failureRedirect: '/',
       failureMessage: false})
       (req,res,next);
     };

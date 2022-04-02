@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const loginRouter = express.Router();
 const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
 
@@ -26,7 +26,7 @@ loginRouter.post('/',
         case 'That email is not registered': status = 404; break;
         case 'Password incorrect': status = 401; break;
         default: status = 500;
-      };     
+      };
       if (req.user) {
         if (req.user.verifiedEmail) verified = true;
         if (req.user.userOptions) userOpt = {message: 'User options loaded', userOptionsObj: req.user.userOptions};

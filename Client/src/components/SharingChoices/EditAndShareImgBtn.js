@@ -15,7 +15,7 @@ function EditAndShareImgBtn ({parentToChild}) {
   const [emailValue, setEmailValue] = forms.email;
   const redirectTo = useRedirectTo();
   
-  function handleEditAndShareImgBtn () {
+  const handleEditAndShareImgBtn = () => {
     if (shareChosen.current === 'Email') {
       if (!validateEmail(emailValue)) return setMessage('Please enter a valid email');
       emailReference.current = emailValue;
@@ -25,7 +25,7 @@ function EditAndShareImgBtn ({parentToChild}) {
     }, 250);
     setConfigBackup(parentToChild.config);
     redirectTo('/box/editSharing');
-  };  
+  };
 
   return (
     <FontAwesomeIcon

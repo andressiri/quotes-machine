@@ -8,7 +8,7 @@ const User = require('../../../models/User.js');
 // UserQuotes model
 const UserQuotes = require('../../../models/UserQuotes.js');
 
-saveQuoteRouter.put('/', 
+saveQuoteRouter.put('/',
   rateLimiter.max2500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,
   checkAuthenticated,
@@ -26,7 +26,7 @@ saveQuoteRouter.put('/',
     if (typeof notValidInfo !== 'undefined') {
       console.log('Bad request'),
       res.status(412).json({message: 'Please send all the information required'});
-    } else if (req.user.userQuotesId === 'Create userQuotes at first save') {         
+    } else if (req.user.userQuotesId === 'Create userQuotes at first save') {
       newUserQuotes.save()
         .then(() => {
           User.findByIdAndUpdate(req.user, {userQuotesId: newUserQuotes.id})
@@ -55,7 +55,7 @@ saveQuoteRouter.put('/',
           console.log(err);
           res.status(500).json({message: 'There was an error saving the quote, please try again'});
         });
-    };      
+    };
   }
 );
 

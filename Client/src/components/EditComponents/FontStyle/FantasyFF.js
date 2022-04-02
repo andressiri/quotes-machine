@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import {Context} from "../../../Context.js";
+import React, {useContext} from 'react';
+import {Context} from '../../../Context.js';
 
 function FantasyFF ({parentToChild}) {
   const {edit, quote, force} = useContext(Context);
@@ -9,32 +9,33 @@ function FantasyFF ({parentToChild}) {
   const {config, index} = parentToChild;
   let fantasyBGColor = config.imgBG;
   let fantasyTxtColor = config.colorNum;
+  const font = 'Copperplate, Papyrus, fantasy';
 
-  if (config.fontF === 'Copperplate, Papyrus, fantasy') {
+  if (config.fontF === font) {
     fantasyBGColor = config.colorNum;
     fantasyTxtColor = config.imgBG;
-  }; 
+  };
 
-  function handleFantasyFF () {
+  const handleFantasyFF = () => {
     if (config._id === 'This was called by QuoteBox') {
-      setFontFam('Copperplate, Papyrus, fantasy');
+      setFontFam(font);
     } else {
       let auxArray = savedQuotesArray;
       let auxObj = auxArray[index];
-      auxObj.fontF = 'Copperplate, Papyrus, fantasy';
+      auxObj.fontF = font;
       auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
-    };  
+    };
   };
 
   return (
     <label>
       <button
         className={`editBtn fFam BG-color${fantasyBGColor} text-color${fantasyTxtColor}`}
-        style={{fontFamily: "Copperplate, Papyrus, fantasy"}}
+        style={{fontFamily: font}}
         onClick={handleFantasyFF}
-        ><div id="fantasyBtn">Aa</div></button>
+      ><div id='fantasyBtn'>Aa</div></button>
     </label>
   );
 };

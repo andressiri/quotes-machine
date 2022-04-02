@@ -1,6 +1,6 @@
-const express = require("express");
+const express = require('express');
 const session = require('express-session');
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const passport = require('passport');
 const flash = require('connect-flash');
 require('dotenv').config();
@@ -16,13 +16,13 @@ const db = process.env.MONGO_URI;
 // Connect to Mongo
 mongoose
   .connect(db, { useNewUrlParser: true })
-  .then(() => console.log("MongoDB Connected..."))
+  .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
 
 // Bodyparser
-const bodyParser = require("body-parser");
+const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: "false" }));
+app.use(bodyParser.urlencoded({ extended: 'false' }));
 
 // Express Session
 app.use(session({

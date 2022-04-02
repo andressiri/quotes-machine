@@ -8,7 +8,7 @@ function KeepLoggedBtn () {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const redirectTo = useRedirectTo();
 
-  async function handleKeepLoggedBtn() {    
+  const handleKeepLoggedBtn = () => {
     redirectTo('/box/app');
   };
 
@@ -16,7 +16,7 @@ function KeepLoggedBtn () {
     <button
       className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleKeepLoggedBtn}
-      >No, thanks</button>
+    >No, thanks</button>
   );
 };
 

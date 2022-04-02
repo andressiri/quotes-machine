@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const changePasswordRouter = express.Router();
 const bcrypt = require('bcryptjs');
 const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
@@ -10,7 +10,7 @@ const User = require('../../../models/User.js');
 changePasswordRouter.put('/',
   rateLimiter.max500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,
-  async (req, res) => {
+  (req, res) => {
     // check new password was sent
     if (!req.body.password) {
       console.log('No password sent');
@@ -30,17 +30,17 @@ changePasswordRouter.put('/',
                 res.status(404).json({message: 'There is no user with that email'});
               } else {
                 console.log('Password changed');
-                res.status(201).json({message: 'Password changed'}); 
+                res.status(201).json({message: 'Password changed'});
               };
             })
-            .catch(err => { 
+            .catch(err => {
               console.log(err);
               res.status(500).json({message: 'There was an error updating your password, please try again'});
             });
-        });     
+        });
       });
-    }; 
+    };
   }
-);  
+);
 
 module.exports = changePasswordRouter;

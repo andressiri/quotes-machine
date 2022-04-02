@@ -26,11 +26,11 @@ function App() {
   useEffect(() => {
     if (location.pathname !== currentPath) {
       redirectTo('/box/app');
-    };  
+    };
   }, [location.pathname]);
 
   //This needs to be up here in order to count and end properly when component is unmounted
-  useEffect(() => {  
+  useEffect(() => {
     if (sendEmailBtnTimer > 0 && sendEmailInterval === 'Interval is off') {
       setSendEmailInterval(setInterval(() => {
         setSendEmailBtnTimer(sendEmailBtnTimer => sendEmailBtnTimer - 1);
@@ -43,7 +43,7 @@ function App() {
   }, [sendEmailBtnTimer]);
 
   //This needs to be up here in order to count and end properly when component is unmounted
-  useEffect(() => {  
+  useEffect(() => {
     if (checkCodeBtnTimer > 0 && checkCodeInterval === 'Interval is off') {
       setCheckCodeInterval(setInterval(() => {
         setCheckCodeBtnTimer(checkCodeBtnTimer => checkCodeBtnTimer - 1);
@@ -68,13 +68,13 @@ function App() {
 
   //Log user out when page is closed or refreshed
   useBeforeunload(() => {
-    const logout = fetch('/users/logout', {method: "DELETE", keepalive: true});
+    const logout = fetch('/users/logout', {method: 'DELETE', keepalive: true});
   });
 
   return (
     <div className={`App BG-color${colorNumber}`}>
       <Routes>
-        <Route path='*' element={<AppRouter />} />      
+        <Route path='*' element={<AppRouter />} />
       </Routes>
     </div>
   );

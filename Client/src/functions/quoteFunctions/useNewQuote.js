@@ -9,14 +9,14 @@ function useNewQuote () {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [autoColorChange, setAutoColorChange] = colors.auto;
-  const [quoteText, setQuoteText] = quote.quoteTxt;  
+  const [quoteText, setQuoteText] = quote.quoteTxt;
   const [author, setAuthor] = quote.auth;
   const [fadeQuote, setFadeQuote] = fade.fadQ;
   const [gallArray, setGallArray] = gall.gallA;
   const [gallChosse, setGallChoose] = gall.gallCh;
   const newGalleryItem = useNewGalleryItem();
     
-  const newQuote = async function getQuoteAndChangeColors () {     
+  const newQuote = async () => {
     setFadeQuote('Out');
     let quoteObj = await fetchRandomQuote();
     if (autoColorChange) setColorNumber(colorNumber => changeColorNumber(colorNumber));
@@ -29,6 +29,6 @@ function useNewQuote () {
     }, 300);
   };
   return newQuote;
-}
+};
 
 export default useNewQuote;

@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import {Context} from "../../../Context.js";
+import React, {useContext} from 'react';
+import {Context} from '../../../Context.js';
 
 function CursiveFF ({parentToChild}) {
   const {edit, quote, force} = useContext(Context);
@@ -9,32 +9,33 @@ function CursiveFF ({parentToChild}) {
   const {config, index} = parentToChild;
   let cursiveBGColor = config.imgBG;
   let cursiveTxtColor = config.colorNum;
+  const font = '"Brush Script MT", cursive';
 
-  if (config.fontF === '"Brush Script MT", cursive') {
+  if (config.fontF === font) {
     cursiveBGColor = config.colorNum;
     cursiveTxtColor = config.imgBG;
-  }; 
+  };
 
-  function handleCursiveFF () {
+  const handleCursiveFF = () => {
     if (config._id === 'This was called by QuoteBox') {
-      setFontFam('"Brush Script MT", cursive');
+      setFontFam(font);
     } else {
       let auxArray = savedQuotesArray;
       let auxObj = auxArray[index];
-      auxObj.fontF = '"Brush Script MT", cursive';
+      auxObj.fontF = font;
       auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
-    };  
+    };
   };
 
   return (
     <label>
       <button
         className={`editBtn fFam BG-color${cursiveBGColor} text-color${cursiveTxtColor}`}
-        style={{fontFamily: '"Brush Script MT", cursive'}}
+        style={{fontFamily: font}}
         onClick={handleCursiveFF}
-        ><div id="cursiveBtn">Aa</div></button>
+      ><div id='cursiveBtn'>Aa</div></button>
     </label>
   );
 };

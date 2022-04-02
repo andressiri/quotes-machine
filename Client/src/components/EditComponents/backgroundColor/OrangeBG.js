@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import {Context} from "../../../Context.js";
+import React, {useContext} from 'react';
+import {Context} from '../../../Context.js';
 
 function OrangeBG ({parentToChild}) {
   const {colors, quote, force} = useContext(Context);
@@ -16,7 +16,7 @@ function OrangeBG ({parentToChild}) {
     orangeBGState = `buttonEnabled text-color${config.colorNum}`;
   };
 
-  function handleOrangeBG () {
+  const handleOrangeBG = () => {
     if (config._id === 'This was called by QuoteBox') {
       setImgBGColor(1);
     } else {
@@ -30,7 +30,10 @@ function OrangeBG ({parentToChild}) {
   };
 
   return (
-    <button className={`editBtn BG-color1 ${orangeBGState}`} onClick={handleOrangeBG}></button>
+    <button
+      className={`editBtn BG-color1 ${orangeBGState}`}
+      onClick={handleOrangeBG}
+    ></button>
   );
 };
 

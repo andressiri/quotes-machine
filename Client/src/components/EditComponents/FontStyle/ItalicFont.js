@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import {Context} from "../../../Context.js";
+import React, {useContext} from 'react';
+import {Context} from '../../../Context.js';
 
 function ItalicFont ({parentToChild}) {
   const {edit, quote, force} = useContext(Context);
@@ -13,9 +13,9 @@ function ItalicFont ({parentToChild}) {
   if (config.italicF === 'italic') {
     italicBGColor = config.colorNum;
     italicTxtColor = config.imgBG;
-  }; 
+  };
 
-  function handleItalicFont () {
+  const handleItalicFont = () => {
     if (config._id === 'This was called by QuoteBox') {
       if (config.italicF === 'normal') return setItalicFont('italic');
       setItalicFont('normal');
@@ -31,14 +31,14 @@ function ItalicFont ({parentToChild}) {
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
     };
-  }; 
+  };
   
   return (
     <button
       className={`editBtn fFam BG-color${italicBGColor} text-color${italicTxtColor}`}
       style={{fontStyle: 'italic'}}
       onClick={handleItalicFont}
-      >I</button>
+    >I</button>
   );
 };
 

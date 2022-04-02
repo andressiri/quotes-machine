@@ -9,36 +9,36 @@ function WallEditOkBtn ({parentToChild}) {
   const [savedQuotesBackup, setSavedQuotesBackup] = quote.backup;
   const [message, setMessage] = refs.msg;
   const [isLoading, setIsLoading] = useState(false);
-  const {config, index} = parentToChild; 
+  const {config, index} = parentToChild;
   const redirectTo = useRedirectTo();
   
-  async function handleWallEditOkBtn () {
+  const handleWallEditOkBtn = async () => {
     if (isLoading) return;
     setMessage('There are no changes to save');
     // check if there are changes to save
     if (JSON.stringify(savedQuotesArray[index]) !== JSON.stringify(savedQuotesBackup[index])) {
       setIsLoading(true);
       const quoteObj = await JSON.parse(JSON.stringify(savedQuotesArray[index]));
-      const response = await fetch("/users/saveModifiedQuote", {
+      const response = await fetch('/users/saveModifiedQuote', {
         method: 'PUT',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json'},
         body: JSON.stringify({
-          quoteObj: quoteObj 
+          quoteObj: quoteObj
           })
       });
       let json = await response.json();
       if (json.message === 'Quote changes saved successfully') {
         let backupArrayAux = await JSON.parse(JSON.stringify(savedQuotesBackup));
         backupArrayAux[index] = quoteObj;
-        setSavedQuotesBackup(backupArrayAux); 
+        setSavedQuotesBackup(backupArrayAux);
       };
-      setMessage(json.message);      
+      setMessage(json.message);
       setIsLoading(false);
     };
     redirectTo(`/wall/${config._id}/message`);
-  }; 
+  };
 
   return (
     <FontAwesomeIcon

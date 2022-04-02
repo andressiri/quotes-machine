@@ -18,7 +18,7 @@ function RegisterButton () {
   const redirectTo = useRedirectTo();
   const createOptionsObj = useCreateOptionsObj();
 
-  async function handleSubmitRegister(event) {
+  const handleSubmitRegister = async (event) => {
     event.preventDefault();
     if (isLoading) return;
         //Check required fields
@@ -26,7 +26,7 @@ function RegisterButton () {
       return setMessage('Please fill in all fields');
     };  //Check valid email
     if (emailValue !== '' && !validateEmail(emailValue)) {
-      return setMessage('Please enter a valid email');    
+      return setMessage('Please enter a valid email');
     };  //Check passwords match
     if (passwordValue !== '' && passwordValue !== password2Value) {
       return setMessage('Passwords do not match');
@@ -51,7 +51,7 @@ function RegisterButton () {
     let json = await response.json();
     setMessage(json.message);
     setIsLoading(false);
-    // Check if mail was available and registration was successfull      
+    // Check if mail was available and registration was successfull
     if (json.message === `${nameValue} was registered successfully`) redirectTo('/box/login');
   };
 
@@ -59,8 +59,7 @@ function RegisterButton () {
     <button
       className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSubmitRegister}
-    >Register
-    </button>
+    >Register</button>
   );
 };
 

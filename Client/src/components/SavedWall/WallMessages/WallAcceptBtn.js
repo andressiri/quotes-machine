@@ -10,12 +10,12 @@ function WallAcceptBtn ({parentToChild}) {
   const redirectTo = useRedirectTo();
 
   
-  async function handleWallAcceptBtn () {
+  const handleWallAcceptBtn = () => {
     setTimeout(() => {  // Timeout to handle transition
-      setMessage('');         
+      setMessage('');
     }, 250);
-    redirectTo('/wall');  
-  }; 
+    redirectTo('/wall');
+  };
 
   return (
     <FontAwesomeIcon

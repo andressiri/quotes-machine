@@ -3,15 +3,15 @@ import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-function OptionsEditBtn ({parentToChild}) {
-  const {colors, edit} = useContext(Context);
+function OptionsEditBtn () {
+  const {colors} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const redirectTo = useRedirectTo();
    
-  function handleOptionsEditBtn () {
+  const handleOptionsEditBtn = () => {
     redirectTo('/box/editConfig');
-  };  
+  };
 
   return (
     <FontAwesomeIcon

@@ -8,14 +8,14 @@ function useResetInputs () {
   const [passwordValue, setPasswordValue] = forms.pass;
   const [password2Value, setPassword2Value] = forms.pass2;
   const [codeValue, setCodeValue] = forms.code;
-    
-  const resetInputs = function resetAllInputs () {
+
+  const resetInputs = () => {
     setNameValue('');
     setEmailValue('');
     setPasswordValue('');
     setPassword2Value('');
     setCodeValue('');
-  };  
+  };
   return resetInputs;
 };
 

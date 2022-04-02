@@ -5,7 +5,7 @@ import useStopAuto from '../../../../functions/quoteFunctions/useStopAuto.js';
 function GallFirst () {
   const {colors, quote, gall} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
-  const [quoteText, setQuoteText] = quote.quoteTxt;  
+  const [quoteText, setQuoteText] = quote.quoteTxt;
   const [author, setAuthor] = quote.auth;
   const [gallArray, setGallArray] = gall.gallA;
   const [gallChoose, setGallChoose] = gall.gallCh;
@@ -16,7 +16,7 @@ function GallFirst () {
     chooseFirst = 'Chosen';
   };
   
-  function handleGallFirst () {
+  const handleGallFirst = () => {
     stopAuto(); 
     setGallChoose(0);
     setQuoteText(gallArray[0].text);

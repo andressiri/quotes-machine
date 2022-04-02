@@ -11,12 +11,12 @@ function EmailForgotPasswordBtn () {
   const [emailValue, setEmailValue] = forms.email;
   const [sendEmailBtnTimer, setSendEmailBtnTimer] = timers.send;
   const [sendWaitMsg, setSendWaitMsg] = timers.sendWait;
-  const [isLoading, setIsLoading] = useState(false);   
+  const [isLoading, setIsLoading] = useState(false);
   let isBlocked = false;
 
   if (sendEmailBtnTimer !== 0) isBlocked = true;
 
-  async function handleSendEmailForgotPassword(event) {
+  const handleSendEmailForgotPassword = async (event) => {
     event.preventDefault();
     if (isLoading) return;
     if (isBlocked) return setSendWaitMsg(true);

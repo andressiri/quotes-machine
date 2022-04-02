@@ -22,7 +22,7 @@ function VerifyEmail() {
   let auxString = 'Log out';
   if (verified) auxString = 'Go back';
 
-  function handleGoBack() {
+  const handleGoBack = () => {
     emailReference.current = '';
     if (verified) {
       auxRef.current = '';
@@ -51,7 +51,6 @@ function VerifyEmail() {
         <CheckCodeBtn />
       </form>
       <h2 className={`shareIt`} onClick={handleGoBack}>{auxString}</h2>
- 
     </div>
   );
 }

@@ -14,31 +14,29 @@
   justify-content: center;
   font-family: $fontFamily;
   overflow: auto;  
-};
+}
 
 .fadeRouteIn {
   opacity: 1;
   transition: opacity 0.5s linear;
-};
+}
 
 .fadeRouteOut {
   opacity: 0;
   transition: opacity 0.2s linear;
-};
+}
 
 .fadeWallIn {
   opacity: 1;
   transition: opacity 0.5s linear;
-};
+}
 
 .fadeWallOut {
   opacity: 0;
   transition: opacity 0.2s linear;
-};
+}
 
 .fadeWallOutLonger {
   opacity: 0;
   transition: opacity 1s linear;
-};
-
-
+}

@@ -1,10 +1,10 @@
-import React, {useContext, useState} from "react";
-import {Context} from "../../../../Context.js";
+import React, {useContext, useState} from 'react';
+import {Context} from '../../../../Context.js';
 import useStopAuto from '../../../../functions/quoteFunctions/useStopAuto.js'; 
-import useRedirectToWall from "../../../../functions/useRedirectToWall.js";
-import useGetSavedQuotes from "../../../../functions/userFunctions/useGetSavedQuotes.js";
-import useCheckLoginCondition from "../../../../functions/userFunctions/useCheckLoginCondition.js";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import useRedirectToWall from '../../../../functions/useRedirectToWall.js';
+import useGetSavedQuotes from '../../../../functions/userFunctions/useGetSavedQuotes.js';
+import useCheckLoginCondition from '../../../../functions/userFunctions/useCheckLoginCondition.js';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function SavedWallBtn() {
   const {colors, quote} = useContext(Context);
@@ -17,25 +17,25 @@ function SavedWallBtn() {
   const getSavedQuotes = useGetSavedQuotes();
   const checkLoginCondition = useCheckLoginCondition();
 
-  async function handleSavedWallBtn () {
+  const handleSavedWallBtn = () => {
     if (isLoading) return;
     stopAuto();
     if (checkLoginCondition()) {
       setIsLoading(true);
       // check it was not loaded before
       if (savedQuotesArray[0] === 'Empty Array') {
-        getSavedQuotes();        
+        getSavedQuotes();
       };
       setIsLoading(false);
       redirectToWall('/wall');
-    };      
+    };
   };
 
   return (
     <FontAwesomeIcon
       className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSavedWallBtn}
-      icon="list" />
+      icon='list' />
   );
 };
 

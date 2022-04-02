@@ -3,14 +3,12 @@ import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 
 function CancelDeleteBtn ({parentToChild}) {
-  const {colors, refs} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const {refs} = useContext(Context);
   const [message, setMessage] = refs.msg;
-  const {config, index} = parentToChild;
+  const {config} = parentToChild;
   const redirectTo = useRedirectTo();
 
-  async function handleCancelDeleteBtn() {    
+  const handleCancelDeleteBtn = () => {
     setMessage('Quote elimination canceled');
     redirectTo(`/wall/${config._id}/message`);
   };
@@ -19,7 +17,7 @@ function CancelDeleteBtn ({parentToChild}) {
     <button
       className={`NQbtn BG-color${config.colorNum} text-color${config.imgBG}`}
       onClick={handleCancelDeleteBtn}
-      >No, thanks</button>
+    >No, thanks</button>
   );
 };
 

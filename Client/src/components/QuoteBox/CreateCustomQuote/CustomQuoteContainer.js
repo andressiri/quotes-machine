@@ -4,7 +4,6 @@ import AuthorInput from './AuthorInput.js';
 import QuoteTextarea from './QuoteTextarea.js';
 import SaveCustomQuoteBtn from './SaveCustomQuoteBtn.js';
 
-
 function CustomQuoteContainer() {
   const {refs} = useContext(Context);
   const [message, setMessage] = refs.msg;

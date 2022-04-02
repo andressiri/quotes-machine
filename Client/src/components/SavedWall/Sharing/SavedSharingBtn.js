@@ -6,8 +6,8 @@ function SavedSharingBtn({parentToChild}) {
   const {config} = parentToChild;
   const redirectTo = useRedirectTo();
 
-  async function handleSavedSharingBtn () {
-    redirectTo(`/wall/${config._id}/wallSharing`);        
+  const handleSavedSharingBtn = () => {
+    redirectTo(`/wall/${config._id}/wallSharing`);
   };
 
   return (

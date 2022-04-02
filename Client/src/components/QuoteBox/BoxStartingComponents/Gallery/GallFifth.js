@@ -21,15 +21,15 @@ function GallFifth () {
     chooseFifth = 'Chosen';
   };
   
-  function handleGallFifth () {
-    stopAuto(); 
+  const handleGallFifth = () => {
+    stopAuto();
     setGallChoose(4);
     setQuoteText(gallArray[4].text);
     setAuthor(gallArray[4].author);
   };
 
   return (
-    <p 
+    <p
       className={`gallBtn${chooseFifth} BG-color${colorNumber} ${disableFifth} gallFive`}
       onClick={handleGallFifth}/>
   );

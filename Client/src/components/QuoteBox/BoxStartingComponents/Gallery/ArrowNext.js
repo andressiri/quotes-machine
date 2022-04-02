@@ -4,7 +4,7 @@ import useStopAuto from '../../../../functions/quoteFunctions/useStopAuto.js';
 
 function ArrowNext () {
   const {quote, gall} = useContext(Context);
-  const [quoteText, setQuoteText] = quote.quoteTxt;  
+  const [quoteText, setQuoteText] = quote.quoteTxt;
   const [author, setAuthor] = quote.auth;
   const [gallArray, setGallArray] = gall.gallA;
   const [gallChoose, setGallChoose] = gall.gallCh;
@@ -15,8 +15,8 @@ function ArrowNext () {
     disableNext = '';
   };
 
-  function handleArrowNext () {
-    stopAuto(); 
+  const handleArrowNext = () => {
+    stopAuto();
     if (gallChoose >= gallArray.length - 1) {
       setQuoteText(gallArray[0].text);
       setAuthor(gallArray[0].author);
@@ -30,7 +30,7 @@ function ArrowNext () {
   };
 
   return (
-    <h1 
+    <h1
       className={`gallArrowNext ${disableNext}`}
       onClick={handleArrowNext}
       >&gt;</h1>

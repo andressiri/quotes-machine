@@ -3,9 +3,7 @@ import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 
 function ConfirmDeleteBtn ({parentToChild}) {
-  const {colors, quote, refs, force} = useContext(Context);
-  const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const {quote, refs, force} = useContext(Context);
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [message, setMessage] = refs.msg;
   const [forceUpdate, setForceUpdate] = force.update;
@@ -13,7 +11,7 @@ function ConfirmDeleteBtn ({parentToChild}) {
   const {config, index} = parentToChild;
   const redirectTo = useRedirectTo();
 
-  async function handleConfirmDeleteBtn() {    
+  const handleConfirmDeleteBtn = async () =>  {
     if (isLoading) return;
     setIsLoading(true);
     const response = await fetch('/users/deleteSavedQuote', {
@@ -36,7 +34,7 @@ function ConfirmDeleteBtn ({parentToChild}) {
       };
       auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
-      setForceUpdate(forceUpdate => forceUpdate + 1);   
+      setForceUpdate(forceUpdate => forceUpdate + 1);
       redirectTo('/wall');
     } else {
       redirectTo(`/wall/${config._id}/message`);
@@ -47,7 +45,7 @@ function ConfirmDeleteBtn ({parentToChild}) {
     <button
       className={`NQbtn BG-color${config.colorNum} text-color${config.imgBG}`}
       onClick={handleConfirmDeleteBtn}
-      >Confirm</button>
+    >Confirm</button>
   );
 };
 

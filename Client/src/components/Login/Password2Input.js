@@ -9,8 +9,8 @@ function Password2Input () {
 
   return (
     <input
-      type="password"
-      placeholder="Password..."
+      type='password'
+      placeholder='Password...'
       className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
       onChange={(event) => setPassword2Value(event.target.value)}
     />

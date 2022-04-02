@@ -9,22 +9,22 @@ function LoggedInMenu() {
   const auxRef = refs.aux;
   const redirectTo = useRedirectTo();
   
-  function handleChangePassword() {    
+  const handleChangePassword = () => {
     redirectTo('/box/verifyEmail');
   };
 
-  function handleChangeName() {
+  const handleChangeName = () => {
     auxRef.current = 'name';
     redirectTo('/box/verifyEmail');
   };
 
   return (
     <div>
-        <h4 className={`shareIt`} >You are already logged in, do you want to log out?</h4>
-        <KeepLoggedBtn />
-        <LogoutBtn />
-        <p className={`shareIt`} onClick={handleChangePassword}>Change Password</p>
-        <p className={`shareIt`} onClick={handleChangeName}>Change Name</p>
+      <h4 className={`shareIt`} >You are already logged in, do you want to log out?</h4>
+      <KeepLoggedBtn />
+      <LogoutBtn />
+      <p className={`shareIt`} onClick={handleChangePassword}>Change Password</p>
+      <p className={`shareIt`} onClick={handleChangeName}>Change Name</p>
     </div>
     );
 };

@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const logoutRouter = express.Router();
 const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
 

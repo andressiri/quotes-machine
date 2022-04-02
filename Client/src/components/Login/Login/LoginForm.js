@@ -10,24 +10,24 @@ function LoginForm() {
   const [message, setMessage] = refs.msg;
   const redirectTo = useRedirectTo();
   
-  function handleForgotPassword() {
+  const handleForgotPassword = () => {
     setTimeout(() => {  // Timeout to handle transition
-      setMessage('');         
+      setMessage('');
     }, 250);
     redirectTo('/box/forgotPassword');
   };
 
-  function handleRegister() {
+  const handleRegister = () => {
     setTimeout(() => {  // Timeout to handle transition
-      setMessage('');         
+      setMessage('');
     }, 250);
     redirectTo('/box/register');
   };
 
   return (
-    <div>      
+    <div>
       {message !== '' && <p className={`shareIt`} >{message}</p>}
-      <form id="loginForm">
+      <form id='loginForm'>
         <EmailInput />
         <PasswordInput />
         <LoginButton />

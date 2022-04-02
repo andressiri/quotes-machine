@@ -7,7 +7,7 @@ const generateCode = require('../../../functions/generateCode.js');
 // User model
 const User = require('../../../models/User.js');
 
-saveUserOptionsRouter.put('/', 
+saveUserOptionsRouter.put('/',
   rateLimiter.max2500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,
   checkAuthenticated,
@@ -45,9 +45,8 @@ saveUserOptionsRouter.put('/',
           console.log(err);
           res.status(500).json({message: 'There was an error saving the options'});
         });
-          
     };
-  }  
+  }
 );
 
 module.exports = saveUserOptionsRouter;

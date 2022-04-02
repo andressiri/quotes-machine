@@ -44,7 +44,7 @@ shareOnEmailRouter.post('/',
           quoteToShare = `
             <img src="${req.body.image}" />
             <p>"${req.body.content}" - ${req.body.author}</p>`;
-        };   
+        };
         const mailTemplate = `
           <h1>Welcome to Quotes Machine</h1>
           <p>Hello there! I found this quote at <a href="http://quotesmachine.com" target="_blank" rel="noopenener noreferrer nofollow">Quotes Machine</a> and I wanted to share it with you!</p>
@@ -54,14 +54,13 @@ shareOnEmailRouter.post('/',
         const emailSuccess = await mailer.sendEmail(req.body.email, `${req.user.name} shared a quote with you`, mailTemplate, req.user.email);
         if (emailSuccess.accepted[0] === `${req.body.email}`) {
           console.log(`Email sent to ${req.body.email}`);
-          res.status(201).json({message: `Email sent to ${req.body.email}`});  
+          res.status(201).json({message: `Email sent to ${req.body.email}`});
         } else {
           console.log('Mail rejected');
-          res.status(500).json({message: `There was a problem sending the email, please try again`});  
-        };  
+          res.status(500).json({message: `There was a problem sending the email, please try again`});
+        };
       };
-    };  
-
+    };
   }
 );
 

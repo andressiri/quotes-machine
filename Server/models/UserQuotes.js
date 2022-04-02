@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const userQuotesSchema = new mongoose.Schema({
   userId: {
@@ -56,6 +56,6 @@ const userQuotesSchema = new mongoose.Schema({
   ]
 }, {collection: 'usersQuotes'});
 
-const UserQuotes = mongoose.model("UserQuotes", userQuotesSchema);
+const UserQuotes = mongoose.model('UserQuotes', userQuotesSchema);
 
 module.exports = UserQuotes;

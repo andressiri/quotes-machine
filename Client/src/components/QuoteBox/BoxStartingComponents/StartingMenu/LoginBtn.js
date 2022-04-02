@@ -1,9 +1,9 @@
-import React, {useContext} from "react";
-import {Context} from "../../../../Context.js";
+import React, {useContext} from 'react';
+import {Context} from '../../../../Context.js';
 import useStopAuto from '../../../../functions/quoteFunctions/useStopAuto.js'; 
 import useCheckVerified from '../../../../functions/userFunctions/useCheckVerified.js';
-import useRedirectTo from "../../../../functions/useRedirectTo.js";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import useRedirectTo from '../../../../functions/useRedirectTo.js';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function LoginBtn() {
   const {colors, refs} = useContext(Context);
@@ -14,20 +14,20 @@ function LoginBtn() {
   const checkVerified = useCheckVerified();
   const redirectTo = useRedirectTo();
 
-  async function handleLoginBtn () {
+  const handleLoginBtn = () => {
     stopAuto();
     if (loggedIn) {
       checkVerified();
     } else {
       redirectTo('/box/login');
-    };    
+    };
   };
 
   return (
     <FontAwesomeIcon
       className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleLoginBtn}
-      icon="user" />
+      icon='user' />
   );
 };
 

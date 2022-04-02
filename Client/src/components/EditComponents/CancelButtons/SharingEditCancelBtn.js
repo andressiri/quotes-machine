@@ -13,18 +13,18 @@ function SharingEditCancelBtn () {
   const redirectTo = useRedirectTo();
   const restartDefault = useRestartDefault();
   
-  function handleSharingEditCancelBtn () {
+  const handleSharingEditCancelBtn = () => {
     setMessage('Edition has been canceled');
     restartDefault();
     if (shareChosen.current === 'Email') emailReference.current = '';
     shareChosen.current = '';
     redirectTo('/box/message');
-  }; 
+  };
 
   return (
     <button
-    className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
-    onClick={handleSharingEditCancelBtn}
+      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleSharingEditCancelBtn}
     >Cancel</button>
   );
 };

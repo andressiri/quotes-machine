@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import {Context} from "../../../Context.js";
+import React, {useContext} from 'react';
+import {Context} from '../../../Context.js';
 
 function IndigoTxt ({parentToChild}) {
   const {colors, quote, force} = useContext(Context);
@@ -16,7 +16,7 @@ function IndigoTxt ({parentToChild}) {
     indigoTxtState = `buttonEnabled text-color${config.imgBG}`;
   };
 
-  function handleIndigoTxt () {
+  const handleIndigoTxt = () => {
     if (config._id === 'This was called by QuoteBox') {
       setColorNumber(5);
     } else {
@@ -30,7 +30,10 @@ function IndigoTxt ({parentToChild}) {
   };
 
   return (
-    <button className={`editBtn BG-color5 ${indigoTxtState}`} onClick={handleIndigoTxt}></button>
+    <button
+      className={`editBtn BG-color5 ${indigoTxtState}`}
+      onClick={handleIndigoTxt}
+    ></button>
   );
 };
 

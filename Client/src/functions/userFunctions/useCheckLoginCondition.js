@@ -9,7 +9,7 @@ function useCheckLoginCondition () {
   const [verified, setVerified] = refs.ver;
   const redirectTo = useRedirectTo();
     
-  const checkLoginCondition = function checkLoggedCondition () {
+  const checkLoginCondition = () => {
     if (!loggedIn) {
       setTimeout(() => {  // Timeout to handle transition
         setMessage('You have to be logged in to do this');
@@ -25,7 +25,7 @@ function useCheckLoginCondition () {
     } else {
       return true;
     };
-  };  
+  };
   return checkLoginCondition;
 };
 

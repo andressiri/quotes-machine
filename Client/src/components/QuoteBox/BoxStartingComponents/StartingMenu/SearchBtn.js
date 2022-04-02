@@ -11,10 +11,10 @@ function SearchBtn() {
   const stopAuto = useStopAuto();
   const redirectTo = useRedirectTo();
 
-  async function handleSearchBtn () {
+  const handleSearchBtn = () => {
     stopAuto();
     //Will go to a wall similar to saved wall
-    console.log('Still in construction');    
+    console.log('Still in construction');
   };
 
   return (

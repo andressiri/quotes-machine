@@ -15,10 +15,10 @@ function LoginButton () {
   const [configBackup, setConfigBackup] = edit.cBackup;
   const [emailValue, setEmailValue] = forms.email;
   const [passwordValue, setPasswordValue] = forms.pass;
-  const [isLoading, setIsLoading] = useState(false); 
+  const [isLoading, setIsLoading] = useState(false);
   const redirectTo = useRedirectTo();
 
-  async function handleSubmitLogin(event) {
+  const handleSubmitLogin = async (event) => {
     event.preventDefault();
     if (isLoading) return;
     if (emailValue === '' || passwordValue === '') {
@@ -39,7 +39,7 @@ function LoginButton () {
         }),
       });
       const response = await fetch('/users/login', {method: 'POST'});
-      let json = await response.json();    
+      let json = await response.json();
       if (json.message === 'Login success') {
         //Load options
         if (json.userOptions.message === 'User options loaded') {
@@ -49,24 +49,24 @@ function LoginButton () {
           setAutoColorChange(userOptionsObj.automaticColor);
         };
         setLoggedIn(true);
-        setVerified(json.verified);        
+        setVerified(json.verified);
         setIsLoading(false);
         // can't use checkVerified because state won't update before the conditional check
         if (json.verified) {
           setTimeout(() => {  // Timeout to handle transition
-            setMessage(json.message);         
+            setMessage(json.message);
           }, 250); 
           redirectTo('/box/message');
         } else {
           setTimeout(() => {  // Timeout to handle transition
-            setMessage('');         
+            setMessage('');
           }, 250);
           redirectTo('/box/verifyEmail');
         };
       } else {
         setIsLoading(false);
         setMessage(json.message);
-      };  
+      };
     };
   };
 
@@ -74,7 +74,7 @@ function LoginButton () {
     <button
       className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSubmitLogin}
-      >Login</button>
+    >Login</button>
   );
 };
 

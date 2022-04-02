@@ -16,7 +16,7 @@ function ForgotPassword() {
   const [checkWaitMsg, setCheckWaitMsg] = timers.sendWait;
   const logout = useLogout();
 
-  function handleGoToLogin() {
+  const handleGoToLogin = () => {
     emailReference.current = '';
     logout();
   };
@@ -37,7 +37,7 @@ function ForgotPassword() {
         <EmailInput />
         <EmailForgotPasswordBtn />
       </form>
-      <form id="ForgotPassCodeForm">
+      <form id='ForgotPassCodeForm'>
         <CodeInput />
         <CheckCodeBtn />
       </form>

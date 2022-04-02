@@ -13,18 +13,18 @@ function useLogout () {
   const setInitialOptions = useSetInitialOptions();
   const redirectTo = useRedirectTo();
     
-  const logout = function logoutHandle () {
-    const logout = fetch('/users/logout', {method: "DELETE"});
+  const logout = () => {
+    const logout = fetch('/users/logout', {method: 'DELETE'});
     setSavedQuotesArray(['Empty Array']);
     setSavedQuotesBackup(['Empty Array']);
     if (loggedIn) setInitialOptions();
     setTimeout(() => {  // Timeout to handle transition
-      setMessage('');         
+      setMessage('');
     }, 250);
     setLoggedIn(false);
     setVerified(false);
     redirectTo('/box/login');
-  };  
+  };
   return logout;
 };
 

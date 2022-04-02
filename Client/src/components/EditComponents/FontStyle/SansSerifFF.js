@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import {Context} from "../../../Context.js";
+import React, {useContext} from 'react';
+import {Context} from '../../../Context.js';
 
 function SansSerifFF ({parentToChild}) {
   const {edit, quote, force} = useContext(Context);
@@ -9,30 +9,31 @@ function SansSerifFF ({parentToChild}) {
   const {config, index} = parentToChild;
   let sansSerifBGColor = config.imgBG;
   let sansSerifTxtColor = config.colorNum;
+  const font = 'Arial, Helvetica, sans-serif';
 
-  if (config.fontF === 'Arial, Helvetica, sans-serif') {
+  if (config.fontF === font) {
     sansSerifBGColor = config.colorNum;
     sansSerifTxtColor = config.imgBG;
-  }; 
+  };
 
-  function handleSansSerifFF () {
+  const handleSansSerifFF = () => {
     if (config._id === 'This was called by QuoteBox') {
-      setFontFam('Arial, Helvetica, sans-serif');
+      setFontFam(font);
     } else {
       let auxArray = savedQuotesArray;
       let auxObj = auxArray[index];
-      auxObj.fontF = 'Arial, Helvetica, sans-serif';
+      auxObj.fontF = font;
       auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
-    };  
+    };
   };
 
   return (
     <button
-    className={`editBtn fFam BG-color${sansSerifBGColor} text-color${sansSerifTxtColor}`}
-    style={{fontFamily: "Arial, Helvetica, sans-serif"}}
-    onClick={handleSansSerifFF}
+      className={`editBtn fFam BG-color${sansSerifBGColor} text-color${sansSerifTxtColor}`}
+      style={{fontFamily: font}}
+      onClick={handleSansSerifFF}
     >Aa</button>
   );
 };
