@@ -3,7 +3,6 @@ import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 import useCreateOptionsObj from '../../../functions/useCreateOptionsObj.js';
 import validateEmail from '../../../functions/validateEmail.js';
-import EditAndShareImgBtn from '../../SharingChoices/EditAndShareImgBtn.js';
 
 function RegisterButton () {
   const {colors, refs, edit, forms} = useContext(Context);

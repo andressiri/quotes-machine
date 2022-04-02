@@ -8,13 +8,13 @@ import useCreateQuoteObj from "../../../../functions/useCreateQuoteObj.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function SaveBtn() {
-  const {colors, quote, refs} = useContext(Context);
+  const {colors, quote, refs, gall} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [quoteText, setQuoteText] = quote.quoteTxt;  
-  const [author, setAuthor] = quote.auth;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
   const [message, setMessage] = refs.msg;
+  const [gallArray, setGallArray] = gall.gallA;
+  const [gallChoose, setGallChoose] = gall.gallCh;
   const [isLoading, setIsLoading] = useState(false);
   const redirectTo = useRedirectTo();
   const stopAuto = useStopAuto();
@@ -27,7 +27,8 @@ function SaveBtn() {
     stopAuto();
     if (checkLoginCondition()) {
       setIsLoading(true);
-      const quoteObj = createQuoteObj();
+      const custom = gallArray[gallChoose].custom;
+      const quoteObj = createQuoteObj(custom);
       const response = await fetch('/users/saveQuote', {
         method: 'PUT',
         headers: {

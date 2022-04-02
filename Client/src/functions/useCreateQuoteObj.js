@@ -13,10 +13,12 @@ function useCreateQuoteObj () {
   const [upperFont, setUpperFont] = edit.upperF;
   const [fSize, setFSize] = edit.fontS;
     
-  const createQuoteObj = function createQuoteObject () {
+  const createQuoteObj = function createQuoteObject (custom) {
     const quoteObj = {
       content: quoteText,
       author: author,
+      custom: custom,
+      favorite: false,
       colorNum: colorNumber,
       imgBG: imgBGColor,
       fontF: fontFam,

@@ -33,11 +33,11 @@ function ForgotPassword() {
       {(checkCodeBtnTimer !== 0 && checkWaitMsg)
         &&  <p className={`shareIt`}
               >You have to wait {checkCodeBtnTimer}s to check code again</p>}
-      <form id='sendEmail'>
+      <form id='forgorPassSendEmail'>
         <EmailInput />
         <EmailForgotPasswordBtn />
       </form>
-      <form id="codeForm">
+      <form id="ForgotPassCodeForm">
         <CodeInput />
         <CheckCodeBtn />
       </form>

@@ -22,7 +22,7 @@ function ChangeName() {
     <div>
       <p className={`shareIt`} >Create your new name</p>
       {message !== '' && <p className={`shareIt`} >{message}</p>}
-      <form id="registerForm">
+      <form id='changeNameForm'>
         <NameInput />
         <ChangeNameBtn />
       </form>

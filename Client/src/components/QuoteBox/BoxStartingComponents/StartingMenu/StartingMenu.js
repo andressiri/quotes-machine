@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginBtn from './LoginBtn.js';
-import CreateQuoteBtn from './CreateQuoteBtn.js';
+import CustomQuoteBtn from './CustomQuoteBtn.js';
 import ShareBtn from './ShareBtn.js';
 import SaveBtn from './SaveBtn.js';
 import SavedWallBtn from './SavedWallBtn.js';
@@ -12,7 +12,7 @@ function StartingMenu ({parentToChild}) {
     <div>
       <h2 className={`shareIt`} >Menu</h2>
       <LoginBtn />
-      <CreateQuoteBtn />
+      <CustomQuoteBtn />
       <ShareBtn />
       <SaveBtn />
       <SavedWallBtn />

@@ -6,6 +6,7 @@ import BoxSharingSet from '../SharingComponents/BoxSharingSet.js';
 import OptionsMenu from './Options/OptionsMenu.js';
 import SharingChoices from '../SharingChoices/SharingChoices.js';
 import EditSet from '../EditComponents/EditSet.js';
+import CustomQuoteContainer from './CreateCustomQuote/CustomQuoteContainer.js';
 import LoginForm from '../Login/Login/LoginForm.js';
 import VerifyEmail from '../Login/VerifyEmail/VerifyEmail.js';
 import LoggedInMenu from '../Login/LoggedIn/LoggedInMenu.js';
@@ -44,22 +45,23 @@ function RouteContainer() {
   return (
     <div className={`routeContainer BG-color${imgBGColor}`}>
       <div className={`fadeRoute${fadeMenu}`}>
-      <Routes>
-        <Route path='/app' exact element={<BoxStartingContainer parentToChild={{config: editConfiguration, index: null}} />} />
-        <Route path='/sharing' exact element={<BoxSharingSet parentToChild={{config: editConfiguration, index: null}} />} />
-        <Route path='/options' exact element={<OptionsMenu parentToChild={{config: editConfiguration, index: null}} />} />
-        <Route path='/sharingChoices' exact element={<SharingChoices parentToChild={{config: editConfiguration, index: null}} />} />
-        <Route path='/editSharing' exact element={<EditSet parentToChild={{config: editConfiguration, index: null}} />} />
-        <Route path='/editConfig' exact element={<EditSet parentToChild={{config: editConfiguration, index: null}} />} />
-        <Route path='/login' exact element={<LoginForm />} />
-        <Route path='/verifyEmail' exact element={<VerifyEmail />} />
-        <Route path='/loggedIn' exact element={<LoggedInMenu />} />
-        <Route path='/register' exact element={<RegisterForm />} />
-        <Route path='/forgotPassword' exact element={<ForgotPassword />} />
-        <Route path='/changePassword' exact element={<ChangePassword />} />
-        <Route path='/changeName' exact element={<ChangeName />} />
-        <Route path='/message' exact element={<BoxMessages />} />
-      </Routes>
+        <Routes>
+          <Route path='/app' exact element={<BoxStartingContainer parentToChild={{config: editConfiguration, index: null}} />} />
+          <Route path='/sharing' exact element={<BoxSharingSet parentToChild={{config: editConfiguration, index: null}} />} />
+          <Route path='/options' exact element={<OptionsMenu parentToChild={{config: editConfiguration, index: null}} />} />
+          <Route path='/sharingChoices' exact element={<SharingChoices parentToChild={{config: editConfiguration, index: null}} />} />
+          <Route path='/editSharing' exact element={<EditSet parentToChild={{config: editConfiguration, index: null}} />} />
+          <Route path='/editConfig' exact element={<EditSet parentToChild={{config: editConfiguration, index: null}} />} />
+          <Route path='/customQuote' exact element={<CustomQuoteContainer />} />
+          <Route path='/login' exact element={<LoginForm />} />
+          <Route path='/verifyEmail' exact element={<VerifyEmail />} />
+          <Route path='/loggedIn' exact element={<LoggedInMenu />} />
+          <Route path='/register' exact element={<RegisterForm />} />
+          <Route path='/forgotPassword' exact element={<ForgotPassword />} />
+          <Route path='/changePassword' exact element={<ChangePassword />} />
+          <Route path='/changeName' exact element={<ChangeName />} />
+          <Route path='/message' exact element={<BoxMessages />} />
+        </Routes>
       </div>
     </div>
   );
