@@ -52,7 +52,7 @@ sendChangePasswordRouter.post('/',
               const emailSuccess = await mailer.sendEmail(user.email, 'Quotes machine password recovery', mailTemplate);
               if (emailSuccess.accepted[0] === `${user.email}`) {
                 console.log(`Email sent to ${user.email}`);
-                res.status(201).json({message: 'Email sent with the code'});
+                res.status(201).json({message: 'Email sent with the code', success: true});
                 console.log(`code: ${req.session.code}`);
               } else {
                 console.log('Mail rejected');

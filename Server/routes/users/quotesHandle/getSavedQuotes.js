@@ -19,7 +19,7 @@ getSavedQuotesRouter.get('/',
       UserQuotes.findById(req.user.userQuotesId)
         .then(userQ => {
           console.log(`${req.user.name} quotes retrieved successfully`);
-          res.json({message:'Quotes retrieved successfully', quotesArray: userQ.quotesArray});
+          res.json({message:'Quotes retrieved successfully', quotesArray: userQ.quotesArray, success: true});
         })
         .catch(err => {
           console.log(err);

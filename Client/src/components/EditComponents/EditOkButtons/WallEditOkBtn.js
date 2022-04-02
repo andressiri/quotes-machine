@@ -29,7 +29,7 @@ function WallEditOkBtn ({parentToChild}) {
           })
       });
       let json = await response.json();
-      if (json.message === 'Quote changes saved successfully') {
+      if (json.success) {
         let backupArrayAux = await JSON.parse(JSON.stringify(savedQuotesBackup));
         backupArrayAux[index] = quoteObj;
         setSavedQuotesBackup(backupArrayAux);

@@ -30,7 +30,7 @@ changePasswordRouter.put('/',
                 res.status(404).json({message: 'There is no user with that email'});
               } else {
                 console.log('Password changed');
-                res.status(201).json({message: 'Password changed'});
+                res.status(201).json({message: 'Password changed', success: true});
               };
             })
             .catch(err => {

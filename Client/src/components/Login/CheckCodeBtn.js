@@ -38,7 +38,7 @@ function CheckCodeBtn () {
         })
     });
     let json = await response.json();
-    if (json.message === 'Code is correct') {
+    if (json.success) {
       setIsLoading(false);
       setTimeout(() => {  // Timeout to handle transition
         setMessage('');

@@ -32,7 +32,7 @@ saveQuoteRouter.put('/',
           User.findByIdAndUpdate(req.user, {userQuotesId: newUserQuotes.id})
             .then(() => {
               console.log('Document created and Quote saved successfully');
-              res.status(201).json({message: 'Quote saved successfully'});
+              res.status(201).json({message: 'Quote saved successfully', success: true});
             })
             .catch(err => {
               console.log(err);
@@ -49,7 +49,7 @@ saveQuoteRouter.put('/',
           userQ.quotesArray.push(req.body.quoteObj);
           userQ.save();
           console.log('Quote saved successfully');
-          res.status(201).json({message: 'Quote saved successfully'});
+          res.status(201).json({message: 'Quote saved successfully', success: true});
         })
         .catch(err => {
           console.log(err);

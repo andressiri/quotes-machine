@@ -30,7 +30,7 @@ verifyEmailRouter.put('/',
       if (req.user) userToUpdate = req.user.email;
       if (!userToUpdate) {
         console.log('Bad request');
-        res.json(400).json({message: 'There is no account specified'});
+        res.status(400).json({message: 'There is no account specified'});
       } else {
         // check at least 5 seconds have passed from last failed code comparison
         let timePassedBetweenRequests = 0;
@@ -54,7 +54,7 @@ verifyEmailRouter.put('/',
                 console.log('User not found');
                 res.status(404).json({message: 'There is no user with that email'});
               } else {
-                res.json({message: 'Code is correct'});
+                res.json({message: 'Code is correct', success: true});
                 console.log('Email verified');
               };
             })

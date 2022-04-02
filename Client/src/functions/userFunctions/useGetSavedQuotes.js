@@ -9,7 +9,7 @@ function useGetSavedQuotes () {
   const getSavedQuotes = async () => {
     const response = await fetch('/users/getSavedQuotes');
     let json = await response.json();
-    if (json.message === 'Quotes retrieved successfully') {
+    if (json.success) {
       setSavedQuotesArray(json.quotesArray);
       const backupArrayAux = await JSON.parse(JSON.stringify(json.quotesArray));
       setSavedQuotesBackup(backupArrayAux);

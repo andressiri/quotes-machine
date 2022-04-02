@@ -30,7 +30,7 @@ function SaveOptionsBtn ({parentToChild}) {
         body: JSON.stringify({userOptions: userOpt}),
       });
       let json = await response.json();
-      if (json.message === 'Options have been saved') {
+      if (json.success) {
         setConfigBackup(parentToChild.config);
       } else {
         restartDefault();

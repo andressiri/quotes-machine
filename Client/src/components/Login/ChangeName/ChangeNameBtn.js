@@ -28,7 +28,7 @@ function ChangeNameBtn () {
     });
     let json = await response.json();
     setIsLoading(false);
-    if (json.message === 'Name changed') {
+    if (json.success) {
       auxRef.current = '';
       setTimeout(() => {  // Timeout to handle transition
         setMessage(`Name changed to ${nameValue}`);

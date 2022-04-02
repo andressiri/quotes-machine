@@ -39,7 +39,7 @@ saveUserOptionsRouter.put('/',
           user.userOptions = req.body.userOptions;
           user.save();
           console.log('User options have been saved');
-          res.status(201).json({message: 'Options have been saved'});
+          res.status(201).json({message: 'Options have been saved', success: true});
         })
         .catch(err => {
           console.log(err);

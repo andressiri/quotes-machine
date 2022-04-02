@@ -40,7 +40,7 @@ function LoginButton () {
       });
       const response = await fetch('/users/login', {method: 'POST'});
       let json = await response.json();
-      if (json.message === 'Login success') {
+      if (json.success) {
         //Load options
         if (json.userOptions.message === 'User options loaded') {
           const {userOptionsObj} = json.userOptions;

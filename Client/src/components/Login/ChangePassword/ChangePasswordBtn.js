@@ -39,7 +39,7 @@ function ChangePasswordBtn () {
     });
     let json = await response.json();
     setIsLoading(false);
-    if (json.message === 'Password changed') {
+    if (json.success) {
       emailReference.current = '';
       setTimeout(() => {  // Timeout to handle transition
         setMessage(json.message);
