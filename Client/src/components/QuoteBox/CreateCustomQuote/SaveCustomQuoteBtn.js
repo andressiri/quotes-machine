@@ -15,18 +15,18 @@ function SaveCustomQuoteBtn () {
   const [customAuthorValue, setCustomAuthorValue] = forms.customA;
   const [gallArray, setGallArray] = gall.gallA;
   const [gallChoose, setGallChoose] = gall.gallCh;
-  const [isLoading, setIsLoading] = useState(false); 
+  const [isLoading, setIsLoading] = useState(false);
   const redirectTo = useRedirectTo();
   const createQuoteObj = useCreateQuoteObj();
   const getSavedQuotes = useGetSavedQuotes();
   const newGalleryItem = useNewGalleryItem();
 
-  async function handleSaveCustomQuoteBtn(event) {
+  const handleSaveCustomQuoteBtn = async (event) => {
     event.preventDefault();
     if (isLoading) return;
     if (customQuoteValue === '' || customAuthorValue === '') {
       return setMessage('Please fill in all fields');
-    }; 
+    };
     setIsLoading(true);
     const quoteObj = createQuoteObj(true);
     const response = await fetch('/users/saveQuote', {
@@ -41,7 +41,7 @@ function SaveCustomQuoteBtn () {
     let json = await response.json();
     // check if it has to update the wall
     if (savedQuotesArray[0] !== 'Empty Array') {
-      getSavedQuotes();        
+      getSavedQuotes();
     };
     setIsLoading(false);
     if (json.message === 'Quote saved successfully') {
@@ -60,8 +60,7 @@ function SaveCustomQuoteBtn () {
     <button
       className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSaveCustomQuoteBtn}
-    >Save
-    </button>
+    >Save</button>
   );
 };
 

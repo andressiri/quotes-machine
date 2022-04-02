@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import {Context} from '../../Context.js';
 import {Routes, Route } from 'react-router-dom';
 import BoxStartingContainer from './BoxStartingComponents/BoxStartingContainer.js';

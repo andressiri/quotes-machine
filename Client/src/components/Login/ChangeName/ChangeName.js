@@ -10,7 +10,7 @@ function ChangeName() {
   const auxRef = refs.aux;
   const redirectTo = useRedirectTo();
 
-  function handleGoBack() {
+  const handleGoBack = () => {
     auxRef.current = '';
     setTimeout(() => {  // Timeout to handle transition
       setMessage('');

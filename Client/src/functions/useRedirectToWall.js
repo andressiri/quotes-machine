@@ -10,11 +10,11 @@ function useRedirectToWall () {
   const [currentPath, setCurrentPath] = refs.path;
   const resetInputs = useResetInputs();
   const navigate = useNavigate();
-    
-  const redirectToWall = function setCurrentPathAndNavigateToWall (path) {
+
+  const redirectToWall = (path) => {
     let delay = 250;
     let auxString = 'Out';
-    //Handle first wall load    
+    //Handle first wall load
     if (savedQuotesArray[0] === 'Empty Array') {
       delay = 1050;
       auxString = 'OutLonger';
@@ -26,7 +26,7 @@ function useRedirectToWall () {
       navigate(path);
       setFadeWall('In');
     }, delay);
-  };  
+  };
   return redirectToWall;
 };
 

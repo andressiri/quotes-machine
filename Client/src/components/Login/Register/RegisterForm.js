@@ -12,9 +12,9 @@ function RegisterForm() {
   const [message, setMessage] = refs.msg;
   const redirectTo = useRedirectTo();
 
-  function handleGoToLogin() {
+  const handleGoToLogin = () => {
     setTimeout(() => {  // Timeout to handle transition
-      setMessage('');         
+      setMessage('');
     }, 250);
     redirectTo('/box/login');
   };

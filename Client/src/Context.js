@@ -1,4 +1,4 @@
-import React, {createContext, useState, useRef} from "react";
+import React, {createContext, useState, useRef} from 'react';
 import propTypes from 'prop-types'; // eslint-plugin-react may not detect props types imported with props and throw error "'children' is missing in props validation"
 
 export const Context = createContext();
@@ -7,7 +7,7 @@ export const ContextProvider = (props) => {
   //colors
   const [colorNumber, setColorNumber] = useState(0);
   const [imgBGColor, setImgBGColor] = useState(7);
-  const [autoColorChange, setAutoColorChange] = useState(true);  
+  const [autoColorChange, setAutoColorChange] = useState(true);
   //quote
   const [quoteText, setQuoteText] = useState('Welcome to my quotes machine.');
   const [author, setAuthor] = useState('Andrés Siri');
@@ -61,14 +61,14 @@ export const ContextProvider = (props) => {
   const [customAuthorValue, setCustomAuthorValue] = useState('');
   //timers
   const [checkCodeBtnTimer, setCheckCodeBtnTimer] = useState(0);
-  const [checkCodeInterval, setCheckCodeInterval] = useState('Interval is off'); 
-  const [checkWaitMsg, setCheckWaitMsg] = useState(false); 
-  const [sendEmailBtnTimer, setSendEmailBtnTimer] = useState(0);  
-  const [sendEmailInterval, setSendEmailInterval] = useState('Interval is off'); 
+  const [checkCodeInterval, setCheckCodeInterval] = useState('Interval is off');
+  const [checkWaitMsg, setCheckWaitMsg] = useState(false);
+  const [sendEmailBtnTimer, setSendEmailBtnTimer] = useState(0);
+  const [sendEmailInterval, setSendEmailInterval] = useState('Interval is off');
   const [sendWaitMsg, setSendWaitMsg] = useState(false);
   //force
   const [forceUpdate, setForceUpdate] = useState(0);
-  const [updateForced, setUpdateForced] = useState(0); 
+  const [updateForced, setUpdateForced] = useState(0);
   
   return (
     <Context.Provider value={{
@@ -142,7 +142,7 @@ export const ContextProvider = (props) => {
     }}>
       {props.children}
     </Context.Provider>
-  );  
+  );
 };
 
 ContextProvider.propTypes = {

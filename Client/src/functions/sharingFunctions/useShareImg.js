@@ -9,9 +9,9 @@ function useShareImg () {
   const shareChosen = refs.sChosen;
   const emailReference = refs.email;
   const {ClipboardItem} = window;
-  let link = ``;
+  let link = '';
 
-  const shareImg = async function checkChosenAndShare (referenceDiv, config) {
+  const shareImg = async (referenceDiv, config) => {
     const blob = await domtoimage.toBlob(referenceDiv.current);
     const imgurData = await getImgUrl(blob);
     if (imgurData.data.error) {
@@ -21,14 +21,14 @@ function useShareImg () {
       return message;
     };
     const imgUrl = imgurData.data.link;
-    const encodedUrl = encodeURIComponent(imgUrl); 
+    const encodedUrl = encodeURIComponent(imgUrl);
     switch (shareChosen.current) {
       case 'Clipboard':
         await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob})]);
-        alert('Screenshot took on Clipboard'); 
+        alert('Screenshot took on Clipboard');
         break;
       case 'Tumblr':
-        link = `https://www.tumblr.com/widgets/share/tool?posttype=photo&tags=quotes&content=${imgUrl}&caption="${config.content}"%20-%20${config.author}%20&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons`;  
+        link = `https://www.tumblr.com/widgets/share/tool?posttype=photo&tags=quotes&content=${imgUrl}&caption="${config.content}"%20-%20${config.author}%20&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons`;
         clickLink(link);
         break;
       case 'Twitter':
@@ -36,10 +36,10 @@ function useShareImg () {
         clickLink(link);
         break;
       case 'Facebook':
-        link = `https://www.facebook.com/sharer.php?u=${encodedUrl}`;        
+        link = `https://www.facebook.com/sharer.php?u=${encodedUrl}`;
         clickLink(link);
         break;
-      case 'Email':        
+      case 'Email':
         await fetch('/shareOnEmail', {
           method: 'POST',
           headers: {
@@ -53,9 +53,9 @@ function useShareImg () {
           }),
         })
           .catch(err => console.log(err));
-        emailReference.current = '';          
-        break;   
-      // no default    
+        emailReference.current = '';
+        break;
+      // no default
     };
     return null;
   };

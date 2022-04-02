@@ -17,7 +17,7 @@ function SaveOptionsBtn ({parentToChild}) {
   const checkLoginCondition = useCheckLoginCondition();
   const restartDefault = useRestartDefault();
   
-  async function handleSaveOptionsBtn () {
+  const handleSaveOptionsBtn = async () => {
     if (isLoading) return;
     if (checkLoginCondition()) {
       setIsLoading(true);
@@ -39,12 +39,12 @@ function SaveOptionsBtn ({parentToChild}) {
       setIsLoading(false);
       redirectTo('/box/message');
     }
-  }; 
+  };
 
   return (
     <button
-    className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
-    onClick={handleSaveOptionsBtn}
+      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleSaveOptionsBtn}
     >Save</button>
   );
 };

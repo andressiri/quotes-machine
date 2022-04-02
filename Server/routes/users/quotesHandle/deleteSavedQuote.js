@@ -30,9 +30,9 @@ deleteSavedQuoteRouter.delete('/',
         .catch(err => {
           console.log(err);
           res.status(500).json({message: 'There was an error deleting the quote'});
-        });          
+        });
     };
-  }  
+  }
 );
 
 module.exports = deleteSavedQuoteRouter;

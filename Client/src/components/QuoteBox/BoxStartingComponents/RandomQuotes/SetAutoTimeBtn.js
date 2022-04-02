@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useContext} from 'react';
 import{Context} from './../../../../Context.js';
 import useStopAuto from '../../../../functions/quoteFunctions/useStopAuto.js';
 
@@ -20,7 +20,7 @@ function SetAutoTimeBtn() {
     setOnOff = 'timeBtnOn';
   };
 
-  function handleTime () {
+  const handleTime = () => {
     stopAuto();
     switch (autoTime) {
       case 5000:
@@ -35,16 +35,16 @@ function SetAutoTimeBtn() {
         setAutoTime(5000);
         setAutoSeconds(5);
         break;
-      // no default  
+      // no default
     };
   };
   
   return (
     <button
       className={`${setOnOff} text-color${setText} BG-color${setBG}`}
-      aria-label="Set time for Auto"
+      aria-label='Set time for Auto'
       onClick={handleTime}
-      >{autoSeconds}s</button>
+    >{autoSeconds}s</button>
   );
 };
 

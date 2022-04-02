@@ -10,7 +10,7 @@ function useRedirectTo () {
   const resetInputs = useResetInputs();
   const navigate = useNavigate();
     
-  const redirectTo = function setCurrentPathAndNavigate (path) {
+  const redirectTo = (path) => {
     setFadeMenu('Out');
     resetInputs();
     setTimeout(() => {
@@ -18,7 +18,7 @@ function useRedirectTo () {
       navigate(path);
       setFadeMenu('In');
     }, 250);
-  };  
+  };
   return redirectTo;
 };
 

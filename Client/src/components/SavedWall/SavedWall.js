@@ -8,9 +8,8 @@ import QuoteDeleted from './Delete/QuoteDeleted.js'
 function SavedWall() {
   const {colors, quote, fade, force} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
-  const [imgBGColor, setImgBGColor] = colors.imgBG; 
+  const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [fadeWall, setFadeWall] = fade.fadW;
   const [forceUpdate, setForceUpdate] = force.update;
   const [updateForced, setUpdateForced] = force.forced;
   
@@ -21,7 +20,7 @@ function SavedWall() {
   return (
     <div className={`quoteBox BG-color${imgBGColor} text-color${colorNumber}`}>
       <h1>This is your wall</h1>
-      <CancelBtn />      
+      <CancelBtn />
       {savedQuotesArray[0] === 'Empty Array'
         ? <p>Nothing to show</p>
         : savedQuotesArray[0] === 'Create userQuotes at first save'

@@ -13,7 +13,7 @@ function BoxSharingSet({parentToChild}) {
       <TwitterBtn parentToChild={parentToChild} />
       <FacebookBtn parentToChild={parentToChild} />
       <EmailShareBtn parentToChild={parentToChild} />
-    </div>   
+    </div>
   );
 };
 

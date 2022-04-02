@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const quoteSchema = new mongoose.Schema({
   content: {
@@ -9,9 +9,9 @@ const quoteSchema = new mongoose.Schema({
   author: {
     type: String,
     required: true
-  } 
+  }
 }, {collection: 'quotes'});
 
-const Quote = mongoose.model("Quote", quoteSchema);
+const Quote = mongoose.model('Quote', quoteSchema);
 
 module.exports = Quote;

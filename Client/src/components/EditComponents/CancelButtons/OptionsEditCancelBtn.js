@@ -12,11 +12,11 @@ function OptionsEditCancelBtn () {
   const redirectTo = useRedirectTo();
   const restartDefault = useRestartDefault();
   
-  async function handleOptionsEditCancelBtn () {
+  const handleOptionsEditCancelBtn = () => {
     setMessage('Configuration has been canceled');
-    restartDefault();    
+    restartDefault();
     redirectTo('/box/message');
-  }; 
+  };
 
   return (
     <FontAwesomeIcon

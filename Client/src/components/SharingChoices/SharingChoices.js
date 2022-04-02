@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {Context} from '../../Context.js';
 import ShareImageBtn from './ShareImageBtn.js';
 import ShareTextBtn from './ShareTextBtn.js';
-import EditAndShareImgBtn from "./EditAndShareImgBtn.js";
+import EditAndShareImgBtn from './EditAndShareImgBtn.js';
 import EmailInput from '../Login/EmailInput.js';
 
 function SharingChoices ({parentToChild}) {
@@ -15,7 +15,7 @@ function SharingChoices ({parentToChild}) {
       {shareChosen.current === 'Email'
         &&
         <div>
-          {message !== '' && <p className={`shareIt`} >{message}</p>} 
+          {message !== '' && <p className={`shareIt`} >{message}</p>}
           <label>Send To:
             <EmailInput />
           </label>
@@ -23,7 +23,7 @@ function SharingChoices ({parentToChild}) {
       <ShareTextBtn parentToChild={parentToChild} />
       <ShareImageBtn parentToChild={parentToChild} />
       <EditAndShareImgBtn parentToChild={parentToChild} />
-    </div>    
+    </div>
   );
 };
 

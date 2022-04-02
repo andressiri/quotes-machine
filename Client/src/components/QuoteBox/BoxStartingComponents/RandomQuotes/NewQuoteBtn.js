@@ -11,22 +11,22 @@ function NewQuoteBtn () {
   const stopAuto = useStopAuto();
   const newQuote = useNewQuote();
 
-  async function handleNewQuote() {    
+  const handleNewQuote = () => {
     if (isLoading) return;
     setIsLoading(true);
-    stopAuto();    
+    stopAuto();
     newQuote();
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000); 
+    }, 1000);
   };
 
   return (
     <button
       className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleNewQuote}
-      id="new-quote"
-      >New quote</button>
+      id='new-quote'
+    >New quote</button>
   );
 };
 

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -29,10 +29,10 @@ const userSchema = new mongoose.Schema({
         required: true
       },
       automaticColor: {
-        type: Boolean,        
+        type: Boolean,
         required: true
       },
-      quoteConfig: 
+      quoteConfig:
         {
           colorNum: {
             type: Number,
@@ -62,10 +62,10 @@ const userSchema = new mongoose.Schema({
             type: Number,
             required: true
           }
-        }      
-    }  
+        }
+    }
 }, {collection: 'users'});
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;

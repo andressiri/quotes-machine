@@ -10,7 +10,7 @@ function DeleteQuoteConfirmation ({parentToChild}) {
       <h3 className={`shareIt`} >Are you sure you want to delete this quote?</h3>
       <CancelDeleteBtn parentToChild={parentToChild} />
       <ConfirmDeleteBtn parentToChild={parentToChild} />
-    </div>    
+    </div>
   );
 };
 

@@ -9,7 +9,7 @@ function CopyToClipboardBtn({parentToChild}) {
   const {config} = parentToChild;
   const redirectTo = useRedirectTo();
 
-  async function handleCopyToClipboardBtn () {
+  const handleCopyToClipboardBtn = () => {
     shareChosen.current ='Clipboard';
     let redirectPath = '/box/sharingChoices';
     if (config._id !== 'This was called by QuoteBox') redirectPath = `/wall/${config._id}/wallShareChoice`;

@@ -1,6 +1,6 @@
-import React, {useContext, useState} from "react";
-import {Context} from "../../../Context.js";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import React, {useContext, useState} from 'react';
+import {Context} from '../../../Context.js';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function AutoColorBtn () {
   const {colors} = useContext(Context);
@@ -9,12 +9,12 @@ function AutoColorBtn () {
   const [autoColorChange, setAutoColorChange] = colors.auto;
   const [isLoading, setIsLoading] = useState(false);
   
-  function handleAutoColorBtn () {
+  const handleAutoColorBtn = () => {
     if (isLoading) return;
     setIsLoading(true);
     setAutoColorChange(!autoColorChange);
     setIsLoading(false);
-  };  
+  };
 
   return (
     <div>
@@ -22,11 +22,11 @@ function AutoColorBtn () {
         ? <FontAwesomeIcon
             className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
             onClick={handleAutoColorBtn}
-            icon="check" />
+            icon='check' />
         : <FontAwesomeIcon
             className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
             onClick={handleAutoColorBtn}
-            icon="times" />
+            icon='times' />
       }
     </div>
   );

@@ -17,7 +17,7 @@ function QuoteBox() {
   }, [forceUpdate]);
 
   return (
-    <div id="quote-box" className={`quoteBox BG-color${imgBGColor} text-color${colorNumber}`}> 
+    <div id='quote-box' className={`quoteBox BG-color${imgBGColor} text-color${colorNumber}`}>
       <StartingSetRQ />
       <Quote />
       <RouteContainer />

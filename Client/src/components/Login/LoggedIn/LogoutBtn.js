@@ -9,7 +9,7 @@ function LogoutBtn () {
   const [message, setMessage] = refs.msg;
   const logout = useLogout();
 
-  function handleLogoutBtn() {    
+  const handleLogoutBtn = () => {
     setTimeout(() => {  // Timeout to handle transition
       setMessage('Logged out, log in again?');
     }, 250);
@@ -20,7 +20,7 @@ function LogoutBtn () {
     <button
       className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleLogoutBtn}
-      >Log Out</button>
+    >Log Out</button>
   );
 };
 

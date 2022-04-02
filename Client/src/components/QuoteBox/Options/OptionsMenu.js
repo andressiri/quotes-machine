@@ -23,7 +23,7 @@ function OptionsMenu({parentToChild}) {
       </div>
       <CancelOptionsBtn />
       <SaveOptionsBtn parentToChild={parentToChild} />
-    </div>   
+    </div>
   );
 };
 

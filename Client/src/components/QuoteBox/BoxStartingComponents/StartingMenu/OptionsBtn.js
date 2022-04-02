@@ -8,15 +8,14 @@ function OptionsBtn({parentToChild}) {
   const {colors, refs, edit} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [loggedIn, setLoggedIn] = refs.logged;
   const [configBackup, setConfigBackup] = edit.cBackup;
   const stopAuto = useStopAuto();
   const redirectTo = useRedirectTo();
 
-  async function handleOptionsBtn () {
+  const handleOptionsBtn = () => {
     stopAuto();
     setConfigBackup(parentToChild.config);
-    redirectTo('/box/options'); 
+    redirectTo('/box/options');
   };
 
   return (

@@ -16,9 +16,9 @@ function SharingEditOkBtn ({parentToChild}) {
   const {config} = parentToChild;
   const shareImg = useShareImg();
   const redirectTo = useRedirectTo();
-  const restartDefault = useRestartDefault();  
+  const restartDefault = useRestartDefault();
   
-  async function handleSharingEditOkBtn () {
+  const handleSharingEditOkBtn = async () => {
     const msg = await shareImg(quoteRef, config);
     setMessage(`Quote image has been shared on ${shareChosen.current}`);
     if (msg === 'There was an error getting the image, try again') setMessage(msg);
@@ -29,12 +29,12 @@ function SharingEditOkBtn ({parentToChild}) {
       setConfigBackup(config);
     };
     redirectTo('/box/message');
-  }; 
+  };
 
   return (
     <button
-    className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
-    onClick={handleSharingEditOkBtn}
+      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+      onClick={handleSharingEditOkBtn}
     >Share</button>
   );
 };

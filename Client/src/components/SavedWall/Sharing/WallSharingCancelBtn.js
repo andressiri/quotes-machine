@@ -9,13 +9,13 @@ function WallSharingCancelBtn ({parentToChild}) {
   const [message, setMessage] = refs.msg;
   const emailReference = refs.email;
   const redirectTo = useRedirectTo();
-  const {config} = parentToChild; 
+  const {config} = parentToChild;
   
-  async function handleWallSharingCancelBtn () {
+  const handleWallSharingCancelBtn = () => {
     if (shareChosen.current === 'Email') emailReference.current = '';
     setMessage('Sharing canceled');
-    redirectTo(`/wall/${config._id}/message`);      
-  }; 
+    redirectTo(`/wall/${config._id}/message`);
+  };
 
   return (
     <FontAwesomeIcon

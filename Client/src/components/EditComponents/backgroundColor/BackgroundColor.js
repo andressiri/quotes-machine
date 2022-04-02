@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import WhiteBG from './WhiteBG.js';
 import RedBG from './RedBG.js';
 import OrangeBG from './OrangeBG.js';
@@ -14,7 +14,7 @@ function BackgroundColor ({parentToChild}) {
 
   return (
     <div className={`editGroup BG-color${config.imgBG} text-color${config.colorNum}`}>
-      <p className={`text-color${config.colorNum}`}  style={{marginRight: "5px"}}>BackG</p>
+      <p className={`text-color${config.colorNum}`}  style={{marginRight: '5px'}}>BackG</p>
       <div>
         <WhiteBG parentToChild={parentToChild} />
         <RedBG parentToChild={parentToChild} />
@@ -26,8 +26,8 @@ function BackgroundColor ({parentToChild}) {
         <VioletBG parentToChild={parentToChild} />
         <BlackBG parentToChild={parentToChild} />
       </div>
-      <p className={`text-color${config.colorNum}`} style={{marginLeft: "5px"}}>BackG</p>
-    </div>    
+      <p className={`text-color${config.colorNum}`} style={{marginLeft: '5px'}}>BackG</p>
+    </div>
   );
 };
 

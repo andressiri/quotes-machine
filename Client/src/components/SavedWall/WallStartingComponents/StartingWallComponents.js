@@ -18,7 +18,7 @@ function StartingWallComponents({parentToChild}) {
       <p className={`text-color${config.colorNum}`}>
       <FontAwesomeIcon className={`quoteIcon`} icon='globe-americas' /> 
       {` ${savedDate}`} at {savedDateTime}</p>
-    </div>   
+    </div>
   );
 };
 

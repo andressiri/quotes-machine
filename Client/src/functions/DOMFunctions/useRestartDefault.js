@@ -10,9 +10,9 @@ function useRestartDefault () {
   const [italicFont, setItalicFont] = edit.italicF;
   const [upperFont, setUpperFont] = edit.upperF;
   const [fSize, setFSize] = edit.fontS;
-  const [configBackup, setConfigBackup] = edit.cBackup; 
-    
-  const restartDefault = function resetConfig () {
+  const [configBackup, setConfigBackup] = edit.cBackup;
+
+  const restartDefault = () => {
     setColorNumber(configBackup.colorNum);
     setImgBGColor(configBackup.imgBG);
     setFontFam(configBackup.fontF);
@@ -20,7 +20,7 @@ function useRestartDefault () {
     setItalicFont(configBackup.italicF);
     setUpperFont(configBackup.upperF);
     setFSize(configBackup.fontS);
-  };  
+  };
   return restartDefault;
 };
 

@@ -11,16 +11,16 @@ function EmailShareBtn({parentToChild}) {
   const redirectTo = useRedirectTo();
   const checkLoginCondition = useCheckLoginCondition();
 
-  function handleEmailShareBtn () {
+  const handleEmailShareBtn = () => {
     if (checkLoginCondition()) {
       shareChosen.current = 'Email';
       let redirectPath = '/box/sharingChoices';
       if (config._id !== 'This was called by QuoteBox') redirectPath = `/wall/${config._id}/wallShareChoice`;
       redirectTo(redirectPath);
     };
-  };  
+  };
 
-  return (    
+  return (
     <FontAwesomeIcon
       className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
       onClick={handleEmailShareBtn}

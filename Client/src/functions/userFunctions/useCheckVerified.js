@@ -7,13 +7,13 @@ function useCheckVerified () {
   const [verified, setVerified] = refs.ver;
   const redirectTo = useRedirectTo();
     
-  const checkVerified = function checkAndRedirect () {
+  const checkVerified = () => {
     if (verified) {
       redirectTo('/box/loggedIn');
     } else {
       redirectTo('/box/verifyEmail');
     };
-  };  
+  };
   return checkVerified;
 };
 

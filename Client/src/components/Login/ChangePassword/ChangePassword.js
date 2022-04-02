@@ -19,7 +19,7 @@ function ChangePassword() {
     auxString = 'Go back';
   };
 
-  function handleGoBack() {
+  const handleGoBack = () => {
     emailReference.current = '';
     setTimeout(() => {  // Timeout to handle transition
       setMessage('');
@@ -31,7 +31,7 @@ function ChangePassword() {
     <div>
       <p className={`shareIt`} >Create your new password</p>
       {message !== '' && <p className={`shareIt`} >{message}</p>}
-      <form id="changePasswordForm">
+      <form id='changePasswordForm'>
         <PasswordInput />
         <Password2Input />
         <ChangePasswordBtn />

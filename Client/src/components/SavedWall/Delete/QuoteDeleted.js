@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
 import DeletedOkBtn from './DeletedOkBtn.js';
 
@@ -13,7 +13,7 @@ function QuoteDeleted ({parentToChild}) {
         &&  <p className={`shareIt`}
               >{message}</p>}
       <DeletedOkBtn parentToChild={parentToChild} />
-    </div>    
+    </div>
   );
 };
 

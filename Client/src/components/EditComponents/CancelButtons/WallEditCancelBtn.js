@@ -9,13 +9,13 @@ function WallEditCancelBtn ({parentToChild}) {
   const [message, setMessage] = refs.msg;
   const redirectTo = useRedirectTo();
   const cancelEdition = useCancelEdition();
-  const {config, index} = parentToChild; 
+  const {config, index} = parentToChild;
   
-  async function handleWallEditCancelBtn () {
+  const handleWallEditCancelBtn = () => {
     setMessage('Edition has been canceled');
     cancelEdition(index);
-    redirectTo(`/wall/${config._id}/message`);      
-  }; 
+    redirectTo(`/wall/${config._id}/message`);
+  };
 
   return (
     <FontAwesomeIcon

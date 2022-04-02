@@ -16,7 +16,7 @@ function CustomQuoteBtn() {
   const redirectTo = useRedirectTo();
   const checkLoginCondition = useCheckLoginCondition();
 
-  async function handleCustomQuoteBtn () {
+  const handleCustomQuoteBtn = () => {
     stopAuto();
     if (checkLoginCondition()) {
       setFadeQuote('Out');

@@ -13,7 +13,7 @@ function useCreateQuoteObj () {
   const [upperFont, setUpperFont] = edit.upperF;
   const [fSize, setFSize] = edit.fontS;
     
-  const createQuoteObj = function createQuoteObject (custom) {
+  const createQuoteObj = (custom) => {
     const quoteObj = {
       content: quoteText,
       author: author,

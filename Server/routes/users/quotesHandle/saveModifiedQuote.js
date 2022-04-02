@@ -6,7 +6,7 @@ const checkAuthenticated = require('../../../config/checkAuthenticated.js');
 // UserQuotes model
 const UserQuotes = require('../../../models/UserQuotes.js');
 
-saveModifiedQuoteRouter.put('/', 
+saveModifiedQuoteRouter.put('/',
   rateLimiter.max2500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,
   checkAuthenticated,
@@ -40,9 +40,8 @@ saveModifiedQuoteRouter.put('/',
           console.log(err);
           res.status(500).json({message: 'There was an error finding or updating the quote'});
         });
-          
     };
-  }  
+  }
 );
 
 module.exports = saveModifiedQuoteRouter;

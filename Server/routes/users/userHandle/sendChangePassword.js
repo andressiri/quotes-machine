@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const sendChangePasswordRouter = express.Router();
 const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
 const mailer = require('../../../config/mailer.js');
@@ -14,14 +14,14 @@ sendChangePasswordRouter.post('/',
   rateLimiter.multipleClickingLimiter.prevent,
   // prevent too many mails sent
   rateLimiter.tooManyMailsSent.prevent,
-  async (req, res) => {
+  (req, res) => {
       // check correct data was sent in the request
     if (!req.body.email || !validateEmail(req.body.email)) {
       console.log('Not valid email');
       res.status(412).json({message: 'Please enter a valid email'});
     } else {
       // check if user to change password exists
-      await User.findOne({email: req.body.email})
+      User.findOne({email: req.body.email})
         .then(async (user) => {
           if (!user) {
             console.log('Email not registered');
@@ -52,14 +52,14 @@ sendChangePasswordRouter.post('/',
               const emailSuccess = await mailer.sendEmail(user.email, 'Quotes machine password recovery', mailTemplate);
               if (emailSuccess.accepted[0] === `${user.email}`) {
                 console.log(`Email sent to ${user.email}`);
-                res.status(201).json({message: 'Email sent with the code'});  
+                res.status(201).json({message: 'Email sent with the code'});
                 console.log(`code: ${req.session.code}`);
               } else {
                 console.log('Mail rejected');
-                res.status(500).json({message: `There was a problem sending the email, please try again`});  
-              };  
+                res.status(500).json({message: `There was a problem sending the email, please try again`});
+              };
             };
-          }; 
+          };
         })
         .catch(err => {
           console.log(err);

@@ -10,7 +10,7 @@ function BoxMessages () {
     <div>
       {message !== '' && <p className={`shareIt`} >{message}</p>}
       <BoxAcceptBtn />
-    </div>    
+    </div>
   );
 };
 

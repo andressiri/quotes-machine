@@ -12,13 +12,13 @@ function AutoBtn () {
   const [autoTime, setAutoTime] = auto.aTime;
   const [autoSeconds, setAutoSeconds] = auto.sec;
   const [autoTimer, setAutoTimer] = auto.timer;
-  const [isLoading, setIsLoading] = useState(false); 
+  const [isLoading, setIsLoading] = useState(false);
   const newQuote = useNewQuote();
   const stopAuto = useStopAuto();
   let autoText = imgBGColor;
   let autoBG = colorNumber;
   let autoOnOff = 'autoBtn autoBtnOff';
-    
+
   if (autoClass) {
     autoText = colorNumber;
     autoBG = imgBGColor;
@@ -29,12 +29,12 @@ function AutoBtn () {
     if (autoSeconds === 0 || autoTimer === 'Interval is off') setAutoSeconds(autoTime/1000);
   }, [autoSeconds]);
   
-  async function handleAutoBtn() {
+  const handleAutoBtn = () => {
     if (isLoading) return;
     setIsLoading(true);
     if (handleAuto === 'Interval is off') {
       setAutoClass(true);
-      newQuote();    
+      newQuote();
       setHandleAuto(setInterval(newQuote, autoTime));
       setAutoTimer(setInterval(() => {
         setAutoSeconds(autoSeconds => autoSeconds - 1);
@@ -52,7 +52,7 @@ function AutoBtn () {
     <button
       className={`${autoOnOff} text-color${autoText} BG-color${autoBG}`}
       onClick={handleAutoBtn}
-      >Auto</button>
+    >Auto</button>
   );
 };
 

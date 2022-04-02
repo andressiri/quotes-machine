@@ -9,8 +9,8 @@ function EmailInput () {
 
   return (
     <input
-      type="email"
-      placeholder="Email..."
+      type='email'
+      placeholder='Email...'
       className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
       onChange={(event) => setEmailValue(event.target.value)}
     />

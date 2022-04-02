@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import {Context} from "../../../Context.js";
+import React, {useContext} from 'react';
+import {Context} from '../../../Context.js';
 
 function MonospaceFF ({parentToChild}) {
   const {edit, quote, force} = useContext(Context);
@@ -9,31 +9,32 @@ function MonospaceFF ({parentToChild}) {
   const {config, index} = parentToChild;
   let monospaceBGColor = config.imgBG;
   let monospaceTxtColor = config.colorNum;
+  const font = '"Courier New", Courier, monospace';
 
-  if (config.fontF === '"Courier New", Courier, monospace') {
+  if (config.fontF === font) {
     monospaceBGColor = config.colorNum;
     monospaceTxtColor = config.imgBG;
-  }; 
+  };
 
-  function handleMonospaceFF () {
+  const handleMonospaceFF = () => {
     if (config._id === 'This was called by QuoteBox') {
-      setFontFam('"Courier New", Courier, monospace');
+      setFontFam(font);
     } else {
       let auxArray = savedQuotesArray;
       let auxObj = auxArray[index];
-      auxObj.fontF = '"Courier New", Courier, monospace';
+      auxObj.fontF = font;
       auxArray[index] = auxObj;
       setSavedQuotesArray(auxArray);
       setForceUpdate(forceUpdate => forceUpdate + 1);
-    };  
+    };
   };
 
   return (
     <button
       className={`editBtn fFam BG-color${monospaceBGColor} text-color${monospaceTxtColor}`}
-      style={{fontFamily: '"Courier New", Courier, monospace'}}
+      style={{fontFamily: font}}
       onClick={handleMonospaceFF}
-      ><div id="monospaceBtn">Aa</div></button>
+    ><div id='monospaceBtn'>Aa</div></button>
   );
 };
 

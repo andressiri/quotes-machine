@@ -7,10 +7,10 @@ import useRestartDefault from '../functions/DOMFunctions/useRestartDefault.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function CancelBtn () {
-  const {colors, quote, fade, refs, edit, gall} = useContext(Context);
+  const {colors, quote, fade, refs, gall} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [quoteText, setQuoteText] = quote.quoteTxt;  
+  const [quoteText, setQuoteText] = quote.quoteTxt;
   const [author, setAuthor] = quote.auth;
   const [fadeQuote, setFadeQuote] = fade.fadQ;
   const shareChosen = refs.sChosen;
@@ -25,11 +25,11 @@ function CancelBtn () {
   const location = useLocation();
   let hideCancelBtn = true;
 
-  if (!(['/box/app'].includes(location.pathname))) {  
+  if (!(['/box/app'].includes(location.pathname))) {
      hideCancelBtn = false;
   };
 
-  function handleCancel () {
+  const handleCancelBtn = () => {
     setTimeout(() => {  // Timeout to handle transition
       setMessage('');
     }, 250);
@@ -60,7 +60,7 @@ function CancelBtn () {
     return (
       <FontAwesomeIcon
         className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
-        onClick={handleCancel}
+        onClick={handleCancelBtn}
         icon='times' />
     );
   };

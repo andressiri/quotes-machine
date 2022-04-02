@@ -12,7 +12,7 @@ function TwitterBtn({parentToChild}) {
   const shareTxt = useShareTxt();
   const redirectTo = useRedirectTo();
 
-  function handleTwitter () {
+  const handleTwitter = () => {
     shareChosen.current = 'Twitter';
     shareTxt(config);
     setMessage('Quote has been shared on Twitter');

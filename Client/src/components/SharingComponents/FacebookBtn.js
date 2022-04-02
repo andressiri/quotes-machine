@@ -9,14 +9,14 @@ function FacebookBtn({parentToChild}) {
   const {config} = parentToChild;
   const redirectTo = useRedirectTo();
   
-  function handleFacebookBtn () {
+  const handleFacebookBtn = () => {
     shareChosen.current = 'Facebook';
     let redirectPath = '/box/sharingChoices';
     if (config._id !== 'This was called by QuoteBox') redirectPath = `/wall/${config._id}/wallShareChoice`;
     redirectTo(redirectPath);
-  };  
+  };
 
-  return (    
+  return (
     <FontAwesomeIcon
       className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
       onClick={handleFacebookBtn}

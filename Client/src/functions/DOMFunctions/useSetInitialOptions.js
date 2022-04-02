@@ -12,8 +12,8 @@ function useSetInitialOptions () {
   const [italicFont, setItalicFont] = edit.italicF;
   const [upperFont, setUpperFont] = edit.upperF;
   const [fSize, setFSize] = edit.fontS;
-    
-  const setInitialOptions = function setTheInitialOptions () {
+
+  const setInitialOptions = () => {
     setRestartDefaultObj(true);
     setAutoColorChange(true);
     setColorNumber(0);
@@ -22,8 +22,8 @@ function useSetInitialOptions () {
     setBoldFont('normal');
     setItalicFont('normal');
     setUpperFont('none');
-    setFSize(35);    
-  };  
+    setFSize(35);
+  };
   return setInitialOptions;
 };
 

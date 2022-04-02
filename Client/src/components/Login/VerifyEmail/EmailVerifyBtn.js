@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Context} from '../../../Context.js';
 
 function EmailVerifyBtn () {
@@ -9,12 +9,12 @@ function EmailVerifyBtn () {
   const emailReference = refs.email;
   const [sendEmailBtnTimer, setSendEmailBtnTimer] = timers.send;
   const [sendWaitMsg, setSendWaitMsg] = timers.sendWait;
-  const [isLoading, setIsLoading] = useState(false);   
+  const [isLoading, setIsLoading] = useState(false);
   let isBlocked = false;
 
-  if (sendEmailBtnTimer !== 0) isBlocked = true;   
+  if (sendEmailBtnTimer !== 0) isBlocked = true;
   
-  async function handleSendEmailVerify(event) {
+  const handleSendEmailVerify = async (event) => {
     event.preventDefault();
     if (isLoading) return;
     if (isBlocked) return setSendWaitMsg(true);
@@ -31,8 +31,7 @@ function EmailVerifyBtn () {
     <button
       className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSendEmailVerify}
-    >{isBlocked ? `${sendEmailBtnTimer}s`: 'Send Email'}
-    </button>
+    >{isBlocked ? `${sendEmailBtnTimer}s`: 'Send Email'}</button>
   );
 };
 

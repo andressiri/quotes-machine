@@ -1,10 +1,9 @@
-
-function changeColorNumber(number) {
-    let num = number;                       
+const changeColorNumber = (number) => {
+    let num = number;
     if (num < 7 ) {  // related to colorChange.scss list length
     num++;
     } else {
-      num = 0;  
+      num = 0;
     };
     return num;
   };

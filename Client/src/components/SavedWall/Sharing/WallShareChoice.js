@@ -6,7 +6,7 @@ import WallSharingCancelBtn from './WallSharingCancelBtn.js';
 import EmailInput from '../../Login/EmailInput.js';
 
 function WallShareChoice ({parentToChild}) {
-  const {refs} = useContext(Context);  
+  const {refs} = useContext(Context);
   const shareChosen = refs.sChosen;
   const [message, setMessage] = refs.msg;
 
@@ -23,7 +23,7 @@ function WallShareChoice ({parentToChild}) {
       <ShareTextBtn parentToChild={parentToChild} />
       <ShareImageBtn parentToChild={parentToChild} />
       <WallSharingCancelBtn parentToChild={parentToChild} />
-    </div>    
+    </div>
   );
 };
 

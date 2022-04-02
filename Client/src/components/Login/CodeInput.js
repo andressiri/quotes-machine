@@ -9,8 +9,8 @@ function CodeInput () {
 
   return (
     <input
-      type="text"
-      placeholder="Enter code here..."
+      type='text'
+      placeholder='Enter code here...'
       className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
       onChange={(event) => setCodeValue(event.target.value)}
     />

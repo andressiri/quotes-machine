@@ -1,13 +1,12 @@
-const LocalStrategy = require("passport-local").Strategy;
-const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
+const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require('bcryptjs');
 
 // Load User Model
-const User = require("../models/User.js");
+const User = require('../models/User.js');
 
 module.exports = passport => {
   passport.use(
-    new LocalStrategy({ passReqToCallback: true, usernameField: "email" }, (req, email, password, done) => {
+    new LocalStrategy({ passReqToCallback: true, usernameField: 'email' }, (req, email, password, done) => {
       // Match User
       User.findOne({ email: email })
         .then((user) => {
@@ -41,7 +40,7 @@ module.exports = passport => {
   
   passport.deserializeUser((id, done) => {
     console.log('Deserialize user');
-    User.findById(id, (err, user) => {      
+    User.findById(id, (err, user) => {
       done(err, user);
     });
   });

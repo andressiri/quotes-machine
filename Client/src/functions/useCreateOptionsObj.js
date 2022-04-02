@@ -6,7 +6,7 @@ function useCreateOptionsObj () {
   const [autoColorChange, setAutoColorChange] = colors.auto;
   const [restartDefaultObj, setRestartDefaultObj] = edit.auto;
     
-  const createOptionsObj = function createOptionsObject (parentObject) {
+  const createOptionsObj = (parentObject) => {
     const auxObj = {
       restartAfterShare: restartDefaultObj,
       automaticColor: autoColorChange,
@@ -18,10 +18,10 @@ function useCreateOptionsObj () {
         italicF: parentObject.italicF,
         upperF: parentObject.upperF,
         fontS: parentObject.fontS
-      } 
+      }
     };
     return auxObj;
-  };  
+  };
   return createOptionsObj;
 };
 
