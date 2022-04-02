@@ -1,37 +1,33 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
+import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWallQuoteState.js';
 
 function BlackBG ({parentToChild}) {
-  const {colors, quote, force} = useContext(Context);
+  const {colors} = useContext(Context);
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [forceUpdate, setForceUpdate] = force.update;
   const {config, index} = parentToChild;
+  const updateWallQuoteState = useUpdateWallQuoteState();
+  const blackNum = 7;
   let blackBGState = '';
 
-  if (config.colorNum === 7) {
+  if (config.colorNum === blackNum) {
     blackBGState = 'buttonDisabled';
   };
-  if (config.imgBG === 7) {
+  if (config.imgBG === blackNum) {
     blackBGState = `buttonEnabled text-color${config.colorNum}`;
   };
 
   const handleBlackBG = () => {
     if (config._id === 'This was called by QuoteBox') {
-      setImgBGColor(7);
+      setImgBGColor(blackNum);
     } else {
-      let auxArray = savedQuotesArray;
-      let auxObj = auxArray[index];
-      auxObj.imgBG = 7;
-      auxArray[index] = auxObj;
-      setSavedQuotesArray(auxArray);
-      setForceUpdate(forceUpdate => forceUpdate + 1);
+      updateWallQuoteState(index, blackNum, 'imgBG');
     };
   };
 
   return (
     <button
-      className={`editBtn BG-color7 ${blackBGState}`}
+      className={`editBtn BG-color${blackNum} ${blackBGState}`}
       onClick={handleBlackBG}
     ></button>
   );

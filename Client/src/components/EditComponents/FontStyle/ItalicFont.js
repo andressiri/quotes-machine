@@ -1,12 +1,12 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
+import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWallQuoteState.js';
 
 function ItalicFont ({parentToChild}) {
-  const {edit, quote, force} = useContext(Context);
+  const {edit} = useContext(Context);
   const [italicFont, setItalicFont] = edit.italicF;
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [forceUpdate, setForceUpdate] = force.update;
   const {config, index} = parentToChild;
+  const updateWallQuoteState = useUpdateWallQuoteState();
   let italicBGColor = config.imgBG;
   let italicTxtColor = config.colorNum;
 
@@ -20,16 +20,9 @@ function ItalicFont ({parentToChild}) {
       if (config.italicF === 'normal') return setItalicFont('italic');
       setItalicFont('normal');
     } else {
-      let auxArray = savedQuotesArray;
-      let auxObj = auxArray[index];
-      if (config.italicF === 'normal') {
-        auxObj.italicF = 'italic';
-      } else {
-        auxObj.italicF = 'normal';
-      };
-      auxArray[index] = auxObj;
-      setSavedQuotesArray(auxArray);
-      setForceUpdate(forceUpdate => forceUpdate + 1);
+      let auxValue = 'normal';
+      if (config.italicF === 'normal') auxValue = 'italic';
+      updateWallQuoteState(index, auxValue, 'italicF');
     };
   };
   

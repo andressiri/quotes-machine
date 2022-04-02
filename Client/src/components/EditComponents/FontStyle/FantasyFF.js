@@ -1,15 +1,15 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
+import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWallQuoteState.js';
 
 function FantasyFF ({parentToChild}) {
-  const {edit, quote, force} = useContext(Context);
+  const {edit} = useContext(Context);
   const [fontFam, setFontFam] = edit.fontF;
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [forceUpdate, setForceUpdate] = force.update;
   const {config, index} = parentToChild;
+  const updateWallQuoteState = useUpdateWallQuoteState();
+  const font = 'Copperplate, Papyrus, fantasy';
   let fantasyBGColor = config.imgBG;
   let fantasyTxtColor = config.colorNum;
-  const font = 'Copperplate, Papyrus, fantasy';
 
   if (config.fontF === font) {
     fantasyBGColor = config.colorNum;
@@ -20,12 +20,7 @@ function FantasyFF ({parentToChild}) {
     if (config._id === 'This was called by QuoteBox') {
       setFontFam(font);
     } else {
-      let auxArray = savedQuotesArray;
-      let auxObj = auxArray[index];
-      auxObj.fontF = font;
-      auxArray[index] = auxObj;
-      setSavedQuotesArray(auxArray);
-      setForceUpdate(forceUpdate => forceUpdate + 1);
+      updateWallQuoteState(index, font, 'fontF');
     };
   };
 

@@ -1,37 +1,33 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
+import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWallQuoteState.js';
 
 function IndigoBG ({parentToChild}) {
-  const {colors, quote, force} = useContext(Context);
+  const {colors} = useContext(Context);
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [forceUpdate, setForceUpdate] = force.update;
   const {config, index} = parentToChild;
+  const updateWallQuoteState = useUpdateWallQuoteState();
+  const indigoNum = 5;
   let indigoBGState = '';
   
-  if (config.colorNum === 5) {
+  if (config.colorNum === indigoNum) {
     indigoBGState = 'buttonDisabled';
   };
-  if (config.imgBG === 5) {
+  if (config.imgBG === indigoNum) {
     indigoBGState = `buttonEnabled text-color${config.colorNum}`;
   };
 
   const handleIndigoBG = () => {
     if (config._id === 'This was called by QuoteBox') {
-      setImgBGColor(5);
+      setImgBGColor(indigoNum);
     } else {
-      let auxArray = savedQuotesArray;
-      let auxObj = auxArray[index];
-      auxObj.imgBG = 5;
-      auxArray[index] = auxObj;
-      setSavedQuotesArray(auxArray);
-      setForceUpdate(forceUpdate => forceUpdate + 1);
+      updateWallQuoteState(index, indigoNum, 'imgBG');
     };
   };
 
   return (
     <button
-      className={`editBtn BG-color5 ${indigoBGState}`}
+      className={`editBtn BG-color${indigoNum} ${indigoBGState}`}
       onClick={handleIndigoBG}
     ></button>
   );
