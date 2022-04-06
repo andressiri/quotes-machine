@@ -4,7 +4,7 @@ import CopyToClipboardBtn from '../../SharingComponents/CopyToClipboardBtn.js';
 import TumblrBtn from '../../SharingComponents/TumblrBtn.js';
 import TwitterBtn from '../../SharingComponents/TwitterBtn.js';
 import FacebookBtn from '../../SharingComponents/FacebookBtn.js';
-import EmailShareBtn from '../../SharingComponents/EmailSharing/EmailShareBtn.js';
+import EmailShareBtn from '../../SharingComponents/EmailShareBtn.js';
 
 function SavedSharingContainer({parentToChild}) {
   

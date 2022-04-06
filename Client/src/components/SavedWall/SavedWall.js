@@ -1,12 +1,12 @@
 import React, {useContext, useEffect} from 'react';
-import {Context} from './../../Context.js';
-import SavedQuote from './SavedQuote.js';
-import WallContainer from './WallContainer.js'
+import {Context} from '../../Context.js';
+import WallQuote from '../WallsComponents/WallQuote.js';
+import WallContainer from '../WallsComponents/WallContainer.js';
 import CancelBtn from '../CancelBtn.js';
-import QuoteDeleted from './Delete/QuoteDeleted.js'
+import WallQuoteDeleted from '../WallsComponents/Delete/WallQuoteDeleted.js';
 
 function SavedWall() {
-  const {colors, quote, fade, force} = useContext(Context);
+  const {colors, quote, force} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
@@ -22,18 +22,23 @@ function SavedWall() {
       <h1>This is your wall</h1>
       <CancelBtn />
       {savedQuotesArray[0] === 'Empty Array'
-        ? <p>Nothing to show</p>
+        ? <h3>Nothing to show</h3>
         : savedQuotesArray[0] === 'Create userQuotes at first save'
           ? <h3>You did not save any quote yet</h3>
           : savedQuotesArray.map((savedQ, i) => {
-            if (savedQ.content) {
+            const parentToChildObj = {
+              config: savedQ,
+              index: i,
+              wall: 'savedWall'
+            };
+            if (savedQ.content) { // when a quote is deleted savedQ will be an object with the id.
               return(
                 <div key={savedQ._id}>
-                  <SavedQuote parentToChild={{config: savedQ, index: i}} />
-                  <WallContainer key={`2${savedQ._id}`} parentToChild={{config: savedQ, index: i}} />
+                  <WallQuote parentToChild={parentToChildObj} />
+                  <WallContainer key={`2${savedQ._id}`} parentToChild={parentToChildObj} />
                 </div>);
             } else {
-              return(<QuoteDeleted key={`3${savedQ._id}`} parentToChild={{config: savedQ, index: i}}/>);
+              return(<WallQuoteDeleted key={`3${savedQ._id}`} parentToChild={parentToChildObj}/>);
             };
           })}
     </div>

@@ -11,7 +11,7 @@ function ShareTextBtn ({parentToChild}) {
   const [message, setMessage] = refs.msg;
   const emailReference = refs.email;
   const [emailValue, setEmailValue] = forms.email;
-  const {config} = parentToChild;
+  const {config, wall} = parentToChild;
   const shareTxt = useShareTxt();
   const redirectTo = useRedirectTo();
   
@@ -24,7 +24,7 @@ function ShareTextBtn ({parentToChild}) {
     setMessage(`Quote has been shared on ${shareChosen.current}`);
     shareChosen.current = '';
     let redirectPath = '/box/message';
-    if (config._id !== 'This was called by QuoteBox') redirectPath = `/wall/${config._id}/message`;
+    if (config._id !== 'This was called by QuoteBox') redirectPath = `/${wall}/${config._id}/wallMessage`;
     redirectTo(redirectPath);
   };
 

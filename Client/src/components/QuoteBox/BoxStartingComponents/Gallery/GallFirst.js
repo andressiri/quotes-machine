@@ -25,7 +25,7 @@ function GallFirst () {
 
   return (
     <p
-      className={`gallBtn${chooseFirst} BG-color${colorNumber} gallOne`}
+      className={`BG-color${colorNumber} gallBtn${chooseFirst} gallOne`}
       onClick={handleGallFirst} />
   );
 };

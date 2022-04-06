@@ -3,16 +3,16 @@ import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-function DeletedOkBtn ({parentToChild}) {
+function WallDeletedOkBtn ({parentToChild}) {
   const {quote, refs, force} = useContext(Context);
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [savedQuotesBackup, setSavedQuotesBackup] = quote.backup;
+  const [savedQuotesBackup, setSavedQuotesBackup] = quote.savedBUp;
   const [message, setMessage] = refs.msg;
   const [forceUpdate, setForceUpdate] = force.update;
-  const {config, index} = parentToChild;
+  const {config, index, wall} = parentToChild;
   const redirectTo = useRedirectTo();
   
-  const handleDeletedOkBtn = () => {
+  const handleWallDeletedOkBtn = () => {
     if (message === 'Quote has been deleted') {
       savedQuotesArray.splice(index, 1);
       savedQuotesBackup.splice(index, 1);
@@ -21,15 +21,15 @@ function DeletedOkBtn ({parentToChild}) {
     setTimeout(() => {  // Timeout to handle transition
       setMessage('');
     }, 250);
-    redirectTo('/wall');
+    redirectTo(`/${wall}`);
   };
 
   return (
     <FontAwesomeIcon
       className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
-      onClick={handleDeletedOkBtn}
+      onClick={handleWallDeletedOkBtn}
       icon='check' />
   );
 };
 
-export default DeletedOkBtn;
+export default WallDeletedOkBtn;

@@ -7,8 +7,10 @@ import SharingEditCancelBtn from './CancelButtons/SharingEditCancelBtn.js';
 import SharingEditOkBtn from './EditOkButtons/SharingEditOkBtn.js';
 import OptionsEditCancelBtn from './CancelButtons/OptionsEditCancelBtn.js';
 import OptionsEditOkBtn from './EditOkButtons/OptionsEditOkBtn.js';
-import WallEditCancelBtn from './CancelButtons/WallEditCancelBtn.js';
-import WallEditOkBtn from './EditOkButtons/WallEditOkBtn.js';
+import SavedEditCancelBtn from './CancelButtons/SavedEditCancelBtn.js';
+import SavedEditOkBtn from './EditOkButtons/SavedEditOkBtn.js';
+import SearchEditCancelBtn from './CancelButtons/SearchEditCancelBtn.js';
+import SearchEditOkBtn from './EditOkButtons/SearchEditOkBtn.js';
 
 function EditSet ({parentToChild}) {
   const location = useLocation();
@@ -28,10 +30,15 @@ function EditSet ({parentToChild}) {
               <OptionsEditCancelBtn parentToChild={parentToChild} />
               <OptionsEditOkBtn parentToChild={parentToChild} />
             </div>
-          : <div>
-              <WallEditCancelBtn parentToChild={parentToChild} />
-              <WallEditOkBtn parentToChild={parentToChild} />
-            </div>
+          : parentToChild.wall === 'savedWall'
+            ? <div>
+                <SavedEditCancelBtn parentToChild={parentToChild} />
+                <SavedEditOkBtn parentToChild={parentToChild} />
+              </div>
+            : <div>
+                <SearchEditCancelBtn parentToChild={parentToChild} />
+                <SearchEditOkBtn parentToChild={parentToChild} />
+              </div>
       }
     </div>
   );

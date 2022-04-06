@@ -13,6 +13,8 @@ export const ContextProvider = (props) => {
   const [author, setAuthor] = useState('Andrés Siri');
   const [savedQuotesArray, setSavedQuotesArray] = useState(['Empty Array']);
   const [savedQuotesBackup, setSavedQuotesBackup] = useState(['Empty Array']);
+  const [searchArray, setSearchArray] = useState(['Empty Array']);
+  const [searchBackup, setSearchBackup] = useState(['Empty Array']);
   //fade
   const [fadeWall, setFadeWall] = useState('In');
   const [fadeQuote, setFadeQuote] = useState('In');
@@ -32,6 +34,8 @@ export const ContextProvider = (props) => {
   const [verified, setVerified] = useState(false);
   const emailReference = useRef('');
   const auxRef = useRef('');
+  const [searchByQuote, setSearchByQuote] = useState(true);
+  const [searchByAuthor, setSearchByAuthor] = useState(false);
   //Edit menu
   const [fontFam, setFontFam] = useState('Arial, Helvetica, sans-serif');
   const [boldFont, setBoldFont] = useState('normal');
@@ -59,6 +63,7 @@ export const ContextProvider = (props) => {
   const [codeValue, setCodeValue] = useState('');
   const [customQuoteValue, setCustomQuoteValue] = useState('');
   const [customAuthorValue, setCustomAuthorValue] = useState('');
+  const [searchValue, setSearchValue] = useState('');
   //timers
   const [checkCodeBtnTimer, setCheckCodeBtnTimer] = useState(0);
   const [checkCodeInterval, setCheckCodeInterval] = useState('Interval is off');
@@ -81,7 +86,9 @@ export const ContextProvider = (props) => {
         quoteTxt: [quoteText, setQuoteText],
         auth: [author, setAuthor],
         saved: [savedQuotesArray, setSavedQuotesArray],
-        backup: [savedQuotesBackup, setSavedQuotesBackup]
+        savedBUp: [savedQuotesBackup, setSavedQuotesBackup],
+        search: [searchArray, setSearchArray],
+        searchBUp: [searchBackup, setSearchBackup]
       },
       fade: {
         fadW: [fadeWall, setFadeWall],
@@ -103,7 +110,9 @@ export const ContextProvider = (props) => {
         logged: [loggedIn, setLoggedIn],
         ver: [verified, setVerified],
         email: emailReference,
-        aux: auxRef
+        aux: auxRef,
+        byQuote: [searchByQuote, setSearchByQuote],
+        byAuthor: [searchByAuthor, setSearchByAuthor]
       },
       edit: {
         fontF: [fontFam, setFontFam],
@@ -125,7 +134,8 @@ export const ContextProvider = (props) => {
         pass2: [password2Value, setPassword2Value],
         code: [codeValue, setCodeValue],
         customQ: [customQuoteValue, setCustomQuoteValue],
-        customA: [customAuthorValue, setCustomAuthorValue]
+        customA: [customAuthorValue, setCustomAuthorValue],
+        search: [searchValue, setSearchValue]
       },
       timers: {
         check: [checkCodeBtnTimer, setCheckCodeBtnTimer],

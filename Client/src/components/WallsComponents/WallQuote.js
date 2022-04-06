@@ -1,9 +1,7 @@
-import React, {useContext, useRef} from 'react';
-import {Context} from './../../Context.js';
+import React, {useRef} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-function SavedQuote({parentToChild}) {
-  const {refs} = useContext(Context);
+function WallQuote({parentToChild}) {
   const {config} = parentToChild;
   window[`ref${config._id}`] = useRef();
   let adjustFontSize = config.fontS - 15;
@@ -37,4 +35,4 @@ function SavedQuote({parentToChild}) {
   );
 };
 
-export default SavedQuote;
+export default WallQuote;

@@ -15,8 +15,8 @@ function useRedirectToWall () {
     let delay = 250;
     let auxString = 'Out';
     //Handle first wall load
-    if (savedQuotesArray[0] === 'Empty Array') {
-      delay = 1050;
+    if (path === '/savedWall' && savedQuotesArray[0] === 'Empty Array') {
+      delay = 850;
       auxString = 'OutLonger';
     };
     setFadeWall(auxString);
