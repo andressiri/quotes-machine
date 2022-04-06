@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../../Context.js';
 import useStopAuto from '../../../../functions/quoteFunctions/useStopAuto.js'; 
-import useRedirectTo from '../../../../functions/useRedirectTo.js';
+import useRedirectToWall from '../../../../functions/useRedirectToWall.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function SearchBtn() {
@@ -9,12 +9,11 @@ function SearchBtn() {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const stopAuto = useStopAuto();
-  const redirectTo = useRedirectTo();
+  const redirectToWall = useRedirectToWall();
 
   const handleSearchBtn = () => {
     stopAuto();
-    //Will go to a wall similar to saved wall
-    console.log('Still in construction');
+    redirectToWall('/searchWall');
   };
 
   return (

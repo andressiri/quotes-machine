@@ -12,7 +12,7 @@ function ShareImageBtn ({parentToChild}) {
   const [message, setMessage] = refs.msg;
   const emailReference = refs.email;
   const [emailValue, setEmailValue] = forms.email;
-  const {config} = parentToChild;
+  const {config, wall} = parentToChild;
   const shareImg = useShareImg();
   const redirectTo = useRedirectTo();
   
@@ -24,7 +24,7 @@ function ShareImageBtn ({parentToChild}) {
     let redirectPath = '/box/message';
     let msg = '';
     if (config._id !== 'This was called by QuoteBox') {
-      redirectPath = `/wall/${config._id}/message`;
+      redirectPath = `/${wall}/${config._id}/wallMessage`;
       msg = await shareImg(window[`ref${config._id}`], config);
     } else {
       msg = await shareImg(quoteRef, config);

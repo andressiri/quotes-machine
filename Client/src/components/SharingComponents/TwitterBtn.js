@@ -8,7 +8,7 @@ function TwitterBtn({parentToChild}) {
   const {refs} = useContext(Context);
   const shareChosen = refs.sChosen;
   const [message, setMessage] = refs.msg;
-  const {config} = parentToChild;
+  const {config, wall} = parentToChild;
   const shareTxt = useShareTxt();
   const redirectTo = useRedirectTo();
 
@@ -17,7 +17,7 @@ function TwitterBtn({parentToChild}) {
     shareTxt(config);
     setMessage('Quote has been shared on Twitter');
     let redirectPath = '/box/message';
-    if (config._id !== 'This was called by QuoteBox') redirectPath = `/wall/${config._id}/message`;
+    if (config._id !== 'This was called by QuoteBox') redirectPath = `/${wall}/${config._id}/wallMessage`;
     shareChosen.current = '';
     redirectTo(redirectPath);
   };

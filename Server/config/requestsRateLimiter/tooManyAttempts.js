@@ -11,7 +11,7 @@ const tooManyAttemptsCallback = (req, res, next, nextValidRequestDate) => {
 // Prevent too many attempts for the same ip
 module.exports = store => {
   return new ExpressBrute(store, {
-    freeRetries: 4,
+    freeRetries: 9,
     minWait: 2*60*1000, // 2 minutes
     maxWait: 60*60*1000, // 1 hour,
     failCallback: tooManyAttemptsCallback,

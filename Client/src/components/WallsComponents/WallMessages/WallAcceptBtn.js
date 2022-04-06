@@ -6,7 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 function WallAcceptBtn ({parentToChild}) {
   const {refs} = useContext(Context);
   const [message, setMessage] = refs.msg;
-  const {config} = parentToChild;
+  const {config, wall} = parentToChild;
   const redirectTo = useRedirectTo();
 
   
@@ -14,7 +14,7 @@ function WallAcceptBtn ({parentToChild}) {
     setTimeout(() => {  // Timeout to handle transition
       setMessage('');
     }, 250);
-    redirectTo('/wall');
+    redirectTo(`/${wall}`);
   };
 
   return (

@@ -2,20 +2,20 @@ import React from 'react';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-function SavedSharingBtn({parentToChild}) {
-  const {config} = parentToChild;
+function WallEditBtn ({parentToChild}) {
+  const {config, wall} = parentToChild;
   const redirectTo = useRedirectTo();
-
-  const handleSavedSharingBtn = () => {
-    redirectTo(`/wall/${config._id}/wallSharing`);
+  
+  const handleWallEditBtn = () => {
+    redirectTo(`/${wall}/${config._id}/wallEdit`);
   };
 
   return (
     <FontAwesomeIcon
       className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
-      onClick={handleSavedSharingBtn}
-      icon='share-alt' />
+      onClick={handleWallEditBtn}
+      icon='pen' />
   );
 };
 
-export default SavedSharingBtn;
+export default WallEditBtn;

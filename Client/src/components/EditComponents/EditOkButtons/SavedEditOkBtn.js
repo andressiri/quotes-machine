@@ -3,16 +3,16 @@ import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-function WallEditOkBtn ({parentToChild}) {
+function SavedEditOkBtn ({parentToChild}) {
   const {quote, refs, edit} = useContext(Context);
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [savedQuotesBackup, setSavedQuotesBackup] = quote.backup;
+  const [savedQuotesBackup, setSavedQuotesBackup] = quote.savedBUp;
   const [message, setMessage] = refs.msg;
   const [isLoading, setIsLoading] = useState(false);
-  const {config, index} = parentToChild;
+  const {config, index, wall} = parentToChild;
   const redirectTo = useRedirectTo();
   
-  const handleWallEditOkBtn = async () => {
+  const handleSavedEditOkBtn = async () => {
     if (isLoading) return;
     setMessage('There are no changes to save');
     // check if there are changes to save
@@ -37,15 +37,15 @@ function WallEditOkBtn ({parentToChild}) {
       setMessage(json.message);
       setIsLoading(false);
     };
-    redirectTo(`/wall/${config._id}/message`);
+    redirectTo(`/${wall}/${config._id}/wallMessage`);
   };
 
   return (
     <FontAwesomeIcon
       className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
-      onClick={handleWallEditOkBtn}
+      onClick={handleSavedEditOkBtn}
       icon='check' />
   );
 };
 
-export default WallEditOkBtn;
+export default SavedEditOkBtn;

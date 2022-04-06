@@ -6,13 +6,13 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 function CopyToClipboardBtn({parentToChild}) {
   const {refs} = useContext(Context);
   const shareChosen = refs.sChosen;
-  const {config} = parentToChild;
+  const {config, wall} = parentToChild;
   const redirectTo = useRedirectTo();
 
   const handleCopyToClipboardBtn = () => {
     shareChosen.current ='Clipboard';
     let redirectPath = '/box/sharingChoices';
-    if (config._id !== 'This was called by QuoteBox') redirectPath = `/wall/${config._id}/wallShareChoice`;
+    if (config._id !== 'This was called by QuoteBox') redirectPath = `/${wall}/${config._id}/wallShareChoice`;
     redirectTo(redirectPath);
   };
 

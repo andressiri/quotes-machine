@@ -45,7 +45,7 @@ function CancelBtn () {
     shareChosen.current = '';
     emailReference.current = '';
     auxRef.current = '';
-    if (/\/wall/.test(location.pathname)) {
+    if (/Wall/.test(location.pathname)) {
       redirectToWall('/box/app');
     } else {
       redirectTo('/box/app');

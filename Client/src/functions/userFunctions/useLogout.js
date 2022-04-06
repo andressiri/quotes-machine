@@ -6,7 +6,7 @@ import useSetInitialOptions from '../DOMFunctions/useSetInitialOptions.js';
 function useLogout () {
   const {quote, refs} = useContext(Context);
   const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [savedQuotesBackup, setSavedQuotesBackup] = quote.backup;
+  const [savedQuotesBackup, setSavedQuotesBackup] = quote.savedBUp;
   const [message, setMessage] = refs.msg;
   const [loggedIn, setLoggedIn] = refs.logged;
   const [verified, setVerified] = refs.ver;

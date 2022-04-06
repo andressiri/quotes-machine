@@ -11,15 +11,15 @@ function OptionsMenu({parentToChild}) {
       <h2>Options</h2>
       <div style={{display: 'flex'}} >
         <RestartDefaultBtn />
-        <p>Restart config after sharing</p>
+        <h4>Restart config after sharing</h4>
       </div>
       <div style={{display: 'flex'}} >
         <AutoColorBtn />
-        <p>Automatic color change</p>
+        <h4>Automatic color change</h4>
       </div>
       <div style={{display: 'flex'}} >
         <OptionsEditBtn parentToChild={parentToChild}/>
-        <p>Quote customize</p>
+        <h4>Quote customize</h4>
       </div>
       <CancelOptionsBtn />
       <SaveOptionsBtn parentToChild={parentToChild} />

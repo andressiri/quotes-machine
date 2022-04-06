@@ -2,23 +2,23 @@ import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 
-function CancelDeleteBtn ({parentToChild}) {
+function WallCancelDeleteBtn ({parentToChild}) {
   const {refs} = useContext(Context);
   const [message, setMessage] = refs.msg;
-  const {config} = parentToChild;
+  const {config, wall} = parentToChild;
   const redirectTo = useRedirectTo();
 
-  const handleCancelDeleteBtn = () => {
+  const handleWallCancelDeleteBtn = () => {
     setMessage('Quote elimination canceled');
-    redirectTo(`/wall/${config._id}/message`);
+    redirectTo(`/${wall}/${config._id}/wallMessage`);
   };
 
   return (
     <button
       className={`NQbtn BG-color${config.colorNum} text-color${config.imgBG}`}
-      onClick={handleCancelDeleteBtn}
+      onClick={handleWallCancelDeleteBtn}
     >No, thanks</button>
   );
 };
 
-export default CancelDeleteBtn;
+export default WallCancelDeleteBtn;

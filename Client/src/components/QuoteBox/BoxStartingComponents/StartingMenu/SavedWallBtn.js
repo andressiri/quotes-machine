@@ -27,7 +27,7 @@ function SavedWallBtn() {
         getSavedQuotes();
       };
       setIsLoading(false);
-      redirectToWall('/wall');
+      redirectToWall('/savedWall');
     };
   };
 

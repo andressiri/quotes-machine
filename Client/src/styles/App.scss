@@ -18,7 +18,7 @@
 
 .fadeRouteIn {
   opacity: 1;
-  transition: opacity 0.5s linear;
+  transition: opacity 0.3s linear;
 }
 
 .fadeRouteOut {
@@ -28,7 +28,7 @@
 
 .fadeWallIn {
   opacity: 1;
-  transition: opacity 0.5s linear;
+  transition: opacity 0.3s linear;
 }
 
 .fadeWallOut {
@@ -38,5 +38,5 @@
 
 .fadeWallOutLonger {
   opacity: 0;
-  transition: opacity 1s linear;
+  transition: opacity 0.8s linear;
 }

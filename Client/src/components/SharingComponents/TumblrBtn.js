@@ -6,13 +6,13 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 function TumblrBtn({parentToChild}) {
   const {refs} = useContext(Context);
   const shareChosen = refs.sChosen;
-  const {config} = parentToChild;
+  const {config, wall} = parentToChild;
   const redirectTo = useRedirectTo();
   
   const handleTumblr = () => {
     shareChosen.current = 'Tumblr';
     let redirectPath = '/box/sharingChoices';
-    if (config._id !== 'This was called by QuoteBox') redirectPath = `/wall/${config._id}/wallShareChoice`;
+    if (config._id !== 'This was called by QuoteBox') redirectPath = `/${wall}/${config._id}/wallShareChoice`;
     redirectTo(redirectPath);
   };
 

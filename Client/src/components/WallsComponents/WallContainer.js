@@ -5,7 +5,7 @@ import WallSharingContainer from './Sharing/WallSharingContainer.js';
 import WallShareChoice from './Sharing/WallShareChoice.js';
 import EditSet from '../EditComponents/EditSet.js';
 import WallMessages from './WallMessages/WallMessages.js';
-import DeleteQuoteConfirmation from './Delete/DeleteQuoteConfirmation.js';
+import WallDeleteConfirmation from './Delete/WallDeleteConfirmation.js';
 
 function WallContainer({parentToChild}) {
   const {config} = parentToChild;
@@ -16,9 +16,9 @@ function WallContainer({parentToChild}) {
         <Route path={`/*`} exact element={<StartingWallComponents parentToChild={parentToChild} />} />
         <Route path={`/${config._id}/wallSharing`} exact element={<WallSharingContainer parentToChild={parentToChild} />} />
         <Route path={`/${config._id}/wallShareChoice`} exact element={<WallShareChoice parentToChild={parentToChild} />} />
-        <Route path={`/${config._id}/editSaved`} exact element={<EditSet parentToChild={parentToChild} />} />
-        <Route path={`/${config._id}/message`} exact element={<WallMessages parentToChild={parentToChild} />} />
-        <Route path={`/${config._id}/deleteConfirm`} exact element={<DeleteQuoteConfirmation parentToChild={parentToChild} />} />
+        <Route path={`/${config._id}/wallEdit`} exact element={<EditSet parentToChild={parentToChild} />} />
+        <Route path={`/${config._id}/wallMessage`} exact element={<WallMessages parentToChild={parentToChild} />} />
+        <Route path={`/${config._id}/wallDeleteConfirm`} exact element={<WallDeleteConfirmation parentToChild={parentToChild} />} />
       </Routes>
     </div>
   );

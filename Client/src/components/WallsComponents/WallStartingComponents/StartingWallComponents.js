@@ -1,7 +1,7 @@
 import React from 'react';
-import SavedSharingBtn from '../Sharing/SavedSharingBtn.js';
-import SavedEditBtn from '../Edit/SavedEditBtn.js';
-import SavedDeleteBtn from '../Delete/SavedDeleteBtn.js';
+import WallSharingBtn from '../Sharing/WallSharingBtn.js';
+import WallEditBtn from '../Edit/WallEditBtn.js';
+import WallDeleteBtn from '../Delete/WallDeleteBtn.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function StartingWallComponents({parentToChild}) {
@@ -12,9 +12,9 @@ function StartingWallComponents({parentToChild}) {
 
   return (
     <div>
-      <SavedSharingBtn parentToChild={parentToChild} />
-      <SavedEditBtn parentToChild={parentToChild} />
-      <SavedDeleteBtn parentToChild={parentToChild} />
+      <WallSharingBtn parentToChild={parentToChild} />
+      <WallEditBtn parentToChild={parentToChild} />
+      <WallDeleteBtn parentToChild={parentToChild} />
       <p className={`text-color${config.colorNum}`}>
       <FontAwesomeIcon className={`quoteIcon`} icon='globe-americas' /> 
       {` ${savedDate}`} at {savedDateTime}</p>

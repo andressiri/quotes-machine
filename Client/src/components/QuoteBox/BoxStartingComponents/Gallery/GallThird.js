@@ -30,7 +30,7 @@ function GallThird () {
 
   return (
     <p
-      className={`gallBtn${chooseThird} BG-color${colorNumber} ${disableThird}`}
+      className={`BG-color${colorNumber} gallBtn${chooseThird} ${disableThird}`}
       onClick={handleGallThird} />
   );
 };

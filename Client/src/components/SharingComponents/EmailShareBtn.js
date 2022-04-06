@@ -1,13 +1,13 @@
 import React, {useContext} from 'react';
-import {Context} from '../../../Context.js';
-import useRedirectTo from '../../../functions/useRedirectTo.js';
-import useCheckLoginCondition from '../../../functions/userFunctions/useCheckLoginCondition.js';
+import {Context} from '../../Context.js';
+import useRedirectTo from '../../functions/useRedirectTo.js';
+import useCheckLoginCondition from '../../functions/userFunctions/useCheckLoginCondition.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function EmailShareBtn({parentToChild}) {
   const {refs} = useContext(Context);
   const shareChosen = refs.sChosen;
-  const {config} = parentToChild;
+  const {config, wall} = parentToChild;
   const redirectTo = useRedirectTo();
   const checkLoginCondition = useCheckLoginCondition();
 
@@ -15,7 +15,7 @@ function EmailShareBtn({parentToChild}) {
     if (checkLoginCondition()) {
       shareChosen.current = 'Email';
       let redirectPath = '/box/sharingChoices';
-      if (config._id !== 'This was called by QuoteBox') redirectPath = `/wall/${config._id}/wallShareChoice`;
+      if (config._id !== 'This was called by QuoteBox') redirectPath = `/${wall}/${config._id}/wallShareChoice`;
       redirectTo(redirectPath);
     };
   };

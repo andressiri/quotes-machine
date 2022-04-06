@@ -3,7 +3,7 @@ import CopyToClipboardBtn from './CopyToClipboardBtn.js';
 import TumblrBtn from './TumblrBtn.js';
 import TwitterBtn from './TwitterBtn.js';
 import FacebookBtn from './FacebookBtn.js';
-import EmailShareBtn from './EmailSharing/EmailShareBtn.js';
+import EmailShareBtn from './EmailShareBtn.js';
 
 function BoxSharingSet({parentToChild}) {
   return (

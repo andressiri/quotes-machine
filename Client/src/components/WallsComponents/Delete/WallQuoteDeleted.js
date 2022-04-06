@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
-import DeletedOkBtn from './DeletedOkBtn.js';
+import WallDeletedOkBtn from './WallDeletedOkBtn.js';
 
-function QuoteDeleted ({parentToChild}) {
+function WallQuoteDeleted ({parentToChild}) {
   const {refs} = useContext(Context);
   const [message, setMessage] = refs.msg;
   const {config} = parentToChild;
@@ -12,9 +12,9 @@ function QuoteDeleted ({parentToChild}) {
       {message !== ''
         &&  <p className={`shareIt`}
               >{message}</p>}
-      <DeletedOkBtn parentToChild={parentToChild} />
+      <WallDeletedOkBtn parentToChild={parentToChild} />
     </div>
   );
 };
 
-export default QuoteDeleted;
+export default WallQuoteDeleted;
