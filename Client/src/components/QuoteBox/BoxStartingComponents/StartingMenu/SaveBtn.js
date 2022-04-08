@@ -38,7 +38,7 @@ function SaveBtn() {
           quoteObj: quoteObj
         }),
       });
-      let json = await response.json();
+      const json = await response.json();
       // check if it has to update the wall
       if (savedQuotesArray[0] !== 'Empty Array') {
         getSavedQuotes();

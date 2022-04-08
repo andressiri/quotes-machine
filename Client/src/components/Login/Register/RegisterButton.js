@@ -48,11 +48,11 @@ function RegisterButton () {
         userOptions: userOpt
       }),
     });
-    let json = await response.json();
+    const json = await response.json();
     setMessage(json.message);
     setIsLoading(false);
     // Check if mail was available and registration was successfull
-    if (json.success) redirectTo('/box/login');
+    if (response.status === 201) redirectTo('/box/login');
   };
 
   return (

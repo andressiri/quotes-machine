@@ -25,7 +25,7 @@ changeNameRouter.put('/',
             res.status(404).json({message: 'We could not find your account'});
           } else {
             console.log('Name changed');
-            res.status(201).json({message: 'Name changed', success: true});
+            res.json({message: 'Name changed'});
           };
         })
         .catch(err => {

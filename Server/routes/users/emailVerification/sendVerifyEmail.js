@@ -38,7 +38,7 @@ sendVerifyEmailRouter.get('/',
       const emailSuccess = await mailer.sendEmail(req.user.email, 'Quotes machine email verification', mailTemplate);
       if (emailSuccess.accepted[0] === `${req.user.email}`) {
         console.log(`Email sent to ${req.user.email}`);
-        res.status(201).json({message: 'Email sent with the code', userEmail: req.user.email, success: true});
+        res.status(201).json({message: 'Email sent with the code', userEmail: req.user.email});
         console.log(`code: ${req.session.code}`);
       } else {
         console.log('Mail rejected');

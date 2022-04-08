@@ -38,9 +38,10 @@ function LoginButton () {
           password: passwordValue,
         }),
       });
+      console.log(passportAuth);
       const response = await fetch('/users/login', {method: 'POST'});
-      let json = await response.json();
-      if (json.success) {
+      const json = await response.json();
+      if (response.status === 200) {
         //Load options
         if (json.userOptions.message === 'User options loaded') {
           const {userOptionsObj} = json.userOptions;

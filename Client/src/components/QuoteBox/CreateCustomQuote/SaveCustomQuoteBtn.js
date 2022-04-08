@@ -38,13 +38,13 @@ function SaveCustomQuoteBtn () {
         quoteObj: quoteObj
       }),
     });
-    let json = await response.json();
+    const json = await response.json();
     // check if it has to update the wall
     if (savedQuotesArray[0] !== 'Empty Array') {
       getSavedQuotes();
     };
     setIsLoading(false);
-    if (json.success) {
+    if (response.status === 201) {
       newGalleryItem(customQuoteValue, customAuthorValue, true);
       setGallChoose(gallArray.length - 1);
       setTimeout(() => {  // Timeout to handle transition

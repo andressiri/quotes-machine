@@ -46,13 +46,13 @@ sendChangePasswordRouter.post('/',
               req.session.code = generateCode();
               const mailTemplate = `
                 <h1>Welcome to Quotes Machine</h1>
-                <p>Hello ${user.name}! In order to recover your password you should use the following code:</p>
+                <p>Hello ${user.name}! In order to change your password you should use the following code:</p>
                 <h2>Code: ${req.session.code}</h2>
                 <p>Thanks for coming back, we hope you enjoy it!</p>`;
               const emailSuccess = await mailer.sendEmail(user.email, 'Quotes machine password recovery', mailTemplate);
               if (emailSuccess.accepted[0] === `${user.email}`) {
                 console.log(`Email sent to ${user.email}`);
-                res.status(201).json({message: 'Email sent with the code', success: true});
+                res.status(201).json({message: 'Email sent with the code'});
                 console.log(`code: ${req.session.code}`);
               } else {
                 console.log('Mail rejected');

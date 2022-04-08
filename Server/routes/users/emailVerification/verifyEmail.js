@@ -54,7 +54,7 @@ verifyEmailRouter.put('/',
                 console.log('User not found');
                 res.status(404).json({message: 'There is no user with that email'});
               } else {
-                res.json({message: 'Code is correct', success: true});
+                res.json({message: 'Code is correct, email verified'});
                 console.log('Email verified');
               };
             })

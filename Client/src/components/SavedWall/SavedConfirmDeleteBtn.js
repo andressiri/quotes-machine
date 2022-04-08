@@ -22,10 +22,10 @@ function SavedConfirmDeleteBtn ({parentToChild}) {
       },
       body: JSON.stringify({id: config._id}),
     });
-    let json = await response.json();
+    const json = await response.json();
     setMessage(json.message);
     setIsLoading(false);
-    if (json.success) {
+    if (response.json === 200) {
       let auxArray = savedQuotesArray;
       let auxObj = {
           _id: config._id,

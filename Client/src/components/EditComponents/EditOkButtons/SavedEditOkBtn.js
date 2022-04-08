@@ -28,8 +28,8 @@ function SavedEditOkBtn ({parentToChild}) {
           quoteObj: quoteObj
           })
       });
-      let json = await response.json();
-      if (json.success) {
+      const json = await response.json();
+      if (response.status === 200) {
         let backupArrayAux = await JSON.parse(JSON.stringify(savedQuotesBackup));
         backupArrayAux[index] = quoteObj;
         setSavedQuotesBackup(backupArrayAux);
