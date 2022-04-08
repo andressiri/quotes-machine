@@ -16,7 +16,7 @@ function useGetSearchResults () {
     if (searchFor) {
       const response = await fetch(`/quotes/getSearchResults/${searchFor}/${searchByQuote.toString()}/${searchByAuthor.toString()}`);
       const json = await response.json();
-      if (response.status === 200) {
+      if (json.foundMatches) {
         const organizedArray = exactResultsFirst(json.searchResults, searchFor, searchByQuote, searchByAuthor);
         const searchResults = generateSearchArray(organizedArray);
         setSearchArray(searchResults);
@@ -25,7 +25,7 @@ function useGetSearchResults () {
         setForceUpdate(forceUpdate => forceUpdate + 1);
       } else {
         setSearchArray([json.message]);
-      }
+      };
     };
   };
   return getSearchResults;

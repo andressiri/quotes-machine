@@ -32,9 +32,9 @@ getSearchResultsRouter.get('/:searchFor/:byQuote/:byAuthor',
       Quote.find(search).exec()
         .then((searchArray) => {
           if (searchArray[0]) {
-            res.json({message: `This are the results for ${searchFor}`, searchResults: searchArray})
+            res.json({message: `This are the matches for ${searchFor}`, searchResults: searchArray, foundMatches: true});
           } else {
-            res.status(204).json({message: `No results for ${searchFor}`});
+            res.json({message: `No matches for ${searchFor}`});
           };
         })
         .catch(err => {
