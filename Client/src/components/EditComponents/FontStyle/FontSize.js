@@ -5,7 +5,7 @@ import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWa
 function FontSize ({parentToChild}) {
   const {edit} = useContext(Context);
   const [fSize, setFSize] = edit.fontS;
-  const {config, index} = parentToChild;
+  const {config, index, wall} = parentToChild;
   const updateWallQuoteState = useUpdateWallQuoteState();
 
   const handleFontSize = () => {
@@ -15,7 +15,7 @@ function FontSize ({parentToChild}) {
     } else {
       let auxValue = config.fontS + 1;
       if (config.fontS === 40) auxValue = 30;
-      updateWallQuoteState(index, auxValue, 'fontS');
+      updateWallQuoteState(index, auxValue, 'fontS', wall);
     }
   };
 

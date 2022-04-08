@@ -5,7 +5,7 @@ import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWa
 function OrangeTxt ({parentToChild}) {
   const {colors} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
-  const {config, index} = parentToChild;
+  const {config, index, wall} = parentToChild;
   const updateWallQuoteState = useUpdateWallQuoteState();
   const orangeNum = 1;
   let orangeTxtState = '';
@@ -21,7 +21,7 @@ function OrangeTxt ({parentToChild}) {
     if (config._id === 'This was called by QuoteBox') {
       setColorNumber(orangeNum);
     } else {
-      updateWallQuoteState(index, orangeNum, 'colorNum');
+      updateWallQuoteState(index, orangeNum, 'colorNum', wall);
     };
   };
 

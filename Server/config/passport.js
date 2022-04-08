@@ -6,9 +6,10 @@ const User = require('../models/User.js');
 
 module.exports = passport => {
   passport.use(
-    new LocalStrategy({ passReqToCallback: true, usernameField: 'email' }, (req, email, password, done) => {
+    new LocalStrategy({passReqToCallback: true, usernameField: 'email' },
+    (req, email, password, done) => {
       // Match User
-      User.findOne({ email: email })
+      User.findOne({email: email})
         .then((user) => {
           if (!user) {
             console.log('User not found');

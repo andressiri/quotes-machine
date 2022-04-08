@@ -10,7 +10,6 @@ function useDebounceSearchResults () {
     return (searchFor) => {
       clearTimeout(timeoutVar);
       setTimeoutVar(setTimeout(() => {
-        console.log('debounce');
         callback(searchFor);
       }, delay));
     };
@@ -18,7 +17,6 @@ function useDebounceSearchResults () {
     
   const debounceSearchResults = debounceSearch(searchFor => {
     getSearchResults(searchFor);
-    console.log('inicio');
   }, 1000);
   return debounceSearchResults;
 };

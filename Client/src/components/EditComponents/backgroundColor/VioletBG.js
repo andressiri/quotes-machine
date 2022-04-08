@@ -5,7 +5,7 @@ import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWa
 function VioletBG ({parentToChild}) {
   const {colors} = useContext(Context);
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const {config, index} = parentToChild;
+  const {config, index, wall} = parentToChild;
   const updateWallQuoteState = useUpdateWallQuoteState();
   const violetNum = 6;
   let violetBGState = '';
@@ -21,7 +21,7 @@ function VioletBG ({parentToChild}) {
     if (config._id === 'This was called by QuoteBox') {
       setImgBGColor(violetNum);
     } else {
-      updateWallQuoteState(index, violetNum, 'imgBG');
+      updateWallQuoteState(index, violetNum, 'imgBG', wall);
     };
   };
 

@@ -5,7 +5,7 @@ import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWa
 function ItalicFont ({parentToChild}) {
   const {edit} = useContext(Context);
   const [italicFont, setItalicFont] = edit.italicF;
-  const {config, index} = parentToChild;
+  const {config, index, wall} = parentToChild;
   const updateWallQuoteState = useUpdateWallQuoteState();
   let italicBGColor = config.imgBG;
   let italicTxtColor = config.colorNum;
@@ -22,7 +22,7 @@ function ItalicFont ({parentToChild}) {
     } else {
       let auxValue = 'normal';
       if (config.italicF === 'normal') auxValue = 'italic';
-      updateWallQuoteState(index, auxValue, 'italicF');
+      updateWallQuoteState(index, auxValue, 'italicF', wall);
     };
   };
   

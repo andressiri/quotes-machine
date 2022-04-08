@@ -5,7 +5,7 @@ import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWa
 function UppercaseFont ({parentToChild}) {
   const {edit} = useContext(Context);
   const [upperFont, setUpperFont] = edit.upperF;
-  const {config, index} = parentToChild;
+  const {config, index, wall} = parentToChild;
   const updateWallQuoteState = useUpdateWallQuoteState();
   let upperBGColor = config.imgBG;
   let upperTxtColor = config.colorNum;
@@ -22,7 +22,7 @@ function UppercaseFont ({parentToChild}) {
     } else {
       let auxValue = 'none';
       if (config.upperF === 'none') auxValue = 'uppercase';
-      updateWallQuoteState(index, auxValue, 'upperF');
+      updateWallQuoteState(index, auxValue, 'upperF', wall);
     };
   };
 

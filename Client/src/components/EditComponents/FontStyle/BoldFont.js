@@ -5,7 +5,7 @@ import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWa
 function BoldFont ({parentToChild}) {
   const {edit} = useContext(Context);
   const [boldFont, setBoldFont] = edit.boldF;
-  const {config, index} = parentToChild;
+  const {config, index, wall} = parentToChild;
   const updateWallQuoteState = useUpdateWallQuoteState();
   let boldBGColor = config.imgBG;
   let boldTxtColor = config.colorNum;
@@ -22,7 +22,7 @@ function BoldFont ({parentToChild}) {
     } else {
       let auxValue = 'normal';
       if (config.boldF === 'normal') auxValue = 'bold';
-      updateWallQuoteState(index, auxValue, 'boldF');
+      updateWallQuoteState(index, auxValue, 'boldF', wall);
     };
   };
 

@@ -35,10 +35,10 @@ function SearchWall() {
       <SearchInput />
       {searchArray[0] === 'Empty Array'
         ? <h3>Nothing to show yet</h3>
-        : searchArray[0] === 'No results for that search'
-          ? <h3>{`No results for ${searchValue}`}</h3>
+        : !searchArray[0]._id
+          ? <h3>{searchArray[0]}</h3>
           : searchArray.map((searchedQ, i) => {
-            const parentToChildObj = {
+            let parentToChildObj = {
               config: searchedQ,
               index: i,
               wall: 'searchWall'
@@ -46,11 +46,11 @@ function SearchWall() {
             if (searchedQ.content) { // when a quote is deleted searchedQ will be an object with the id.
               return(
                 <div key={searchedQ._id}>
-                  <WallQuote parentToChild={parentToChildObj} />
-                  <WallContainer key={`2${searchedQ._id}`} parentToChild={parentToChildObj} />
+                  <WallQuote key={`2${searchedQ._id}`} parentToChild={parentToChildObj} />
+                  <WallContainer key={`3${searchedQ._id}`} parentToChild={parentToChildObj} />
                 </div>);
             } else {
-              return(<WallQuoteDeleted key={`3${searchedQ._id}`} parentToChild={parentToChildObj}/>);
+              return(<WallQuoteDeleted key={`4${searchedQ._id}`} parentToChild={parentToChildObj}/>);
             };
           })}
     </div>

@@ -5,7 +5,7 @@ import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWa
 function WhiteTxt ({parentToChild}) {
   const {colors} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
-  const {config, index} = parentToChild;
+  const {config, index, wall} = parentToChild;
   const updateWallQuoteState = useUpdateWallQuoteState();
   const whiteNum = 8;
   let whiteTxtState = '';
@@ -21,7 +21,7 @@ function WhiteTxt ({parentToChild}) {
     if (config._id === 'This was called by QuoteBox') {
       setColorNumber(whiteNum);
     } else {
-      updateWallQuoteState(index, whiteNum, 'colorNum');
+      updateWallQuoteState(index, whiteNum, 'colorNum', wall);
     };
   };
 

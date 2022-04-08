@@ -5,7 +5,7 @@ import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWa
 function WhiteBG ({parentToChild}) {
   const {colors} = useContext(Context);
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const {config, index} = parentToChild;
+  const {config, index, wall} = parentToChild;
   const updateWallQuoteState = useUpdateWallQuoteState();
   const whiteNum = 8;
   let whiteBGState = '';
@@ -21,7 +21,7 @@ function WhiteBG ({parentToChild}) {
     if (config._id === 'This was called by QuoteBox') {
       setImgBGColor(whiteNum);
     } else {
-      updateWallQuoteState(index, whiteNum, 'imgBG');
+      updateWallQuoteState(index, whiteNum, 'imgBG', wall);
     };
   };
 
