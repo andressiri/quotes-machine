@@ -37,9 +37,9 @@ function ChangePasswordBtn () {
         password: passwordValue
       }),
     });
-    let json = await response.json();
+    const json = await response.json();
     setIsLoading(false);
-    if (json.success) {
+    if (response.status === 200) {
       emailReference.current = '';
       setTimeout(() => {  // Timeout to handle transition
         setMessage(json.message);

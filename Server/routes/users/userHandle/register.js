@@ -53,7 +53,7 @@ registerRouter.post('/',
                 newUser.save()
                   .then( user => {
                     console.log(`New user registered successfully ${newUser}`);
-                    res.status(201).json({message: `${user.name} was registered successfully`, success: true});
+                    res.status(201).json({message: `${user.name} was registered successfully`});
                   })
                   .catch(err => {
                     console.log(err);

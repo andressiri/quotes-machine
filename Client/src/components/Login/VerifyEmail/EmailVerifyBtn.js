@@ -20,10 +20,10 @@ function EmailVerifyBtn () {
     if (isBlocked) return setSendWaitMsg(true);
     setIsLoading(true);
     const response  = await fetch('/users/sendVerifyEmail'); 
-    let json = await response.json();
+    const json = await response.json();
     setMessage(json.message);
     setSendEmailBtnTimer(10);
-    if (json.success) emailReference.current = json.userEmail;
+    if (response.status === 201) emailReference.current = json.userEmail;
     setIsLoading(false);
   };
 

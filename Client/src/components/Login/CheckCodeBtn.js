@@ -37,8 +37,8 @@ function CheckCodeBtn () {
         email: emailReference.current
         })
     });
-    let json = await response.json();
-    if (json.success) {
+    const json = await response.json();
+    if (response.status === 200) {
       setIsLoading(false);
       setTimeout(() => {  // Timeout to handle transition
         setMessage('');

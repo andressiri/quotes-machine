@@ -19,11 +19,10 @@ loginRouter.post('/',
       let verified = false;
       let userOpt = {message: 'No user options found'};
       let status = 500;
-      let success = false;
       switch (msg[0]) {
         case 'Please fill all the fields': status = 400; break;
         case 'Please enter a valid email': status = 400; break;
-        case 'Login success': status = 200; success = true; break;
+        case 'Login success': status = 200; break;
         case 'That email is not registered': status = 404; break;
         case 'Password incorrect': status = 401; break;
         // no default
@@ -32,7 +31,7 @@ loginRouter.post('/',
         if (req.user.verifiedEmail) verified = true;
         if (req.user.userOptions) userOpt = {message: 'User options loaded', userOptionsObj: req.user.userOptions};
       };
-      res.status(status).json({message: msg[0], verified: verified, userOptions: userOpt, success: success});
+      res.status(status).json({message: msg[0], verified: verified, userOptions: userOpt});
     };
   }
 );

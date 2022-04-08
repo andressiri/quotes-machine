@@ -32,10 +32,10 @@ function EmailForgotPasswordBtn () {
         email: emailValue
       }),
     });
-    let json = await response.json();
+    const json = await response.json();
     setMessage(json.message);
     setSendEmailBtnTimer(10);
-    if (json.success) emailReference.current = emailValue;
+    if (response.status === 201) emailReference.current = emailValue;
     setIsLoading(false);
   };
 

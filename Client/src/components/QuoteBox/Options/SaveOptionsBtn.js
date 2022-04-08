@@ -29,8 +29,8 @@ function SaveOptionsBtn ({parentToChild}) {
           'Content-Type': 'application/json',},
         body: JSON.stringify({userOptions: userOpt}),
       });
-      let json = await response.json();
-      if (json.success) {
+      const json = await response.json();
+      if (response.status === 200) {
         setConfigBackup(parentToChild.config);
       } else {
         restartDefault();

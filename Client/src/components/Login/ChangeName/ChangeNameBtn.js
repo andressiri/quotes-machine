@@ -26,9 +26,9 @@ function ChangeNameBtn () {
         name: nameValue
       }),
     });
-    let json = await response.json();
+    const json = await response.json();
     setIsLoading(false);
-    if (json.success) {
+    if (response.status === 200) {
       auxRef.current = '';
       setTimeout(() => {  // Timeout to handle transition
         setMessage(`Name changed to ${nameValue}`);
