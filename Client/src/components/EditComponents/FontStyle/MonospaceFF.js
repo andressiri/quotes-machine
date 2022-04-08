@@ -5,7 +5,7 @@ import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWa
 function MonospaceFF ({parentToChild}) {
   const {edit} = useContext(Context);
   const [fontFam, setFontFam] = edit.fontF;
-  const {config, index} = parentToChild;
+  const {config, index, wall} = parentToChild;
   const updateWallQuoteState = useUpdateWallQuoteState();
   const font = '"Courier New", Courier, monospace';
   let monospaceBGColor = config.imgBG;
@@ -20,7 +20,7 @@ function MonospaceFF ({parentToChild}) {
     if (config._id === 'This was called by QuoteBox') {
       setFontFam(font);
     } else {
-      updateWallQuoteState(index, font, 'fontF');
+      updateWallQuoteState(index, font, 'fontF', wall);
     };
   };
 

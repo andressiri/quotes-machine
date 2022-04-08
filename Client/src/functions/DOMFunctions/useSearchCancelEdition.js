@@ -11,7 +11,7 @@ function useSearchCancelEdition () {
     let auxObj = await JSON.parse(JSON.stringify(searchBackup[index]));
     const auxArray = await JSON.parse(JSON.stringify(searchArray));
     auxArray[index] = auxObj;
-    setSearchQuotesArray(auxArray);
+    setSearchArray(auxArray);
     setForceUpdate(forceUpdate => forceUpdate + 1);
   };
   return searchCancelEdition;

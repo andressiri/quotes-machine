@@ -12,7 +12,7 @@ function WallDeleteConfirmation ({parentToChild}) {
       <WallCancelDeleteBtn parentToChild={parentToChild} />
       {wall === 'savedWall'
         ? <SavedConfirmDeleteBtn parentToChild={parentToChild} />
-        : <ShareConfirmDeleteBtn parentToChild={parentToChild} />}
+        : <SearchConfirmDeleteBtn parentToChild={parentToChild} />}
     </div>
   );
 };

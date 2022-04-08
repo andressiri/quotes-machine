@@ -12,7 +12,7 @@ function useCreateQuoteObj () {
   const [italicFont, setItalicFont] = edit.italicF;
   const [upperFont, setUpperFont] = edit.upperF;
   const [fSize, setFSize] = edit.fontS;
-    
+
   const createQuoteObj = (custom) => {
     const quoteObj = {
       content: quoteText,
@@ -28,7 +28,7 @@ function useCreateQuoteObj () {
       fontS: fSize
     };
     return quoteObj;
-  };  
+  };
   return createQuoteObj;
 };
 

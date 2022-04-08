@@ -5,7 +5,7 @@ import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWa
 function IndigoBG ({parentToChild}) {
   const {colors} = useContext(Context);
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const {config, index} = parentToChild;
+  const {config, index, wall} = parentToChild;
   const updateWallQuoteState = useUpdateWallQuoteState();
   const indigoNum = 5;
   let indigoBGState = '';
@@ -21,7 +21,7 @@ function IndigoBG ({parentToChild}) {
     if (config._id === 'This was called by QuoteBox') {
       setImgBGColor(indigoNum);
     } else {
-      updateWallQuoteState(index, indigoNum, 'imgBG');
+      updateWallQuoteState(index, indigoNum, 'imgBG', wall);
     };
   };
 
