@@ -22,7 +22,7 @@ function SaveBtn() {
   const checkLoginCondition = useCheckLoginCondition();
   const createQuoteObj = useCreateQuoteObj();
 
-  const handleSave = async () => {
+  const handleSaveBtn = async () => {
     if (isLoading) return;
     stopAuto();
     if (checkLoginCondition()) {
@@ -52,7 +52,7 @@ function SaveBtn() {
   return (
     <FontAwesomeIcon
       className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
-      onClick={handleSave}
+      onClick={handleSaveBtn}
       icon='save' />
   );
 };
