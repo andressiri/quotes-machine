@@ -5,7 +5,7 @@ import useResetInputs from './useResetInputs.js';
 
 function useRedirectToWall () {
   const {quote, fade, refs} = useContext(Context);
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
+  const savedQuotesArray = quote.saved;
   const [fadeWall, setFadeWall] = fade.fadW;
   const [currentPath, setCurrentPath] = refs.path;
   const resetInputs = useResetInputs();
@@ -15,7 +15,7 @@ function useRedirectToWall () {
     let delay = 250;
     let auxString = 'Out';
     //Handle first wall load
-    if (path === '/savedWall' && savedQuotesArray[0] === 'Empty Array') {
+    if (path === '/savedWall' && savedQuotesArray.current[0] === 'Empty Array') {
       delay = 850;
       auxString = 'OutLonger';
     };

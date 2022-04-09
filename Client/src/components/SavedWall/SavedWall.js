@@ -5,12 +5,13 @@ import WallContainer from '../WallsComponents/WallContainer.js';
 import CancelBtn from '../CancelBtn.js';
 import WallQuoteDeleted from '../WallsComponents/Delete/WallQuoteDeleted.js';
 import useIntersectionObserver from '../../functions/useIntersectionObserver.js';
+import ReverseQuotesBtn from './ReverseQuotesBtn.js';
 
 function SavedWall() {
   const {colors, quote, refs, force} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
+  const savedQuotesArray = quote.saved;
   const [forceUpdate, setForceUpdate] = force.update;
   const [updateForced, setUpdateForced] = force.forced;
   const wallItemsShowed = refs.wallItems;
@@ -42,11 +43,12 @@ function SavedWall() {
     <div className={`quoteBox BG-color${imgBGColor} text-color${colorNumber}`}>
       <h1>This is your wall</h1>
       <CancelBtn />
-      {savedQuotesArray[0] === 'Empty Array'
+      <ReverseQuotesBtn />
+      {savedQuotesArray.current[0] === 'Empty Array'
         ? <h3>Nothing to show</h3>
-        : savedQuotesArray[0] === 'Create userQuotes at first save'
+        : savedQuotesArray.current[0] === 'Create userQuotes at first save'
           ? <h3>You did not save any quote yet</h3>
-          : savedQuotesArray.slice(0, wallItemsShowed.current).map((savedQ, i) => {
+          : savedQuotesArray.current.slice(0, wallItemsShowed.current).map((savedQ, i) => {
             const parentToChildObj = {
               config: savedQ,
               index: i,

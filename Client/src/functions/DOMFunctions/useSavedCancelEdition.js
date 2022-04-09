@@ -2,17 +2,13 @@ import {useContext} from 'react';
 import {Context} from '../../Context.js';
 
 function useSavedCancelEdition () {
-  const {quote, force} = useContext(Context);
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [savedQuotesBackup, setSavedQuotesBackup] = quote.savedBUp;
-  const [forceUpdate, setForceUpdate] = force.update;
+  const {quote} = useContext(Context);
+  const savedQuotesArray = quote.saved;
+  const savedQuotesBackup = quote.savedBUp;
     
   const savedCancelEdition = async (index) => {
-    let auxObj = await JSON.parse(JSON.stringify(savedQuotesBackup[index]));
-    const auxArray = await JSON.parse(JSON.stringify(savedQuotesArray));
-    auxArray[index] = auxObj;
-    setSavedQuotesArray(auxArray);
-    setForceUpdate(forceUpdate => forceUpdate + 1);
+    let auxObj = await JSON.parse(JSON.stringify(savedQuotesBackup.current[index]));
+    savedQuotesArray.current[index] = auxObj;
   };
   return savedCancelEdition;
 };

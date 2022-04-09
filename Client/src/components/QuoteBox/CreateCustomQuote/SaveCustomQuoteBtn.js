@@ -9,7 +9,7 @@ function SaveCustomQuoteBtn () {
   const {colors, quote, refs, forms, gall} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
+  const savedQuotesArray = quote.saved;
   const [message, setMessage] = refs.msg;
   const [customQuoteValue, setCustomQuoteValue] = forms.customQ;
   const [customAuthorValue, setCustomAuthorValue] = forms.customA;
@@ -40,7 +40,7 @@ function SaveCustomQuoteBtn () {
     });
     const json = await response.json();
     // check if it has to update the wall
-    if (savedQuotesArray[0] !== 'Empty Array') {
+    if (savedQuotesArray.current[0] !== 'Empty Array') {
       getSavedQuotes();
     };
     setIsLoading(false);

@@ -13,7 +13,7 @@ function SearchWall() {
   const {colors, quote, refs, forms, force} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [searchArray, setSearchArray] = quote.search;
+  const searchArray = quote.search;
   const [forceUpdate, setForceUpdate] = force.update;
   const [updateForced, setUpdateForced] = force.forced;
   const wallItemsShowed = refs.wallItems;
@@ -57,9 +57,9 @@ function SearchWall() {
       <SearchInput />
       {searching.current
         ? <h3>Searching...</h3>
-        : !searchArray[0]._id
-          ? <h3>{searchArray[0]}</h3>
-          : searchArray.slice(0, wallItemsShowed.current).map((searchedQ, i) => {
+        : !searchArray.current[0]._id
+          ? <h3>{searchArray.current[0]}</h3>
+          : searchArray.current.slice(0, wallItemsShowed.current).map((searchedQ, i) => {
               let parentToChildObj = {
                 config: searchedQ,
                 index: i,

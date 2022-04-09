@@ -4,19 +4,23 @@ import useRedirectTo from '../../../functions/useRedirectTo.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function WallDeletedOkBtn ({parentToChild}) {
-  const {quote, refs, force} = useContext(Context);
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [savedQuotesBackup, setSavedQuotesBackup] = quote.savedBUp;
+  const {quote, refs} = useContext(Context);
+  const savedQuotesArray = quote.saved;
+  const savedQuotesBackup = quote.savedBUp;
+  const searchArray = quote.search;
+  const searchBackup = quote.searchBUp;
   const [message, setMessage] = refs.msg;
-  const [forceUpdate, setForceUpdate] = force.update;
   const {config, index, wall} = parentToChild;
   const redirectTo = useRedirectTo();
   
   const handleWallDeletedOkBtn = () => {
-    if (message === 'Quote has been deleted') {
-      savedQuotesArray.splice(index, 1);
-      savedQuotesBackup.splice(index, 1);
-      setForceUpdate(forceUpdate => forceUpdate + 1);
+    if (wall === 'savedWall' && message === 'Quote has been deleted') {
+      savedQuotesArray.current.splice(index, 1);
+      savedQuotesBackup.current.splice(index, 1);
+    };
+    if (wall === 'searchWall') {
+      searchArray.current.splice(index, 1);
+      searchBackup.current.splice(index, 1);
     };
     setTimeout(() => {  // Timeout to handle transition
       setMessage('');

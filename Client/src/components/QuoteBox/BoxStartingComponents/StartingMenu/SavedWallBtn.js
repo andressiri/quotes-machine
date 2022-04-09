@@ -10,7 +10,7 @@ function SavedWallBtn() {
   const {colors, quote} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
+  const savedQuotesArray = quote.saved;
   const [isLoading, setIsLoading] = useState(false);  
   const stopAuto = useStopAuto();
   const redirectToWall = useRedirectToWall();
@@ -23,7 +23,7 @@ function SavedWallBtn() {
     if (checkLoginCondition()) {
       setIsLoading(true);
       // check it was not loaded before
-      if (savedQuotesArray[0] === 'Empty Array') {
+      if (savedQuotesArray.current[0] === 'Empty Array') {
         getSavedQuotes();
       };
       setIsLoading(false);

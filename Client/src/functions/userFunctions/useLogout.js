@@ -5,8 +5,8 @@ import useSetInitialOptions from '../DOMFunctions/useSetInitialOptions.js';
 
 function useLogout () {
   const {quote, refs} = useContext(Context);
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [savedQuotesBackup, setSavedQuotesBackup] = quote.savedBUp;
+  const savedQuotesArray = quote.saved;
+  const savedQuotesBackup = quote.savedBUp;
   const [message, setMessage] = refs.msg;
   const [loggedIn, setLoggedIn] = refs.logged;
   const [verified, setVerified] = refs.ver;
@@ -15,8 +15,8 @@ function useLogout () {
     
   const logout = () => {
     const logout = fetch('/users/logout', {method: 'DELETE'});
-    setSavedQuotesArray(['Empty Array']);
-    setSavedQuotesBackup(['Empty Array']);
+    savedQuotesArray.current = ['Empty Array'];
+    savedQuotesBackup.current = ['Empty Array'];
     if (loggedIn) setInitialOptions();
     setTimeout(() => {  // Timeout to handle transition
       setMessage('');
