@@ -13,8 +13,8 @@ export const ContextProvider = (props) => {
   const [author, setAuthor] = useState('Andrés Siri');
   const [savedQuotesArray, setSavedQuotesArray] = useState(['Empty Array']);
   const [savedQuotesBackup, setSavedQuotesBackup] = useState(['Empty Array']);
-  const [searchArray, setSearchArray] = useState(['Empty Array']);
-  const [searchBackup, setSearchBackup] = useState(['Empty Array']);
+  const [searchArray, setSearchArray] = useState(['No search yet']);
+  const [searchBackup, setSearchBackup] = useState(['No search yet']);
   //fade
   const [fadeWall, setFadeWall] = useState('In');
   const [fadeQuote, setFadeQuote] = useState('In');
@@ -34,8 +34,10 @@ export const ContextProvider = (props) => {
   const [verified, setVerified] = useState(false);
   const emailReference = useRef('');
   const auxRef = useRef('');
-  const [searchByQuote, setSearchByQuote] = useState(true);
-  const [searchByAuthor, setSearchByAuthor] = useState(false);
+  const searchByQuote = useRef(true);
+  const searchByAuthor = useRef(false);
+  const wallItemsShowed = useRef(10);
+  const searching = useRef(false);
   //Edit menu
   const [fontFam, setFontFam] = useState('Arial, Helvetica, sans-serif');
   const [boldFont, setBoldFont] = useState('normal');
@@ -63,7 +65,7 @@ export const ContextProvider = (props) => {
   const [codeValue, setCodeValue] = useState('');
   const [customQuoteValue, setCustomQuoteValue] = useState('');
   const [customAuthorValue, setCustomAuthorValue] = useState('');
-  const [searchValue, setSearchValue] = useState('');
+  const searchValue = useRef('');
   //timers
   const [checkCodeBtnTimer, setCheckCodeBtnTimer] = useState(0);
   const [checkCodeInterval, setCheckCodeInterval] = useState('Interval is off');
@@ -111,8 +113,10 @@ export const ContextProvider = (props) => {
         ver: [verified, setVerified],
         email: emailReference,
         aux: auxRef,
-        byQuote: [searchByQuote, setSearchByQuote],
-        byAuthor: [searchByAuthor, setSearchByAuthor]
+        byQuote: searchByQuote,
+        byAuthor: searchByAuthor,
+        wallItems: wallItemsShowed,
+        searching: searching
       },
       edit: {
         fontF: [fontFam, setFontFam],
@@ -135,7 +139,7 @@ export const ContextProvider = (props) => {
         code: [codeValue, setCodeValue],
         customQ: [customQuoteValue, setCustomQuoteValue],
         customA: [customAuthorValue, setCustomAuthorValue],
-        search: [searchValue, setSearchValue]
+        search: searchValue
       },
       timers: {
         check: [checkCodeBtnTimer, setCheckCodeBtnTimer],
