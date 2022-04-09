@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {Context} from '../../../../Context.js';
 import useStopAuto from '../../../../functions/quoteFunctions/useStopAuto.js'; 
 import useRedirectToWall from '../../../../functions/useRedirectToWall.js';
@@ -11,22 +11,18 @@ function SavedWallBtn() {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const savedQuotesArray = quote.saved;
-  const [isLoading, setIsLoading] = useState(false);  
   const stopAuto = useStopAuto();
   const redirectToWall = useRedirectToWall();
   const getSavedQuotes = useGetSavedQuotes();
   const checkLoginCondition = useCheckLoginCondition();
 
   const handleSavedWallBtn = () => {
-    if (isLoading) return;
     stopAuto();
     if (checkLoginCondition()) {
-      setIsLoading(true);
       // check it was not loaded before
       if (savedQuotesArray.current[0] === 'Empty Array') {
         getSavedQuotes();
       };
-      setIsLoading(false);
       redirectToWall('/savedWall');
     };
   };

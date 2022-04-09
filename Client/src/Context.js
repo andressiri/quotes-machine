@@ -38,6 +38,7 @@ export const ContextProvider = (props) => {
   const searchByAuthor = useRef(false);
   const wallItemsShowed = useRef(10);
   const searching = useRef(false);
+  const isLoadingQuotes = useRef(false);
   //Edit menu
   const [fontFam, setFontFam] = useState('Arial, Helvetica, sans-serif');
   const [boldFont, setBoldFont] = useState('normal');
@@ -116,7 +117,8 @@ export const ContextProvider = (props) => {
         byQuote: searchByQuote,
         byAuthor: searchByAuthor,
         wallItems: wallItemsShowed,
-        searching: searching
+        searching: searching,
+        loading: isLoadingQuotes
       },
       edit: {
         fontF: [fontFam, setFontFam],
