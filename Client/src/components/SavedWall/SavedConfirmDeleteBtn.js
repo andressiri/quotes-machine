@@ -3,10 +3,9 @@ import {Context} from '../../Context.js';
 import useRedirectTo from '../../functions/useRedirectTo.js';
 
 function SavedConfirmDeleteBtn ({parentToChild}) {
-  const {quote, refs, force} = useContext(Context);
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
+  const {quote, refs} = useContext(Context);
+  const savedQuotesArray = quote.saved;
   const [message, setMessage] = refs.msg;
-  const [forceUpdate, setForceUpdate] = force.update;
   const [isLoading, setIsLoading] = useState(false);
   const {config, index, wall} = parentToChild;
   const redirectTo = useRedirectTo();
@@ -25,16 +24,15 @@ function SavedConfirmDeleteBtn ({parentToChild}) {
     const json = await response.json();
     setMessage(json.message);
     setIsLoading(false);
-    if (response.json === 200) {
-      let auxArray = savedQuotesArray;
+    if (response.status === 200) {
+      let auxArray = savedQuotesArray.current;
       let auxObj = {
           _id: config._id,
           colorNum: config.colorNum,
           imgBG: config.imgBG
       };
       auxArray[index] = auxObj;
-      setSavedQuotesArray(auxArray);
-      setForceUpdate(forceUpdate => forceUpdate + 1);
+      savedQuotesArray.current = auxArray
       redirectTo(`/${wall}`);
     } else {
       redirectTo(`/${wall}/${config._id}/wallMessage`);

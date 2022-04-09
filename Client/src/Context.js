@@ -11,10 +11,10 @@ export const ContextProvider = (props) => {
   //quote
   const [quoteText, setQuoteText] = useState('Welcome to my quotes machine.');
   const [author, setAuthor] = useState('Andrés Siri');
-  const [savedQuotesArray, setSavedQuotesArray] = useState(['Empty Array']);
-  const [savedQuotesBackup, setSavedQuotesBackup] = useState(['Empty Array']);
-  const [searchArray, setSearchArray] = useState(['No search yet']);
-  const [searchBackup, setSearchBackup] = useState(['No search yet']);
+  const savedQuotesArray = useRef(['Empty Array']);
+  const savedQuotesBackup = useRef(['Empty Array']);
+  const searchArray = useRef(['No search yet']);
+  const searchBackup = useRef(['No search yet']);
   //fade
   const [fadeWall, setFadeWall] = useState('In');
   const [fadeQuote, setFadeQuote] = useState('In');
@@ -87,10 +87,10 @@ export const ContextProvider = (props) => {
       quote: {
         quoteTxt: [quoteText, setQuoteText],
         auth: [author, setAuthor],
-        saved: [savedQuotesArray, setSavedQuotesArray],
-        savedBUp: [savedQuotesBackup, setSavedQuotesBackup],
-        search: [searchArray, setSearchArray],
-        searchBUp: [searchBackup, setSearchBackup]
+        saved: savedQuotesArray,
+        savedBUp: savedQuotesBackup,
+        search: searchArray,
+        searchBUp: searchBackup
       },
       fade: {
         fadW: [fadeWall, setFadeWall],

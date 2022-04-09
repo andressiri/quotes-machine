@@ -5,8 +5,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function SearchEditOkBtn ({parentToChild}) {
   const {quote, refs, edit} = useContext(Context);
-  const [searchArray, setSearchArray] = quote.search;
-  const [searchBackup, setSearchBackup] = quote.searchBUp;
+  const searchArray = quote.search;
+  const searchBackup = quote.searchBUp;
   const [message, setMessage] = refs.msg;
   const {config, index, wall} = parentToChild;
   const redirectTo = useRedirectTo();
@@ -14,11 +14,9 @@ function SearchEditOkBtn ({parentToChild}) {
   const handleSearchEditOkBtn = async () => {
     setMessage('There is no edition to save');
     // check if there are changes to save
-    if (JSON.stringify(searchArray[index]) !== JSON.stringify(searchBackup[index])) {
-      const quoteObj = await JSON.parse(JSON.stringify(searchArray[index]));
-      let backupArrayAux = await JSON.parse(JSON.stringify(searchBackup));
-      backupArrayAux[index] = quoteObj;
-      setSearchBackup(backupArrayAux);
+    if (JSON.stringify(searchArray.current[index]) !== JSON.stringify(searchBackup.current[index])) {
+      const quoteObj = await JSON.parse(JSON.stringify(searchArray.current[index]));
+      searchBackup.current[index] = quoteObj;
       setMessage('Quote edition saved');
     };
     redirectTo(`/${wall}/${config._id}/wallMessage`);

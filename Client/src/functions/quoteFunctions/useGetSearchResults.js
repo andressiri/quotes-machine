@@ -5,8 +5,8 @@ import exactResultsFirst from './exactResultsFirst.js';
 
 function useGetSearchResults () {
   const {quote, refs, force} = useContext(Context);
-  const [searchArray, setSearchArray] = quote.search;
-  const [searchBackup, setSearchBackup] = quote.searchBUp;
+  const searchArray = quote.search;
+  const searchBackup = quote.searchBUp;
   const searchByQuote = refs.byQuote;
   const searchByAuthor = refs.byAuthor;
   const wallItemsShowed = refs.wallItems;
@@ -23,12 +23,11 @@ function useGetSearchResults () {
       if (json.foundMatches) {
         const organizedArray = exactResultsFirst(json.searchResults, searchFor, searchByQuote.current, searchByAuthor.current);
         const searchResults = generateSearchArray(organizedArray);
-        setSearchArray(searchResults);
-        const backupArrayAux = await JSON.parse(JSON.stringify(searchResults));
-        setSearchBackup(backupArrayAux);
+        searchArray.current = searchResults;
+        searchBackup.current = await JSON.parse(JSON.stringify(searchResults));
         wallItemsShowed.current = 10;
       } else {
-        setSearchArray([json.message]);
+        searchArray.current = [json.message];
       };
       searching.current = false;
       setForceUpdate(forceUpdate => forceUpdate + 1);

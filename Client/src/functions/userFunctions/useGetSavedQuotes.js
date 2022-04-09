@@ -1,22 +1,21 @@
 import {useContext} from 'react';
 import {Context} from '../../Context.js';
+import useReverseSavedQuotesArray from './useReverseSavedQuotesArray.js';
 
 function useGetSavedQuotes () {
-  const {quote, refs, force} = useContext(Context);
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [savedQuotesBackup, setSavedQuotesBackup] = quote.savedBUp;
-  const [forceUpdate, setForceUpdate] = force.update;
-  const wallItemsShowed = refs.wallItems
+  const {quote, force} = useContext(Context);
+  const savedQuotesArray = quote.saved;
+  const savedQuotesBackup = quote.savedBUp;
+  const reverseSavedQuotesArray = useReverseSavedQuotesArray();
     
   const getSavedQuotes = async () => {
     const response = await fetch('/users/getSavedQuotes');
     const json = await response.json();
     if (response.status === 200) {
-      setSavedQuotesArray(json.quotesArray);
+      savedQuotesArray.current = json.quotesArray;
       const backupArrayAux = await JSON.parse(JSON.stringify(json.quotesArray));
-      setSavedQuotesBackup(backupArrayAux);
-      wallItemsShowed.current = 10;
-      setForceUpdate(forceUpdate => forceUpdate + 1);
+      savedQuotesBackup.current = backupArrayAux;
+      reverseSavedQuotesArray();
     };
   };
   return getSavedQuotes;

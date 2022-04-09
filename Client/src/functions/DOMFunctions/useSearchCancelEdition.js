@@ -2,17 +2,13 @@ import {useContext} from 'react';
 import {Context} from '../../Context.js';
 
 function useSearchCancelEdition () {
-  const {quote, force} = useContext(Context);
-  const [searchArray, setSearchArray] = quote.search;
-  const [searchBackup, setSearchBackup] = quote.searchBUp;
-  const [forceUpdate, setForceUpdate] = force.update;
+  const {quote} = useContext(Context);
+  const searchArray = quote.search;
+  const searchBackup = quote.searchBUp;
     
   const searchCancelEdition = async (index) => {
-    let auxObj = await JSON.parse(JSON.stringify(searchBackup[index]));
-    const auxArray = await JSON.parse(JSON.stringify(searchArray));
-    auxArray[index] = auxObj;
-    setSearchArray(auxArray);
-    setForceUpdate(forceUpdate => forceUpdate + 1);
+    let auxObj = await JSON.parse(JSON.stringify(searchBackup.current[index]));
+    searchArray.current[index] = auxObj;
   };
   return searchCancelEdition;
 };

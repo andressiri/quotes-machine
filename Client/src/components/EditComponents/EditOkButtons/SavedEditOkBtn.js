@@ -5,8 +5,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function SavedEditOkBtn ({parentToChild}) {
   const {quote, refs, edit} = useContext(Context);
-  const [savedQuotesArray, setSavedQuotesArray] = quote.saved;
-  const [savedQuotesBackup, setSavedQuotesBackup] = quote.savedBUp;
+  const savedQuotesArray  = quote.saved;
+  const savedQuotesBackup = quote.savedBUp;
   const [message, setMessage] = refs.msg;
   const [isLoading, setIsLoading] = useState(false);
   const {config, index, wall} = parentToChild;
@@ -16,9 +16,9 @@ function SavedEditOkBtn ({parentToChild}) {
     if (isLoading) return;
     setMessage('There are no changes to save');
     // check if there are changes to save
-    if (JSON.stringify(savedQuotesArray[index]) !== JSON.stringify(savedQuotesBackup[index])) {
+    if (JSON.stringify(savedQuotesArray.current[index]) !== JSON.stringify(savedQuotesBackup.current[index])) {
       setIsLoading(true);
-      const quoteObj = await JSON.parse(JSON.stringify(savedQuotesArray[index]));
+      const quoteObj = await JSON.parse(JSON.stringify(savedQuotesArray.current[index]));
       const response = await fetch('/users/saveModifiedQuote', {
         method: 'PUT',
         headers: {
@@ -30,9 +30,9 @@ function SavedEditOkBtn ({parentToChild}) {
       });
       const json = await response.json();
       if (response.status === 200) {
-        let backupArrayAux = await JSON.parse(JSON.stringify(savedQuotesBackup));
+        let backupArrayAux = await JSON.parse(JSON.stringify(savedQuotesBackup.current));
         backupArrayAux[index] = quoteObj;
-        setSavedQuotesBackup(backupArrayAux);
+        savedQuotesBackup.current = backupArrayAux;
       };
       setMessage(json.message);
       setIsLoading(false);
