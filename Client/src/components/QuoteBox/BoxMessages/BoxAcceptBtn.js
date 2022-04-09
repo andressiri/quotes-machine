@@ -3,6 +3,7 @@ import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 import useRestartDefault from '../../../functions/DOMFunctions/useRestartDefault.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import useGetSavedQuotes from '../../../functions/userFunctions/useGetSavedQuotes.js';
 
 function BoxAcceptBtn () {
   const {colors, refs} = useContext(Context);
@@ -11,14 +12,18 @@ function BoxAcceptBtn () {
   const [message, setMessage] = refs.msg;
   const redirectTo = useRedirectTo();
   const restartDefault = useRestartDefault();
+  const getSavedQuotes = useGetSavedQuotes();
   
-  const handleBoxAcceptBtn = () => {
-    if (message === 'Login success') restartDefault();
+  const handleBoxAcceptBtn = async () => {
+    if (message === 'Login success') {
+      restartDefault();
+      getSavedQuotes();
+    };
     setTimeout(() => {  // Timeout to handle transition
       setMessage('');
     }, 250);
     redirectTo('/box/app');
-  }; 
+  };
 
   return (
     <FontAwesomeIcon
