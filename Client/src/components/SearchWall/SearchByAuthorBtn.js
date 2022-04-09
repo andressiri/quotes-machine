@@ -7,20 +7,20 @@ function SearchByAuthorBtn () {
   const {colors, refs, forms} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [searchByAuthor, setSearchByAuthor] = refs.byAuthor;
-  const [searchByQuote, setSearchByQuote] = refs.byQuote;
-  const [searchValue, setSearchValue] = forms.search;
+  const searchByAuthor = refs.byAuthor;
+  const searchByQuote = refs.byQuote;
+  const searchValue = forms.search;
   const debounceSearchResults = useDebounceSearchResults();
   
   const handleSearchByAuthorBtn = () => {
-    if (searchByQuote === false) return;
-    setSearchByAuthor(!searchByAuthor);
-    debounceSearchResults(searchValue);
+    if (searchByQuote.current === false) return;
+    searchByAuthor.current = !searchByAuthor.current;
+    debounceSearchResults(searchValue.current);
   };
 
   return (
     <div>
-      {searchByAuthor === true
+      {searchByAuthor.current === true
         ? <FontAwesomeIcon
             className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
             onClick={handleSearchByAuthorBtn}

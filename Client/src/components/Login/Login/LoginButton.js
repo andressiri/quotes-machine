@@ -38,7 +38,6 @@ function LoginButton () {
           password: passwordValue,
         }),
       });
-      console.log(passportAuth);
       const response = await fetch('/users/login', {method: 'POST'});
       const json = await response.json();
       if (response.status === 200) {

@@ -6,17 +6,17 @@ function SearchInput () {
   const {colors, forms} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
-  const [searchValue, setSearchValue] = forms.search;
+  const searchValue = forms.search;
   const debounceSearchResults = useDebounceSearchResults();
 
   const handleSearchInput = (event) => {
-    setSearchValue(event.target.value);
+    searchValue.current = event.target.value;
     debounceSearchResults(event.target.value);
   };
 
   const handleEnterSearchInput = (event) => {
     if (event.key !== 'Enter') return;
-    setSearchValue(event.target.value);
+    searchValue.current = event.target.value;
     debounceSearchResults(event.target.value);
   };
 
