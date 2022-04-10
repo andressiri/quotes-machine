@@ -11,7 +11,7 @@ function NewQuoteBtn () {
   const stopAuto = useStopAuto();
   const newQuote = useNewQuote();
 
-  const handleNewQuote = () => {
+  const handleNewQuoteBtn = () => {
     if (isLoading) return;
     setIsLoading(true);
     stopAuto();
@@ -24,7 +24,7 @@ function NewQuoteBtn () {
   return (
     <button
       className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
-      onClick={handleNewQuote}
+      onClick={handleNewQuoteBtn}
       id='new-quote'
     >New quote</button>
   );

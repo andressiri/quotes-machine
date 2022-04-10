@@ -7,8 +7,6 @@ function useGetSearchResults () {
   const {quote, refs, force} = useContext(Context);
   const searchArray = quote.search;
   const searchBackup = quote.searchBUp;
-  const searchByQuote = refs.byQuote;
-  const searchByAuthor = refs.byAuthor;
   const wallItemsShowed = refs.wallItems;
   const searching = refs.searching;
   const [forceUpdate, setForceUpdate] = force.update;
@@ -18,10 +16,10 @@ function useGetSearchResults () {
     if (searchFor) {
       searching.current = true;
       setForceUpdate(forceUpdate => forceUpdate + 1);
-      const response = await fetch(`/quotes/getSearchResults/${searchFor}/${searchByQuote.current}/${searchByAuthor.current}`);
+      const response = await fetch(`/quotes/getSearchResults/${searchFor}`); //TODO
       const json = await response.json();
       if (json.foundMatches) {
-        const organizedArray = exactResultsFirst(json.searchResults, searchFor, searchByQuote.current, searchByAuthor.current);
+        const organizedArray = exactResultsFirst(json.searchResults, searchFor);
         const searchResults = generateSearchArray(organizedArray);
         searchArray.current = searchResults;
         searchBackup.current = await JSON.parse(JSON.stringify(searchResults));

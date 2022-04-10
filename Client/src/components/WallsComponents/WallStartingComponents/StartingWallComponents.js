@@ -4,6 +4,7 @@ import WallEditBtn from '../Edit/WallEditBtn.js';
 import WallDeleteBtn from '../Delete/WallDeleteBtn.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import SearchSaveQuoteBtn from '../../SearchWall/SearchSaveQuoteBtn.js';
+import FavoriteQuoteBtn from '../../SavedWall/FavoriteQuoteBtn.js';
 
 function StartingWallComponents({parentToChild}) {
   const {config, wall} = parentToChild;
@@ -17,10 +18,13 @@ function StartingWallComponents({parentToChild}) {
       <WallEditBtn parentToChild={parentToChild} />
       <WallDeleteBtn parentToChild={parentToChild} />
       {wall === 'savedWall'
-        ? <p className={`text-color${config.colorNum}`}>
-            <FontAwesomeIcon className={`quoteIcon`} icon='globe-americas' /> 
-            {` ${savedDate}`} at {savedDateTime}
-          </p>
+        ? <div>
+            <p className={`text-color${config.colorNum}`}>
+              <FontAwesomeIcon className={`quoteIcon`} icon='globe-americas' /> 
+              {` ${savedDate}`} at {savedDateTime}
+            </p>
+            <FavoriteQuoteBtn parentToChild={parentToChild} />
+          </div>
         : <SearchSaveQuoteBtn parentToChild={parentToChild} />
       }
     </div>

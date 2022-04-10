@@ -1,11 +1,12 @@
 import React, {useContext, useEffect} from 'react';
 import {Context} from '../../Context.js';
-import WallQuote from '../WallsComponents/WallQuote.js';
-import WallContainer from '../WallsComponents/WallContainer.js';
+import AllSavedTabBtn from './AllSavedTabBtn.js';
+import CustomTabBtn from './CustomTabBtn.js';
+import FavoriteTabBtn from './FavoriteTabBtn.js';
 import CancelBtn from '../CancelBtn.js';
-import WallQuoteDeleted from '../WallsComponents/Delete/WallQuoteDeleted.js';
-import useIntersectionObserver from '../../functions/useIntersectionObserver.js';
 import ReverseQuotesBtn from './ReverseQuotesBtn.js';
+import useIntersectionObserver from '../../functions/useIntersectionObserver.js';
+import useDisplayWallsQuotes from '../../functions/DOMFunctions/useDisplayWallsQuotes.js';
 
 function SavedWall() {
   const {colors, quote, refs, force} = useContext(Context);
@@ -15,6 +16,11 @@ function SavedWall() {
   const [forceUpdate, setForceUpdate] = force.update;
   const [updateForced, setUpdateForced] = force.forced;
   const wallItemsShowed = refs.wallItems;
+  const customTab = refs.customT;
+  const customQuotesArray = refs.customA;
+  const favoriteTab = refs.favoriteT;
+  const favoriteQuotesArray = refs.favoriteA;
+  const displayWallsQuotes = useDisplayWallsQuotes();
 
   //  Observer to handle loading
   const [observer, setObservedElements, entries] = useIntersectionObserver({
@@ -34,40 +40,54 @@ function SavedWall() {
     if(quoteToObserve) setObservedElements([quoteToObserve]);
   }, [forceUpdate, setObservedElements]);
 
-  //  Update quotes when state changes
+  // Update quotes when state changes
   useEffect(() => {
     setUpdateForced(updateForced => updateForced + 1);
   }, [forceUpdate]);
 
+  // Generate customQuotesArray or favoriteQuotesArray when needed
+    useEffect(() => {
+      customQuotesArray.current = savedQuotesArray.current.filter(quoteObj => {
+        if (quoteObj.custom === true) return quoteObj;
+        return null;
+      });
+      favoriteQuotesArray.current = savedQuotesArray.current.filter(quoteObj => {
+        if (quoteObj.favorite === true) return quoteObj;
+        return null;
+      });
+    }, [customTab.current, favoriteTab.current]);
+
   return (
     <div className={`quoteBox BG-color${imgBGColor} text-color${colorNumber}`}>
-      <h1>This is your wall</h1>
+      <AllSavedTabBtn />
+      <CustomTabBtn />
+      <FavoriteTabBtn />
       <CancelBtn />
+      <h1>This is your wall</h1>
       <ReverseQuotesBtn />
       {savedQuotesArray.current[0] === 'Empty Array'
         ? <h3>Nothing to show</h3>
         : savedQuotesArray.current[0] === 'Create userQuotes at first save'
           ? <h3>You did not save any quote yet</h3>
-          : savedQuotesArray.current.slice(0, wallItemsShowed.current).map((savedQ, i) => {
-            const parentToChildObj = {
-              config: savedQ,
-              index: i,
-              wall: 'savedWall'
-            };
-            let divId = savedQ._id;
-            if (i === wallItemsShowed.current - 2) divId = 'quoteToObserve';
-            if (savedQ.content) { // when a quote is deleted savedQ will be an object with the id.
-              return(
-                <div id={divId} key={savedQ._id}>
-                  <WallQuote parentToChild={parentToChildObj} />
-                  <WallContainer key={`2${savedQ._id}`} parentToChild={parentToChildObj} />
-                </div>);
-            } else {
-              return(<WallQuoteDeleted id={divId} key={`3${savedQ._id}`} parentToChild={parentToChildObj}/>);
-            };
-          })}
+          : customTab.current === false && favoriteTab.current === false
+            ? displayWallsQuotes(savedQuotesArray.current, wallItemsShowed.current, 'savedWall')
+                .map(quote => {
+                  return(quote);
+                })
+            : customTab.current === true
+              ? displayWallsQuotes(customQuotesArray.current, wallItemsShowed.current, 'savedWall')
+                  .map(quote => {
+                    return(quote);
+                  })
+              : displayWallsQuotes(favoriteQuotesArray.current, wallItemsShowed.current, 'savedWall')
+                  .map(quote => {
+                    return(quote);
+                  })
+        }
     </div>
   );
 };
 
 export default SavedWall;
+
+//TODO check for empty custom and favorite arrays

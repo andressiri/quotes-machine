@@ -10,7 +10,7 @@ function useGetSavedQuotes () {
   const reverseSavedQuotesArray = useReverseSavedQuotesArray();
     
   const getSavedQuotes = async () => {
-    if (isLoadingQuotes === true) return console.log('rebotó');
+    if (isLoadingQuotes === true) return;
     isLoadingQuotes.current = true;
     const response = await fetch('/users/getSavedQuotes');
     const json = await response.json();

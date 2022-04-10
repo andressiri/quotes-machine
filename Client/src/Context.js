@@ -34,11 +34,17 @@ export const ContextProvider = (props) => {
   const [verified, setVerified] = useState(false);
   const emailReference = useRef('');
   const auxRef = useRef('');
-  const searchByQuote = useRef(true);
-  const searchByAuthor = useRef(false);
-  const wallItemsShowed = useRef(10);
   const searching = useRef(false);
   const isLoadingQuotes = useRef(false);
+  const wallItemsShowed = useRef(10);
+  const byQuoteTab = useRef(false);
+  const byQuoteArray = useRef([]);
+  const byAuthorTab = useRef(false);
+  const byAuthorArray = useRef([]);
+  const customTab = useRef(false);
+  const customQuotesArray = useRef([]);
+  const favoriteTab = useRef(false);
+  const favoriteQuotesArray = useRef([]);
   //Edit menu
   const [fontFam, setFontFam] = useState('Arial, Helvetica, sans-serif');
   const [boldFont, setBoldFont] = useState('normal');
@@ -114,11 +120,17 @@ export const ContextProvider = (props) => {
         ver: [verified, setVerified],
         email: emailReference,
         aux: auxRef,
-        byQuote: searchByQuote,
-        byAuthor: searchByAuthor,
-        wallItems: wallItemsShowed,
         searching: searching,
-        loading: isLoadingQuotes
+        loading: isLoadingQuotes,
+        wallItems: wallItemsShowed,
+        byQTab: byQuoteTab,
+        byQArr: byQuoteArray,
+        byATab: byAuthorTab,
+        byAArr: byAuthorArray,
+        customT: customTab,
+        customA: customQuotesArray,
+        favoriteT: favoriteTab,
+        favoriteA: favoriteQuotesArray,
       },
       edit: {
         fontF: [fontFam, setFontFam],

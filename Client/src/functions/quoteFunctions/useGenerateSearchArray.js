@@ -25,6 +25,8 @@ function useGenerateSearchArray () {
         upperF: upperFont,
         fontS: fSize
       };
+      if (quote.byQuote) objectWithConfig['byQuote'] = true;
+      if (quote.byAuthor) objectWithConfig['byAuthor'] = true;
       return objectWithConfig;
     });
     return searchResultsArray;
