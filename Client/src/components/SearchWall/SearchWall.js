@@ -1,23 +1,27 @@
 import React, {useContext, useEffect} from 'react';
 import {Context} from '../../Context.js';
-import SearchByQuoteBtn from './SearchByQuoteBtn.js';
-import SearchByAuthorBtn from './SearchByAuthorBtn.js';
+import ByQuoteTabBtn from './ByQuoteTabBtn.js';
+import ByAuthorTabBtn from './ByAuthorTabBtn.js';
 import SearchInput from './SearchInput.js';
-import WallQuote from '../WallsComponents/WallQuote.js';
-import WallContainer from '../WallsComponents/WallContainer.js';
 import CancelBtn from '../CancelBtn.js';
-import WallQuoteDeleted from '../WallsComponents/Delete/WallQuoteDeleted.js';
 import useIntersectionObserver from '../../functions/useIntersectionObserver.js';
+import useDisplayWallsQuotes from '../../functions/DOMFunctions/useDisplayWallsQuotes.js';
+import AllSearchedTabBtn from './AllSearchedTabBtn.js';
 
 function SearchWall() {
-  const {colors, quote, refs, forms, force} = useContext(Context);
+  const {colors, quote, refs, force} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const searchArray = quote.search;
+  const searching = refs.searching;
+  const wallItemsShowed = refs.wallItems;
+  const byQuoteTab = refs.byQTab;
+  const byQuoteArray = refs.byQArr;
+  const byAuthorTab = refs.byATab;
+  const byAuthorArray = refs.byAArr;
   const [forceUpdate, setForceUpdate] = force.update;
   const [updateForced, setUpdateForced] = force.forced;
-  const wallItemsShowed = refs.wallItems;
-  const searching = refs.searching;
+  const displayWallsQuotes = useDisplayWallsQuotes();
 
   //  Observer to handle loading
   const [observer, setObservedElements, entries] = useIntersectionObserver({
@@ -42,41 +46,45 @@ function SearchWall() {
     setUpdateForced(updateForced => updateForced + 1);
   }, [forceUpdate]);
 
+  // Generate byQuoteArray or byAuthorArray when needed
+  useEffect(() => {
+    byQuoteArray.current = searchArray.current.filter(quoteObj => {
+      if (quoteObj.byQuote) return quoteObj;
+      return null;
+    });
+    byAuthorArray.current = searchArray.current.filter(quoteObj => {
+      if (quoteObj.byAuthor) return quoteObj;
+      return null;
+    });
+  }, [byQuoteTab.current, byAuthorTab.current]);
 
   return (
     <div className={`quoteBox BG-color${imgBGColor} text-color${colorNumber}`}>
+      <AllSearchedTabBtn />
+      <ByQuoteTabBtn />
+      <ByAuthorTabBtn />
       <CancelBtn />
       <h1>What are you looking for?</h1>
-      <div style={{display: 'flex'}} >
-        <h3>Search By:</h3>
-        <h4>Quote</h4>
-        <SearchByQuoteBtn />
-        <h4>Author</h4>
-        <SearchByAuthorBtn />
-      </div>
       <SearchInput />
       {searching.current
         ? <h3>Searching...</h3>
         : !searchArray.current[0]._id
           ? <h3>{searchArray.current[0]}</h3>
-          : searchArray.current.slice(0, wallItemsShowed.current).map((searchedQ, i) => {
-              let parentToChildObj = {
-                config: searchedQ,
-                index: i,
-                wall: 'searchWall'
-              };
-              let divId = searchedQ._id;
-              if (i === wallItemsShowed.current - 2) divId = 'quoteToObserve';
-              if (searchedQ.content) { // when a quote is deleted searchedQ will be an object with the id.
-                return(
-                  <div id={divId} key={searchedQ._id}>
-                    <WallQuote key={`2${searchedQ._id}`} parentToChild={parentToChildObj} />
-                    <WallContainer key={`3${searchedQ._id}`} parentToChild={parentToChildObj} />
-                  </div>);
-              } else {
-                return(<WallQuoteDeleted id={divId} key={`4${searchedQ._id}`} parentToChild={parentToChildObj}/>);
-              };
-          })}
+          : byQuoteTab.current === false && byAuthorTab.current === false
+            ? displayWallsQuotes(searchArray.current, wallItemsShowed.current, 'searchWall')
+                .map(quote => {
+                  return(quote);
+                })
+            : byQuoteTab.current === true
+              ? displayWallsQuotes(byQuoteArray.current, wallItemsShowed.current, 'searchWall')
+                  .map(quote => {
+                    return(quote);
+                  })
+              : displayWallsQuotes(byAuthorArray.current, wallItemsShowed.current, 'searchWall')
+                  .map(quote => {
+                    return(quote);
+                  })
+      }
     </div>
   );
 };

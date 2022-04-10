@@ -53,9 +53,7 @@ function CancelBtn () {
   };
   
   if (hideCancelBtn) {
-    return (
-      <div/>
-    );
+    return (<div/>);
   } else {
     return (
       <FontAwesomeIcon
