@@ -14,7 +14,7 @@ getSavedQuotesRouter.get('/',
   (req, res) => {
     if (req.user.userQuotesId === 'Create userQuotes at first save') {
       console.log(`${req.user.name} did not save any quote yet`);
-      res.json({message:`${req.user.name} did not save any quote yet`, quotesArray: ['Create userQuotes at first save']});
+      res.json({message:`${req.user.name} did not save any quote yet`, quotesArray: ['You didn\'t save any quote yet']});
     } else {
       UserQuotes.findById(req.user.userQuotesId)
         .then(userQ => {
