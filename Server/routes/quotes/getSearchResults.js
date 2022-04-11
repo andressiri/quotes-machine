@@ -41,7 +41,6 @@ getSearchResultsRouter.get('/:searchFor',
               if (reg.test(quoteObj.author)) returnObj['byAuthor'] = true;
               return returnObj;
             });
-            console.log(searchResults);
             res.json({message: `This are the matches for ${searchFor}`, searchResults: searchResults, foundMatches: true});
           } else {
             res.json({message: `No matches for ${searchFor}`});

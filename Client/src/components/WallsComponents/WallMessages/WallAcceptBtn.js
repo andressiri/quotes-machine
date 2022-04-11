@@ -9,7 +9,6 @@ function WallAcceptBtn ({parentToChild}) {
   const {config, wall} = parentToChild;
   const redirectTo = useRedirectTo();
 
-  
   const handleWallAcceptBtn = () => {
     setTimeout(() => {  // Timeout to handle transition
       setMessage('');

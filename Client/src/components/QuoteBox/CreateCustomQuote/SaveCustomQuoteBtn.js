@@ -40,9 +40,7 @@ function SaveCustomQuoteBtn () {
     });
     const json = await response.json();
     // check if it has to update the wall
-    if (savedQuotesArray.current[0] !== 'Empty Array') {
-      getSavedQuotes();
-    };
+    getSavedQuotes();
     setIsLoading(false);
     if (response.status === 201) {
       newGalleryItem(customQuoteValue, customAuthorValue, true);

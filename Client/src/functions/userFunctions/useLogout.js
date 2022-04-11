@@ -15,8 +15,8 @@ function useLogout () {
     
   const logout = () => {
     const logout = fetch('/users/logout', {method: 'DELETE'});
-    savedQuotesArray.current = ['Empty Array'];
-    savedQuotesBackup.current = ['Empty Array'];
+    savedQuotesArray.current = ['No quotes saved to show'];
+    savedQuotesBackup.current = ['No quotes saved to show'];
     if (loggedIn) setInitialOptions();
     setTimeout(() => {  // Timeout to handle transition
       setMessage('');

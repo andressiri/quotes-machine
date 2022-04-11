@@ -31,10 +31,7 @@ function SearchSaveQuoteBtn({parentToChild}) {
         }),
       });
       const json = await response.json();
-      // check if it has to update the wall
-      if (savedQuotesArray.current[0] !== 'Empty Array') {
-        getSavedQuotes();
-      };
+      getSavedQuotes();
       setMessage(json.message);
       setIsLoading(false);
       redirectTo(`/${wall}/${config._id}/wallMessage`);
