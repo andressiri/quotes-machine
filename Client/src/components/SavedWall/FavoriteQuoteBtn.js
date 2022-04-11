@@ -1,21 +1,25 @@
 import React, {useContext, useState} from 'react';
 import {Context} from '../../Context.js';
+import useGetArrayToCheck from '../../functions/quoteFunctions/useGetArrayToCheck.js';
+import useGetIndexAtBackup from '../../functions/quoteFunctions/useGetIndexAtBackup.js';
 import useRedirectTo from '../../functions/useRedirectTo';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function FavoriteQuoteBtn ({parentToChild}) {
   const {quote, refs} = useContext(Context);
-  const savedQuotesArray  = quote.saved;
   const savedQuotesBackup = quote.savedBUp;
   const [message, setMessage] = refs.msg;
   const [isLoading, setIsLoading] = useState(false);
   const {config, index, wall} = parentToChild;
+  const getArrayToCheck = useGetArrayToCheck();
+  const getIndexAtBackup = useGetIndexAtBackup();
   const redirectTo = useRedirectTo();
 
   const handleFavoriteQuoteBtn = async () => {
     if (isLoading) return;
     setIsLoading(true);
-    const auxObj = savedQuotesArray.current[index];
+    const arrayToCheck = getArrayToCheck(wall);
+    const auxObj = arrayToCheck[index];
     auxObj.favorite = !auxObj.favorite;
     const response = await fetch('/users/saveModifiedQuote', {
       method: 'PUT',
@@ -28,7 +32,10 @@ function FavoriteQuoteBtn ({parentToChild}) {
     });
     const json = await response.json();
     setMessage(json.message);
-    if (response.status === 200) savedQuotesBackup.current[index] = await JSON.parse(JSON.stringify(auxObj));
+    if (response.status === 200) {
+      const indexAtBackup = getIndexAtBackup(index, wall)
+      savedQuotesBackup.current[indexAtBackup] = await JSON.parse(JSON.stringify(auxObj));
+    };
     setIsLoading(false);
     redirectTo(`/${wall}/${config._id}/wallMessage`);
   };
