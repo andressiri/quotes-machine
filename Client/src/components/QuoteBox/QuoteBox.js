@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import {Context} from '../../Context.js';
-import StartingSetRQ from './BoxStartingComponents/RandomQuotes/StartingSetRQ.js';
+import StartingSetRQ from './boxStartingComponents/randomQuotes/StartingSetRQ.js';
 import Quote from './Quote.js';
 import RouteContainer from './RouteContainer.js'
 

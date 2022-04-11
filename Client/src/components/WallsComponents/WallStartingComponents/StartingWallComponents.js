@@ -1,10 +1,10 @@
 import React from 'react';
-import WallSharingBtn from '../Sharing/WallSharingBtn.js';
-import WallEditBtn from '../Edit/WallEditBtn.js';
-import WallDeleteBtn from '../Delete/WallDeleteBtn.js';
+import WallSharingBtn from '../sharing/WallSharingBtn.js';
+import WallEditBtn from '../edit/WallEditBtn.js';
+import WallDeleteBtn from '../delete/WallDeleteBtn.js';
+import SearchSaveQuoteBtn from '../../searchWall/SearchSaveQuoteBtn.js';
+import FavoriteQuoteBtn from '../../savedWall/FavoriteQuoteBtn.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import SearchSaveQuoteBtn from '../../SearchWall/SearchSaveQuoteBtn.js';
-import FavoriteQuoteBtn from '../../SavedWall/FavoriteQuoteBtn.js';
 
 function StartingWallComponents({parentToChild}) {
   const {config, wall} = parentToChild;

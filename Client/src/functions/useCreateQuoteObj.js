@@ -1,5 +1,5 @@
 import {useContext} from 'react';
-import {Context} from './../Context.js';
+import {Context} from '../Context.js';
 
 function useCreateQuoteObj () {
   const {colors, quote, edit} = useContext(Context);

@@ -1,10 +1,10 @@
 import React from 'react';
 import WallSharingCancelBtn from './WallSharingCancelBtn.js';
-import CopyToClipboardBtn from '../../SharingComponents/CopyToClipboardBtn.js';
-import TumblrBtn from '../../SharingComponents/TumblrBtn.js';
-import TwitterBtn from '../../SharingComponents/TwitterBtn.js';
-import FacebookBtn from '../../SharingComponents/FacebookBtn.js';
-import EmailShareBtn from '../../SharingComponents/EmailShareBtn.js';
+import CopyToClipboardBtn from '../../sharingComponents/CopyToClipboardBtn.js';
+import TumblrBtn from '../../sharingComponents/TumblrBtn.js';
+import TwitterBtn from '../../sharingComponents/TwitterBtn.js';
+import FacebookBtn from '../../sharingComponents/FacebookBtn.js';
+import EmailShareBtn from '../../sharingComponents/EmailShareBtn.js';
 
 function SavedSharingContainer({parentToChild}) {
   

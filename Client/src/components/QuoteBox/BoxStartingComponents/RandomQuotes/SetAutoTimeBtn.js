@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import{Context} from './../../../../Context.js';
+import{Context} from '../../../../Context.js';
 import useStopAuto from '../../../../functions/quoteFunctions/useStopAuto.js';
 
 function SetAutoTimeBtn() {

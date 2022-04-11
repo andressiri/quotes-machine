@@ -1,6 +1,6 @@
 import React from 'react';
-import Gallery from './Gallery/Gallery.js';
-import StartingMenu from './StartingMenu/StartingMenu.js';
+import Gallery from './gallery/Gallery.js';
+import StartingMenu from './startingMenu/StartingMenu.js';
 
 function BoxStartingContainer({parentToChild}) {
   return (
