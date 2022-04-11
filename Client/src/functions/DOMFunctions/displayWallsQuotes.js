@@ -1,6 +1,6 @@
-import WallQuote from '../../Components/WallsComponents/WallQuote.js';
-import WallContainer from '../../Components/WallsComponents/WallContainer.js';
-import WallQuoteDeleted from '../../Components/WallsComponents/Delete/WallQuoteDeleted.js';
+import WallQuote from '../../components/wallsComponents/WallQuote.js';
+import WallContainer from '../../components/wallsComponents/WallContainer.js';
+import WallQuoteDeleted from '../../components/wallsComponents/delete/WallQuoteDeleted.js';
 
 const displayWallsQuotes = (arrayDontExists, dontExistsMsg, arrayToDisplay, numberOfQuotes, wall) => {
   

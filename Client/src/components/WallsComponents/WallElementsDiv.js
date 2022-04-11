@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {Context} from '../../Context.js';
-import ReverseQuotesBtn from '../SavedWall/ReverseQuotesBtn.js';
-import SearchInput from '../SearchWall/SearchInput.js';
+import ReverseQuotesBtn from '../savedWall/ReverseQuotesBtn.js';
+import SearchInput from '../searchWall/SearchInput.js';
 
 function WallElementsDiv ({parentToChild}) {
   const {colors} = useContext(Context);

@@ -1,11 +1,11 @@
 import React from 'react';
 import {Routes, Route } from 'react-router-dom';
-import StartingWallComponents from './WallStartingComponents/StartingWallComponents.js';
-import WallSharingContainer from './Sharing/WallSharingContainer.js';
-import WallShareChoice from './Sharing/WallShareChoice.js';
-import EditSet from '../EditComponents/EditSet.js';
-import WallMessages from './WallMessages/WallMessages.js';
-import WallDeleteConfirmation from './Delete/WallDeleteConfirmation.js';
+import StartingWallComponents from './wallStartingComponents/StartingWallComponents.js';
+import WallSharingContainer from './sharing/WallSharingContainer.js';
+import WallShareChoice from './sharing/WallShareChoice.js';
+import EditSet from '../editComponents/EditSet.js';
+import WallMessages from './wallMessages/WallMessages.js';
+import WallDeleteConfirmation from './delete/WallDeleteConfirmation.js';
 
 function WallContainer({parentToChild}) {
   const {config} = parentToChild;

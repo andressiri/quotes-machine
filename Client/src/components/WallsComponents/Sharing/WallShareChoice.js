@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
-import ShareImageBtn from '../../SharingChoices/ShareImageBtn.js';
-import ShareTextBtn from '../../SharingChoices/ShareTextBtn.js';
+import ShareImageBtn from '../../sharingChoices/ShareImageBtn.js';
+import ShareTextBtn from '../../sharingChoices/ShareTextBtn.js';
 import WallSharingCancelBtn from './WallSharingCancelBtn.js';
-import EmailInput from '../../Login/EmailInput.js';
+import EmailInput from '../../login/EmailInput.js';
 
 function WallShareChoice ({parentToChild}) {
   const {refs} = useContext(Context);

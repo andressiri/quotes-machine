@@ -1,5 +1,5 @@
 import {useContext} from 'react';
-import {Context} from './../Context.js';
+import {Context} from '../Context.js';
 import {useNavigate} from 'react-router-dom';
 import useResetInputs from './useResetInputs.js';
 

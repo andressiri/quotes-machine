@@ -1,20 +1,20 @@
 import React, {useContext} from 'react';
 import {Context} from '../../Context.js';
 import {Routes, Route, useLocation } from 'react-router-dom';
-import BoxStartingContainer from './BoxStartingComponents/BoxStartingContainer.js';
-import BoxSharingSet from '../SharingComponents/BoxSharingSet.js';
-import OptionsMenu from './Options/OptionsMenu.js';
-import SharingChoices from '../SharingChoices/SharingChoices.js';
-import EditSet from '../EditComponents/EditSet.js';
-import CustomQuoteContainer from './CreateCustomQuote/CustomQuoteContainer.js';
-import LoginForm from '../Login/Login/LoginForm.js';
-import VerifyEmail from '../Login/VerifyEmail/VerifyEmail.js';
-import LoggedInMenu from '../Login/LoggedIn/LoggedInMenu.js';
-import RegisterForm from '../Login/Register/RegisterForm';
-import ForgotPassword from '../Login/ChangePassword/ForgotPassword/ForgotPassword.js';
-import ChangePassword from '../Login/ChangePassword/ChangePassword.js';
-import ChangeName from '../Login/ChangeName/ChangeName.js';
-import BoxMessages from './BoxMessages/BoxMessages.js';
+import BoxStartingContainer from './boxStartingComponents/BoxStartingContainer.js';
+import BoxSharingSet from '../sharingComponents/BoxSharingSet.js';
+import OptionsMenu from './options/OptionsMenu.js';
+import SharingChoices from '../sharingChoices/SharingChoices.js';
+import EditSet from '../editComponents/EditSet.js';
+import CustomQuoteContainer from './createCustomQuote/CustomQuoteContainer.js';
+import LoginForm from '../login/login/LoginForm.js';
+import VerifyEmail from '../login/verifyEmail/VerifyEmail.js';
+import LoggedInMenu from '../login/loggedIn/LoggedInMenu.js';
+import RegisterForm from '../login/register/RegisterForm';
+import ForgotPassword from '../login/changePassword/forgotPassword/ForgotPassword.js';
+import ChangePassword from '../login/changePassword/ChangePassword.js';
+import ChangeName from '../login/changeName/ChangeName.js';
+import BoxMessages from './boxMessages/BoxMessages.js';
 
 function RouteContainer() {
   const {colors, quote, refs, fade, edit} = useContext(Context);

@@ -3,7 +3,7 @@ import {Context} from '../../Context.js';
 import ShareImageBtn from './ShareImageBtn.js';
 import ShareTextBtn from './ShareTextBtn.js';
 import EditAndShareImgBtn from './EditAndShareImgBtn.js';
-import EmailInput from '../Login/EmailInput.js';
+import EmailInput from '../login/EmailInput.js';
 
 function SharingChoices ({parentToChild}) {
   const {refs} = useContext(Context);
