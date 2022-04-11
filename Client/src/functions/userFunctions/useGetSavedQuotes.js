@@ -6,6 +6,7 @@ function useGetSavedQuotes () {
   const {quote, refs} = useContext(Context);
   const savedQuotesArray = quote.saved;
   const savedQuotesBackup = quote.savedBUp;
+  const quotesArrDontExists = refs.arrExists;
   const isLoadingQuotes = refs.loading;
   const reverseSavedQuotesArray = useReverseSavedQuotesArray();
     
@@ -18,6 +19,7 @@ function useGetSavedQuotes () {
       savedQuotesArray.current = json.quotesArray;
       const backupArrayAux = await JSON.parse(JSON.stringify(json.quotesArray));
       savedQuotesBackup.current = backupArrayAux;
+      quotesArrDontExists.current = false;
       reverseSavedQuotesArray();
     };
     isLoadingQuotes.current = false;
