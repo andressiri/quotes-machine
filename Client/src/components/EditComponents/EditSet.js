@@ -7,9 +7,8 @@ import SharingEditCancelBtn from './CancelButtons/SharingEditCancelBtn.js';
 import SharingEditOkBtn from './EditOkButtons/SharingEditOkBtn.js';
 import OptionsEditCancelBtn from './CancelButtons/OptionsEditCancelBtn.js';
 import OptionsEditOkBtn from './EditOkButtons/OptionsEditOkBtn.js';
-import SavedEditCancelBtn from './CancelButtons/SavedEditCancelBtn.js';
+import WallEditCancelBtn from './CancelButtons/WallEditCancelBtn.js';
 import SavedEditOkBtn from './EditOkButtons/SavedEditOkBtn.js';
-import SearchEditCancelBtn from './CancelButtons/SearchEditCancelBtn.js';
 import SearchEditOkBtn from './EditOkButtons/SearchEditOkBtn.js';
 
 function EditSet ({parentToChild}) {
@@ -32,11 +31,11 @@ function EditSet ({parentToChild}) {
             </div>
           : parentToChild.wall === 'savedWall'
             ? <div>
-                <SavedEditCancelBtn parentToChild={parentToChild} />
+                <WallEditCancelBtn parentToChild={parentToChild} />
                 <SavedEditOkBtn parentToChild={parentToChild} />
               </div>
             : <div>
-                <SearchEditCancelBtn parentToChild={parentToChild} />
+                <WallEditCancelBtn parentToChild={parentToChild} />
                 <SearchEditOkBtn parentToChild={parentToChild} />
               </div>
       }
