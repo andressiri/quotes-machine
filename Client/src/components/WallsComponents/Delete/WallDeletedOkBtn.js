@@ -1,6 +1,8 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Context} from '../../../Context.js';
-import useRedirectTo from '../../../functions/useRedirectTo.js';
+import {useLocation} from 'react-router-dom';
+import useGetArrayToCheck from '../../../functions/quoteFunctions/useGetArrayToCheck.js';
+import useGetIndexAtBackup from '../../../functions/quoteFunctions/useGetIndexAtBackup.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function WallDeletedOkBtn ({parentToChild}) {
@@ -9,24 +11,55 @@ function WallDeletedOkBtn ({parentToChild}) {
   const savedQuotesBackup = quote.savedBUp;
   const searchArray = quote.search;
   const searchBackup = quote.searchBUp;
+  const customTab = refs.customT;
+  const favoriteTab = refs.favoriteT;
+  const byQuoteTab = refs.byQTab;
+  const byAuthorTab = refs.byATab;
   const [message, setMessage] = refs.msg;
   const {config, index, wall} = parentToChild;
-  const redirectTo = useRedirectTo();
+  const getArrayToCheck = useGetArrayToCheck();
+  const getIndexAtBackup = useGetIndexAtBackup();
+  const location = useLocation();
   
   const handleWallDeletedOkBtn = () => {
-    if (wall === 'savedWall' && message === 'Quote has been deleted') {
-      savedQuotesArray.current.splice(index, 1);
-      savedQuotesBackup.current.splice(index, 1);
+    let arrayToCheck = getArrayToCheck(wall);
+    const indexAtBackup = getIndexAtBackup(index, wall);
+    const msg = 'No quotes to show left here'
+
+    if (wall === 'savedWall') {
+      if (customTab.current === true || favoriteTab.current === true) arrayToCheck.splice(index, 1);
+      savedQuotesArray.current.splice(indexAtBackup, 1);
+      savedQuotesBackup.current.splice(indexAtBackup, 1);
+      if (arrayToCheck.length < 1) {
+        if (savedQuotesArray.current.length < 1) {
+          savedQuotesArray.current = [msg];
+          savedQuotesBackup.current = [msg];
+        };
+        arrayToCheck[0] = msg;
+      };
     };
+
     if (wall === 'searchWall') {
-      searchArray.current.splice(index, 1);
-      searchBackup.current.splice(index, 1);
+      if (byQuoteTab.current === true || byAuthorTab.current === true) arrayToCheck.splice(index, 1);
+      searchArray.current.splice(indexAtBackup, 1);
+      searchBackup.current.splice(indexAtBackup, 1);
+      if (arrayToCheck.length < 1) {
+        if (searchArray.current.length < 1) {
+          searchArray.current = [msg];
+          searchBackup.current = [msg];
+        };
+        arrayToCheck[0] = msg;
+      };
     };
     setTimeout(() => {  // Timeout to handle transition
       setMessage('');
     }, 250);
-    redirectTo(`/${wall}`);
   };
+
+  useEffect(() => {
+    if (location.pathname !== `/${wall}/${config._id}/wallDeleteConfirm` &&
+      location.pathname !== `/${wall}`) handleWallDeletedOkBtn();
+  }, [location.pathname]);
 
   return (
     <FontAwesomeIcon

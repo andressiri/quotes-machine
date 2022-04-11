@@ -20,7 +20,7 @@ function SavedWallBtn() {
     stopAuto();
     if (checkLoginCondition()) {
       // check it was not loaded before
-      if (savedQuotesArray.current[0] === 'Empty Array') {
+      if (!savedQuotesArray.current[0]) {
         getSavedQuotes();
       };
       redirectToWall('/savedWall');
