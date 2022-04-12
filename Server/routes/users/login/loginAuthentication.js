@@ -1,11 +1,11 @@
 const express = require('express');
-const loginAuthRouter = express.Router();
+const loginAuthenticationRouter = express.Router();
 const passport = require('passport');
 const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
 const validateEmail = require('../../../functions/validateEmail.js');
 
-// Register handle - Authentication
-loginAuthRouter.post('/',
+// Login handle - @/users/login/authentication
+loginAuthenticationRouter.post('/',
   rateLimiter.max500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,
   // prevent too many attempts for the same username from the same ip
@@ -17,7 +17,7 @@ loginAuthRouter.post('/',
       if (req.body.email && !validateEmail(req.body.email)) msg = 'Please enter a valid email';
       console.log('Bad request');
       req.flash('message', msg);
-      res.status(412).json({message: msg});
+      res.status(400).json({message: msg});
     } else {
       // Autheticate with passport to create session
       passport.authenticate('local', {
@@ -29,4 +29,4 @@ loginAuthRouter.post('/',
   }
 );
 
-module.exports = loginAuthRouter;
+module.exports = loginAuthenticationRouter;

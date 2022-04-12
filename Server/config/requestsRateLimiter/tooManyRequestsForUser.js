@@ -11,7 +11,7 @@ const tooManyRequestsForUserCallback = (req, res, next, nextValidRequestDate) =>
 // Prevent too many attempts for the same username from the same ip
 module.exports = store => {
   return new ExpressBrute(store, {
-    freeRetries: 4,
+    freeRetries: 9,
     minWait: 3*60*1000, // 3 minutes
     maxWait: 60*60*1000, // 1 hour,
     failCallback: tooManyRequestsForUserCallback,

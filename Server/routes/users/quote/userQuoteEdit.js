@@ -1,12 +1,12 @@
 const express = require('express');
-const saveModifiedQuoteRouter = express.Router();
+const userQuoteEditRouter = express.Router();
 const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
 const checkAuthenticated = require('../../../config/checkAuthenticated.js');
-
 // UserQuotes model
 const UserQuotes = require('../../../models/UserQuotes.js');
 
-saveModifiedQuoteRouter.put('/',
+// Handle save modified quote - @/users/quote/edit
+userQuoteEditRouter.put('/',
   rateLimiter.max2500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,
   checkAuthenticated,
@@ -23,7 +23,7 @@ saveModifiedQuoteRouter.put('/',
     };
     if (typeof notValidInfo !== 'undefined') {
       console.log('Bad request'),
-      res.status(412).json({message: 'Please send all the information required'});
+      res.status(400).json({message: 'Please send all the information required'});
     } else {
       UserQuotes.findOne({userId: req.user.id})
         .then(userQ => {
@@ -44,4 +44,4 @@ saveModifiedQuoteRouter.put('/',
   }
 );
 
-module.exports = saveModifiedQuoteRouter;
+module.exports = userQuoteEditRouter;

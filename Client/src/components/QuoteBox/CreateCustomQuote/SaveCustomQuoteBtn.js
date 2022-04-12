@@ -29,7 +29,7 @@ function SaveCustomQuoteBtn () {
     };
     setIsLoading(true);
     const quoteObj = createQuoteObj(true);
-    const response = await fetch('/users/saveQuote', {
+    const response = await fetch('/users/quote/save', {
       method: 'PUT',
       headers: {
         Accept: 'application/json',

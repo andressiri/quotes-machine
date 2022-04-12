@@ -13,7 +13,7 @@ function useGetSavedQuotes () {
   const getSavedQuotes = async () => {
     if (isLoadingQuotes === true) return;
     isLoadingQuotes.current = true;
-    const response = await fetch('/users/getSavedQuotes');
+    const response = await fetch('/users/saved-quotes');
     const json = await response.json();
     if (response.status === 200) {
       savedQuotesArray.current = json.quotesArray;

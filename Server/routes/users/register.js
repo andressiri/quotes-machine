@@ -1,31 +1,30 @@
 const express = require('express');
 const registerRouter = express.Router();
-const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
 const bcrypt = require('bcryptjs');
-const validateEmail = require('../../../functions/validateEmail.js');
-
+const rateLimiter = require('../../config/requestsRateLimiter/rateLimiter.js');
+const validateEmail = require('../../functions/validateEmail.js');
 // User model
-const User = require('../../../models/User.js');
+const User = require('../../models/User.js');
 
-// Register handle
+// Register handle - @/users/register
 registerRouter.post('/',
   rateLimiter.max500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,
   rateLimiter.tooManyRegistrations.prevent,
   (req, res) => {
-    // Check needed data was sent in the request
+    // Check required data was sent in the request
     if (!req.body.name || !req.body.email || !req.body.password || !validateEmail(req.body.email) || !req.body.userOptions) {
       let msg = 'Please send all the information required';
       if (req.body.email && !validateEmail(req.body.email)) msg = 'Please enter a valid email';
       console.log('Bad request');
-      res.status(412).json({message: msg});
+      res.status(400).json({message: msg});
     } else {
       const { name, email, password, userOptions } = req.body;
-      User.findOne({ email: email})
+      User.findOne({email: email})
         .then(user => {
           if (user) {
             // User Exists
-            console.log('Email taken');
+            console.log('Email is already registered');
             res.status(409).json({message: 'Email is already registered'});
           } else {
             let notValidInfo = 'Not valid info';
@@ -38,10 +37,10 @@ registerRouter.post('/',
               userOptions: userOptions
             });
             //  Validate data to save
-            notValidInfo = newUser.validateSync();
+            notValidInfo = newUser.validateSync(); // will return undefined if newUser passes User model requirements
             if (typeof notValidInfo !== 'undefined') {
               console.log('Not valid info'),
-              res.status(412).json({message: 'Could not validate information sent'});
+              res.status(400).json({message: 'Could not validate information sent'});
             } else {
               // Hash Password
               bcrypt.genSalt(10, (err, salt) =>

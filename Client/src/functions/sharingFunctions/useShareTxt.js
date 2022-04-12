@@ -27,7 +27,7 @@ function useShareTxt () {
         clickLink(link);
         break;
       case 'Email':
-        await fetch('/shareOnEmail', {
+        await fetch('/share/email', {
           method: 'POST',
           headers: {
             Accept: 'application/json',

@@ -1,23 +1,22 @@
 const express = require('express');
-const changeNameRouter = express.Router();
+const nameEditRouter = express.Router();
 const checkAuthenticated = require('../../../config/checkAuthenticated.js');
 const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
-
 // User model
 const User = require('../../../models/User.js');
 
-// Logout and session reset handle
-changeNameRouter.put('/',
+// Handle user name change - @/users/name/edit
+nameEditRouter.put('/',
   rateLimiter.max500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,
   checkAuthenticated,
   (req, res) => {
-    // check new name was sent
+    // check new name was sent by user
     if (!req.body.name) {
-      console.log('No name sent');
-      res.status(412).json({message: 'Please enter a new name'});
+      console.log('No new name sent by user');
+      res.status(400).json({message: 'Please enter a new name'});
     } else {
-      //  check the account required is registered and update the password if it is
+      // check the account required is registered and update the password if it is
       User.findOneAndUpdate({id: req.user.id}, {name: req.body.name})
         .then(user => {
           if (!user) {
@@ -36,4 +35,4 @@ changeNameRouter.put('/',
   }
 );
 
-module.exports = changeNameRouter;
+module.exports = nameEditRouter;

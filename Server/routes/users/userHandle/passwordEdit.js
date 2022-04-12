@@ -1,20 +1,19 @@
 const express = require('express');
-const changePasswordRouter = express.Router();
+const passwordEditRouter = express.Router();
 const bcrypt = require('bcryptjs');
 const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
-
 // User model
 const User = require('../../../models/User.js');
 
-// Logout and session reset handle
-changePasswordRouter.put('/',
+// Handle password change - @/users/password/edit
+passwordEditRouter.put('/',
   rateLimiter.max500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,
   (req, res) => {
-    // check new password was sent
+    // check new password was sent by user
     if (!req.body.password) {
-      console.log('No password sent');
-      res.status(412).json({message: 'Please enter a new password'});
+      console.log('No new password sent by user');
+      res.status(400).json({message: 'Please send a new password'});
     } else {
       let newPassword = req.body.password;
       bcrypt.genSalt(10, (err, salt) => {
@@ -43,4 +42,4 @@ changePasswordRouter.put('/',
   }
 );
 
-module.exports = changePasswordRouter;
+module.exports = passwordEditRouter;

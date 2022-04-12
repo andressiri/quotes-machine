@@ -22,7 +22,7 @@ function SaveOptionsBtn ({parentToChild}) {
     if (checkLoginCondition()) {
       setIsLoading(true);
       const userOpt = createOptionsObj(parentToChild.config);
-      const response = await fetch('/users/saveUserOptions', {
+      const response = await fetch('/users/options/save', {
         method: 'PUT',
         headers: {
           Accept: 'application/json',
