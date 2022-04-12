@@ -1,0 +1,12 @@
+@import '../variables.scss';
+
+.NQbtn {
+    border: none;
+    width: 90px;
+    height: $btnSize;
+    border-radius: $btnRadius;
+    font-family: $fontFamily;
+    cursor: pointer;
+    font-weight: bolder;
+  }
+
