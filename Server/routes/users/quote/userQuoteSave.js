@@ -14,7 +14,7 @@ userQuoteSaveRouter.put('/',
   checkAuthenticated,
   (req, res) => {
     // check data required for saving a new quote has been sent properly
-    let notValidInfo = 'Not valid info';  // TODO modularize this logic
+    let notValidInfo = 'Not valid info';
     let newUserQuotes = {message: 'No proper quoteObj'};
     if (req.body.quoteObj && typeof req.body.quoteObj === 'object') {
       newUserQuotes = new UserQuotes({
@@ -26,6 +26,8 @@ userQuoteSaveRouter.put('/',
     if (typeof notValidInfo !== 'undefined') {
       console.log('Bad request'),
       res.status(400).json({message: 'Please send all the information required'});
+    
+      // check if it is the first quote saved
     } else if (req.user.userQuotesId === 'Create userQuotes at first save') {
       newUserQuotes.save()
         .then(() => {
@@ -43,6 +45,8 @@ userQuoteSaveRouter.put('/',
           console.log(err);
           res.status(500).json({message: 'There was an error saving the quote, please try again'});
         });
+
+      // just save the new quote updating the array
     } else {
       UserQuotes.findOne({userId: req.user.id})
         .then(userQ => {
