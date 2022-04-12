@@ -74,6 +74,7 @@ export const ContextProvider = (props) => {
   const [codeValue, setCodeValue] = useState('');
   const [customQuoteValue, setCustomQuoteValue] = useState('');
   const [customAuthorValue, setCustomAuthorValue] = useState('');
+  const searchValue = useRef('');
   //timers
   const [checkCodeBtnTimer, setCheckCodeBtnTimer] = useState(0);
   const [checkCodeInterval, setCheckCodeInterval] = useState('Interval is off');
@@ -155,7 +156,8 @@ export const ContextProvider = (props) => {
         pass2: [password2Value, setPassword2Value],
         code: [codeValue, setCodeValue],
         customQ: [customQuoteValue, setCustomQuoteValue],
-        customA: [customAuthorValue, setCustomAuthorValue]
+        customA: [customAuthorValue, setCustomAuthorValue],
+        search: searchValue
       },
       timers: {
         check: [checkCodeBtnTimer, setCheckCodeBtnTimer],
