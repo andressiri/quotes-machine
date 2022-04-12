@@ -43,27 +43,29 @@ function WallDisplay({parentToChild}) {
     setUpdateForced(updateForced => updateForced + 1);
   }, [forceUpdate]);
 
-  // Generate firstTabArray and secondTabArray when needed
-    useEffect(() => {
-      if (!mainArray[0]._id) return;
-      // create first tab array
-      firstTabArray.current = mainArray.filter(quoteObj => {
-        if (quoteObj[firstTabCondition]=== true) return quoteObj;
-        return null;
-      });
-      if (!firstTabArray.current[0]) firstTabArray.current = ['There is no quote to show here'];
-      // create second tab array
-      secondTabArray.current = mainArray.filter(quoteObj => {
-        if (quoteObj[secondTabCondition] === true) return quoteObj;
-        return null;
-      });
-      if (!secondTabArray.current[0]) secondTabArray.current = ['There is no quote to show here'];
-      // select tab to show
-      console.log()
-      if (firstTab.current === false && secondTab.current === false) selectedArray.current = mainArray;
-      if (firstTab.current === true) selectedArray.current = firstTabArray.current;
-      if (secondTab.current === true) selectedArray.current = secondTabArray.current;
-    }, [firstTab.current, secondTab.current, mainArray]);
+  // Update arrays to show in each tab
+  useEffect(() => {
+    // update and return if mainArray does not have any quote
+    selectedArray.current = mainArray;
+    if (!mainArray[0]._id) return;
+
+    // create first tab array
+    firstTabArray.current = mainArray.filter(quoteObj => {
+      if (quoteObj[firstTabCondition]=== true) return quoteObj;
+      return null;
+    });
+    if (!firstTabArray.current[0]) firstTabArray.current = ['There is no quote to show here'];
+    // create second tab array
+    secondTabArray.current = mainArray.filter(quoteObj => {
+      if (quoteObj[secondTabCondition] === true) return quoteObj;
+      return null;
+    });
+    if (!secondTabArray.current[0]) secondTabArray.current = ['There is no quote to show here'];
+    // select tab to show
+    if (firstTab.current === false && secondTab.current === false) selectedArray.current = mainArray;
+    if (firstTab.current === true) selectedArray.current = firstTabArray.current;
+    if (secondTab.current === true) selectedArray.current = secondTabArray.current;
+  }, [mainArray, firstTab.current, secondTab.current]);
 
   return (
     <div className={`quoteBox BG-color${imgBGColor} text-color${colorNumber}`}>
