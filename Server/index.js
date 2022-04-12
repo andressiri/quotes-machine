@@ -42,7 +42,7 @@ app.use(passport.session());
 app.use('/', require('./routes/app.js'));
 app.use('/quotes', require('./routes/quotes/quotes.js'));
 app.use('/users', require('./routes/users/users.js'));
-app.use('/shareOnEmail', require('./routes/shareOnEmail.js'));
+app.use('/share/email', require('./routes/shareOnEmail.js'));
 
 const PORT = process.env.PORT || 3001;
 

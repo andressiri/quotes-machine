@@ -1,11 +1,11 @@
 const express = require('express');
-const loginRouter = express.Router();
+const loginResponseRouter = express.Router();
 const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
 
-// Login handle - Authorization
-loginRouter.post('/',
+// Login handle - @/users/login/response
+loginResponseRouter.post('/',
   rateLimiter.max500RequestsPerday.prevent,
-  // different multiple clicking limiter, bacause login makes a two consecutive requests.
+  // different multiple clicking limiter, bacause login makes two consecutive requests.
   rateLimiter.extraMultipleClickingLimiter.prevent,
   // prevent too many attempts for the same username from the same ip
   rateLimiter.tooManyAttempts.prevent,
@@ -17,7 +17,7 @@ loginRouter.post('/',
       res.status(428).json({message: 'Need to authenticate a user first'});
     } else {
       let verified = false;
-      let userOpt = {message: 'No user options found'};
+      let userOptions = {message: 'No user options found'};
       let status = 500;
       switch (msg[0]) {
         case 'Please fill all the fields': status = 400; break;
@@ -29,11 +29,11 @@ loginRouter.post('/',
       };
       if (req.user) {
         if (req.user.verifiedEmail) verified = true;
-        if (req.user.userOptions) userOpt = {message: 'User options loaded', userOptionsObj: req.user.userOptions};
+        if (req.user.userOptions) userOptions = {message: 'User options loaded', userOptionsObj: req.user.userOptions};
       };
-      res.status(status).json({message: msg[0], verified: verified, userOptions: userOpt});
+      res.status(status).json({message: msg[0], verified: verified, userOptions: userOptions});
     };
   }
 );
 
-module.exports = loginRouter;
+module.exports = loginResponseRouter;

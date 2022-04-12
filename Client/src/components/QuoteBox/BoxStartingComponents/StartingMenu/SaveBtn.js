@@ -29,7 +29,7 @@ function SaveBtn() {
       setIsLoading(true);
       const custom = gallArray[gallChoose].custom;
       const quoteObj = createQuoteObj(custom);
-      const response = await fetch('/users/saveQuote', {
+      const response = await fetch('/users/quote/save', {
         method: 'PUT',
         headers: {
           Accept: 'application/json',

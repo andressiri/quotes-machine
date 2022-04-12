@@ -1,20 +1,20 @@
 const express = require('express');
-const saveQuoteRouter = express.Router();
+const userQuoteSaveRouter = express.Router();
 const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
 const checkAuthenticated = require('../../../config/checkAuthenticated.js');
-
 // User model
 const User = require('../../../models/User.js');
 // UserQuotes model
 const UserQuotes = require('../../../models/UserQuotes.js');
 
-saveQuoteRouter.put('/',
+// Handle quote saving - @/users/quote/save
+userQuoteSaveRouter.put('/',
   rateLimiter.max2500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,
   checkAuthenticated,
   (req, res) => {
     // check data required for saving a new quote has been sent properly
-    let notValidInfo = 'Not valid info';
+    let notValidInfo = 'Not valid info';  // TODO modularize this logic
     let newUserQuotes = {message: 'No proper quoteObj'};
     if (req.body.quoteObj && typeof req.body.quoteObj === 'object') {
       newUserQuotes = new UserQuotes({
@@ -25,7 +25,7 @@ saveQuoteRouter.put('/',
     };
     if (typeof notValidInfo !== 'undefined') {
       console.log('Bad request'),
-      res.status(412).json({message: 'Please send all the information required'});
+      res.status(400).json({message: 'Please send all the information required'});
     } else if (req.user.userQuotesId === 'Create userQuotes at first save') {
       newUserQuotes.save()
         .then(() => {
@@ -59,4 +59,4 @@ saveQuoteRouter.put('/',
   }
 );
 
-module.exports = saveQuoteRouter;
+module.exports = userQuoteSaveRouter;

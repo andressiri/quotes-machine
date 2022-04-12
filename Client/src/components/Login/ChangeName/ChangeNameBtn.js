@@ -17,7 +17,7 @@ function ChangeNameBtn () {
     if (isLoading) return;
     if (nameValue === '') return setMessage('Please enter a new name');
     setIsLoading(true); 
-    const response = await fetch('/users/changeName', {
+    const response = await fetch('/users/name/edit', {
       method: 'PUT',
       headers: {
         Accept: 'application/json',

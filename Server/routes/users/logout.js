@@ -1,8 +1,8 @@
 const express = require('express');
 const logoutRouter = express.Router();
-const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
+const rateLimiter = require('../../config/requestsRateLimiter/rateLimiter.js');
 
-// Logout and session reset handle
+// Logout and session reset handle - @/users/logout
 logoutRouter.delete('/',
   rateLimiter.max500RequestsPerday.prevent,
   (req, res) => {

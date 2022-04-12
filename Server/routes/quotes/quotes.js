@@ -4,13 +4,13 @@ const quotesRouter = express.Router();
 const quotes = require('../../Quotes.js');
 
 // Get Random quote
-quotesRouter.get('/randomQuote', (req, res) => {
+quotesRouter.get('/random-quote', (req, res) => {
     const randomQuote = quotes[Math.floor(Math.random() * 10)];
     res.json(randomQuote);
 });
 
 // Get Search results
-quotesRouter.use('/getSearchResults', require('./getSearchResults.js'));
+quotesRouter.use('/search', require('./getSearchResults.js'));
 
 // Get a quote by :id
 quotesRouter.get('/:id', (req, res) => {

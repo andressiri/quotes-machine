@@ -1,15 +1,14 @@
 const express = require('express');
-const sendChangePasswordRouter = express.Router();
-const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
-const mailer = require('../../../config/mailer.js');
-const generateCode = require('../../../functions/generateCode.js');
-const validateEmail = require('../../../functions/validateEmail');
-
+const sendPasswordResetCodeRouter = express.Router();
+const rateLimiter = require('../../../../config/requestsRateLimiter/rateLimiter.js');
+const mailer = require('../../../../config/mailer.js');
+const generateCode = require('../../../../functions/generateCode.js');
+const validateEmail = require('../../../../functions/validateEmail');
 // User model
-const User = require('../../../models/User.js');
+const User = require('../../../../models/User.js');
 
-// Logout and session reset handle
-sendChangePasswordRouter.post('/',
+// Handle password reset request - @/email/send/password-reset-code
+sendPasswordResetCodeRouter.post('/',
   rateLimiter.max500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,
   // prevent too many mails sent
@@ -18,7 +17,7 @@ sendChangePasswordRouter.post('/',
       // check correct data was sent in the request
     if (!req.body.email || !validateEmail(req.body.email)) {
       console.log('Not valid email');
-      res.status(412).json({message: 'Please enter a valid email'});
+      res.status(400).json({message: 'Please enter a valid email'});
     } else {
       // check if user to change password exists
       User.findOne({email: req.body.email})
@@ -27,7 +26,7 @@ sendChangePasswordRouter.post('/',
             console.log('Email not registered');
             res.status(404).json({message: 'That email is not registered'});
           } else {
-            // check at least 10 seconds have passed from last mail sent
+            // check at least 10 seconds have passed from last mail sent TODO: modularize this logic
             let timePassedBetweenRequests = 0;
             if (!req.session.sendChangePasswordTimestamp) {
               req.session.sendChangePasswordTimestamp = Date.now();
@@ -69,4 +68,4 @@ sendChangePasswordRouter.post('/',
   }
 );
 
-module.exports = sendChangePasswordRouter;
+module.exports = sendPasswordResetCodeRouter;

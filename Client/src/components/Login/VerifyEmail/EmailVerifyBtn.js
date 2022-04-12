@@ -19,7 +19,7 @@ function EmailVerifyBtn () {
     if (isLoading) return;
     if (isBlocked) return setSendWaitMsg(true);
     setIsLoading(true);
-    const response  = await fetch('/users/sendVerifyEmail'); 
+    const response  = await fetch('/users/email/send/verification-code'); 
     const json = await response.json();
     setMessage(json.message);
     setSendEmailBtnTimer(10);

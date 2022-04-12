@@ -5,7 +5,7 @@ const mailer = require('../config/mailer.js');
 const checkAuthenticated = require('../config/checkAuthenticated.js');
 const validateEmail = require('../functions/validateEmail.js');
 
-// Share on email handle
+// Share on email handle - @/share/email
 shareOnEmailRouter.post('/',
   rateLimiter.max500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,
@@ -16,19 +16,19 @@ shareOnEmailRouter.post('/',
     // check correct data was sent in the request
     if (!req.body.email || !validateEmail(req.body.email)) {
       console.log('Not valid email');
-      res.status(412).json({message: 'Please enter a valid email'});
+      res.status(400).json({message: 'Please enter a valid email'});
     } else if (!req.body.content || !req.body.author) {
       console.log('No data to share');
-      res.status(412).json({message: 'Please send the data required to share'});
+      res.status(400).json({message: 'Please send the data required to share'});
     } else {
       // check at least 10 seconds have passed from last mail sent
       let timePassedBetweenRequests = 0;
-      if (!req.session.sendVerifyEmailTimestamp) {
-        req.session.sendVerifyEmailTimestamp = Date.now();
+      if (!req.session.shareOnEmailTimestamp) {
+        req.session.shareOnEmailTimestamp = Date.now();
         timePassedBetweenRequests = 10000;
       } else {
         const auxDate = Date.now();
-        timePassedBetweenRequests = auxDate - req.session.sendVerifyEmailTimestamp;
+        timePassedBetweenRequests = auxDate - req.session.shareOnEmailTimestamp;
       };
       if (timePassedBetweenRequests < 10000) {
         console.log('Spam control');
@@ -36,7 +36,7 @@ shareOnEmailRouter.post('/',
         res.status(429).json({message: `You will have to wait ${Math.floor((10000 - timePassedBetweenRequests)/1000)} seconds to do another request`});
       } else {
         //  Everything seems OK => Send email
-        req.session.sendVerifyEmailTimestamp = Date.now();
+        req.session.shareOnEmailTimestamp = Date.now();
         let quoteToShare = `
           <h2>"${req.body.content}"</h2>
           <h3>- ${req.body.author}</h3>`;

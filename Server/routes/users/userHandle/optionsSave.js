@@ -1,13 +1,13 @@
 const express = require('express');
-const saveUserOptionsRouter = express.Router();
+const optionsSaveRouter = express.Router();
 const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
 const checkAuthenticated = require('../../../config/checkAuthenticated.js');
 const generateCode = require('../../../functions/generateCode.js');
-
 // User model
 const User = require('../../../models/User.js');
 
-saveUserOptionsRouter.put('/',
+// Handle user options save - @/users/options/save
+optionsSaveRouter.put('/',
   rateLimiter.max2500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,
   checkAuthenticated,
@@ -25,14 +25,14 @@ saveUserOptionsRouter.put('/',
         email: `someEmail${random}@${random2}.${random3}`,
         verifiedEmail: false,
         password: `${random2}${random}${random3}`,
-        userQuotesId: 'No id, just testing',
+        userQuotesId: 'No id, just validating placeholder',
         userOptions: req.body.userOptions
       });
       notValidInfo = validationUserOptions.validateSync(); // it returns undefined if validation was passed - no errors
     };
     if (typeof notValidInfo !== 'undefined') {
       console.log('Bad request'),
-      res.status(412).json({message: 'Please send all the information required'});
+      res.status(400).json({message: 'Please send all the information required'});
     } else {
       User.findById(req.user.id)
         .then(user => {
@@ -49,4 +49,4 @@ saveUserOptionsRouter.put('/',
   }
 );
 
-module.exports = saveUserOptionsRouter;
+module.exports = optionsSaveRouter;
