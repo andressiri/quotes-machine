@@ -4,9 +4,10 @@ import useDebounceSearchResults from '../../functions/quoteFunctions/useDebounce
 import useGetSavedSearch from '../../functions/quoteFunctions/useGetSavedSearch.js';
 
 function SearchInput ({parentToChild}) {
-  const {colors} = useContext(Context);
+  const {colors, forms} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
+  const searchValue = forms.search;
   const {wall} = parentToChild;
   const debounceSearchResults = useDebounceSearchResults();
   const getSavedSearch = useGetSavedSearch();
@@ -19,6 +20,7 @@ function SearchInput ({parentToChild}) {
   }, []);
 
   const handleSearchInput = (event) => {
+    searchValue.current = event.target.value.trim();
     debounceSearchResults(event.target.value.trim(), wall);
   };
 

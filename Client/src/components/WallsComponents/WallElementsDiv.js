@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {Context} from '../../Context.js';
 import ReverseQuotesBtn from '../savedWall/ReverseQuotesBtn.js';
+import SearchBarBtn from './SearchBarBtn.js';
 import SearchInput from './SearchInput.js';
 
 function WallElementsDiv ({parentToChild}) {
@@ -14,13 +15,11 @@ function WallElementsDiv ({parentToChild}) {
         ? <div>
             <h1>This are your saved quotes</h1>
             <ReverseQuotesBtn />
-            <SearchInput parentToChild={parentToChild} />
           </div>
-        : <div>
-            <h1>Search in our database</h1>
-            <SearchInput parentToChild={parentToChild} />
-          </div>
+        : <h1>Search in our database</h1>
       }
+      <SearchInput parentToChild={parentToChild} />
+      <SearchBarBtn parentToChild={parentToChild} />
     </div>
 
   );
