@@ -56,10 +56,15 @@ function WallDeletedOkBtn ({parentToChild}) {
     }, 250);
   };
 
+  // handle user ignore
   useEffect(() => {
     if (location.pathname !== `/${wall}/${config._id}/wallDeleteConfirm` &&
-      location.pathname !== `/${wall}`) handleWallDeletedOkBtn();
+      location.pathname !== `/${wall}`) handleWallDeletedOkBtn();    
   }, [location.pathname]);
+  // handle unmount
+  useEffect(() => {
+    return () => handleWallDeletedOkBtn();
+  }, []);
 
   return (
     <FontAwesomeIcon

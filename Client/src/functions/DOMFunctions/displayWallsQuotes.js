@@ -3,10 +3,9 @@ import WallContainer from '../../components/wallsComponents/WallContainer.js';
 import WallQuoteDeleted from '../../components/wallsComponents/delete/WallQuoteDeleted.js';
 
 const displayWallsQuotes = (arrayDontExists, dontExistsMsg, arrayToDisplay, numberOfQuotes, wall) => {
-  
   if (arrayDontExists) return [<h3 key={'dontExists'} >{dontExistsMsg}</h3>];
-
-  if (!arrayToDisplay[0]._id) return [<h3 key={'message'} >{arrayToDisplay[0]}</h3>]
+  
+  if (typeof arrayToDisplay[0] !== 'object') return [<h3 key={'message'} >{arrayToDisplay[0]}</h3>]
 
   const arrayToReturn = arrayToDisplay.slice(0, numberOfQuotes).map((quoteObj, i) => {
     let parentToChildObj = {

@@ -13,6 +13,7 @@ export const ContextProvider = (props) => {
   const [author, setAuthor] = useState('Andrés Siri');
   const savedQuotesArray = useRef(['No quotes saved to show']);
   const savedQuotesBackup = useRef(['No quotes saved to show']);
+  const savedSearchBackup = useRef([]);
   const searchArray = useRef(['No search requested yet']);
   const searchBackup = useRef(['No search requested yet']);
   //fade
@@ -73,7 +74,6 @@ export const ContextProvider = (props) => {
   const [codeValue, setCodeValue] = useState('');
   const [customQuoteValue, setCustomQuoteValue] = useState('');
   const [customAuthorValue, setCustomAuthorValue] = useState('');
-  const searchValue = useRef('');
   //timers
   const [checkCodeBtnTimer, setCheckCodeBtnTimer] = useState(0);
   const [checkCodeInterval, setCheckCodeInterval] = useState('Interval is off');
@@ -97,6 +97,7 @@ export const ContextProvider = (props) => {
         auth: [author, setAuthor],
         saved: savedQuotesArray,
         savedBUp: savedQuotesBackup,
+        savedSearch: savedSearchBackup,
         search: searchArray,
         searchBUp: searchBackup
       },
@@ -154,8 +155,7 @@ export const ContextProvider = (props) => {
         pass2: [password2Value, setPassword2Value],
         code: [codeValue, setCodeValue],
         customQ: [customQuoteValue, setCustomQuoteValue],
-        customA: [customAuthorValue, setCustomAuthorValue],
-        search: searchValue
+        customA: [customAuthorValue, setCustomAuthorValue]
       },
       timers: {
         check: [checkCodeBtnTimer, setCheckCodeBtnTimer],
