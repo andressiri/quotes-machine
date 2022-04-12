@@ -1,9 +1,11 @@
 const express = require('express');
 const sendPasswordResetCodeRouter = express.Router();
 const rateLimiter = require('../../../../config/requestsRateLimiter/rateLimiter.js');
-const mailer = require('../../../../config/mailer.js');
-const generateCode = require('../../../../functions/generateCode.js');
 const validateEmail = require('../../../../functions/validateEmail');
+const canRequest = require('../../../../functions/canRequest.js');
+const generateCode = require('../../../../functions/generateCode.js');
+const getMailTemplate = require('./passwordResetMailTemplate');
+const mailer = require('../../../../config/mailer.js');
 // User model
 const User = require('../../../../models/User.js');
 
@@ -19,44 +21,30 @@ sendPasswordResetCodeRouter.post('/',
       console.log('Not valid email');
       res.status(400).json({message: 'Please enter a valid email'});
     } else {
+      const {email} = req.body.email
       // check if user to change password exists
-      User.findOne({email: req.body.email})
+      User.findOne({email: email})
         .then(async (user) => {
           if (!user) {
-            console.log('Email not registered');
-            res.status(404).json({message: 'That email is not registered'});
-          } else {
-            // check at least 10 seconds have passed from last mail sent TODO: modularize this logic
-            let timePassedBetweenRequests = 0;
-            if (!req.session.sendChangePasswordTimestamp) {
-              req.session.sendChangePasswordTimestamp = Date.now();
-              timePassedBetweenRequests = 10000;
+            console.log(`${email} is not registered`);
+            res.status(404).json({message: `${email} is not registered`});
+            // check at least 10 seconds have passed from last mail sent
+          } else if (canRequest(req, res, 'passwordResetTimestamp', 10000)) {
+            // send code
+            req.session.code = generateCode();
+            const mailTemplate = getMailTemplate(user.name, req.session.code);
+            const emailSuccess = await mailer.sendEmail(
+              email,
+              'Quotes machine password recovery',
+              mailTemplate
+            );
+            if (emailSuccess.accepted[0] === `${email}`) {
+              console.log(`Email sent to ${email}`);
+              res.status(201).json({message: 'Email sent with the code'});
+              console.log(`code: ${req.session.code}`);
             } else {
-              const auxDate = Date.now();
-              timePassedBetweenRequests = auxDate - req.session.sendChangePasswordTimestamp;
-            };
-            if (timePassedBetweenRequests < 10000) {
-              console.log('Spam control');
-              console.log(`You will have to wait ${Math.floor((10000 - timePassedBetweenRequests)/1000)} seconds to do another request`);
-              res.status(429).json({message: `You will have to wait ${Math.floor((10000 - timePassedBetweenRequests)/1000)} seconds to do another request`});
-            } else {
-              //  Everything seems OK => Send email
-              req.session.sendChangePasswordTimestamp = Date.now();
-              req.session.code = generateCode();
-              const mailTemplate = `
-                <h1>Welcome to Quotes Machine</h1>
-                <p>Hello ${user.name}! In order to change your password you should use the following code:</p>
-                <h2>Code: ${req.session.code}</h2>
-                <p>Thanks for coming back, we hope you enjoy it!</p>`;
-              const emailSuccess = await mailer.sendEmail(user.email, 'Quotes machine password recovery', mailTemplate);
-              if (emailSuccess.accepted[0] === `${user.email}`) {
-                console.log(`Email sent to ${user.email}`);
-                res.status(201).json({message: 'Email sent with the code'});
-                console.log(`code: ${req.session.code}`);
-              } else {
-                console.log('Mail rejected');
-                res.status(500).json({message: `There was a problem sending the email, please try again`});
-              };
+              console.log('Mail rejected');
+              res.status(500).json({message: `There was a problem sending the email, please try again`});
             };
           };
         })
