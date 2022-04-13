@@ -3,8 +3,8 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const flash = require('connect-flash');
+const path = require('path');
 require('dotenv').config();
-
 const app = express();
 
 // Passport config
@@ -44,6 +44,14 @@ app.use('/quotes', require('./routes/quotes/quotes.js'));
 app.use('/users', require('./routes/users/users.js'));
 app.use('/share/email', require('./routes/share/shareOnEmail.js'));
 
-const PORT = process.env.PORT || 3001;
+// Client
+if (process.env.ENVIRONMENT !== 'development') {
+  app.use(express.static('public'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+  });
+};
+
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => (`Server started at port ${PORT}`));
