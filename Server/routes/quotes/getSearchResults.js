@@ -1,7 +1,6 @@
 const express = require('express');
 const getSearchResultsRouter = express.Router();
 const rateLimiter = require('../../config/requestsRateLimiter/rateLimiter.js');
-
 // Quote model
 const Quote = require('../../models/Quote.js');
 
