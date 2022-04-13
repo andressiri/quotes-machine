@@ -10,7 +10,7 @@ function WallCancelDeleteBtn ({parentToChild}) {
 
   const handleWallCancelDeleteBtn = () => {
     setMessage('Quote elimination canceled');
-    redirectTo(`/${wall}/${config._id}/wallMessage`);
+    redirectTo(`/${wall}/${config._id}/message`);
   };
 
   return (

@@ -10,12 +10,12 @@ function LoggedInMenu() {
   const redirectTo = useRedirectTo();
   
   const handleChangePassword = () => {
-    redirectTo('/box/verifyEmail');
+    redirectTo('/box/email/verification');
   };
 
   const handleChangeName = () => {
     auxRef.current = 'name';
-    redirectTo('/box/verifyEmail');
+    redirectTo('/box/email/verification');
   };
 
   return (

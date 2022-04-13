@@ -11,7 +11,7 @@ function WallElementsDiv ({parentToChild}) {
 
   return (
     <div className={`routeContainer BG-color${imgBGColor}`}>
-      {wall === 'savedWall'
+      {wall === 'wall/saved'
         ? <div>
             <h1>This are your saved quotes</h1>
             <ReverseQuotesBtn />

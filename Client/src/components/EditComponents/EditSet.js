@@ -18,12 +18,12 @@ function EditSet ({parentToChild}) {
       <BackgroundColor parentToChild={parentToChild} />
       <TextColor parentToChild={parentToChild} />
       <FontStyle parentToChild={parentToChild} />
-      {location.pathname === '/box/editSharing'
+      {location.pathname === '/box/sharing/edit'
         ? <div>
             <SharingEditCancelBtn />
             <SharingEditOkBtn parentToChild={parentToChild} />
           </div>
-        : location.pathname === '/box/editConfig'
+        : location.pathname === '/box/options/edit'
           ? <div>
               <OptionsEditCancelBtn parentToChild={parentToChild} />
               <OptionsEditOkBtn parentToChild={parentToChild} />

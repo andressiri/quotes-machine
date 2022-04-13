@@ -20,7 +20,7 @@ function useCheckLoginCondition () {
       setTimeout(() => {  // Timeout to handle transition
         setMessage('You should verify your email to do this');
       }, 250);
-      redirectTo('/box/verifyEmail');
+      redirectTo('/box/email/verification');
       return false;
     } else {
       return true;

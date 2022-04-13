@@ -25,7 +25,7 @@ function CustomQuoteBtn() {
         setAuthor('Andrés Siri');
         setFadeQuote('In');
       }, 250);
-      redirectTo('/box/customQuote');
+      redirectTo('/box/custom-quote');
     }; 
   };
 

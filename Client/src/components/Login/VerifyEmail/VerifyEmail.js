@@ -26,7 +26,7 @@ function VerifyEmail() {
     emailReference.current = '';
     if (verified) {
       auxRef.current = '';
-      redirectTo('/box/loggedIn');
+      redirectTo('/box/logged-in');
     } else {
       logout();
     };

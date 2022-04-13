@@ -10,7 +10,7 @@ function OptionsEditBtn () {
   const redirectTo = useRedirectTo();
    
   const handleOptionsEditBtn = () => {
-    redirectTo('/box/editConfig');
+    redirectTo('/box/options/edit');
   };
 
   return (

@@ -14,7 +14,7 @@ function LoginForm() {
     setTimeout(() => {  // Timeout to handle transition
       setMessage('');
     }, 250);
-    redirectTo('/box/forgotPassword');
+    redirectTo('/box/password/forgot');
   };
 
   const handleRegister = () => {

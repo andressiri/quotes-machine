@@ -12,11 +12,11 @@ function SearchInput ({parentToChild}) {
   const debounceSearchResults = useDebounceSearchResults();
   const getSavedSearch = useGetSavedSearch();
   let placeholder = 'Search in our database...'
-  if (wall === 'savedWall') placeholder = 'Search in your quotes...'
+  if (wall === 'wall/saved') placeholder = 'Search in your quotes...'
 
   // handle unmount
   useEffect(() => {
-    if (wall === 'savedWall') return () => getSavedSearch('');
+    if (wall === 'wall/saved') return () => getSavedSearch('');
   }, []);
 
   const handleSearchInput = (event) => {

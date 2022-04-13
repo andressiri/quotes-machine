@@ -37,7 +37,7 @@ function FavoriteQuoteBtn ({parentToChild}) {
       savedQuotesBackup.current[indexAtBackup] = await JSON.parse(JSON.stringify(auxObj));
     };
     setIsLoading(false);
-    redirectTo(`/${wall}/${config._id}/wallMessage`);
+    redirectTo(`/${wall}/${config._id}/message`);
   };
 
   return (

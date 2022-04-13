@@ -17,7 +17,7 @@ function StartingWallComponents({parentToChild}) {
       <WallSharingBtn parentToChild={parentToChild} />
       <WallEditBtn parentToChild={parentToChild} />
       <WallDeleteBtn parentToChild={parentToChild} />
-      {wall === 'savedWall'
+      {wall === 'wall/saved'
         ? <div>
             <p className={`text-color${config.colorNum}`}>
               <FontAwesomeIcon className={`quoteIcon`} icon='globe-americas' /> 

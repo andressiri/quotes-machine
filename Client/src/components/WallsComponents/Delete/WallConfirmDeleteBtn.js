@@ -27,7 +27,7 @@ function WallConfirmDeleteBtn ({parentToChild}) {
       imgBG: config.imgBG
     };
 
-    if (wall === 'savedWall') {
+    if (wall === 'wall/saved') {
       if (isLoading) return;
       setIsLoading(true);
       const response = await fetch(`/users/quote/delete/${config._id}`, {method: 'DELETE'});
@@ -35,7 +35,7 @@ function WallConfirmDeleteBtn ({parentToChild}) {
       setIsLoading(false);
       if (response.status !== 200) {
         setMessage(json.message);
-        redirectTo(`/${wall}/${config._id}/wallMessage`);
+        redirectTo(`/${wall}/${config._id}/message`);
         return;
       } else {
         savedQuotesArray.current[indexAtBackup] = auxObj;
@@ -43,7 +43,7 @@ function WallConfirmDeleteBtn ({parentToChild}) {
       };
     };
 
-    if (wall === 'searchWall') {
+    if (wall === 'wall/search') {
       searchArray.current[indexAtBackup] = auxObj;
       searchBackup.current[indexAtBackup] = auxObj;
     };

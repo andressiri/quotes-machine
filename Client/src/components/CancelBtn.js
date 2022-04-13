@@ -33,8 +33,8 @@ function CancelBtn () {
     setTimeout(() => {  // Timeout to handle transition
       setMessage('');
     }, 250);
-    if (['/box/options', '/box/editConfig', '/box/editSharing'].includes(location.pathname)) restartDefault();
-    if (location.pathname === '/box/customQuote') {
+    if (['/box/options', '/box/options/edit', '/box/sharing/edit'].includes(location.pathname)) restartDefault();
+    if (location.pathname === '/box/custom-quote') {
       setFadeQuote('Out');
       setTimeout(() => {  // Timeout to handle transition
         setQuoteText(gallArray[gallChoose].text);
@@ -45,7 +45,7 @@ function CancelBtn () {
     shareChosen.current = '';
     emailReference.current = '';
     auxRef.current = '';
-    if (/Wall/.test(location.pathname)) {
+    if (/wall/i.test(location.pathname)) {
       redirectToWall('/box/app');
     } else {
       redirectTo('/box/app');

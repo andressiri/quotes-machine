@@ -21,7 +21,7 @@ function WallEditOkBtn ({parentToChild}) {
     setMessage('There are no changes to save');
     const arrayToCheck = getArrayToCheck(wall);
     const indexAtBackup = getIndexAtBackup(index, wall);
-    if (wall === 'savedWall') {
+    if (wall === 'wall/saved') {
       // check if there are changes to save
       if (JSON.stringify(arrayToCheck[index]) !== JSON.stringify(savedQuotesBackup.current[indexAtBackup])) {
         // save at DB
@@ -44,7 +44,7 @@ function WallEditOkBtn ({parentToChild}) {
       };
     };
     
-    if (wall === 'searchWall') {
+    if (wall === 'wall/search') {
       if (JSON.stringify(arrayToCheck[index]) !== JSON.stringify(searchBackup.current[indexAtBackup])) {
         const quoteObj = await JSON.parse(JSON.stringify(arrayToCheck[index]));
         searchBackup.current[indexAtBackup] = quoteObj;
@@ -52,7 +52,7 @@ function WallEditOkBtn ({parentToChild}) {
       };
     };
 
-    redirectTo(`/${wall}/${config._id}/wallMessage`);
+    redirectTo(`/${wall}/${config._id}/message`);
   };
 
   return (

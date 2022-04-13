@@ -7,7 +7,7 @@ function WallEditBtn ({parentToChild}) {
   const redirectTo = useRedirectTo();
   
   const handleWallEditBtn = () => {
-    redirectTo(`/${wall}/${config._id}/wallEdit`);
+    redirectTo(`/${wall}/${config._id}/edit`);
   };
 
   return (

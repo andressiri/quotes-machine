@@ -7,7 +7,7 @@ function WallSharingBtn({parentToChild}) {
   const redirectTo = useRedirectTo();
 
   const handleWallSharingBtn = () => {
-    redirectTo(`/${wall}/${config._id}/wallSharing`);
+    redirectTo(`/${wall}/${config._id}/sharing`);
   };
 
   return (

@@ -17,7 +17,7 @@ function useDebounceSearchResults () {
   };
 
   const debounceSearchResults = debounceSearch((searchFor, wall) => {
-    if (wall === 'searchWall') {
+    if (wall === 'wall/search') {
       getSearchResults(searchFor);
     } else {
       getSavedSearch(searchFor);

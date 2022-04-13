@@ -34,7 +34,7 @@ function SearchSaveQuoteBtn({parentToChild}) {
       getSavedQuotes();
       setMessage(json.message);
       setIsLoading(false);
-      redirectTo(`/${wall}/${config._id}/wallMessage`);
+      redirectTo(`/${wall}/${config._id}/message`);
     };
   };
 

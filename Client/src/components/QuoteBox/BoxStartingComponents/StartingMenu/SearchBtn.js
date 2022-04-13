@@ -13,7 +13,7 @@ function SearchBtn() {
 
   const handleSearchBtn = () => {
     stopAuto();
-    redirectToWall('/searchWall');
+    redirectToWall('/wall/search');
   };
 
   return (

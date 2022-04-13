@@ -24,7 +24,7 @@ function ShareTextBtn ({parentToChild}) {
     setMessage(`Quote has been shared on ${shareChosen.current}`);
     shareChosen.current = '';
     let redirectPath = '/box/message';
-    if (config._id !== 'This was called by QuoteBox') redirectPath = `/${wall}/${config._id}/wallMessage`;
+    if (config._id !== 'This was called by QuoteBox') redirectPath = `/${wall}/${config._id}/message`;
     redirectTo(redirectPath);
   };
 

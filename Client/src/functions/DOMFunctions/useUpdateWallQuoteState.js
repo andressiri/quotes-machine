@@ -18,12 +18,12 @@ function useUpdateWallQuoteState () {
   const updateWallQuoteState = (index, value, attribute, wall) => {
     // ***Intended: if one of the quotes is changed at specific tabs, quote will be updated at "all quotes" array too, bacause specific arrays keep pointing to arrays they were made from.
     let auxObj = {};
-    if (wall === 'searchWall') {
+    if (wall === 'wall/search') {
       auxObj = searchArray.current[index];
       if (byQuoteTab.current === true) auxObj = byQuoteArray.current[index]; // ***
       if (byAuthorTab.current === true) auxObj = byAuthorArray.current[index]; // ***
     };
-    if (wall === 'savedWall') {
+    if (wall === 'wall/saved') {
       auxObj = savedQuotesArray.current[index];
       if (customTab.current === true) auxObj = customQuotesArray.current[index]; // ***
       if (favoriteTab.current === true) auxObj = favoriteQuotesArray.current[index]; // ***

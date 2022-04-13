@@ -61,7 +61,7 @@ function LoginButton () {
           setTimeout(() => {  // Timeout to handle transition
             setMessage('');
           }, 250);
-          redirectTo('/box/verifyEmail');
+          redirectTo('/box/email/verification');
         };
       } else {
         setIsLoading(false);

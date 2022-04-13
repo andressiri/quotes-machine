@@ -16,7 +16,7 @@ function AppRouter() {
   const favoriteTab = refs.favoriteT;
   const favoriteQuotesArray = refs.favoriteA;
   const savedWall = {
-    wall: 'savedWall',
+    wall: 'wall/saved',
     mainArray: savedQuotesArray.current,
     mainArrayExists: quotesArrDontExists.current,
     dontExistsMsg: 'No quotes saved to show',
@@ -38,7 +38,7 @@ function AppRouter() {
   const byAuthorTab = refs.byATab;
   const byAuthorArray = refs.byAArr;
   const searchWall = {
-    wall: 'searchWall',
+    wall: 'wall/search',
     mainArray: searchArray.current,
     mainArrayExists: searching.current,
     dontExistsMsg: 'Searching...',
@@ -58,8 +58,8 @@ function AppRouter() {
       <div className={`BG-color${colorNumber}`}>
         <Routes>
           <Route path='/box/*' exact element={<QuoteBox />} />
-          <Route path='/savedWall/*' exact element={<WallDisplay parentToChild={savedWall} />} />
-          <Route path='/searchWall/*' exact element={<WallDisplay parentToChild={searchWall} />} />
+          <Route path='/wall/saved*' exact element={<WallDisplay parentToChild={savedWall} />} />
+          <Route path='/wall/search*' exact element={<WallDisplay parentToChild={searchWall} />} />
         </Routes>
       </div>
     </div>

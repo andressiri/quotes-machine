@@ -15,7 +15,7 @@ function ChangePassword() {
   let redirectPath = '/box/login';
   let auxString = 'Go to login';
   if (loggedIn) {
-    redirectPath = '/box/loggedIn';
+    redirectPath = '/box/logged-in';
     auxString = 'Go back';
   };
 

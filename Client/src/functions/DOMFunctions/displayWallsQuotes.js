@@ -1,5 +1,5 @@
 import WallQuote from '../../components/wallsComponents/WallQuote.js';
-import WallContainer from '../../components/wallsComponents/WallContainer.js';
+import WallRouter from '../../components/wallsComponents/WallRouter.js';
 import WallQuoteDeleted from '../../components/wallsComponents/delete/WallQuoteDeleted.js';
 
 const displayWallsQuotes = (arrayDontExists, dontExistsMsg, arrayToDisplay, numberOfQuotes, wall) => {
@@ -19,7 +19,7 @@ const displayWallsQuotes = (arrayDontExists, dontExistsMsg, arrayToDisplay, numb
       return(
         <div id={divId} key={quoteObj._id}>
           <WallQuote key={`2${quoteObj._id}`} parentToChild={parentToChildObj} />
-          <WallContainer key={`3${quoteObj._id}`} parentToChild={parentToChildObj} />
+          <WallRouter key={`3${quoteObj._id}`} parentToChild={parentToChildObj} />
         </div>);
     } else {
       return(<WallQuoteDeleted id={divId} key={`4${quoteObj._id}`} parentToChild={parentToChildObj}/>);

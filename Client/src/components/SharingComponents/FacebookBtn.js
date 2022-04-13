@@ -11,8 +11,8 @@ function FacebookBtn({parentToChild}) {
   
   const handleFacebookBtn = () => {
     shareChosen.current = 'Facebook';
-    let redirectPath = '/box/sharingChoices';
-    if (config._id !== 'This was called by QuoteBox') redirectPath = `/${wall}/${config._id}/wallShareChoice`;
+    let redirectPath = '/box/sharing/choices';
+    if (config._id !== 'This was called by QuoteBox') redirectPath = `/${wall}/${config._id}/sharing/choice`;
     redirectTo(redirectPath);
   };
 

@@ -26,7 +26,7 @@ function WallDeletedOkBtn ({parentToChild}) {
     const indexAtBackup = getIndexAtBackup(index, wall);
     const msg = 'No quotes to show left here'
 
-    if (wall === 'savedWall') {
+    if (wall === 'wall/saved') {
       if (customTab.current === true || favoriteTab.current === true) arrayToCheck.splice(index, 1);
       savedQuotesArray.current.splice(indexAtBackup, 1);
       savedQuotesBackup.current.splice(indexAtBackup, 1);
@@ -39,7 +39,7 @@ function WallDeletedOkBtn ({parentToChild}) {
       };
     };
 
-    if (wall === 'searchWall') {
+    if (wall === 'wall/search') {
       if (byQuoteTab.current === true || byAuthorTab.current === true) arrayToCheck.splice(index, 1);
       searchArray.current.splice(indexAtBackup, 1);
       searchBackup.current.splice(indexAtBackup, 1);
@@ -58,7 +58,7 @@ function WallDeletedOkBtn ({parentToChild}) {
 
   // handle user ignore
   useEffect(() => {
-    if (location.pathname !== `/${wall}/${config._id}/wallDeleteConfirm` &&
+    if (location.pathname !== `/${wall}/${config._id}/delete/confirmation` &&
       location.pathname !== `/${wall}`) handleWallDeletedOkBtn();    
   }, [location.pathname]);
   // handle unmount

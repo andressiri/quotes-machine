@@ -18,12 +18,12 @@ function useGetArrayToCheck () {
 
   const getArrayToCheck = (wall) => {
     let arrayToChange = savedQuotesArray.current;
-    if (wall === 'savedWall') {
+    if (wall === 'wall/saved') {
       if (customTab.current === true) arrayToChange = customQuotesArray.current;
       if (favoriteTab.current === true) arrayToChange = favoriteQuotesArray.current;
     };
 
-    if (wall === 'searchWall') {
+    if (wall === 'wall/search') {
       arrayToChange = searchArray.current;
       if (byQuoteTab.current === true) arrayToChange = byQuoteArray.current;
       if (byAuthorTab.current === true) arrayToChange = byAuthorArray.current;

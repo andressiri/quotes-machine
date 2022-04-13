@@ -23,7 +23,7 @@ function SavedWallBtn() {
       if (!savedQuotesArray.current[0]._id) {
         getSavedQuotes();
       };
-      redirectToWall('/savedWall');
+      redirectToWall('/wall/saved');
     };
   };
 

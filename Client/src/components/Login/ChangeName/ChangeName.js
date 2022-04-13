@@ -15,7 +15,7 @@ function ChangeName() {
     setTimeout(() => {  // Timeout to handle transition
       setMessage('');
     }, 250);
-    redirectTo('/box/loggedIn');
+    redirectTo('/box/logged-in');
   };
 
   return (

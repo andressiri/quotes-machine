@@ -22,13 +22,13 @@ function useWallCancelEdition () {
     const arrayToChange = getArrayToCheck(wall);
     const indexAtBackup = getIndexAtBackup(index, wall);
 
-    if (wall === 'savedWall') {
+    if (wall === 'wall/saved') {
       const auxObj = await JSON.parse(JSON.stringify(savedQuotesBackup.current[indexAtBackup]));
       savedQuotesArray.current[indexAtBackup] = auxObj;
       if (customTab.current === true || favoriteTab.current === true) arrayToChange[index] = auxObj;
     };
 
-    if (wall === 'searchWall') {
+    if (wall === 'wall/search') {
       const auxObj = await JSON.parse(JSON.stringify(searchBackup.current[indexAtBackup]));
       searchArray.current[indexAtBackup] = auxObj;
       if (byQuoteTab.current === true || byAuthorTab.current === true) arrayToChange[index] = auxObj;

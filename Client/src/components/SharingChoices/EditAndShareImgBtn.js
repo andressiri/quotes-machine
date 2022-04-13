@@ -24,7 +24,7 @@ function EditAndShareImgBtn ({parentToChild}) {
       setMessage('');
     }, 250);
     setConfigBackup(parentToChild.config);
-    redirectTo('/box/editSharing');
+    redirectTo('/box/sharing/edit');
   };
 
   return (

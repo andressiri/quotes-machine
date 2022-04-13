@@ -17,7 +17,7 @@ function TwitterBtn({parentToChild}) {
     shareTxt(config);
     setMessage('Quote has been shared on Twitter');
     let redirectPath = '/box/message';
-    if (config._id !== 'This was called by QuoteBox') redirectPath = `/${wall}/${config._id}/wallMessage`;
+    if (config._id !== 'This was called by QuoteBox') redirectPath = `/${wall}/${config._id}/message`;
     shareChosen.current = '';
     redirectTo(redirectPath);
   };

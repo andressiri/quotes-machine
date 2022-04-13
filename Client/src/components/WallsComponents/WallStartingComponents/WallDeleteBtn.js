@@ -7,7 +7,7 @@ function WallDeleteBtn ({parentToChild}) {
   const redirectTo = useRedirectTo();
   
   const handleWallDeleteBtn = () => {
-    redirectTo(`/${wall}/${config._id}/wallDeleteConfirm`);
+    redirectTo(`/${wall}/${config._id}/delete/confirmation`);
   };
 
   return (

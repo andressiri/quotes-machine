@@ -48,8 +48,8 @@ function CheckCodeBtn () {
         setVerified(true);
         redirectTo('/box/app');
       } else {
-        let path = '/box/changePassword';
-        if (auxRef.current === 'name') path = '/box/changeName';
+        let path = '/box/password/change';
+        if (auxRef.current === 'name') path = '/box/name/change';
         redirectTo(path);
       };
     } else {

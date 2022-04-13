@@ -19,7 +19,7 @@ function useGetIndexAtBackup () {
   const getIndexAtBackup = (index, wall) => {
     let indexAtBackup = index;
 
-    if (wall === 'savedWall') {
+    if (wall === 'wall/saved') {
       // check if cancel event is at custom tab
       if (customTab.current === true) {
         indexAtBackup = savedQuotesBackup.current.map(quote => {
@@ -34,7 +34,7 @@ function useGetIndexAtBackup () {
       };
     };
 
-    if (wall === 'searchWall') {
+    if (wall === 'wall/search') {
       // check if cancel event is at custom tab
       if (byQuoteTab.current === true) {
         indexAtBackup = searchBackup.current.map(quote => {

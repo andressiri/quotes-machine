@@ -14,7 +14,7 @@ function WallEditCancelBtn ({parentToChild}) {
   const handleWallEditCancelBtn = () => {
     setMessage('Edition has been canceled');
     wallCancelEdition(index, wall);
-    redirectTo(`/${wall}/${config._id}/wallMessage`);
+    redirectTo(`/${wall}/${config._id}/message`);
   };
 
   return (
