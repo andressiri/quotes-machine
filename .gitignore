@@ -1,0 +1,3 @@
+# folders for Heroku hosting
+/server/public
+/server/.git
