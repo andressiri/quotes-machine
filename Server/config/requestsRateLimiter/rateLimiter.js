@@ -1,16 +1,21 @@
 const ExpressBrute = require('express-brute');
-let MemcachedStore = require('express-brute-memcached');
 require('dotenv').config();
-let store;
+// Set mongoose Store for production
+const mongoose = require("mongoose");
+const MongooseStore = require("express-brute-mongoose");
+const BruteForceSchema = require("express-brute-mongoose/dist/schema");
+const storeModel = mongoose.model(
+  "bruteforce",
+  new mongoose.Schema(BruteForceSchema)
+);
 
 // Rate limiter store
-if (process.env.ENVIRONMENT == 'development'){
+let store;
+if (process.env.ENVIRONMENT === 'development'){
   store = new ExpressBrute.MemoryStore(); // stores state locally, don't use this in production
 } else {
-  // instead store state with memcached in production
-  store = new MemcachedStore(['127.0.0.1:11211'], {
-      prefix: 'NoConflicts'
-  });
+  // instead store state with mongoose store in production
+  store = new MongooseStore(storeModel);
 };
 
 // Rate limiter to avoid multiple clicking
