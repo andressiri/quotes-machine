@@ -16,7 +16,7 @@ function useGetSearchResults () {
     if (searchFor) {
       searching.current = true;
       setForceUpdate(forceUpdate => forceUpdate + 1);
-      const response = await fetch(`/quotes/search/${searchFor}`);
+      const response = await fetch(`/api/quotes/search/${searchFor}`);
       const json = await response.json();
       if (json.foundMatches) {
         const organizedArray = exactResultsFirst(json.searchResults, searchFor);

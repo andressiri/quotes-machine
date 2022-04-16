@@ -68,7 +68,7 @@ function App() {
 
   //Log user out when page is closed or refreshed
   useBeforeunload(() => {
-    const logout = fetch('/users/logout', {method: 'DELETE', keepalive: true});
+    const logout = fetch('/api/users/logout', {method: 'DELETE', keepalive: true});
   });
 
   return (

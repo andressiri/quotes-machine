@@ -27,7 +27,7 @@ function WallEditOkBtn ({parentToChild}) {
         // save at DB
         setIsLoading(true);
         const quoteObj = await JSON.parse(JSON.stringify(arrayToCheck[index]));
-        const response = await fetch('/users/quote/edit', {
+        const response = await fetch('/api/users/quote/edit', {
           method: 'PUT',
           headers: {
             Accept: 'application/json',

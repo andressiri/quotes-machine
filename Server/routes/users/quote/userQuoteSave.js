@@ -7,7 +7,7 @@ const User = require('../../../models/User.js');
 // UserQuotes model
 const UserQuotes = require('../../../models/UserQuotes.js');
 
-// Handle quote saving - @/users/quote/save
+// Handle quote saving - @/api/users/quote/save
 userQuoteSaveRouter.put('/',
   rateLimiter.max2500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,

@@ -5,7 +5,7 @@ const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js'
 // User model
 const User = require('../../../models/User.js');
 
-// Handle password change - @/users/password/edit
+// Handle password change - @/api/users/password/edit
 passwordEditRouter.put('/',
   rateLimiter.max500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,

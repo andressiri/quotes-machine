@@ -2,7 +2,7 @@ const express = require('express');
 const loginResponseRouter = express.Router();
 const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
 
-// Login handle - @/users/login/response
+// Login handle - @/api/users/login/response
 loginResponseRouter.post('/',
   rateLimiter.max500RequestsPerday.prevent,
   // different multiple clicking limiter, bacause login makes two consecutive requests.

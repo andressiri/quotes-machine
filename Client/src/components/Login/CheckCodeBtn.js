@@ -27,7 +27,7 @@ function CheckCodeBtn () {
     if (emailReference.current === '') return setMessage('No code was requested yet');
     if (codeValue === '') return setMessage('Please enter the code sent');
     setIsLoading(true);
-    const response = await fetch('/users/email/verification', {
+    const response = await fetch('/api/users/email/verification', {
       method: 'PUT',
       headers: {
         Accept: 'application/json',

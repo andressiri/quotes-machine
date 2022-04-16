@@ -23,7 +23,7 @@ function EmailForgotPasswordBtn () {
     if (emailValue === '') return setMessage('Please enter your email');
     if (!validateEmail(emailValue)) return setMessage('Please enter a valid email');
     setIsLoading(true);
-    const response = await fetch('/users/email/send/password-reset-code', {
+    const response = await fetch('/api/users/email/send/password-reset-code', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

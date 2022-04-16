@@ -36,7 +36,7 @@ function RegisterButton () {
     };  // POST the form if it meets requirements
     setIsLoading(true);
     const userOpt = createOptionsObj(configBackup);
-    const response = await fetch('/users/register', {
+    const response = await fetch('/api/users/register', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

@@ -7,7 +7,7 @@ const canRequest = require('../../functions/canRequest.js');
 const getMailTemplate = require('./shareOnEmailTemplate.js');
 const mailer = require('../../config/mailer.js');
 
-// Share on email handle - @/share/email
+// Share on email handle - @/api/share/email
 shareOnEmailRouter.post('/',
   rateLimiter.max500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,

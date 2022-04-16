@@ -21,7 +21,7 @@ function SearchSaveQuoteBtn({parentToChild}) {
     if (checkLoginCondition()) {
       setIsLoading(true);
       const quoteObj = generateSearchQuoteObj(config);
-      const response = await fetch('/users/quote/save', {
+      const response = await fetch('/api/users/quote/save', {
         method: 'PUT',
         headers: {
           Accept: 'application/json',

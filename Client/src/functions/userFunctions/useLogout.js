@@ -14,7 +14,7 @@ function useLogout () {
   const redirectTo = useRedirectTo();
     
   const logout = () => {
-    const logout = fetch('/users/logout', {method: 'DELETE'});
+    const logout = fetch('/api/users/logout', {method: 'DELETE'});
     savedQuotesArray.current = ['No quotes saved to show'];
     savedQuotesBackup.current = ['No quotes saved to show'];
     if (loggedIn) setInitialOptions();

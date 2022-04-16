@@ -5,7 +5,7 @@ const checkAuthenticated = require('../../../config/checkAuthenticated.js');
 // UserQuotes model
 const UserQuotes = require('../../../models/UserQuotes.js');
 
-// Handle user saved quote delete - @/users/quote/delete
+// Handle user saved quote delete - @/api/users/quote/delete
 userQuoteDeleteRouter.delete('/:id', 
   rateLimiter.max2500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,

@@ -7,7 +7,7 @@ const generateCode = require('../../../../functions/generateCode.js');
 const getMailTemplate = require('./verificationCodeMailTemplate.js');
 const mailer = require('../../../../config/mailer.js');
 
-// Handle email verification request - @/users/email/send/verification-code
+// Handle email verification request - @/api/users/email/send/verification-code
 sendVerificationCodeRouter.get('/',
   rateLimiter.max500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,

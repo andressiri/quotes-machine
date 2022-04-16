@@ -5,7 +5,7 @@ const canRequest = require('../../../functions/canRequest.js');
 // User model
 const User = require('../../../models/User.js');
 
-// Email verification handle - @/users/email/verification
+// Email verification handle - @/api/users/email/verification
 emailVerificationRouter.put('/',
   rateLimiter.max500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,

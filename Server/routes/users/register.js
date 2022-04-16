@@ -6,7 +6,7 @@ const validateEmail = require('../../functions/validateEmail.js');
 // User model
 const User = require('../../models/User.js');
 
-// Register handle - @/users/register
+// Register handle - @/api/users/register
 registerRouter.post('/',
   rateLimiter.max500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,

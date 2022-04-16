@@ -40,9 +40,9 @@ app.use(passport.session());
 
 // Routes
 app.use('/', require('./routes/app.js'));
-app.use('/quotes', require('./routes/quotes/quotes.js'));
-app.use('/users', require('./routes/users/users.js'));
-app.use('/share/email', require('./routes/share/shareOnEmail.js'));
+app.use('/api/quotes', require('./routes/quotes/quotes.js'));
+app.use('/api/users', require('./routes/users/users.js'));
+app.use('/api/share/email', require('./routes/share/shareOnEmail.js'));
 
 // Client
 if (process.env.ENVIRONMENT !== 'development') {
@@ -52,6 +52,6 @@ if (process.env.ENVIRONMENT !== 'development') {
   });
 };
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
-app.listen(PORT, () => (`Server started at port ${PORT}`));
+app.listen(PORT, () => console.log(`Server started at port ${PORT}`));

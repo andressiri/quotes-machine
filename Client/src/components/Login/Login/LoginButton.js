@@ -27,7 +27,7 @@ function LoginButton () {
       setMessage('Please enter a valid email');
     } else {
       setIsLoading(true);
-      const passportAuth = await fetch('/users/login/authentication', {
+      const passportAuth = await fetch('/api/users/login/authentication', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -38,7 +38,7 @@ function LoginButton () {
           password: passwordValue,
         }),
       });
-      const response = await fetch('/users/login/response', {method: 'POST'});
+      const response = await fetch('/api/users/login/response', {method: 'POST'});
       const json = await response.json();
       if (response.status === 200) {
         //Load options

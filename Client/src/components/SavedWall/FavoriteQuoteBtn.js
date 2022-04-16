@@ -21,7 +21,7 @@ function FavoriteQuoteBtn ({parentToChild}) {
     const arrayToCheck = getArrayToCheck(wall);
     const auxObj = arrayToCheck[index];
     auxObj.favorite = !auxObj.favorite;
-    const response = await fetch('/users/quote/edit', {
+    const response = await fetch('/api/users/quote/edit', {
       method: 'PUT',
       headers: {
         Accept: 'application/json',

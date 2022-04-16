@@ -30,7 +30,7 @@ function WallConfirmDeleteBtn ({parentToChild}) {
     if (wall === 'wall/saved') {
       if (isLoading) return;
       setIsLoading(true);
-      const response = await fetch(`/users/quote/delete/${config._id}`, {method: 'DELETE'});
+      const response = await fetch(`/api/users/quote/delete/${config._id}`, {method: 'DELETE'});
       const json = await response.json();
       setIsLoading(false);
       if (response.status !== 200) {

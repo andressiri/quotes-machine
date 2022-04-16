@@ -14,7 +14,7 @@ module.exports = (req) => {
   
   const mailTemplate = `
     <h1>Welcome to Quotes Machine</h1>
-    <p>Hello there! I found this quote at <a href="http://quotesmachine.com" target="_blank" rel="noopenener noreferrer nofollow">Quotes Machine</a> and I wanted to share it with you!</p>
+    <p>Hello there! I found this quote at <a href="https://asquotesmachine.herokuapp.com/" target="_blank" rel="noopenener noreferrer nofollow">Quotes Machine</a> and I wanted to share it with you!</p>
     ${quoteToShare}
     <p>Hope you like it!</p>
     <h3>${req.user.name}</h3>

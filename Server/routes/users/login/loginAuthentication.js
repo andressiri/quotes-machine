@@ -4,7 +4,7 @@ const passport = require('passport');
 const rateLimiter = require('../../../config/requestsRateLimiter/rateLimiter.js');
 const validateEmail = require('../../../functions/validateEmail.js');
 
-// Login handle - @/users/login/authentication
+// Login handle - @/api/users/login/authentication
 loginAuthenticationRouter.post('/',
   rateLimiter.max500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,

@@ -2,21 +2,20 @@ import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
 import useUpdateWallQuoteState from '../../../functions/DOMFunctions/useUpdateWallQuoteState.js';
 
-function CursiveFF ({parentToChild}) {
+function FontFamilyBtn ({parentToChild}) {
   const {edit} = useContext(Context);
   const [fontFam, setFontFam] = edit.fontF;
-  const {config, index, wall} = parentToChild;
+  const {config, index, wall, font, id} = parentToChild;
   const updateWallQuoteState = useUpdateWallQuoteState();
-  const font = '"Brush Script MT", cursive';
-  let cursiveBGColor = config.imgBG;
-  let cursiveTxtColor = config.colorNum;
+  let BtnBGColor = config.imgBG;
+  let BtnTxtColor = config.colorNum;
 
   if (config.fontF === font) {
-    cursiveBGColor = config.colorNum;
-    cursiveTxtColor = config.imgBG;
+    BtnBGColor = config.colorNum;
+    BtnTxtColor = config.imgBG;
   };
 
-  const handleCursiveFF = () => {
+  const handleFontFamilyBtn = () => {
     if (config._id === 'This was called by QuoteBox') {
       setFontFam(font);
     } else {
@@ -27,12 +26,12 @@ function CursiveFF ({parentToChild}) {
   return (
     <label>
       <button
-        className={`editBtn fFam BG-color${cursiveBGColor} text-color${cursiveTxtColor}`}
+        className={`editBtn fFam BG-color${BtnBGColor} text-color${BtnTxtColor}`}
         style={{fontFamily: font}}
-        onClick={handleCursiveFF}
-      ><div id='cursiveBtn'>Aa</div></button>
+        onClick={handleFontFamilyBtn}
+      ><div id={id}>Aa</div></button>
     </label>
   );
 };
 
-export default CursiveFF;
+export default FontFamilyBtn;

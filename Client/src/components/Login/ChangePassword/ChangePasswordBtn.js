@@ -27,7 +27,7 @@ function ChangePasswordBtn () {
       return setMessage('Password should be at least 6 characters');
     };  //Send the form if it meets requirements
     setIsLoading(true);
-    const response = await fetch('/users/password/edit', {
+    const response = await fetch('/api/users/password/edit', {
       method: 'PUT',
       headers: {
         Accept: 'application/json',

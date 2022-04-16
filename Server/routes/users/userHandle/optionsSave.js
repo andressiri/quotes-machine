@@ -6,7 +6,7 @@ const generateCode = require('../../../functions/generateCode.js');
 // User model
 const User = require('../../../models/User.js');
 
-// Handle user options save - @/users/options/save
+// Handle user options save - @/api/users/options/save
 optionsSaveRouter.put('/',
   rateLimiter.max2500RequestsPerday.prevent,
   rateLimiter.multipleClickingLimiter.prevent,

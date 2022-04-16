@@ -58,8 +58,8 @@ function AppRouter() {
       <div className={`BG-color${colorNumber}`}>
         <Routes>
           <Route path='/box/*' exact element={<QuoteBox />} />
-          <Route path='/wall/saved*' exact element={<WallDisplay parentToChild={savedWall} />} />
-          <Route path='/wall/search*' exact element={<WallDisplay parentToChild={searchWall} />} />
+          <Route path='/wall/saved/*' exact element={<WallDisplay parentToChild={savedWall} />} />
+          <Route path='/wall/search/*' exact element={<WallDisplay parentToChild={searchWall} />} />
         </Routes>
       </div>
     </div>
