@@ -8,7 +8,7 @@ function BoxMessages () {
 
   return (
     <div className={'messageContainer'}>
-      {message !== '' && <h2>{message}</h2>}
+      {message !== '' && <h2 className={'containerText'}>{message}</h2>}
       <BoxAcceptBtn />
     </div>
   );

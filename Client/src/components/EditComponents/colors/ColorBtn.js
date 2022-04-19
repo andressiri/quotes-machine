@@ -23,6 +23,7 @@ function ColorBtn ({parentToChild}) {
   };
 
   const handleColorBtn = () => {
+    if (btnState === 'buttonDisabled') return;
     if (config._id === 'This was called by QuoteBox') {
       if (textOrBG === 'colorNum') {
         setColorNumber(numOfColor);

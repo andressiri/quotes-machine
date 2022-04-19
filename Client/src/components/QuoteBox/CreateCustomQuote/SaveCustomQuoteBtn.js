@@ -56,7 +56,7 @@ function SaveCustomQuoteBtn () {
 
   return (
     <button
-      className={`textBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      className={`formBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSaveCustomQuoteBtn}
     >Save</button>
   );

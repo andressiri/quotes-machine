@@ -26,7 +26,6 @@ function useShareImg () {
     switch (shareChosen.current) {
       case 'Clipboard':
         await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob})]);
-        alert('Screenshot took on Clipboard');
         break;
       case 'Tumblr':
         link = `https://www.tumblr.com/widgets/share/tool?posttype=photo&tags=quotes&content=${imgUrl}&caption="${config.content}"%20-%20${config.author}%20&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons`;

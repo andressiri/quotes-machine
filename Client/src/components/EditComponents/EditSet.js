@@ -14,7 +14,7 @@ function EditSet ({parentToChild}) {
   const location = useLocation();
 
   return (
-    <div>
+    <div className={'routeColumnContainer'}>
       <BackgroundColor parentToChild={parentToChild} />
       <TextColor parentToChild={parentToChild} />
       <FontStyle parentToChild={parentToChild} />

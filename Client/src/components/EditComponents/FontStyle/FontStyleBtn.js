@@ -44,11 +44,11 @@ function FontStyleBtn ({parentToChild}) {
   };
 
   return (
-    <button
+    <div
       className={`editBtn fFam BG-color${styleBGColor} text-color${styleTxtColor}`}
       style={styleObj}
       onClick={handleFontStyleBtn}
-    >{btnText}</button>
+    >{btnText}</div>
   );
 };
 

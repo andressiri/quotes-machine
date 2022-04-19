@@ -25,11 +25,11 @@ function FontFamilyBtn ({parentToChild}) {
 
   return (
     <label>
-      <button
+      <div
         className={`editBtn fFam BG-color${BtnBGColor} text-color${BtnTxtColor}`}
         style={{fontFamily: font}}
         onClick={handleFontFamilyBtn}
-      ><div id={id}>Aa</div></button>
+      >Aa</div>
     </label>
   );
 };

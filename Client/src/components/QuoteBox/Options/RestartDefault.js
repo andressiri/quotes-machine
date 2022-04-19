@@ -2,14 +2,14 @@ import React, {useContext, useState} from 'react';
 import {Context} from '../../../Context.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-function RestartDefaultBtn () {
+function RestartDefault () {
   const {colors, edit} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [restartDefaultObj, setRestartDefaultObj] = edit.auto;
   const [isLoading, setIsLoading] = useState(false);
   
-  const handleRestartDefaultBtn = () => {
+  const handleRestartDefault = () => {
     if (isLoading) return;
     setIsLoading(true);
     setRestartDefaultObj(!restartDefaultObj);
@@ -17,19 +17,25 @@ function RestartDefaultBtn () {
   };
 
   return (
-    <div>
+    <div className={'optionsDiv'}>
       {restartDefaultObj === true
         ? <FontAwesomeIcon
-            className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
-            onClick={handleRestartDefaultBtn}
-            icon='check' />
+            className={`BG-color${colorNumber} text-color${imgBGColor} optionsBtn`}
+            onClick={handleRestartDefault}
+            icon='check'
+          />
         : <FontAwesomeIcon
-            className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
-            onClick={handleRestartDefaultBtn}
-            icon='times' />
+            className={`BG-color${colorNumber} text-color${imgBGColor} optionsBtn fixOptionsBtn`}
+            onClick={handleRestartDefault}
+            icon='times'
+          />
       }
+      <h3 
+        className={`BG-color${colorNumber} text-color${imgBGColor} optionsText`}
+        onClick={handleRestartDefault}
+      >Auto restart configuration</h3>
     </div>
   );
 };
 
-export default RestartDefaultBtn;
+export default RestartDefault;

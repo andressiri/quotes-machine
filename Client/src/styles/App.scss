@@ -36,9 +36,14 @@ input, button, textarea {
   flex-direction: column;
 }
 
+.messageText {
+  max-width: 80%;
+}
+
 .routeColumnContainer {
   @extend .flexDiv;
   padding-top: var(--reference);
+  padding-bottom: var(--reference);
   align-items: unset;
   min-height: 250px;
   flex-direction: column;

@@ -7,12 +7,19 @@ import EmailShareBtn from './EmailShareBtn.js';
 
 function BoxSharingSet({parentToChild}) {
   return (
-    <div>
-      <CopyToClipboardBtn parentToChild={parentToChild} />
-      <TumblrBtn parentToChild={parentToChild} />
-      <TwitterBtn parentToChild={parentToChild} />
-      <FacebookBtn parentToChild={parentToChild} />
-      <EmailShareBtn parentToChild={parentToChild} />
+    <div className={'routeColumnContainer'} style={{minHeight: '200px'}}>
+      <h2>Share Quote</h2>
+      <div className={'flexDiv'}>
+        <div>
+          <CopyToClipboardBtn parentToChild={parentToChild} />
+          <TumblrBtn parentToChild={parentToChild} />
+          <TwitterBtn parentToChild={parentToChild} />
+        </div>
+        <div>
+          <FacebookBtn parentToChild={parentToChild} />
+          <EmailShareBtn parentToChild={parentToChild} />
+        </div>
+      </div>
     </div>
   );
 };

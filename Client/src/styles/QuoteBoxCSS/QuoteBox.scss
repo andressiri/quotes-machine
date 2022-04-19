@@ -8,7 +8,7 @@
   margin: calc(var(--reference) * 2);
   width: var(--boxWidth);
   border-radius: calc(var(--radius) * 2 + 2px);
-  transition: background-color 0s !important;
+  transition: all 0s !important;
 }
 
 .StartingSetRQ {
@@ -48,4 +48,45 @@
 .cancel {
   margin: calc(var(--reference) * 1.5) !important;
   margin-left: auto !important;
+}
+
+.optionsDiv {
+  display: flex;
+  width: auto;
+  max-width: 90%;
+  height: auto;
+  min-height: var(--btnHeight);
+  margin: var(--reference) auto var(--reference) auto;
+  cursor: pointer;
+}
+
+.optionsText {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  max-width: calc(100% - var(--iconSize) * 2);
+  height: auto;
+  min-height: 100%;
+  max-height: 100%;
+  border-top-right-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+  padding-right: var(--reference);
+}
+
+.optionsBtn {
+  box-sizing: border-box;
+  border: none;
+  padding: var(--reference);
+  width: var(--btnHeight) !important;
+  height: auto;
+  min-height: 100%;
+  max-height: 100%;
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+}
+.fixOptionsBtn {
+  padding: calc(var(--reference) * 1.5);
 }

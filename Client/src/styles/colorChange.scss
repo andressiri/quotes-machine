@@ -23,6 +23,7 @@ $colors: $customRed, $customOrange, $customYellow, $customGreen, $customBlue, $c
     scrollbar-width: thin;
   }
   .scroll#{$i - 1}::-webkit-scrollbar {
+    height: calc(var(--reference) * 0.7);
     width: var(--reference);
   }
   .scroll#{$i - 1}::-webkit-scrollbar-track {

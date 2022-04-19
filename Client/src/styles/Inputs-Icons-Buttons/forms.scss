@@ -16,3 +16,16 @@
   border-width: 2px;
   padding: 0px 0px 0px var(--reference);
 }
+
+.txtArea {
+  padding: var(--reference);
+  height: calc(var(--btnHeight) * 2);
+  resize: none;
+  overflow: auto;
+  font-size: calc(var(--reference) * 1.4);
+  line-height: 1.3;
+}
+
+.inputLabel {
+  margin: 0;
+}

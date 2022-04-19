@@ -2,14 +2,14 @@ import React, {useContext, useState} from 'react';
 import {Context} from '../../../Context.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-function AutoColorBtn () {
+function AutoColor () {
   const {colors} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [autoColorChange, setAutoColorChange] = colors.auto;
   const [isLoading, setIsLoading] = useState(false);
   
-  const handleAutoColorBtn = () => {
+  const handleAutoColor = () => {
     if (isLoading) return;
     setIsLoading(true);
     setAutoColorChange(!autoColorChange);
@@ -17,19 +17,25 @@ function AutoColorBtn () {
   };
 
   return (
-    <div>
+    <div className={'optionsDiv'}>
       {autoColorChange === true
         ? <FontAwesomeIcon
-            className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
-            onClick={handleAutoColorBtn}
-            icon='check' />
+            className={`BG-color${colorNumber} text-color${imgBGColor} optionsBtn`}
+            onClick={handleAutoColor}
+            icon='check'
+          />
         : <FontAwesomeIcon
-            className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
-            onClick={handleAutoColorBtn}
-            icon='times' />
+            className={`BG-color${colorNumber} text-color${imgBGColor} optionsBtn fixOptionsBtn`}
+            onClick={handleAutoColor}
+            icon='times'
+          />
       }
+      <h3
+        className={`BG-color${colorNumber} text-color${imgBGColor} optionsText`}
+        onClick={handleAutoColor}
+      >Automatic color change</h3>
     </div>
   );
 };
 
-export default AutoColorBtn;
+export default AutoColor;

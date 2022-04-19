@@ -20,11 +20,11 @@ function FontSize ({parentToChild}) {
   };
 
   return (
-    <button
+    <div
       className={`editBtn fFam BG-color${config.imgBG}
       text-color${config.colorNum}`}
       onClick={handleFontSize}
-    >{config.fontS}</button>
+    >{config.fontS}</div>
   );
 };
 
