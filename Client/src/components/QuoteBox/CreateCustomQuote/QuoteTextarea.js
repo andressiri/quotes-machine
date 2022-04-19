@@ -11,7 +11,7 @@ function QuoteTextarea () {
   return (
     <textarea
       placeholder='Quote...'
-      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+      className={`textBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onChange={(event) => {setCustomQuoteValue(event.target.value); setQuoteText(event.target.value);}}
     />
   );

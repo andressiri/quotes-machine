@@ -1,19 +1,97 @@
 @import './variables.scss';
 @import './QuoteBoxCSS/QuoteBox.scss';
-@import './IconsAndButtons/IconsAndButtons.scss';
+@import './Inputs-Icons-Buttons/Inputs-Icons-Buttons.scss';
+
+div {
+  box-sizing: border-box;
+}
+
+input, button, textarea {
+  font-family: var(--fontFamily);
+}
 
 .App {
   text-align: center;
   margin: 0;
-  padding: 0;
+  padding: 0px;
   width: 100%;
   height: 100vh;
-  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-family: var(--fontFamily);
+  overflow: hidden;
+}
+
+.flexDiv {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.messageContainer {
+  @extend .flexDiv;
+  min-height: 200px;
+  flex-direction: column;
+}
+
+.routeColumnContainer {
+  @extend .flexDiv;
+  padding-top: var(--reference);
+  align-items: unset;
+  min-height: 250px;
+  flex-direction: column;
+}
+
+.messageDiv {
+  display: flex;
+  width: auto;
+  max-width: 90%;
+  height: auto;
+  min-height: var(--btnHeight);
+  margin: var(--reference) auto var(--reference) auto;
+}
+
+.messageText {
+  margin-block-start: 0;
+  margin-block-end: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: $fontFamily;
-  overflow: auto;  
+  width: auto;
+  max-width: calc(100% - var(--iconSize) * 2);
+  height: auto;
+  min-height: 100%;
+  max-height: 100%;
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+  padding-left: var(--reference);
+}
+
+.closeMessage {
+  box-sizing: border-box;
+  border: none;
+  padding: calc(var(--reference) * 1.5 );
+  width: var(--btnHeight) !important;
+  height: auto;
+  min-height: 100%;
+  max-height: 100%;
+  border-top-right-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+  cursor: pointer;
+}
+
+.pointer:hover {
+  cursor: pointer;
+}
+
+.spaceEvenly {
+  justify-content: space-evenly;
+}
+
+.appRouter {
+  overflow-y: auto;
 }
 
 .fadeRouteIn {

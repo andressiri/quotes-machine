@@ -18,7 +18,7 @@ function ChangePasswordBtn () {
     if (isLoading) return;
         //Check required fields
     if (passwordValue === '' || password2Value === '') {
-      return setMessage('Please fill in all fields');
+      return setMessage('Please fill all fields');
     };  //Check passwords match
     if (passwordValue !== '' && passwordValue !== password2Value) {
       return setMessage('Passwords do not match');
@@ -52,7 +52,7 @@ function ChangePasswordBtn () {
 
   return (
     <button
-      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+      className={`formBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSubmitNewPassword}
     >Confirm</button>
   );

@@ -33,7 +33,7 @@ function SearchInput ({parentToChild}) {
     <input
       type='text'
       placeholder={placeholder}
-      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+      className={`textBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onChange={handleSearchInput}
       onKeyUp={handleEnterSearchInput}
     />

@@ -6,6 +6,7 @@ import clickLink from './clickLink.js';
 
 function useShareImg () {
   const {refs} = useContext(Context);
+  const [message, setMessage] = refs.msg;
   const shareChosen = refs.sChosen;
   const emailReference = refs.email;
   const {ClipboardItem} = window;
@@ -40,7 +41,8 @@ function useShareImg () {
         clickLink(link);
         break;
       case 'Email':
-        await fetch('/api/share/email', {
+        setMessage('Sending email...')
+        const response = await fetch('/api/share/email', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -52,12 +54,16 @@ function useShareImg () {
             image: imgUrl
           }),
         })
-          .catch(err => console.log(err));
         emailReference.current = '';
+        if (response.status !== 201) {
+          const json = await response.json();
+          const message = json.message;
+          return message;
+        };
         break;
       // no default
     };
-    return null;
+    return `Quote image has been shared on ${shareChosen.current}`;
   };
   return shareImg;
 };

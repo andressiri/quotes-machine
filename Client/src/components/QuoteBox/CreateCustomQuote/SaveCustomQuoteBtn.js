@@ -25,7 +25,7 @@ function SaveCustomQuoteBtn () {
     event.preventDefault();
     if (isLoading) return;
     if (customQuoteValue === '' || customAuthorValue === '') {
-      return setMessage('Please fill in all fields');
+      return setMessage('Please fill all fields');
     };
     setIsLoading(true);
     const quoteObj = createQuoteObj(true);
@@ -56,7 +56,7 @@ function SaveCustomQuoteBtn () {
 
   return (
     <button
-      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+      className={`textBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSaveCustomQuoteBtn}
     >Save</button>
   );

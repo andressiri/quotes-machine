@@ -1,47 +1,33 @@
 @import "../variables.scss";
 
 .gallDiv {
-  box-sizing: border-box;
-  width: $boxWidth;
-  height: 50px;
+  width: var(--boxWidth);
+  height: calc(var(--btnHeight) + var(--reference) * 2);
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-bottom-width: 1px;
   border-bottom-style: solid;
+  border-bottom-width: 2px;
   justify-content: space-around;
-  padding: 0px 50px 0px 50px;
   position: relative;
 }
 
 .gallArrow {
-  font-size: 35px;
+  font-size: calc(var(--reference) * 4);
   cursor: pointer;
-  position: absolute;
 }
 
 .gallArrow:hover {
-  font-size: 40px;
-}
-
-.gallArrowNext {
-  @extend .gallArrow;
-  right: 110px;
-}
-
-.gallArrowPrevious {
-  @extend .gallArrow;
-  left: 110px;
+  font-size: calc(var(--reference) * 5);
 }
 
 .gallBtn {
   border-radius: 50%;
-  width: 7px;
-  height: 7px;
+  width: var(--reference);
+  height: var(--reference);
   border: none;
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: pointer;
-  position: absolute;
   transition: all 0.2s !important;
 }
 
@@ -52,9 +38,8 @@
 .gallBtnChosen {
   @extend .gallBtn;
   opacity: 1;
-  width: 10px;
-  height: 10px;
-  transition: all 0.2s !important;
+  width: calc(var(--reference) * 1.3);
+  height: calc(var(--reference) * 1.3);
 }
 
 .gallDisabled {
@@ -63,18 +48,14 @@
   opacity: 0.2;
 }
 
-.gallOne {
-  left: 150px;
+@media (min-width: 400px) {
+  .gallDiv {
+    padding: 0% 8% 0% 8%;
+  }
 }
 
-.gallTwo {
-  left: 185px;
-}
-
-.gallFour {
-  right: 185px;
-}
-
-.gallFive {
-  right: 150px;
+@media (min-width: 500px) {
+  .gallDiv {
+    padding: 0% 15% 0% 15%;
+  }
 }

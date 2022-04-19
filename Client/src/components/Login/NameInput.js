@@ -11,7 +11,7 @@ function NameInput () {
     <input
       type='text'
       placeholder='Name...'
-      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+      className={`formBtn inputs BG-color${imgBGColor} text-color${colorNumber}`}
       onChange={(event) => setNameValue(event.target.value)}
     />
   );

@@ -23,7 +23,7 @@ function NewQuoteBtn () {
 
   return (
     <button
-      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+      className={`textBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleNewQuoteBtn}
       id='new-quote'
     >New quote</button>

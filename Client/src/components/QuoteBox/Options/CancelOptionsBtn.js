@@ -19,7 +19,7 @@ function CancelOptionsBtn () {
 
   return (
     <button
-      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+      className={`textBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleCancelOptionsBtn}
     >Cancel</button>
   );

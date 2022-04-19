@@ -31,7 +31,7 @@ function ArrowNext () {
 
   return (
     <h1
-      className={`gallArrowNext ${disableNext}`}
+      className={`gallArrow ${disableNext}`}
       onClick={handleArrowNext}
       >&gt;</h1>
   );

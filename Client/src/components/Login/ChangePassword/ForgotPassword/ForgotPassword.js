@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../../Context.js';
-import EmailInput from '../../EmailInput.js';
+import Message from '../../../Message.js';
+import ForgotPassEmailInput from '../../ForgotPassEmailInput.js';
 import EmailForgotPasswordBtn from './EmailForgotPasswordBtn.js';
 import CodeInput from '../../CodeInput.js';
 import CheckCodeBtn from '../../CheckCodeBtn.js';
@@ -22,26 +23,21 @@ function ForgotPassword() {
   };
 
   return (
-    <div>
-      <p className={`shareIt`}>Get the code from your email to verify your id</p>
-      {message !== ''
-        &&  <p className={`shareIt`}
-              >{message}</p>}
+    <div className={'routeColumnContainer'}>
+      <Message parentToChild={{defaultMessage: 'Get the code from your email to verify your id', waitMessage: ''}} />
       {(sendEmailBtnTimer !== 0 && sendWaitMsg)
-        &&  <p className={`shareIt`}
-              >You have to wait {sendEmailBtnTimer}s to send email again</p>}
+        && <Message parentToChild={{waitMessage: `You have to wait ${sendEmailBtnTimer}s to send email again`, defaultMessage: ''}} />}
       {(checkCodeBtnTimer !== 0 && checkWaitMsg)
-        &&  <p className={`shareIt`}
-              >You have to wait {checkCodeBtnTimer}s to check code again</p>}
+        && <Message parentToChild={{waitMessage: `You have to wait ${checkCodeBtnTimer}s to check code again`, defaultMessage: ''}} />}
       <form id='forgorPassSendEmail'>
-        <EmailInput />
+        <ForgotPassEmailInput />
         <EmailForgotPasswordBtn />
       </form>
       <form id='ForgotPassCodeForm'>
         <CodeInput />
         <CheckCodeBtn />
       </form>
-      <h2 className={`shareIt`} onClick={handleGoToLogin}>Go to login</h2>
+      <h3 className={'pointer'} onClick={handleGoToLogin}>Go to login</h3>
     </div>
   );
 }

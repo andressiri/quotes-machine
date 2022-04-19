@@ -4,8 +4,8 @@ const handleStoreError = require('./handleStoreErrorCallback');
 require('dotenv').config();
 
 const tooManyAttemptsCallback = (req, res, next, nextValidRequestDate) => {
-  req.flash('message', `You've made too many failed attempts in a short period of time, please try again ${moment(nextValidRequestDate).fromNow()}`);
-  res.status(429).json({message: `You've made too many failed attempts in a short period of time, please try again ${moment(nextValidRequestDate).fromNow()}`});  
+  req.flash('message', `You've made too many failed attempts, please try again ${moment(nextValidRequestDate).fromNow()}`);
+  res.status(429).json({message: `You've made too many failed attempts, please try again ${moment(nextValidRequestDate).fromNow()}`});  
 };
   
 // Prevent too many attempts for the same ip

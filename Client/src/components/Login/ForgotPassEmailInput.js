@@ -11,7 +11,7 @@ function EmailInput () {
     <input
       type='email'
       placeholder='Email...'
-      className={`formBtn inputs BG-color${imgBGColor} text-color${colorNumber}`}
+      className={`codeInput inputs BG-color${imgBGColor} text-color${colorNumber}`}
       onChange={(event) => setEmailValue(event.target.value)}
     />
   );

@@ -1,0 +1,22 @@
+@import '../variables.scss';
+
+.codeBtn {
+  margin: var(--reference) var(--reference) var(--reference) -1px;
+  border: none;
+  width: var(--btnWidth);
+  height: var(--btnHeight);
+  border-top-right-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.codeInput {
+  margin: var(--reference) 0px var(--reference) var(--reference);
+  width: calc(90% - var(--btnWidth));
+  height: var(--btnHeight);
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+  cursor: pointer;
+  font-weight: bolder;
+}

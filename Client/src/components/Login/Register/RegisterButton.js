@@ -23,7 +23,7 @@ function RegisterButton () {
     if (isLoading) return;
         //Check required fields
     if (nameValue === '' || emailValue === '' || passwordValue === '' || password2Value === '') {
-      return setMessage('Please fill in all fields');
+      return setMessage('Please fill all fields');
     };  //Check valid email
     if (emailValue !== '' && !validateEmail(emailValue)) {
       return setMessage('Please enter a valid email');
@@ -57,7 +57,7 @@ function RegisterButton () {
 
   return (
     <button
-      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+      className={`formBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSubmitRegister}
     >Register</button>
   );

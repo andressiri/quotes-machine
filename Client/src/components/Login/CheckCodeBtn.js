@@ -60,10 +60,11 @@ function CheckCodeBtn () {
   };
 
   return (
-    <button
-      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+    <input
+      type='submit'
+      className={`codeBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handlePostCode}
-    >{isBlocked ? `${checkCodeBtnTimer}s`: 'Check Code'}</button>
+      value={isBlocked ? `${checkCodeBtnTimer}s`: isLoading ? 'Checking...' :'Check Code'}/>
   );
 };
 

@@ -1,7 +1,3 @@
-$boxWidth: 450px;
-$btnSize: 40px;
-$fontFamily: Arial, sans-serif;
-$btnRadius: 4px;
 //colors
 $customRed: red;
 $customOrange: orange;
@@ -12,3 +8,34 @@ $customIndigo: indigo;
 $customViolet: violet;
 $customBlack: black;
 $customWhite: rgb(220, 220, 220);
+
+// initial/smallest vars
+:root {
+  --reference: 8px;
+  --radius: var(--reference);
+  --boxWidth: calc(100vw - var(--reference) * 2);
+  --btnHeight: calc(var(--reference) * 4);
+  --btnWidth: calc(var(--reference) * 8);
+  --iconSize: calc(var(--btnHeight) - var(--reference) * 2);
+  --fontFamily: Arial, sans-serif;
+  font-size: calc(var(--reference) * 1.5);
+}
+
+input, button {
+  font-size: calc(var(--reference) * 1.4);
+} 
+
+@media (min-width: 270px) {
+  :root {
+    --reference: 10px;
+    --btnHeight: calc(var(--reference) * 4);
+    --btnWidth: calc(var(--reference) * 10);
+  }
+}
+
+@media (min-width: 520px) {
+  :root {
+    --reference: 12px;
+    --boxWidth: 500px;
+  }
+}

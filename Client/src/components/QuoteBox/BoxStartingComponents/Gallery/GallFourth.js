@@ -30,7 +30,7 @@ function GallFourth () {
 
   return (
     <p
-      className={`BG-color${colorNumber} gallBtn${chooseFourth} ${disableFourth} gallFour`}
+      className={`BG-color${colorNumber} gallBtn${chooseFourth} ${disableFourth}`}
       onClick={handleGallFourth} />
   );
 };

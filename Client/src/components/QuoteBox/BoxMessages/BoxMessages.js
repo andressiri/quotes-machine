@@ -7,8 +7,8 @@ function BoxMessages () {
   const [message, setMessage] = refs.msg;
 
   return (
-    <div>
-      {message !== '' && <p className={`shareIt`} >{message}</p>}
+    <div className={'messageContainer'}>
+      {message !== '' && <h2>{message}</h2>}
       <BoxAcceptBtn />
     </div>
   );

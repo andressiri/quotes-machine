@@ -12,7 +12,7 @@ function AuthorInput () {
     <input
       type='text'
       placeholder='Author...'
-      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+      className={`textBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onChange={(event) => {setCustomAuthorValue(event.target.value); setAuthor(event.target.value);}}
     />
   );

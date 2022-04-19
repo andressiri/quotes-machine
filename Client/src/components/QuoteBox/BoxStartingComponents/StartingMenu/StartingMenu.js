@@ -11,13 +11,19 @@ function StartingMenu ({parentToChild}) {
   return (
     <div>
       <h2 className={`shareIt`} >Menu</h2>
-      <LoginBtn />
-      <CustomQuoteBtn />
-      <ShareBtn />
-      <SaveBtn />
-      <SavedWallBtn />
-      <SearchBtn />
-      <OptionsBtn parentToChild={parentToChild} />
+      <div className={'flexDiv'}>
+        <div>
+          <LoginBtn />
+          <CustomQuoteBtn />
+          <ShareBtn />
+          <SaveBtn />
+        </div>
+        <div>
+          <SavedWallBtn />
+          <SearchBtn />
+          <OptionsBtn parentToChild={parentToChild} />
+        </div>
+      </div>
     </div>
   );
 };

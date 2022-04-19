@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
+import Message from '../../Message.js';
 import EmailInput from '../EmailInput.js';
 import PasswordInput from '../PasswordInput.js';
 import LoginButton from './LoginButton.js';
@@ -25,15 +26,17 @@ function LoginForm() {
   };
 
   return (
-    <div>
-      {message !== '' && <p className={`shareIt`} >{message}</p>}
+    <div className={'routeColumnContainer'}>
+      <Message parentToChild={{defaultMessage: '', waitMessage: ''}} />
       <form id='loginForm'>
         <EmailInput />
         <PasswordInput />
         <LoginButton />
       </form>
-      <h2 className={`shareIt`} onClick={handleForgotPassword}>Forgot password</h2>
-      <h2 className={`shareIt`} onClick={handleRegister}>Register</h2>
+      <div className={'flexDiv spaceEvenly'}>
+        <h4 className={'pointer containerText'} onClick={handleForgotPassword}>Forgot password?</h4>
+        <h3 className={'pointer containerText'} onClick={handleRegister} style={{textDecoration: 'underline'}}>Register</h3>
+      </div>
     </div>
   );
 }

@@ -1,9 +1,10 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
-import useRedirectTo from '../../../functions/useRedirectTo.js';
+import Message from '../../Message.js';
 import PasswordInput from '../PasswordInput.js';
 import Password2Input from '../Password2Input.js';
 import ChangePasswordBtn from './ChangePasswordBtn.js';
+import useRedirectTo from '../../../functions/useRedirectTo.js';
 
 function ChangePassword() {
   const {refs} = useContext(Context);
@@ -28,15 +29,14 @@ function ChangePassword() {
   };
 
   return (
-    <div>
-      <p className={`shareIt`} >Create your new password</p>
-      {message !== '' && <p className={`shareIt`} >{message}</p>}
+    <div className={'routeColumnContainer'}>
+      <Message parentToChild={{defaultMessage: 'Create your new password', waitMessage: ''}} />
       <form id='changePasswordForm'>
         <PasswordInput />
         <Password2Input />
         <ChangePasswordBtn />
       </form>
-      <h2 className={`shareIt`} onClick={handleGoBack}>{auxString}</h2>
+      <h3 className={'pointer containerText'} onClick={handleGoBack}>{auxString}</h3>
     </div>
   );
 };

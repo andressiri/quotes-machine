@@ -57,7 +57,7 @@ function CancelBtn () {
   } else {
     return (
       <FontAwesomeIcon
-        className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+        className={`clipBtn BG-color${colorNumber} text-color${imgBGColor} cancel`}
         onClick={handleCancelBtn}
         icon='times' />
     );

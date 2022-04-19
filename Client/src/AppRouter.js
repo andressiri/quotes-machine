@@ -7,6 +7,7 @@ import WallDisplay from './components/wallsComponents/WallDisplay.js';
 function AppRouter() {
   const {colors, quote, refs, fade} = useContext(Context);
   const [colorNumber, setColorNumber] = colors.colorNum;
+  const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [fadeWall, setFadeWall] = fade.fadW;
   // Saved wall
   const savedQuotesArray = quote.saved;
@@ -54,7 +55,7 @@ function AppRouter() {
   };
 
   return (
-    <div className={`App fadeWall${fadeWall}`}>
+    <div className={`App fadeWall${fadeWall} appRouter scrollbar${colorNumber} scroll${imgBGColor}`}>
       <div className={`BG-color${colorNumber}`}>
         <Routes>
           <Route path='/box/*' exact element={<QuoteBox />} />

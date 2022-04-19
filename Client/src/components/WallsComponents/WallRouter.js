@@ -11,7 +11,7 @@ function WallRouter({parentToChild}) {
   const {config} = parentToChild;
 
   return (
-    <div className={`routeContainer BG-color${config.imgBG}`}>
+    <div className={`boxContainer BG-color${config.imgBG}`}>
       <Routes>
         <Route path={`/*`} exact element={<StartingWallComponents parentToChild={parentToChild} />} />
         <Route path={`/${config._id}/message`} exact element={<WallMessages parentToChild={parentToChild} />} />

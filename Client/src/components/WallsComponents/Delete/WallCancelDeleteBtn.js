@@ -15,7 +15,7 @@ function WallCancelDeleteBtn ({parentToChild}) {
 
   return (
     <button
-      className={`NQbtn BG-color${config.colorNum} text-color${config.imgBG}`}
+      className={`textBtn BG-color${config.colorNum} text-color${config.imgBG}`}
       onClick={handleWallCancelDeleteBtn}
     >No, thanks</button>
   );

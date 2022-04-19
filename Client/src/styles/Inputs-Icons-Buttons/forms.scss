@@ -1,0 +1,18 @@
+@import '../variables.scss';
+
+.formBtn {
+    margin: calc(var(--reference)/2) auto calc(var(--reference)/2) auto;
+    border: none;
+    width: 90%;
+    height: var(--btnHeight);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: bolder;
+  }
+  
+.inputs {
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 2px;
+  padding: 0px 0px 0px var(--reference);
+}

@@ -4,8 +4,8 @@ const handleStoreError = require('./handleStoreErrorCallback');
 require('dotenv').config();
 
 const tooManyRegistrationsCallback = (req, res, next, nextValidRequestDate) => {
-  req.flash('message', `You've registered too many accounts in a short period of time, please try again ${moment(nextValidRequestDate).fromNow()}`);
-  res.status(429).json({message: `You've registered too many accounts in a short period of time, please try again ${moment(nextValidRequestDate).fromNow()}`});  
+  req.flash('message', `You've registered too many accounts, please try again ${moment(nextValidRequestDate).fromNow()}`);
+  res.status(429).json({message: `You've registered too many accounts, please try again ${moment(nextValidRequestDate).fromNow()}`});  
 };
   
 // Prevent too many attempts for the same username from the same ip

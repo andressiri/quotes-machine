@@ -13,19 +13,17 @@ function StartingSetRQ () {
   const [fadeMenu, setFadeMenu] = fade.fadM;
 
   return (
-    <div className={`StartingSetRQ BG-color${imgBGColor} text-color${colorNumber}`}>
-      <div className={`fadeRoute${fadeMenu}`}>
-        <CancelBtn />
-        <Routes>
-          <Route path='/app'  element={
-            <div>
-              <AutoBtn/>
-              <SetAutoTimeBtn />
-              <NewQuoteBtn />
-            </div>
-          } />
-        </Routes>
-      </div>
+    <div className={`StartingSetRQ BG-color${imgBGColor} text-color${colorNumber} fadeRoute${fadeMenu}`}>
+      <Routes>
+        <Route path='/app'  element={
+          <div>
+            <AutoBtn/>
+            <SetAutoTimeBtn />
+            <NewQuoteBtn />
+          </div>
+        } />
+      </Routes>
+      <CancelBtn />
     </div>
   );
 };

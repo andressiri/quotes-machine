@@ -29,9 +29,10 @@ function ShareImageBtn ({parentToChild}) {
     } else {
       msg = await shareImg(quoteRef, config);
     };
-    setMessage(`Quote image has been shared on ${shareChosen.current}`);
-    if (msg === 'There was an error getting the image, try again') setMessage(msg);
-    shareChosen.current = '';
+    setTimeout(() => {  // Timeout to handle transition
+      setMessage(msg);
+      shareChosen.current = '';
+    }, 250);
     redirectTo(redirectPath);
   };
 

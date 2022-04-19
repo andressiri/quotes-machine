@@ -10,7 +10,7 @@ function WallElementsDiv ({parentToChild}) {
   const {wall} = parentToChild;
 
   return (
-    <div className={`routeContainer BG-color${imgBGColor}`}>
+    <div className={`boxContainer BG-color${imgBGColor}`}>
       {wall === 'wall/saved'
         ? <div>
             <h1>This are your saved quotes</h1>

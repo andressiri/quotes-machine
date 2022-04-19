@@ -3,21 +3,25 @@
 .quote {
   box-sizing: border-box;
   font-family: serif, sans-serif;
-  text-align: center;    
-  height: $boxWidth;
-  width: $boxWidth;
+  text-align: center;
+  height: var(--boxWidth);
+  width: var(--boxWidth);
+  border-style: solid;
+  border-width: 1px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .text {
-  margin: 30px;
+  margin: calc(var(--reference) * 2);
 }
 
 .quoteIcon {
-  width: 20px;
+  //width: calc(var(--reference) * 3) !important;
+  width: 6vw !important;
 }
 
 .fadeIn {
@@ -28,4 +32,16 @@
 .fadeOut {
   opacity: 0;
   transition: opacity 0.25s ease;
+}
+
+@media (min-width: 400px) {
+  .text {
+    margin: calc(var(--reference) * 2.5);
+  }
+}
+
+@media (min-width: 500px) {
+  .text {
+    margin: calc(var(--reference) * 3);
+  }
 }

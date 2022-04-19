@@ -18,6 +18,7 @@ function EmailForgotPasswordBtn () {
 
   const handleSendEmailForgotPassword = async (event) => {
     event.preventDefault();
+    console.log(emailValue);
     if (isLoading) return;
     if (isBlocked) return setSendWaitMsg(true);
     if (emailValue === '') return setMessage('Please enter your email');
@@ -40,10 +41,11 @@ function EmailForgotPasswordBtn () {
   };
 
   return (
-    <button
-      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+    <input
+      type='submit'
+      className={`codeBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSendEmailForgotPassword}
-    >{isBlocked ? `${sendEmailBtnTimer}s`: 'Send Email'}</button>
+      value={isBlocked ? `${sendEmailBtnTimer}s`: isLoading ? 'Sending...' : 'Send Email'} />
   );
 };
 

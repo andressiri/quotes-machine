@@ -4,6 +4,7 @@ import clickLink from './clickLink.js';
 
 function useShareTxt () {
   const {refs} = useContext(Context);
+  const [message, setMessage] = refs.msg;
   const shareChosen = refs.sChosen;
   const emailReference = refs.email;
   let link = '';
@@ -27,7 +28,8 @@ function useShareTxt () {
         clickLink(link);
         break;
       case 'Email':
-        await fetch('/api/share/email', {
+        setMessage('Sending email...');
+        const response = await fetch('/api/share/email', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -38,11 +40,16 @@ function useShareTxt () {
             email: emailReference.current
           }),
         })
-          .catch(err => console.log(err));
         emailReference.current = '';
+        if (response.status !== 201) {
+          const json = await response.json();
+          const message = json.message;
+          return message;
+        };
         break;
       // no default
     };
+    return `Quote has been shared on ${shareChosen.current}`;
   };
   return shareTxt;
 };

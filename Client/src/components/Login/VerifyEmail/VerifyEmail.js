@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
+import Message from '../../Message.js';
 import EmailVerifyBtn from './EmailVerifyBtn.js';
 import CodeInput from '../CodeInput.js';
 import CheckCodeBtn from '../CheckCodeBtn.js';
@@ -33,24 +34,18 @@ function VerifyEmail() {
   };
 
   return (
-    <div>
-      <p className={`shareIt`}
-        >Get the code from your email in order to verify your id</p>
-      {message !== ''
-        &&  <p className={`shareIt`}
-              >{message}</p>}
-      {(sendEmailBtnTimer !== 0 && sendWaitMsg)
-        &&  <p className={`shareIt`}
-              >You have to wait {sendEmailBtnTimer}s to send email again</p>}
-      {(checkCodeBtnTimer !== 0 && checkWaitMsg)
-        &&  <p className={`shareIt`}
-              >You have to wait {checkCodeBtnTimer}s to check code again</p>}
+    <div className={'routeColumnContainer'}>
+    <Message parentToChild={{defaultMessage: 'Get the code from your email to verify your id', waitMessage: ''}} />
+    {(sendEmailBtnTimer !== 0 && sendWaitMsg)
+      && <Message parentToChild={{waitMessage: `You have to wait ${sendEmailBtnTimer}s to send email again`, defaultMessage: ''}} />}
+    {(checkCodeBtnTimer !== 0 && checkWaitMsg)
+      && <Message parentToChild={{waitMessage: `You have to wait ${checkCodeBtnTimer}s to check code again`, defaultMessage: ''}} />}
       <EmailVerifyBtn />
       <form id='codeForm'>
         <CodeInput />
         <CheckCodeBtn />
       </form>
-      <h2 className={`shareIt`} onClick={handleGoBack}>{auxString}</h2>
+      <h3 className={'pointer containerText'} onClick={handleGoBack}>{auxString}</h3>
     </div>
   );
 }

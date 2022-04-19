@@ -19,12 +19,14 @@ function LoggedInMenu() {
   };
 
   return (
-    <div>
-      <h4 className={`shareIt`} >You are already logged in, do you want to log out?</h4>
-      <KeepLoggedBtn />
-      <LogoutBtn />
-      <p className={`shareIt`} onClick={handleChangePassword}>Change Password</p>
-      <p className={`shareIt`} onClick={handleChangeName}>Change Name</p>
+    <div className={'routeColumnContainer'}>
+      <h3 className={'containerText'}>You are already logged in, do you want to log out?</h3>
+      <div className='flexDiv'>
+        <KeepLoggedBtn />
+        <LogoutBtn />
+      </div>
+      <h3 className={'pointer containerText'} onClick={handleChangeName}>Change Name</h3>
+      <h3 className={'pointer containerText'} onClick={handleChangePassword}>Change Password</h3>
     </div>
     );
 };

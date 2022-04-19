@@ -1,14 +1,17 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
-import useRedirectTo from '../../../functions/useRedirectTo.js';
+import Message from '../../Message.js';
 import EmailInput from '../EmailInput.js';
 import NameInput from '../NameInput.js';
 import PasswordInput from '../PasswordInput.js';
 import Password2Input from '../Password2Input.js';
 import RegisterButton from './RegisterButton.js';
+import useRedirectTo from '../../../functions/useRedirectTo.js';
 
 function RegisterForm() {
-  const {refs} = useContext(Context);
+  const {colors, refs} = useContext(Context);
+  const [colorNumber, setColorNumber] = colors.colorNum;
+  const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [message, setMessage] = refs.msg;
   const redirectTo = useRedirectTo();
 
@@ -20,9 +23,8 @@ function RegisterForm() {
   };
 
   return (
-    <div>
-      <p className={`shareIt`} >Fill all fields to create an account</p>
-      {message !== '' && <p className={`shareIt`} >{message}</p>}
+    <div className={'routeColumnContainer'}>
+      <Message parentToChild={{defaultMessage: 'Fill all fields to create an account', waitMessage: ''}}/>
       <form id='registerForm'>
         <NameInput />
         <EmailInput />
@@ -30,7 +32,7 @@ function RegisterForm() {
         <Password2Input />
         <RegisterButton />
       </form>
-      <h2 className={`shareIt`} onClick={handleGoToLogin}>Go to login</h2>
+      <h3 className={'pointer'} onClick={handleGoToLogin}>Go to login</h3>
     </div>
   );
 };

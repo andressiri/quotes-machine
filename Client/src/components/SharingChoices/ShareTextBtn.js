@@ -15,14 +15,16 @@ function ShareTextBtn ({parentToChild}) {
   const shareTxt = useShareTxt();
   const redirectTo = useRedirectTo();
   
-  const handleShareTextBtn = () => {
+  const handleShareTextBtn = async () => {
     if (shareChosen.current === 'Email') {
       if (!validateEmail(emailValue)) return setMessage('Please enter a valid email');
       emailReference.current = emailValue;
     };
-    shareTxt(config);
-    setMessage(`Quote has been shared on ${shareChosen.current}`);
-    shareChosen.current = '';
+    const msg = await shareTxt(config);
+    setTimeout(() => {  // Timeout to handle transition
+      setMessage(msg);
+      shareChosen.current = '';
+    }, 250);
     let redirectPath = '/box/message';
     if (config._id !== 'This was called by QuoteBox') redirectPath = `/${wall}/${config._id}/message`;
     redirectTo(redirectPath);

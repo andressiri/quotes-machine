@@ -1,8 +1,9 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../Context.js';
-import useRedirectTo from '../../../functions/useRedirectTo.js';
+import Message from '../../Message.js';
 import NameInput from '../NameInput.js';
 import ChangeNameBtn from './ChangeNameBtn.js';
+import useRedirectTo from '../../../functions/useRedirectTo.js';
 
 function ChangeName() {
   const {refs} = useContext(Context);
@@ -19,14 +20,13 @@ function ChangeName() {
   };
 
   return (
-    <div>
-      <p className={`shareIt`} >Create your new name</p>
-      {message !== '' && <p className={`shareIt`} >{message}</p>}
+    <div className={'routeColumnContainer'}>
+      <Message parentToChild={{defaultMessage: 'Create your new name', waitMessage: ''}} />
       <form id='changeNameForm'>
         <NameInput />
         <ChangeNameBtn />
       </form>
-      <h2 className={`shareIt`} onClick={handleGoBack}>Go back</h2>
+      <h3 className={'pointer containerText'} onClick={handleGoBack}>Go back</h3>
     </div>
   );
 };

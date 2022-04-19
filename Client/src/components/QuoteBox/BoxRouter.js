@@ -45,7 +45,7 @@ function BoxRouter() {
   };
 
   return (
-    <div className={`routeContainer BG-color${imgBGColor}`}>
+    <div className={`boxContainer BG-color${imgBGColor}`}>
       <div className={`fadeRoute${fadeMenu}`}>
         {currentPath !== location.pathname
         ? <Routes>

@@ -17,3 +17,30 @@ $colors: $customRed, $customOrange, $customYellow, $customGreen, $customBlue, $c
     transition: all 1s ease;
   }
 }
+
+@for $i from 1 through length($colors) {
+  .scroll#{$i - 1} {
+    scrollbar-width: thin;
+  }
+  .scroll#{$i - 1}::-webkit-scrollbar {
+    width: var(--reference);
+  }
+  .scroll#{$i - 1}::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 100vw;
+    margin-block: var(--reference);
+  }
+  .scroll#{$i - 1}::-webkit-scrollbar-thumb {
+    background: nth($colors, $i);
+  }
+}
+
+@for $i from 1 through length($colors) {
+  .scroll#{$i - 1} {
+    scrollbar-color: nth($colors, $i) grey;
+  }
+  .scrollbar#{$i - 1}::-webkit-scrollbar-thumb {
+    border: 2px solid nth($colors, $i);
+    border-radius: 100vw;
+  }
+}

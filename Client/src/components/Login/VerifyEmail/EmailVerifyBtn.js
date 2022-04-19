@@ -29,9 +29,9 @@ function EmailVerifyBtn () {
 
   return (
     <button
-      className={`NQbtn BG-color${colorNumber} text-color${imgBGColor}`}
+      className={`formBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSendEmailVerify}
-    >{isBlocked ? `${sendEmailBtnTimer}s`: 'Send Email'}</button>
+    >{isBlocked ? `${sendEmailBtnTimer}s` : isLoading ? 'Sending...' : 'Send Email'}</button>
   );
 };
 

@@ -1,0 +1,10 @@
+@import "../variables.scss";
+
+.clipBtn {
+  width: var(--iconSize) !important;
+  height: var(--iconSize);
+  border-radius: var(--radius);
+  padding: var(--reference);
+  margin: calc(var(--reference)/2);
+  cursor: pointer;
+}

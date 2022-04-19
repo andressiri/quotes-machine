@@ -16,12 +16,13 @@ sendPasswordResetCodeRouter.post('/',
   // prevent too many mails sent
   rateLimiter.tooManyMailsSent.prevent,
   (req, res) => {
+    console.log(req.body.email);
       // check correct data was sent in the request
     if (!req.body.email || !validateEmail(req.body.email)) {
       console.log('Not valid email');
       res.status(400).json({message: 'Please enter a valid email'});
     } else {
-      const {email} = req.body.email
+      const {email} = req.body
       // check if user to change password exists
       User.findOne({email: email})
         .then(async (user) => {
