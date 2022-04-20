@@ -24,10 +24,17 @@ function RegisterForm() {
 
   return (
     <div className={'routeColumnContainer'}>
-      <Message parentToChild={{defaultMessage: 'Fill all fields to create an account', waitMessage: ''}}/>
+      <Message parentToChild={{
+        defaultMessage: 'Fill all fields to create an account',
+        waitMessage: '',
+        config: {
+          colorNum: colorNumber,
+          imgBG: imgBGColor
+        }
+      }}/>
       <form id='registerForm'>
         <NameInput />
-        <EmailInput />
+        <EmailInput parentToChild={{config: {colorNum: colorNumber, imgBG: imgBGColor}}}/>
         <PasswordInput />
         <Password2Input />
         <RegisterButton />

@@ -10,16 +10,16 @@ function WallElementsDiv ({parentToChild}) {
   const {wall} = parentToChild;
 
   return (
-    <div className={`boxContainer BG-color${imgBGColor}`}>
+    <div className={`wallElementsContainer BG-color${imgBGColor}`}>
       {wall === 'wall/saved'
-        ? <div>
-            <h1>This are your saved quotes</h1>
-            <ReverseQuotesBtn />
-          </div>
+        ? <h1>This are your saved quotes</h1>
         : <h1>Search in our database</h1>
       }
-      <SearchInput parentToChild={parentToChild} />
-      <SearchBarBtn parentToChild={parentToChild} />
+      <div className={'flexDiv'}>
+        {wall === 'wall/saved' && <ReverseQuotesBtn />}
+        <SearchInput parentToChild={parentToChild} />
+        <SearchBarBtn parentToChild={parentToChild} />
+      </div>
     </div>
 
   );

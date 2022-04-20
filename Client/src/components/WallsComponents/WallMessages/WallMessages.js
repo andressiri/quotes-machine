@@ -9,7 +9,7 @@ function WallMessages ({parentToChild}) {
 
   return (
     <div className={`BG-color${config.imgBG} text-color${config.colorNum}`}>
-      {message !== '' && <p className={`shareIt`} >{message}</p>}
+      {message !== '' && <h2 className={'containerText'}>{message}</h2>}
       <WallAcceptBtn parentToChild={parentToChild} />
     </div>
   );

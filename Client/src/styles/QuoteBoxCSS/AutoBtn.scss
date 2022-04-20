@@ -11,7 +11,7 @@
 
 .autoBtnOn {
   width: calc(var(--btnWidth) - var(--btnHeight) + 1px);
-  border-width: 2px !important;
+  border-width: calc(var(--borderWidth)) !important;
   border-style: solid;
   border-right: none;
   margin-right: -1px;

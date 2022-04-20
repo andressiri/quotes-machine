@@ -2,7 +2,6 @@ import React, {useContext, useEffect, useRef} from 'react';
 import {Context} from '../../Context.js';
 import QuotesTabBtn from './QuotesTabBtn';
 import CancelBtn from '../CancelBtn.js';
-
 import useIntersectionObserver from '../../functions/useIntersectionObserver.js';
 import displayWallsQuotes from '../../functions/DOMFunctions/displayWallsQuotes.js';
 import WallElementsDiv from './WallElementsDiv.js';
@@ -36,7 +35,7 @@ function WallDisplay({parentToChild}) {
   useEffect(() => {
     const quoteToObserve = document.querySelector('#quoteToObserve');
     if(quoteToObserve) setObservedElements([quoteToObserve]);
-  }, [forceUpdate, setObservedElements]);
+  }, [forceUpdate, setObservedElements, selectedArray.current]);
 
   // Update quotes when state changes
   useEffect(() => {
@@ -68,20 +67,28 @@ function WallDisplay({parentToChild}) {
   }, [mainArray, firstTab.current, secondTab.current]);
 
   return (
-    <div className={`quoteBox BG-color${imgBGColor} text-color${colorNumber}`}>
-      <QuotesTabBtn parentToChild={{selectedTab: 'all', firstTab, secondTab, btnText: allTabBtnText}} />
-      <QuotesTabBtn parentToChild={{selectedTab: 'first', firstTab, secondTab, btnText: firstTabBtnText}} />
-      <QuotesTabBtn parentToChild={{selectedTab: 'second', firstTab, secondTab, btnText: secondTabBtnText}} />
-      <CancelBtn />
-      <WallElementsDiv parentToChild={{wall}} />
-      {displayWallsQuotes(
+    <div className={`wall BG-color${colorNumber}`}>
+      <div className={`wallCancelBtn BG-color${imgBGColor} text-color${colorNumber}`}>
+        <CancelBtn />
+      </div>
+      <div className={`wallTabsDiv text-color${colorNumber}`}>
+        <QuotesTabBtn parentToChild={{selectedTab: 'all', firstTab, secondTab, btnText: allTabBtnText}} />
+        <QuotesTabBtn parentToChild={{selectedTab: 'first', firstTab, secondTab, btnText: firstTabBtnText}} />
+        <QuotesTabBtn parentToChild={{selectedTab: 'second', firstTab, secondTab, btnText: secondTabBtnText}} />
+      </div>
+      <div className={`wallBox BG-color${imgBGColor} text-color${colorNumber}`}>
+        <WallElementsDiv parentToChild={{wall}} />
+        {displayWallsQuotes(
           mainArrayExists,
           dontExistsMsg,
           selectedArray.current,
           wallItemsShowed.current,
-          wall
-        ).map(quote => {return quote})
-      }
+          wall,
+          imgBGColor,
+          colorNumber
+          ).map(quote => {return quote})
+        }
+      </div>
     </div>
   );
 };

@@ -13,7 +13,7 @@ $colors: $customRed, $customOrange, $customYellow, $customGreen, $customBlue, $c
 @for $i from 1 through length($colors) {
   .text-color#{$i - 1} {
     color: nth($colors, $i);
-    border-color: nth($colors, $i) !important;
+    border-color: nth($colors, $i);
     transition: all 1s ease;
   }
 }
@@ -21,10 +21,12 @@ $colors: $customRed, $customOrange, $customYellow, $customGreen, $customBlue, $c
 @for $i from 1 through length($colors) {
   .scroll#{$i - 1} {
     scrollbar-width: thin;
+    scrollbar-color: nth($colors, $i) grey;
   }
   .scroll#{$i - 1}::-webkit-scrollbar {
     height: calc(var(--reference) * 0.7);
     width: var(--reference);
+
   }
   .scroll#{$i - 1}::-webkit-scrollbar-track {
     background: transparent;
@@ -37,9 +39,6 @@ $colors: $customRed, $customOrange, $customYellow, $customGreen, $customBlue, $c
 }
 
 @for $i from 1 through length($colors) {
-  .scroll#{$i - 1} {
-    scrollbar-color: nth($colors, $i) grey;
-  }
   .scrollbar#{$i - 1}::-webkit-scrollbar-thumb {
     border: 2px solid nth($colors, $i);
     border-radius: 100vw;

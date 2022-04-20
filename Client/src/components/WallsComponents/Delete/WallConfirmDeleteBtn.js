@@ -20,7 +20,7 @@ function WallConfirmDeleteBtn ({parentToChild}) {
   const handleWallConfirmDeleteBtn = async () =>  {
     const arrayToCheck = getArrayToCheck(wall);
     const indexAtBackup = getIndexAtBackup(index, wall);
-    setMessage('Quote has been deleted');
+    setMessage('');
     let auxObj = {
       _id: config._id,
       colorNum: config.colorNum,

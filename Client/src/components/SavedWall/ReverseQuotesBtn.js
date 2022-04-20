@@ -15,7 +15,7 @@ function ReverseQuotesBtn() {
 
   return (
     <FontAwesomeIcon
-      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      className={`clipBtn reverseBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleReverseQuotesBtn}
       icon='history' />
   );

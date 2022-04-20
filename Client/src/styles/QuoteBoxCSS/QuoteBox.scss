@@ -11,11 +11,11 @@
   transition: all 0s !important;
 }
 
-.StartingSetRQ {
+.startingSetRQ {
   width: var(--boxWidth);
   height: calc(var(--btnHeight) + var(--reference) * 3);
   border-style: solid;
-  border-width: 1px;
+  border-width: var(--borderWidth);
   border-top-left-radius: calc(var(--radius) * 2);
   border-top-right-radius: calc(var(--radius) * 2);
   display: flex;
@@ -34,7 +34,7 @@
   border-bottom-left-radius: calc(var(--radius) * 2);
   border-bottom-right-radius: calc(var(--radius) * 2);
   border-style: solid;
-  border-width: 1px;
+  border-width: var(--borderWidth);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -45,7 +45,7 @@
   margin: calc(var(--reference)) var(--reference) calc(var(--reference)) var(--reference)
 }
 
-.cancel {
+.cancelOn {
   margin: calc(var(--reference) * 1.5) !important;
   margin-left: auto !important;
 }
@@ -74,6 +74,8 @@
   border-top-right-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
   padding-right: var(--reference);
+  margin-left: -1px;
+  padding-left: 1px;
 }
 
 .optionsBtn {

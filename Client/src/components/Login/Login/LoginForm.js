@@ -7,7 +7,9 @@ import PasswordInput from '../PasswordInput.js';
 import LoginButton from './LoginButton.js';
 
 function LoginForm() {
-  const {refs} = useContext(Context);
+  const {colors, refs} = useContext(Context);
+  const [colorNumber, setColorNumber] = colors.colorNum;
+  const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [message, setMessage] = refs.msg;
   const redirectTo = useRedirectTo();
   
@@ -27,9 +29,16 @@ function LoginForm() {
 
   return (
     <div className={'routeColumnContainer'}>
-      <Message parentToChild={{defaultMessage: '', waitMessage: ''}} />
+      <Message parentToChild={{
+        defaultMessage: '',
+        waitMessage: '',
+        config: {
+          colorNum: colorNumber,
+          imgBG: imgBGColor
+        }
+      }} />
       <form id='loginForm'>
-        <EmailInput />
+        <EmailInput parentToChild={{config: {colorNum: colorNumber, imgBG: imgBGColor}}}/>
         <PasswordInput />
         <LoginButton />
       </form>

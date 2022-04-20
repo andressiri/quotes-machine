@@ -7,6 +7,21 @@ function QuotesTabBtn ({parentToChild}) {
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [forceUpdate, setForceUpdate] = force.update;
   const {selectedTab, firstTab, secondTab, btnText} = parentToChild;
+  
+  let tabPositionAndSelection = '';
+  if (selectedTab === 'first') {
+    tabPositionAndSelection = 'notAllTab';
+    if (firstTab.current === true) tabPositionAndSelection = 'selectedTab notAllTab';
+  };
+  if (selectedTab === 'second') {
+    tabPositionAndSelection = 'notAllTab lastTab';
+    if (secondTab.current === true) tabPositionAndSelection = 'selectedTab notAllTab lastTab';
+  };
+  if (selectedTab === 'all') {
+    tabPositionAndSelection = 'allTab';
+    if (firstTab.current === false && secondTab.current === false) tabPositionAndSelection = 'selectedTab allTab';
+    if (secondTab.current === true) tabPositionAndSelection = 'allTab allTabSecondSelected';
+  };
 
   const handleQuotesTabBtn = () => {
     firstTab.current = false;
@@ -17,10 +32,10 @@ function QuotesTabBtn ({parentToChild}) {
   };
 
   return (
-    <button
-      className={`textBtn BG-color${colorNumber} text-color${imgBGColor}`}
+    <div
+      className={`wallTab ${tabPositionAndSelection} BG-color${imgBGColor} text-color${colorNumber}`}
       onClick={handleQuotesTabBtn}
-    >{btnText}</button>
+    >{btnText}</div>
   );
 };
 

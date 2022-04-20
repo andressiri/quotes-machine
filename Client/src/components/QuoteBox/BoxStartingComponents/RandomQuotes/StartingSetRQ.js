@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {Context} from '../../../../Context.js';
-import {Routes, Route } from 'react-router-dom';
+import {Routes, Route, useLocation} from 'react-router-dom';
 import CancelBtn from '../../../CancelBtn.js';
 import AutoBtn from './AutoBtn.js';
 import SetAutoTimeBtn from './SetAutoTimeBtn.js';
@@ -11,9 +11,15 @@ function StartingSetRQ () {
   const [colorNumber, setColorNumber] = colors.colorNum;
   const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [fadeMenu, setFadeMenu] = fade.fadM;
+  const location = useLocation();
+  let cancelShow = 'Off';
+
+  if (!(['/box/app'].includes(location.pathname))) {
+    cancelShow = 'On';
+  };
 
   return (
-    <div className={`StartingSetRQ BG-color${imgBGColor} text-color${colorNumber} fadeRoute${fadeMenu}`}>
+    <div className={`startingSetRQ BG-color${imgBGColor} text-color${colorNumber} fadeRoute${fadeMenu}`}>
       <Routes>
         <Route path='/app'  element={
           <div>
@@ -23,7 +29,9 @@ function StartingSetRQ () {
           </div>
         } />
       </Routes>
-      <CancelBtn />
+      <div className={`cancel${cancelShow}`}>
+        <CancelBtn />
+      </div>
     </div>
   );
 };

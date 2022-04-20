@@ -6,7 +6,9 @@ import ChangeNameBtn from './ChangeNameBtn.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 
 function ChangeName() {
-  const {refs} = useContext(Context);
+  const {colors, refs} = useContext(Context);
+  const [colorNumber, setColorNumber] = colors.colorNum;
+  const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [message, setMessage] = refs.msg;
   const auxRef = refs.aux;
   const redirectTo = useRedirectTo();
@@ -21,7 +23,14 @@ function ChangeName() {
 
   return (
     <div className={'routeColumnContainer'}>
-      <Message parentToChild={{defaultMessage: 'Create your new name', waitMessage: ''}} />
+      <Message parentToChild={{
+        defaultMessage: 'Create your new name',
+        waitMessage: '',
+        config: {
+          colorNum: colorNumber,
+          imgBG: imgBGColor
+        }
+      }} />
       <form id='changeNameForm'>
         <NameInput />
         <ChangeNameBtn />

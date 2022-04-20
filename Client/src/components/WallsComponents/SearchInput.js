@@ -12,7 +12,11 @@ function SearchInput ({parentToChild}) {
   const debounceSearchResults = useDebounceSearchResults();
   const getSavedSearch = useGetSavedSearch();
   let placeholder = 'Search in our database...'
-  if (wall === 'wall/saved') placeholder = 'Search in your quotes...'
+  let wallClass = 'searchWall'
+  if (wall === 'wall/saved') {
+    placeholder = 'Search in your quotes...';
+    wallClass = 'savedWall';
+  };
 
   // handle unmount
   useEffect(() => {
@@ -33,7 +37,7 @@ function SearchInput ({parentToChild}) {
     <input
       type='text'
       placeholder={placeholder}
-      className={`textBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      className={`inputs ${wallClass}Input BG-color${imgBGColor} text-color${colorNumber}`}
       onChange={handleSearchInput}
       onKeyUp={handleEnterSearchInput}
     />

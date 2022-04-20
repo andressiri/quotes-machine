@@ -13,19 +13,26 @@ function StartingWallComponents({parentToChild}) {
   const savedDateTime = new Date(epochTime*1000).toLocaleTimeString();
 
   return (
-    <div>
-      <WallSharingBtn parentToChild={parentToChild} />
-      <WallEditBtn parentToChild={parentToChild} />
-      <WallDeleteBtn parentToChild={parentToChild} />
+    <div className={'flexDiv'}>
       {wall === 'wall/saved'
-        ? <div>
-            <p className={`text-color${config.colorNum}`}>
-              <FontAwesomeIcon className={`quoteIcon`} icon='globe-americas' /> 
-              {` ${savedDate}`} at {savedDateTime}
-            </p>
-            <FavoriteQuoteBtn parentToChild={parentToChild} />
+        ? <div className={'flexDiv'}>
+            <div>
+              <WallSharingBtn parentToChild={parentToChild} />
+              <WallEditBtn parentToChild={parentToChild} />
+              <WallDeleteBtn parentToChild={parentToChild} />
+              <FavoriteQuoteBtn parentToChild={parentToChild} />
+            </div>
+            <h3 className={`text-color${config.colorNum}`} style={{margin: 'var(--reference)'}}>
+              {`${savedDate} ${savedDateTime} `} 
+              <FontAwesomeIcon icon='globe-americas' />
+            </h3>
           </div>
-        : <SearchSaveQuoteBtn parentToChild={parentToChild} />
+        : <div>
+            <WallSharingBtn parentToChild={parentToChild} />
+            <WallEditBtn parentToChild={parentToChild} />
+            <WallDeleteBtn parentToChild={parentToChild} />
+            <SearchSaveQuoteBtn parentToChild={parentToChild} />
+          </div>
       }
     </div>
   );

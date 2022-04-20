@@ -7,7 +7,9 @@ import ChangePasswordBtn from './ChangePasswordBtn.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 
 function ChangePassword() {
-  const {refs} = useContext(Context);
+  const {colors, refs} = useContext(Context);
+  const [colorNumber, setColorNumber] = colors.colorNum;
+  const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [message, setMessage] = refs.msg;
   const [loggedIn, setLoggedIn] = refs.logged;
   const emailReference = refs.email;
@@ -30,7 +32,14 @@ function ChangePassword() {
 
   return (
     <div className={'routeColumnContainer'}>
-      <Message parentToChild={{defaultMessage: 'Create your new password', waitMessage: ''}} />
+      <Message parentToChild={{
+        defaultMessage: 'Create your new password',
+        waitMessage: '',
+        config: {
+          colorNum: colorNumber,
+          imgBG: imgBGColor
+        }
+      }} />
       <form id='changePasswordForm'>
         <PasswordInput />
         <Password2Input />

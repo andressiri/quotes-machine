@@ -12,13 +12,14 @@ $customWhite: rgb(220, 220, 220);
 // initial/smallest vars
 :root {
   --reference: 8px;
+  --borderWidth: 2px;
   --radius: var(--reference);
   --boxWidth: calc(100vw - var(--reference) * 2);
   --btnHeight: calc(var(--reference) * 4);
   --btnWidth: calc(var(--reference) * 8);
   --iconSize: calc(var(--btnHeight) - var(--reference) * 2);
   --fontFamily: Arial, sans-serif;
-  font-size: calc(var(--reference) * 1.5);
+  font-size: calc(var(--reference) * 1.4);
 }
 
 input, button {

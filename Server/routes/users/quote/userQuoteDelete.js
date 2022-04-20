@@ -16,7 +16,7 @@ userQuoteDeleteRouter.delete('/:id',
         // search index of quote to be modified and update it
         const index = userQ.quotesArray.map(quote => {
           return quote.id;
-        }).indexOf(req.body.id);
+        }).indexOf(req.params.id);
         if (index === -1) {
           console.log('Bad request'),
           res.status(400).json({message: 'Please send an existing quote id'});

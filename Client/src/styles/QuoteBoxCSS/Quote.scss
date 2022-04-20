@@ -4,10 +4,10 @@
   box-sizing: border-box;
   font-family: serif, sans-serif;
   text-align: center;
-  height: var(--boxWidth);
   width: var(--boxWidth);
+  height: var(--boxWidth);
   border-style: solid;
-  border-width: 1px;
+  border-width: var(--borderWidth);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,8 +20,7 @@
 }
 
 .quoteIcon {
-  //width: calc(var(--reference) * 3) !important;
-  width: 6vw !important;
+  width: calc(var(--reference) * 1.5) !important;
 }
 
 .fadeIn {
@@ -34,7 +33,16 @@
   transition: opacity 0.25s ease;
 }
 
+@media (min-width: 300px) {
+  .quoteIcon {
+    width: calc(var(--reference) * 2) !important;
+  }
+}
+
 @media (min-width: 400px) {
+  .quoteIcon {
+    width: calc(var(--reference) * 2.5) !important;
+  }
   .text {
     margin: calc(var(--reference) * 2.5);
   }

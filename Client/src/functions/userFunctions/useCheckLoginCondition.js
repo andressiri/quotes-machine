@@ -1,5 +1,6 @@
 import {useContext} from 'react';
 import {Context} from '../../Context.js';
+import {useLocation} from 'react-router-dom';
 import useRedirectTo from '../useRedirectTo.js';
 
 function useCheckLoginCondition () {
@@ -8,6 +9,7 @@ function useCheckLoginCondition () {
   const [loggedIn, setLoggedIn] = refs.logged;
   const [verified, setVerified] = refs.ver;
   const redirectTo = useRedirectTo();
+  const location = useLocation();
     
   const checkLoginCondition = () => {
     if (!loggedIn) {
@@ -20,7 +22,11 @@ function useCheckLoginCondition () {
       setTimeout(() => {  // Timeout to handle transition
         setMessage('You should verify your email to do this');
       }, 250);
-      redirectTo('/box/email/verification');
+      if (/wall/i.test(location.pathname)) {
+        redirectToWall('/box/email/verification');
+      } else {
+        redirectTo('/box/email/verification');
+      };
       return false;
     } else {
       return true;

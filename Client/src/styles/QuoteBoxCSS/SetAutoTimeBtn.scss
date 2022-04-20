@@ -11,7 +11,7 @@
 
 .timeBtnOn {
   @extend .timeBtn;
-  border-width: 2px !important;
+  border-width: var(--borderWidth) !important;
   border-style: solid;
 }
 
@@ -20,5 +20,5 @@
   border-top: none;
   border-right: none;
   border-bottom: none;
-  border-left: 1px;
+  border-left: var(--borderWidth);
 }

@@ -8,7 +8,9 @@ import useLogout from '../../../functions/userFunctions/useLogout.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 
 function VerifyEmail() {
-  const {refs, timers} = useContext(Context);
+  const {colors, refs, timers} = useContext(Context);
+  const [colorNumber, setColorNumber] = colors.colorNum;
+  const [imgBGColor, setImgBGColor] = colors.imgBG;
   const [message, setMessage] = refs.msg;
   const [verified, setVerified] = refs.ver;
   const emailReference = refs.email;
@@ -35,11 +37,34 @@ function VerifyEmail() {
 
   return (
     <div className={'routeColumnContainer'}>
-    <Message parentToChild={{defaultMessage: 'Get the code from your email to verify your id', waitMessage: ''}} />
+    <Message parentToChild={{
+      defaultMessage: 'Get the code from your email to verify your id',
+      waitMessage: '',
+      config: {
+        colorNum: colorNumber,
+        imgBG: imgBGColor
+      }
+    }} />
     {(sendEmailBtnTimer !== 0 && sendWaitMsg)
-      && <Message parentToChild={{waitMessage: `You have to wait ${sendEmailBtnTimer}s to send email again`, defaultMessage: ''}} />}
+      && <Message parentToChild={{
+          waitMessage: `You have to wait ${sendEmailBtnTimer}s to send email again`,
+          defaultMessage: '',
+          config: {
+            colorNum: colorNumber,
+            imgBG: imgBGColor
+          }
+        }} />
+    }
     {(checkCodeBtnTimer !== 0 && checkWaitMsg)
-      && <Message parentToChild={{waitMessage: `You have to wait ${checkCodeBtnTimer}s to check code again`, defaultMessage: ''}} />}
+      && <Message parentToChild={{
+          waitMessage: `You have to wait ${checkCodeBtnTimer}s to check code again`,
+          defaultMessage: '',
+          config: {
+            colorNum: colorNumber,
+            imgBG: imgBGColor
+          }
+        }} />
+    }
       <EmailVerifyBtn />
       <form id='codeForm'>
         <CodeInput />

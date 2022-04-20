@@ -55,14 +55,12 @@ function AppRouter() {
   };
 
   return (
-    <div className={`App fadeWall${fadeWall} appRouter scrollbar${colorNumber} scroll${imgBGColor}`}>
-      <div className={`BG-color${colorNumber}`}>
-        <Routes>
-          <Route path='/box/*' exact element={<QuoteBox />} />
-          <Route path='/wall/saved/*' exact element={<WallDisplay parentToChild={savedWall} />} />
-          <Route path='/wall/search/*' exact element={<WallDisplay parentToChild={searchWall} />} />
-        </Routes>
-      </div>
+    <div className={`App fadeWall${fadeWall} appRouter scrollbar${colorNumber} scroll${imgBGColor} BG-color${colorNumber}`}>
+      <Routes>
+        <Route path='/box/*' exact element={<QuoteBox />} />
+        <Route path='/wall/saved/*' exact element={<WallDisplay parentToChild={savedWall} />} />
+        <Route path='/wall/search/*' exact element={<WallDisplay parentToChild={searchWall} />} />
+      </Routes>
     </div>
   );
 };

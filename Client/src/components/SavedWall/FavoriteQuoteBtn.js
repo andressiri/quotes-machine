@@ -33,6 +33,8 @@ function FavoriteQuoteBtn ({parentToChild}) {
     const json = await response.json();
     setMessage(json.message);
     if (response.status === 200) {
+      if (auxObj.favorite === true) setMessage('Quote added to favorites');
+      if (auxObj.favorite === false) setMessage('Quote removed from favorites');
       const indexAtBackup = getIndexAtBackup(index, wall)
       savedQuotesBackup.current[indexAtBackup] = await JSON.parse(JSON.stringify(auxObj));
     };
@@ -41,7 +43,7 @@ function FavoriteQuoteBtn ({parentToChild}) {
   };
 
   return (
-    <div>
+    <>
       {config.favorite === true
         ? <FontAwesomeIcon
             className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
@@ -52,7 +54,7 @@ function FavoriteQuoteBtn ({parentToChild}) {
             onClick={handleFavoriteQuoteBtn}
             icon='star-half-alt' />
       }
-    </div>
+    </>
   );
 };
 

@@ -22,7 +22,7 @@ function SearchBarBtn({parentToChild}) {
 
   return (
     <FontAwesomeIcon
-      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      className={`wallSearchBtn BG-color${imgBGColor} text-color${colorNumber}`}
       onClick={handleSearchBarBtn}
       icon='search' />
   );

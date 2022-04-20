@@ -7,7 +7,9 @@ import EditAndShareImgBtn from './EditAndShareImgBtn.js';
 import EmailInput from '../login/EmailInput.js';
 
 function SharingChoices ({parentToChild}) {
-  const {refs} = useContext(Context);
+  const {colors, refs} = useContext(Context);
+  const [colorNumber, setColorNumber] = colors.colorNum;
+  const [imgBGColor, setImgBGColor] = colors.imgBG;
   const shareChosen = refs.sChosen;
   const [message, setMessage] = refs.msg;
 
@@ -15,10 +17,17 @@ function SharingChoices ({parentToChild}) {
     <div className={'routeColumnContainer'} style={{minHeight: '200px'}}>
       {shareChosen.current === 'Email'
         && <div className={'routeColumnContainer'} style={{minHeight: '0px', padding: 0}}>
-            <Message parentToChild={{defaultMessage: '', waitMessage: ''}} />
+            <Message parentToChild={{
+              defaultMessage: '',
+              waitMessage: '',
+              config: {
+                colorNum: colorNumber,
+                imgBG: imgBGColor
+              }
+            }} />
             <div className={'flexDiv'}>
               <h3 className={'inputLabel'}>Send to</h3>
-              <EmailInput />
+              <EmailInput parentToChild={{config: {colorNum: colorNumber, imgBG: imgBGColor}}}/>
             </div>
           </div>
       }

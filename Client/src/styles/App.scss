@@ -1,6 +1,7 @@
 @import './variables.scss';
 @import './QuoteBoxCSS/QuoteBox.scss';
 @import './Inputs-Icons-Buttons/Inputs-Icons-Buttons.scss';
+@import './WallsCss/Walls.scss';
 
 div {
   box-sizing: border-box;
@@ -8,6 +9,10 @@ div {
 
 input, button, textarea {
   font-family: var(--fontFamily);
+}
+
+.noMargins {
+  margin: 0px;
 }
 
 .App {
@@ -36,16 +41,13 @@ input, button, textarea {
   flex-direction: column;
 }
 
-.messageText {
-  max-width: 80%;
-}
-
 .routeColumnContainer {
   @extend .flexDiv;
   padding-top: var(--reference);
   padding-bottom: var(--reference);
   align-items: unset;
   min-height: 250px;
+  min-width: var(--boxWidth);
   flex-direction: column;
 }
 
@@ -72,6 +74,8 @@ input, button, textarea {
   border-top-left-radius: var(--radius);
   border-bottom-left-radius: var(--radius);
   padding-left: var(--reference);
+  padding-right: 1px;
+  margin-right: -1px;
 }
 
 .closeMessage {
