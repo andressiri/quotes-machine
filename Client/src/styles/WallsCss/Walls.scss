@@ -165,7 +165,7 @@
 
 .wallMessageDiv {
   width: var(--boxWidth);
-  padding: var(--reference) 0;
+  padding: var(--reference);
   margin-top: calc(var(--reference) * 2);
   border-radius: calc(var(--radius) * 2);
 }

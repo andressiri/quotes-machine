@@ -7,7 +7,7 @@ function BackgroundColor ({parentToChild}) {
   return (
     <div className={`overflowDiv scrollbar${config.imgBG} scroll${config.colorNum}`}>
       <div className={`editGroup BG-color${config.imgBG} text-color${config.colorNum}`}>
-        <h4 className={`text-color${config.colorNum}`}  style={{marginRight: '5px'}}>BackG</h4>
+        <h4 className={`text-color${config.colorNum}`}  style={{marginRight: '5px'}}>Back</h4>
         <div>
           <ColorBtn parentToChild={{config: config, index: index, wall: wall, numOfColor: 8, textOrBG: 'imgBG', opposite: 'colorNum'}} />
           <ColorBtn parentToChild={{config: config, index: index, wall: wall, numOfColor: 0, textOrBG: 'imgBG', opposite: 'colorNum'}} />
@@ -19,7 +19,7 @@ function BackgroundColor ({parentToChild}) {
           <ColorBtn parentToChild={{config: config, index: index, wall: wall, numOfColor: 6, textOrBG: 'imgBG', opposite: 'colorNum'}} />
           <ColorBtn parentToChild={{config: config, index: index, wall: wall, numOfColor: 7, textOrBG: 'imgBG', opposite: 'colorNum'}} />
         </div>
-        <h4 className={`text-color${config.colorNum}`} style={{marginLeft: '5px'}}>BackG</h4>
+        <h4 className={`text-color${config.colorNum}`} style={{marginLeft: '5px'}}>Back</h4>
       </div>
     </div>
   );
