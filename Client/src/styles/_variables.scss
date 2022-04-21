@@ -12,6 +12,7 @@ $customWhite: rgb(220, 220, 220);
 // initial/smallest vars
 :root {
   --reference: 8px;
+  --negativeReference: -8px;
   --borderWidth: 2px;
   --radius: var(--reference);
   --boxWidth: calc(100vw - var(--reference) * 2);
@@ -29,6 +30,7 @@ input, button {
 @media (min-width: 270px) {
   :root {
     --reference: 10px;
+    --negativeReference: -10px;
     --btnHeight: calc(var(--reference) * 4);
     --btnWidth: calc(var(--reference) * 10);
   }
@@ -37,6 +39,7 @@ input, button {
 @media (min-width: 520px) {
   :root {
     --reference: 12px;
+    --negativeReference: -12px;
     --boxWidth: 500px;
   }
 }

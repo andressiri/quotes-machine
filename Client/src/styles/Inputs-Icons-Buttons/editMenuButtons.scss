@@ -1,7 +1,7 @@
 @import "../variables.scss";
 
 .overflowDiv {
-  margin: calc(var(--reference)/2) auto calc(var(--reference)/2) auto;
+  margin: calc(var(--reference) / 2) auto calc(var(--reference) / 2) auto;
   width: 90%;
   height: auto;
   min-height: var(--btnHeight);

@@ -1,11 +1,11 @@
 @import '../variables.scss';
 
 .textBtn {
-    border: none;
-    margin: var(--reference);
-    width: var(--btnWidth);
-    height: var(--btnHeight);
-    border-radius: var(--radius);
-    cursor: pointer;
-    font-weight: bolder;
-  }
+  border: none;
+  margin: var(--reference);
+  width: var(--btnWidth);
+  height: var(--btnHeight);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: bolder;
+}

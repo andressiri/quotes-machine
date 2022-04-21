@@ -12,7 +12,7 @@
   top: var(--reference);
   right: calc(var(--reference) * 2);
   border-radius: calc(var(--radius) * 1.3);
-  margin-right: calc(100vw/2 - var(--boxWidth)/2 - var(--reference));
+  margin-right: calc(100vw / 2 - var(--boxWidth) / 2 - var(--reference));
 }
 
 .wallTabsDiv {
@@ -48,7 +48,7 @@
 
 .notAllTab {
   z-index: 12;
-  margin-left: calc(var(--reference) * -1);
+  margin-left: var(--negativeReference);
 }
 .lastTab {
   z-index: 11;
@@ -172,18 +172,18 @@
 
 @media (max-width: 350px) {
   .notAllTab {
-    margin-left: calc(var(--reference) * -3);
+    margin-left: calc(var(--negativeReference) * 3);
   }
 }
 
 @media (max-width: 315px) {
   .notAllTab {
-    margin-left: calc(var(--reference) * -4);
+    margin-left: calc(var(--negativeReference) * 4);
   }
 }
 
 @media (max-width: 270px) {
   .notAllTab {
-    margin-left: calc(var(--reference) * -2);
+    margin-left: calc(var(--negativeReference) * 2);
   }
 }

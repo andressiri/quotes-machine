@@ -1,7 +1,7 @@
 @import '../variables.scss';
 
 .formBtn {
-    margin: calc(var(--reference)/2) auto calc(var(--reference)/2) auto;
+    margin: calc(var(--reference) / 2) auto calc(var(--reference) / 2) auto;
     border: none;
     width: 90%;
     height: var(--btnHeight);

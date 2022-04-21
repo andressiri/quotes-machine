@@ -42,7 +42,7 @@
 }
 
 .containerText {
-  margin: calc(var(--reference)) var(--reference) calc(var(--reference)) var(--reference)
+  margin: var(--reference);
 }
 
 .cancelOn {
