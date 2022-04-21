@@ -16,11 +16,10 @@
 }
 
 .wallTabsDiv {
-  margin-bottom: -4px;
+  margin-bottom: -4.1px;
   display: flex;
   justify-content: flex-start;
   z-index: 10;
-  margin-left: -1px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -61,8 +60,12 @@
 .selectedTab {
   z-index: 14;
   height: calc(var(--btnHeight) + 2px);
-  border-width: calc(var(--borderWidth) - 1px);
+  border-width: calc(var(--borderWidth));
   filter: brightness(100%);
+
+}
+.allTabSelected {
+  border-left: none;
 }
 
 .wallBox {
@@ -165,7 +168,7 @@
 
 .wallMessageDiv {
   width: var(--boxWidth);
-  padding: var(--reference);
+  padding: calc(var(--reference) * 2);
   margin-top: calc(var(--reference) * 2);
   border-radius: calc(var(--radius) * 2);
 }

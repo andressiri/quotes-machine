@@ -19,7 +19,7 @@ function QuotesTabBtn ({parentToChild}) {
   };
   if (selectedTab === 'all') {
     tabPositionAndSelection = 'allTab';
-    if (firstTab.current === false && secondTab.current === false) tabPositionAndSelection = 'selectedTab allTab';
+    if (firstTab.current === false && secondTab.current === false) tabPositionAndSelection = 'selectedTab allTabSelected';
     if (secondTab.current === true) tabPositionAndSelection = 'allTab allTabSecondSelected';
   };
 

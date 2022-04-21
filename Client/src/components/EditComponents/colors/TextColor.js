@@ -5,7 +5,7 @@ function TextColor ({parentToChild}) {
   const {config, index, wall} = parentToChild;
   
   return (
-    <div className={`overflowDiv scrollbar${config.imgBG} scroll${config.colorNum}`}>
+    <div className={`overflowDiv scrollbar${config.imgBG} scroll${config.colorNum} BG-color${config.colorNum} text-color${config.imgBG}`}>
       <div className={`editGroup reSized BG-color${config.colorNum} text-color${config.imgBG}`}>
         <h4 className={`text-color${config.imgBG}`} style={{marginRight: '10px'}}>Text</h4>
         <div>
