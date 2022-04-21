@@ -58,7 +58,7 @@ function SaveCustomQuoteBtn () {
     <button
       className={`formBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSaveCustomQuoteBtn}
-    >Save</button>
+    >{isLoading === true ? 'Saving...' : 'Save'}</button>
   );
 };
 

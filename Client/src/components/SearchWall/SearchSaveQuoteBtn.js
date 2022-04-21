@@ -15,6 +15,8 @@ function SearchSaveQuoteBtn({parentToChild}) {
   const redirectTo = useRedirectTo();
   const getSavedQuotes = useGetSavedQuotes();
   const checkLoginCondition = useCheckLoginCondition();
+  let loading = 'notLoading';
+  if (isLoading) loading = 'loading';
 
   const handleSearchSaveQuoteBtn = async () => {
     if (isLoading) return;
@@ -40,7 +42,7 @@ function SearchSaveQuoteBtn({parentToChild}) {
 
   return (
     <FontAwesomeIcon
-      className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
+      className={`clipBtn ${loading}Opacity BG-color${config.colorNum} text-color${config.imgBG}`}
       onClick={handleSearchSaveQuoteBtn}
       icon='save' />
   );

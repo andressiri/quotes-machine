@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {Context} from '../../Context.js';
 import useRedirectTo from '../../functions/useRedirectTo.js';
 import useShareImg from '../../functions/sharingFunctions/useShareImg.js';
@@ -12,11 +12,15 @@ function ShareImageBtn ({parentToChild}) {
   const [message, setMessage] = refs.msg;
   const emailReference = refs.email;
   const [emailValue, setEmailValue] = forms.email;
+  const [isLoading, setIsLoading] = useState(false);
   const {config, wall} = parentToChild;
   const shareImg = useShareImg();
   const redirectTo = useRedirectTo();
+  let loading = 'notLoading';
+  if (isLoading) loading = 'loading';
   
   const handleShareImageBtn = async () => {
+    setIsLoading(true);
     if (shareChosen.current === 'Email') {
       if (!validateEmail(emailValue)) return setMessage('Please enter a valid email');
       emailReference.current = emailValue;
@@ -33,12 +37,13 @@ function ShareImageBtn ({parentToChild}) {
       setMessage(msg);
       shareChosen.current = '';
     }, 250);
+    setIsLoading(false);
     redirectTo(redirectPath);
   };
 
   return (
     <FontAwesomeIcon
-      className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
+      className={`clipBtn ${loading}Opacity BG-color${config.colorNum} text-color${config.imgBG}`}
       onClick={handleShareImageBtn}
       icon='image' />
   );

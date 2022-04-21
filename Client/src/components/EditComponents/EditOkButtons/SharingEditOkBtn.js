@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {Context} from '../../../Context.js';
 import useRedirectTo from '../../../functions/useRedirectTo.js';
 import useShareImg from '../../../functions/sharingFunctions/useShareImg.js';
@@ -13,12 +13,14 @@ function SharingEditOkBtn ({parentToChild}) {
   const [message, setMessage] = refs.msg;
   const [restartDefaultObj, setRestartDefaultObj] = edit.auto;
   const [configBackup, setConfigBackup] = edit.cBackup;
+  const [isLoading, setIsLoading] = useState(false);
   const {config} = parentToChild;
   const shareImg = useShareImg();
   const redirectTo = useRedirectTo();
   const restartDefault = useRestartDefault();
   
   const handleSharingEditOkBtn = async () => {
+    setIsLoading(true);
     const msg = await shareImg(quoteRef, config);
     setMessage(`Quote image has been shared on ${shareChosen.current}`);
     if (msg === 'There was an error getting the image, try again') setMessage(msg);
@@ -28,6 +30,7 @@ function SharingEditOkBtn ({parentToChild}) {
     } else {
       setConfigBackup(config);
     };
+    setIsLoading(false);
     redirectTo('/box/message');
   };
 
@@ -35,7 +38,7 @@ function SharingEditOkBtn ({parentToChild}) {
     <button
       className={`textBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSharingEditOkBtn}
-    >Share</button>
+    >{isLoading === true ? 'Sharing...' : 'Share'}</button>
   );
 };
 

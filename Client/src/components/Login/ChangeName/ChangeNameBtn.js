@@ -43,7 +43,7 @@ function ChangeNameBtn () {
     <button
       className={`formBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleChangeNameBtn}
-    > Confirm</button>
+    >{isLoading === true ? 'Changing name...' : 'Confirm'}</button>
   );
 };
 

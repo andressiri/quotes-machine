@@ -74,7 +74,7 @@ function LoginButton () {
     <button
       className={`formBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSubmitLogin}
-    >Login</button>
+    >{isLoading === true ? 'Loggin in...' : 'Login'}</button>
   );
 };
 

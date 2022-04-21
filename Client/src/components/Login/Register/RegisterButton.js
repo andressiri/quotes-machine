@@ -59,7 +59,7 @@ function RegisterButton () {
     <button
       className={`formBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSubmitRegister}
-    >Register</button>
+    >{isLoading === true ? 'Creating account...' : 'Register'}</button>
   );
 };
 

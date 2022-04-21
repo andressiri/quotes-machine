@@ -21,6 +21,8 @@ function SaveBtn() {
   const getSavedQuotes = useGetSavedQuotes();
   const checkLoginCondition = useCheckLoginCondition();
   const createQuoteObj = useCreateQuoteObj();
+  let loading = 'notLoading';
+  if (isLoading) loading = 'loading';
 
   const handleSaveBtn = async () => {
     if (isLoading) return;
@@ -48,7 +50,7 @@ function SaveBtn() {
 
   return (
     <FontAwesomeIcon
-      className={`clipBtn BG-color${colorNumber} text-color${imgBGColor}`}
+      className={`clipBtn ${loading}Opacity BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSaveBtn}
       icon='save' />
   );

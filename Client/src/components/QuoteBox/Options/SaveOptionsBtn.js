@@ -45,7 +45,7 @@ function SaveOptionsBtn ({parentToChild}) {
     <button
       className={`textBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSaveOptionsBtn}
-    >Save</button>
+    >{isLoading === true ? 'Saving...' : 'Save'}</button>
   );
 };
 

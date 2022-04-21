@@ -14,6 +14,8 @@ function FavoriteQuoteBtn ({parentToChild}) {
   const getArrayToCheck = useGetArrayToCheck();
   const getIndexAtBackup = useGetIndexAtBackup();
   const redirectTo = useRedirectTo();
+  let loading = 'notLoading';
+  if (isLoading) loading = 'loading';
 
   const handleFavoriteQuoteBtn = async () => {
     if (isLoading) return;
@@ -46,7 +48,7 @@ function FavoriteQuoteBtn ({parentToChild}) {
     <>
       {config.favorite === true
         ? <FontAwesomeIcon
-            className={`clipBtn BG-color${config.colorNum} text-color${config.imgBG}`}
+            className={`clipBtn ${loading}Opacity BG-color${config.colorNum} text-color${config.imgBG}`}
             onClick={handleFavoriteQuoteBtn}
             icon='star' />
         : <FontAwesomeIcon

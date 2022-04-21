@@ -54,7 +54,7 @@ function ChangePasswordBtn () {
     <button
       className={`formBtn BG-color${colorNumber} text-color${imgBGColor}`}
       onClick={handleSubmitNewPassword}
-    >Confirm</button>
+    >{isLoading === true ? 'Changing password...' : 'Confirm'}</button>
   );
 };
 

@@ -12,7 +12,6 @@ optionsSaveRouter.put('/',
   rateLimiter.multipleClickingLimiter.prevent,
   checkAuthenticated,
   (req, res) => {
-    console.log(req.body.userOptions);
     // check correct data required for updating a quote has been sent
     let notValidInfo = 'Not valid info';
     let validationUserOptions = {message: 'No proper userOptions'};
