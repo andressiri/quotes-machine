@@ -8,13 +8,15 @@ import BoxSharingSet from '../sharingComponents/BoxSharingSet.js';
 import SharingChoices from '../sharingChoices/SharingChoices.js';
 import EditSet from '../editComponents/EditSet.js';
 import OptionsMenu from './options/OptionsMenu.js';
-import LoginForm from '../login/login/LoginForm.js';
-import VerifyEmail from '../login/verifyEmail/VerifyEmail.js';
-import LoggedInMenu from '../login/loggedIn/LoggedInMenu.js';
-import RegisterForm from '../login/register/RegisterForm';
-import ForgotPassword from '../login/changePassword/forgotPassword/ForgotPassword.js';
-import ChangePassword from '../login/changePassword/ChangePassword.js';
-import ChangeName from '../login/changeName/ChangeName.js';
+import LoginForm from '../user/login/LoginForm.js';
+import VerifyEmail from '../user/verifyEmail/VerifyEmail.js';
+import LoggedInMenu from '../user/loggedIn/LoggedInMenu.js';
+import RegisterForm from '../user/register/RegisterForm';
+import ForgotPassword from '../user/changePassword/forgotPassword/ForgotPassword.js';
+import ChangePassword from '../user/changePassword/ChangePassword.js';
+import ChangeName from '../user/changeName/ChangeName.js';
+import DeleteUser from '../user/deleteUser/DeleteUser.js';
+import DeleteUserConfirmation from '../user/deleteUser/DeleteUserConfirmation.js';
 
 function BoxRouter() {
   const {colors, quote, refs, fade, edit} = useContext(Context);
@@ -67,6 +69,8 @@ function BoxRouter() {
             <Route path='/password/forgot' exact element={<ForgotPassword />} />
             <Route path='/password/change' exact element={<ChangePassword />} />
             <Route path='/name/change' exact element={<ChangeName />} />
+            <Route path='/user/delete' exact element={<DeleteUser />} />
+            <Route path='/user/delete/confirmation' exact element={<DeleteUserConfirmation />} />
           </Routes>
         }
       </div>

@@ -4,7 +4,7 @@ import Message from '../../Message.js';
 import ShareImageBtn from '../../sharingChoices/ShareImageBtn.js';
 import ShareTextBtn from '../../sharingChoices/ShareTextBtn.js';
 import WallSharingCancelBtn from './WallSharingCancelBtn.js';
-import EmailInput from '../../login/EmailInput.js';
+import EmailInput from '../../user/EmailInput.js';
 
 function WallShareChoice ({parentToChild}) {
   const {refs} = useContext(Context);

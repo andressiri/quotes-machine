@@ -50,6 +50,7 @@ function CheckCodeBtn () {
       } else {
         let path = '/box/password/change';
         if (auxRef.current === 'name') path = '/box/name/change';
+        if (auxRef.current === 'deleteUser') path = '/box/user/delete';
         redirectTo(path);
       };
     } else {

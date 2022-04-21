@@ -18,6 +18,11 @@ function LoggedInMenu() {
     redirectTo('/box/email/verification');
   };
 
+  const handleDeleteUser = () => {
+    auxRef.current = 'deleteUser';
+    redirectTo('/box/email/verification');
+  };
+
   return (
     <div className={'routeColumnContainer'}>
       <h3 className={'containerText'}>You are already logged in, do you want to log out?</h3>
@@ -27,6 +32,7 @@ function LoggedInMenu() {
       </div>
       <h3 className={'pointer containerText'} onClick={handleChangeName}>Change Name</h3>
       <h3 className={'pointer containerText'} onClick={handleChangePassword}>Change Password</h3>
+      <h4 className={'pointer containerText'} onClick={handleDeleteUser}>Delete account</h4>
     </div>
     );
 };

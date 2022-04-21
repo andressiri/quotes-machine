@@ -31,6 +31,9 @@ router.use('/name/edit', require('./userHandle/nameEdit.js'));
 // Save user options
 router.use('/options/save', require('./userHandle/optionsSave.js'));
 
+// Delete user account
+router.use('/user/delete', require('./userDelete.js'));
+
 //Save quotes handle
   //Save new quote
 router.use('/quote/save', require('./quote/userQuoteSave.js'));

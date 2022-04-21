@@ -4,7 +4,7 @@ import Message from '../Message.js';
 import ShareImageBtn from './ShareImageBtn.js';
 import ShareTextBtn from './ShareTextBtn.js';
 import EditAndShareImgBtn from './EditAndShareImgBtn.js';
-import EmailInput from '../login/EmailInput.js';
+import EmailInput from '../user/EmailInput.js';
 
 function SharingChoices ({parentToChild}) {
   const {colors, refs} = useContext(Context);
