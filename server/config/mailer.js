@@ -6,7 +6,7 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true, // true for 465, false for other ports
   auth: {
-    user: 'siri.andres.l@gmail.com', // generated ethereal user
+    user: process.env.MAILER_MAIL, // generated ethereal user
     pass: process.env.MAIL_PASSWORD // generated ethereal password
   },
 });
@@ -19,7 +19,7 @@ transporter.verify()
 //  Send email
 const sendEmail = async (sendTo, subject, mailTemplate, replyTo) => {
   const mailSuccess = await transporter.sendMail({
-    from: 'siri.andres.l@gmail.com',
+    from: process.env.MAILER_MAIL,
     to: sendTo,
     subject: subject,
     html: mailTemplate,

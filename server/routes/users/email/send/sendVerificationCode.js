@@ -28,7 +28,7 @@ sendVerificationCodeRouter.get('/',
       if (emailSuccess.accepted[0] === `${email}`) {
         console.log(`Email sent to ${email}`);
         res.status(201).json({message: 'Email sent with the code', userEmail: email});
-        console.log(`code: ${req.session.code}`);
+        if (process.env.ENVIRONMENT === 'development') console.log(`code: ${req.session.code}`);
       } else {
         console.log('Mail rejected');
         res.status(500).json({message: `There was a problem sending the email, please try again`});
