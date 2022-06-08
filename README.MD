@@ -1,6 +1,8 @@
 
 # [<img src="./assets/quotes512.png" alt="Quotes logo" width="30"/>](#) Quotes Machine
 
+### Readme in progress
+
 * [Go to Quotes Machine site](https://asquotesmachine.herokuapp.com/)
 
 ***
