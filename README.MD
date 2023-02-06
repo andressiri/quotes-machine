@@ -1,9 +1,13 @@
 
 # [<img src="./assets/quotes512.png" alt="Quotes logo" width="30"/>](#) Quotes Machine
 
-### Readme in progress
+###To take in consideration:
 
-* [Go to Quotes Machine site](https://asquotesmachine.herokuapp.com/)
+This app has many things to improve. It was one of my firsts projects and it was done before learning many UX/UI concepts and without paying much attetion to design. The porpouse of this app was to learn the technologies used more than creating a really useful app.
+
+* [Go to Quotes Machine site](https://quotes-machine-production.up.railway.app/)
+
+### Readme in progress
 
 ***
 
