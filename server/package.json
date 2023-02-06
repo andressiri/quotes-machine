@@ -1,5 +1,5 @@
 {
-  "name": "quotes-machina",
+  "name": "quotes-machine",
   "version": "1.0.0",
   "description": "express app that returns quotes",
   "main": "index.js",
