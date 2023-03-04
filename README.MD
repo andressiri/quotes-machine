@@ -7,8 +7,6 @@ This app has many things to improve. It was one of my firsts projects and it was
 
 * [Go to Quotes Machine site](https://quotes-machine-production.up.railway.app/)
 
-## Readme in progress
-
 ***
 
 <details>
@@ -96,19 +94,19 @@ This app has many things to improve. It was one of my firsts projects and it was
 
       1. En una nueva pestaña de Chrome ir a "Gestionar tu cuenta de Google".
 
-          ![gestionar tu cuenta de google](/assets/README/gmail%20application%20password/1.%20Gestionar%20tu%20cuenta%20de%20Google.png)
+          ![gestionar tu cuenta de google](/assets/gmail%20application%20password/1.%20Gestionar%20tu%20cuenta%20de%20Google.png)
 
       2. Ir a "Iniciar sesión en Google" en la sección de "Seguridad" y clickear en "Contraseñas de aplicaciones". Notar que es necesario tener la verificación en dos pasos activada para poder hacer esto.
 
-          ![ir a contraseñas de aplicaciones](/assets/README/gmail%20application%20password/2.%20Ir%20a%20contrase%C3%B1as%20de%20aplicaciones.png)
+          ![ir a contraseñas de aplicaciones](/assets/gmail%20application%20password/2.%20Ir%20a%20contrase%C3%B1as%20de%20aplicaciones.png)
 
       3. Crear una nueva constraseña de aplicación, el nombre es indistinto.
 
-          ![crear una nueva constraseña de aplicación](/assets/README/gmail%20application%20password/3.%20Crear%20una%20nueva%20contrase%C3%B1a%20de%20aplicaci%C3%B3n.png)
+          ![crear una nueva constraseña de aplicación](/assets/gmail%20application%20password/3.%20Crear%20una%20nueva%20contrase%C3%B1a%20de%20aplicaci%C3%B3n.png)
 
       4. Obtener la nueva contraseña de aplicación creada.
 
-          ![obtener la nueva contraseña de aplicación](/assets/README/gmail%20application%20password/4.%20Obtener%20la%20constrase%C3%B1a%20de%20aplicaci%C3%B3n.png)
+          ![obtener la nueva contraseña de aplicación](/assets/gmail%20application%20password/4.%20Obtener%20la%20constrase%C3%B1a%20de%20aplicaci%C3%B3n.png)
 
       </details>
       
@@ -297,19 +295,19 @@ This app has many things to improve. It was one of my firsts projects and it was
       
       1. In a new Chrome tab go to "Manage your Google Account".
 
-          ![go to Manage your Google Account](/assets/README/gmail%20application%20password/1.%20Manage%20your%20google%20account.png)
+          ![go to Manage your Google Account](/assets/gmail%20application%20password/1.%20Manage%20your%20google%20account.png)
 
       2. Go to "Signing in to Google" in the "Security" section and click into "App passwords". Notice you must have your 2-Step Verification activated in order to do this.
 
-          ![go to app passwords](/assets/README/gmail%20application%20password/2.%20Go%20to%20app%20passwords.png)
+          ![go to app passwords](/assets/gmail%20application%20password/2.%20Go%20to%20app%20passwords.png)
 
       3. Create a new application password, you can name it as you want.
 
-          ![create a new application password](/assets/README/gmail%20application%20password/3.%20Create%20a%20new%20application%20password.png)
+          ![create a new application password](/assets/gmail%20application%20password/3.%20Create%20a%20new%20application%20password.png)
 
       4. Get the new password created.
 
-          ![get the new password](/assets/README/gmail%20application%20password/4.%20Get%20the%20new%20password.png)
+          ![get the new password](/assets/gmail%20application%20password/4.%20Get%20the%20new%20password.png)
 
       </details>
       
