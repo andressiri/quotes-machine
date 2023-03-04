@@ -131,18 +131,6 @@ This app has many things to improve. It was one of my firsts projects and it was
 
   9. Finalmente, para correr el cliente en el puerto 3000 usar el comando `npm start` en el directorio `/client`, y para correr el servidor en el puerto 8080 usar el comando `npm run dev` en el directorio `server`.
 
-  ## Documentación de la API
-
-  La API que brinda el servidor, creada para la aplicación, está [documentada y publicada con Postman](https://documenter.getpostman.com/view/16003276/Uyxeonsr). Ahí puedes cargar y correr la API en postman directamente o usar postman en el navegador, utilizando el botón que dice "Run in Postman" ubicado en la esquina superior derecha de la ventana.
-
-  <details>
-
-  <summary> <a href="https://documenter.getpostman.com/view/16003276/Uyxeonsr"><img src="/assets/Run%20in%20postman%20button.png" alt="Run in Postman button" ></a> </summary>
-
-  ![API postman documentation](/assets/API%20postman%20documentation.png)
-
-  </details>
-
   ## Organización del código
   
   El código está organizado en archivos y directorios modularizando y reutilizando el código lo más posible, intentando seguir el principio DRY. Aunque aún quede mucho por corregir se intentó que los archivos y las funciones se ocupen de la menor cantidad de cosas posibles, siendo una sola cosa en concreto el ideal. A su vez se agruparon los archivos en diferentes directorios según su funcionalidad o la funcionalidad a la que pertenecen. Hay bastantes cosas a mejorar al respecto, pero debe tenerse en cuenta que este fue uno de mis primeros proyectos, para una mejor organización referirse a proyectos más recientes.
@@ -201,7 +189,7 @@ This app has many things to improve. It was one of my firsts projects and it was
 
   <details>
 
-  <summary>Extra libraries</summary>
+  <summary>Librerías extra</summary>
 
   - [bcryptjs](https://www.npmjs.com/package/bcryptjs): es una librería que ayuda a encriptar las constraseñas, para una mejor seguridad.
   - [express-session](https://www.npmjs.com/package/express-session): ayuda a crear un middleware de sesión, que necesitaba para poder almacenar el código y la dirección de correo electrónico para el proceso de verificación de identidad del usuario.
