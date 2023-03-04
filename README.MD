@@ -9,9 +9,11 @@
   
   ## Ir al sitio
   
-  Es muy probable que al entrar al sitio aparezca un error. Esto se debe a que el hosting gratuito está realizado con [Railway](https://railway.app/) que pone en suspenso la aplicación si no se ha ingresado en un tiempo (bastante corto). Puede entonces tardar entre un minuto o dos en responder para poder acceder desde la primera vez que se ingresa.
+  Es muy probable que el hosting del sitio no funcione del todo bien. Esto se debe a que los hosting son gratuitos y es probable que si no se ha ingresado en un tiempo (bastante corto) tarde en responder el servidor:
   
-  * [Ir al sitio de Quotes Machine](https://quotes-machine-production.up.railway.app/)
+   * Con [Railway](https://railway.app/) posiblemente aparezca un error, pero no quiere decir que no funcione. Puede entonces tardar entre un minuto o dos en responder para poder acceder desde la primera vez que se ingresa: [Ir al sitio en Railway](https://quotes-machine-production.up.railway.app/)
+   
+   * Con [Render](https://render.com/) es probable que tarde al rededor de 30 segundos en cargar la apicación, y una vez cargada suele andar mal un par de minutos: [Ir al sition en Render](https://as-quotes-machine.onrender.com/)  
   
   ## Tener en consideración:
 
@@ -221,9 +223,11 @@
   
   ## Go to site
   
-  It is very likely that when you enter the site an error will appear. This is because the free hosting is done with [Railway](https://railway.app/) which puts the application on hold if you have not logged in for a (fairly short) time. It may then take a minute or two to respond so that you can log in after the first time you tried.
+  It is very likely that the hosting of the site is not working properly. This is because the hosting is free and it is probable that if the had not been used for a (fairly short) time, it will take a while for the server to respond:
   
-  * [Go to Quotes Machine site](https://quotes-machine-production.up.railway.app/)
+   * With [Railway](https://railway.app/) you may possibly get an error, but it doesn't mean it won't work. It may then take a minute or two for the server to respond so that you can log in the first time: [Go to site on Railway](https://quotes-machine-production.up.railway.app/)
+   
+   * With [Render](https://render.com/) it is likely to take about 30 seconds to load the application, and once it is loaded it usually runs poorly for a couple of minutes: [Go to site in Render](https://as-quotes-machine.onrender.com/)
   
   ## To take in consideration:
 
