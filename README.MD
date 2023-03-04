@@ -1,13 +1,17 @@
 
-# [<img src="./assets/quotes512.png" alt="Quotes logo" width="30"/>](https://quotes-machine-production.up.railway.app/) Quotes Machine
-
-* [Go to Quotes Machine site](https://quotes-machine-production.up.railway.app/)
+# [<img src="./assets/quotes512.png" alt="Quotes logo" width="30"/>](#) Quotes Machine
 
 ***
 
 <details>
 
   <summary>Español</summary>
+  
+  ## Ir al sitio
+  
+  Es muy probable que al entrar al sitio aparezca un error. Esto se debe a que el hosting gratuito está realizado con [Railway](https://railway.app/) que pone en suspenso la aplicación si no se ha ingresado en un tiempo (bastante corto). Puede entonces tardar entre un minuto o dos en responder para poder acceder desde la primera vez que se ingresa.
+  
+  * [Ir al sition de Quotes Machine](https://quotes-machine-production.up.railway.app/)
   
   ## Tener en consideración:
 
@@ -214,6 +218,12 @@
 <details>
 
   <summary>English</summary>
+  
+  ## Go to site
+  
+  It is very likely that when you enter the site an error will appear. This is because the free hosting is done with [Railway](https://railway.app/) which puts the application on hold if you have not logged in for a (fairly short) time. It may then take a minute or two to respond so that you can log in after the first time you tried.
+  
+  * [Go to Quotes Machine site](https://quotes-machine-production.up.railway.app/)
   
   ## To take in consideration:
 
