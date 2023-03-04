@@ -11,7 +11,7 @@
   
   Es muy probable que al entrar al sitio aparezca un error. Esto se debe a que el hosting gratuito está realizado con [Railway](https://railway.app/) que pone en suspenso la aplicación si no se ha ingresado en un tiempo (bastante corto). Puede entonces tardar entre un minuto o dos en responder para poder acceder desde la primera vez que se ingresa.
   
-  * [Ir al sition de Quotes Machine](https://quotes-machine-production.up.railway.app/)
+  * [Ir al sitio de Quotes Machine](https://quotes-machine-production.up.railway.app/)
   
   ## Tener en consideración:
 
