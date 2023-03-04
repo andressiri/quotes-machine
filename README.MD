@@ -23,7 +23,7 @@ This app has many things to improve. It was one of my firsts projects and it was
 
   La princpial motivación para este proyecto fue el deseo de ser capaz de desarrollar utilizando el "stack" MERN. Comenzó como un desafío para [FreeCodeCamp](https://www.freecodecamp.org/andressiri), un [proyecto simple](https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-random-quote-machine) para el [curso de librerias de desarollo frontend](https://www.freecodecamp.org/learn/front-end-development-libraries) que consiste en una sencilla ["máquina de citas"](https://codepen.io/freeCodeCamp/full/qRZeGZ). En principio este curso y el ejercicio sirven para estudiar y ejercitar las bases de teconologías como `Bootstrap`, `SASS`, `React`, `Redux`, and `jQuery`. Yo elegí enfocarme principalmente en aprender `React` al comienzo, más allá de los requerimientos para cumplir con las exigencias de FreeCodeCamp, utilizando hooks y React Context. Finalmente a medida que fui desarrollando la aplicación surgieron ideas de funcionalidades que ya no tenían nada que ver con el curso, pero que me servía implementarlas para capacitarme en las demás tecnologías que deseaba tener conocimiento: `MongoDB` (y `Mongoose`), `Express` y `Node`. 
 
-  ## Estado actual
+  ## Estado actual de la aplicación
 
   El proyecto se encuentra funcionando a pesar de tener varias cosas para mejorar. La interfaz de usuario claramente podría mejorarse, pero nunca fue donde estuvo el foco durante el desarrollo. Se podrían elegir mejores colores y perfeccionar el tamaño de algunos elementos, siendo que, por ejemplo, algunas citas tienen una gran extensión, y si el usuario decide configurar su aplicación para verlas en mayúsculas y agranda la letra a veces pueden quedar por fuera de su espacio determinado. De todas formas, se considera que lo principal a mejorar de la experiencia de usuario es la interacción con el teclado de android.
   En cuanto al código, éste funciona correctamente pero es perfeccionable en varios aspectos. Para empezar, en el cliente el estado del contexto está en un solo proveedor en su totalidad, se realizó de esta manera porque resultaba ágil y práctico al momento de necesitar una nueva variable, ganando deuda, pero es posible y resultaría preferible para el código el crear otros porveedores para funcionalidades más específicas que no se requieren en toda la aplicación. En el servidor, el código de los controladores de los endpoints podría organizarse y escribirse con más claridad, incluso con otro orden de los directorios. A simple vista resulta necesaria una limpieza de console.log y evitar el anidamiento de condicionales. Sin embargo también sería enriquecedor usar `express-async-handler` y un middleware para manejar los errores. La mayoría de las cosas para arreglar en el código, en general, resultan en parte de que es una aplicación que fue creada a medida que nuevos conocimientos eran adquiridos, sin ser planeada ampliamente en un principio sino que fue creciendo con el pasar del tiempo. Para ver un código más organizado y con una estructura considerada desde el comienzo dirigirse a [este repositorio](https://github.com/andressiri/alkemy-full-stack). Finalmente, en lo que respecta a las funcionalidades sólo haría falta configurar el copiado de una imagen al portapapeles en android.
@@ -31,7 +31,7 @@ This app has many things to improve. It was one of my firsts projects and it was
   ## Instalación
 
   Para instalar esta aplicación y probarla en desarrollo necesitas tener instaladas en tu computadora versiones actualizadas de `Node.js`, `NPM` y `Git` para poder:
-
+  
   1. Crear e ir a un nuevo directorio.
   2. Inicializar un nuevo repositorio con el comando `git init`.
   3. Obtener este repositorio con el comando `git pull https://github.com/andressiri/quotes-machine`.
@@ -42,7 +42,6 @@ This app has many things to improve. It was one of my firsts projects and it was
       <details>
 
         <summary>Instrucciones</summary>
-
         
         1. Crear una cuenta en [Mongo DB Atlas](https://www.mongodb.com/es/atlas/database) e ingresar.
         2. Crear un proyecto o ir a un proyecto existente.
@@ -146,7 +145,7 @@ This app has many things to improve. It was one of my firsts projects and it was
 
   ## Organización del código
   
-  El código está organizado en archivos y directorios modularizando y reutilizando el código lo más posible, intentando seguir el principio DRY. Aunque aún quede mucho por corregir se intentó que los archivos y las funciones se ocupen de la menor cantidad de cosas posibles, siendo una sola cosa en concreto el ideal. A su vez se agruparon los archivos en diferentes directorio según su funcionalidad o la funcionalidad a la que pertenecen.
+  El código está organizado en archivos y directorios modularizando y reutilizando el código lo más posible, intentando seguir el principio DRY. Aunque aún quede mucho por corregir se intentó que los archivos y las funciones se ocupen de la menor cantidad de cosas posibles, siendo una sola cosa en concreto el ideal. A su vez se agruparon los archivos en diferentes directorios según su funcionalidad o la funcionalidad a la que pertenecen. Hay bastantes cosas a mejorar al respecto, pero debe tenerse en cuenta que este fue uno de mis primeros proyectos, para una mejor organización referirse a proyectos más recientes.
 
   ## Tecnologías utilizadas
 
@@ -242,8 +241,181 @@ This app has many things to improve. It was one of my firsts projects and it was
   The project is working despite having several things to improve. The UI can clearly be enhaced, but the focus never was there during development. Better colors must be chosen and the size of some elements could be perfected, since, for example, some quotes have a large extension, and if the user decides to configure the application to see them in capital letters and enlarges the font, sometimes the text can excel the area it has determined. In any case, it is considered that the main thing that needs improvement in the user experience is the interaction with the android keyboard.  
   As for the code, it can be better in several aspects. To begin with, at the client, the state of the context is in a single provider in it's entirety, it was done this way because it was agile and practical when a new variable was needed, gaining debt, but it is possible and it would be desirable for the code to create other providers for more specific functionality that is not required throughout the whole application. At the server, the code and the organization for the endpoint drivers should be vastly refined in, including better directory layout. At first glance, it is necessary to clean the console.log(s) and avoid the conditionals nesting. However, they can also be improved by using `express-async-handler` and middleware to handle errors. Most of the things to upgrade in the code, in general, result in part from it being an application that was created at the time new knowledge was acquired, not being extensively planned at first but growing over time. To see a more organized code and with a structure considered from the beginning, go to [this repository](https://github.com/andresiri/alkemy-full-stack). Finally, regarding the functionalities, it would only be necessary to configure the copying of an image to the clipboard in android.
 
-  # README In progress
+  ## Installation
 
-	For further sections refer to spanish version.
+  To install this application and test it in development you need to have updated versions of `Node.js`, `NPM` and `Git` installed on your computer in order to be able to:
+
+  1. Create and go to a new directory.
+  2. Initialize a new repository with `git init` command.
+  3. Obtain this repository with the command `git pull https://github.com/andressiri/quotes-machine`.
+  4. Move to `/client` directory and install the dependencies with the command `npm install`.
+  5. Move to `/server` directory and install the dependencies with the command `npm install` again.
+  6. Create the database with [Mongo DB Atlas](https://www.mongodb.com/atlas/database)
+
+      <details>
+
+        <summary>Instructions</summary>
+        
+        1. Create an account at [Mongo DB Atlas](https://www.mongodb.com/atlas/database) and log in.
+        2. Create a project or go to an existant project.
+        
+        ![go to your project](/assets/0%20Go%20to%20your%20project.png)
+        
+        3. Go to "Build a Database".
+        
+        ![go to create database](/assets/1%20Go%20to%20create%20database.png)
+        
+        4. Choose free option.
+        
+        ![choose free option 1](/assets/2%20Choose%20free%20option%201.png)
+        
+        ![choose free option 2](/assets/3%20Choose%20free%20option%202.png)
+        
+        5. Define cluster name (or write down that is Cluster0 by default) and create database.
+        
+        ![cluster name and creation](/assets/4%20Cluster%20name.png)
+        
+        6. Create and user for conection authentication.
+        
+        ![authenticate conection](/assets/5%20Authenticate%20connection.png)
+        
+        7. Enable access for certain networks or for everyone with IP 0.0.0.0/0.
+        
+        ![enable networks access](/assets/6%20Enable%20access%20for%20networks.png)
+        
+        8. Conect with database. Notice that conection is done with a `config string` that must be saved as an environment variable named MONGO_URI at a `.env` file.
+        
+        ![conect with database](7%20Connect%20to%20database.png)
+        
+        ![conection options](8%20Connection%20options.png)
+        
+        ![string for database conection](9%20Connect%20to%20DB%20string.png)
+
+      </details>
+
+  7. Create `.env` file at root directory with the following variables:
+      <pre>  
+        NODE_ENV = development
+        MONGO_URI = mongodb+srv://<em><strong>< your user ></strong></em>:<em><strong>< your user password ></strong></em>@<em><strong>< your cluster name - default is cluster0 ></strong></em>.e2vjgvo.mongodb.net/?retryWrites=true&w=majority
+        MAILER_MAIL = < your email address from <em><strong>gmail</strong></em> >
+        MAIL_PASSWORD" = < your "application password" generated with google > (not your email password)  
+      </pre>
+      
+      <details>
+
+      <summary>How to generate application password</summary>
+
+      To generate a new application password follow the next steps:
+      
+      1. In a new Chrome tab go to "Manage your Google Account".
+
+          ![go to Manage your Google Account](/assets/README/gmail%20application%20password/1.%20Manage%20your%20google%20account.png)
+
+      2. Go to "Signing in to Google" in the "Security" section and click into "App passwords". Notice you must have your 2-Step Verification activated in order to do this.
+
+          ![go to app passwords](/assets/README/gmail%20application%20password/2.%20Go%20to%20app%20passwords.png)
+
+      3. Create a new application password, you can name it as you want.
+
+          ![create a new application password](/assets/README/gmail%20application%20password/3.%20Create%20a%20new%20application%20password.png)
+
+      4. Get the new password created.
+
+          ![get the new password](/assets/README/gmail%20application%20password/4.%20Get%20the%20new%20password.png)
+
+      </details>
+      
+  8. Create data to use the app with the `createFakeDBData.js` file.
+      <details>
+
+        <summary>Instructions</summary>
+
+        1. At the `/server` directory run the command `node createFakeDBData.js`.
+        
+        ![excecute createFakeDBData.js](/assets/0%20Excecute%20createFakeDBData.js.png)
+        
+        2. To see created data and manipulate it go to the created collection.
+        
+        ![go to your cluster](/assets/1%20Go%20to%20your%20cluster.png)
+        
+        ![go to collections](/assets/2%20Go%20to%20collections.png)
+
+      </details>
+
+  9. Finally, to run client at port 3000 use the command `npm start` at `/client` directory, and for running the server at port 8080 run the `npm run dev` command at `server` directory.
+
+  ## Code arrangement
+  
+  The code is organized in files and directories modularizing and reusing it as much as possible, trying to follow the DRY principle. Although there is still a lot to be corrected, I tried to make the files and functions deal with as few things as possible, being only one thing in particular the ideal. At the same time the files were grouped in different directories according to their functionality or the functionality to which they belong. There are quite a few things to improve in this regard, but it should be noted that this was one of my first projects, for better organization refer to more recent projects.
+
+  ## Technologies used
+
+  This section lists technologies or frameworks that have been used to do the project, with a brief description and the reason or intention of using them.
+
+  <details>
+
+  <summary>Node JS</summary>
+
+  [Node.js](https://nodejs.org/) is an asynchronous event-driven JavaScript runtime built on [Chrome's V8 JavaScript engine](https://v8.dev/) designed to build scalable network applications. Of course Node.js has many pros and cons compared with other copeting languages and frameworks, but the main reasons that explain why I chose it for this small project are, first, because of the "Javascript everywhere" advantage, as Node.js supports JavaScript both client-side and server-side, and second, the vast libraries repository you can access with the Node Package Manager.
+
+  </details>
+
+  <details>
+
+  <summary>Express</summary>
+
+  [Express](https://expressjs.com/) is a fast, unopinionated and minimalist web framework for Node.js that provides a robust set of features. The main reason I chose it is because, without adding many restrictions, it makes much more clear and easier to control requests and responses and to design routes with, as it says in it's official site, "a myriad of HTTP utility methods and middleware at your disposal".
+
+  </details>
+  
+  <details>
+
+  <summary>MongoDB & Mongoose</summary>
+
+  [MongoDB](https://www.mongodb.com/) is a non-relational database ("noSQL") that stores JSON documents (or records) that you can use in your application. [Mongoose](https://mongoosejs.com/) is an NPM package that is usually installed together with MongoDB, with which, among other things, you can use Javascript objects instead of JSON to work with the database, making the task much easier. Being part of the MERN stack and considering the advantages it offers to start a project quickly and without difficulty, MongoDB was undoubtedly the right choice and Mongoose also by extension.
+
+  </details>
+
+  <details>
+
+  <summary>React JS</summary>
+
+  [React](https://reactjs.org/) is an efficient, declarative, and flexible open source JavaScript library for building simple, fast, and scalable user interfaces for frontend web applications. It uses JSX which is a JavaScript syntax extension that allows mixing HTML, which facilitates component development. I chose to learn React as my first frontend framework (even though it is a library) in my learning process. I decided to do it at the time because of recommendations, being that I agree with the reasons I was given: that it is easier to learn and use in the beginning and that it has a huge potential when learned in depth, that it has great community support and that it is widely employed in the IT job market; along with other technological advantages such as fast rendering.
+
+  </details>  
+  
+  <details>
+
+  <summary>Passport</summary>
+
+  [Passport](https://www.passportjs.org/) is an authentication middleware for Node.js, which can be used seamlessly in any application made with Express. With its modules it greatly facilitates the user authentication and authorization process, simplifying also its handling in the frontend.
+
+  </details>
+
+  <details>
+
+  <summary>Sass</summary>
+
+  [Sass, or "Syntactically Awesome StyleSheets"](https://sass-lang.com/) is an extensive CSS language. It adds functionality not available in basic CSS that makes it easier to simplify and maintain project stylesheets.
+
+  </details>
+
+  <details>
+
+  <summary>Extra libraries</summary>
+
+  - [bcryptjs](https://www.npmjs.com/package/bcryptjs): it is a library that helps hash passwords, for a better security.
+  - [express-session](https://www.npmjs.com/package/express-session): helps create a session middleware, that I needed to store the code and the email address for user identity verification process.
+  - [connect-flash](https://www.npmjs.com/package/connect-flash): is a library that uses the "flash" area of the session to store messages, which will be deleted after they have been delivered to the user.
+  - [express-brute](https://www.npmjs.com/package/express-brute): is a middleware for route protection against a "brute force" attack that limits the requests it receives.
+  - [nodemailer](https://nodemailer.com/about/): is a module for Node.js applications to allow easy as cake email sending.
+  - [react-router-dom](https://v5.reactrouter.com/): is the standard routing library for React, it keeps your UI in sync with the URL and has a collection of navigational components.
+  - [express-brute-mongoose](https://www.npmjs.com/package/express-brute-mongoose): is a Mongoose store adapter to be used by express-brute.
+  - [moment](https://www.npmjs.com/package/moment): a Javascript library for parsing and converting, validating, manipulating and formatting dates.
+  - [react-beforeunload](https://www.npmjs.com/package/react-beforeunload): React component and hook which listens to the beforeunload window event.
+  - [fontawesome](https://fontawesome.com/): is a library to manage application icons with ease.
+  - [dom-to-image](https://www.npmjs.com/package/dom-to-image): is a library that can transform a part of the DOM into an SVG, PNG or JPEG.
+
+  </details>
 
 </details>
