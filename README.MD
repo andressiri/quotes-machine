@@ -1,9 +1,5 @@
 
-# [<img src="./assets/quotes512.png" alt="Quotes logo" width="30"/>](#) Quotes Machine
-
-## To take in consideration:
-
-This app has many things to improve. It was one of my firsts projects and it was done before learning many UX/UI concepts and without paying much attetion to design. The porpouse of this app was to learn the technologies used more than creating a really useful app.
+# [<img src="./assets/quotes512.png" alt="Quotes logo" width="30"/>](https://quotes-machine-production.up.railway.app/) Quotes Machine
 
 * [Go to Quotes Machine site](https://quotes-machine-production.up.railway.app/)
 
@@ -12,6 +8,12 @@ This app has many things to improve. It was one of my firsts projects and it was
 <details>
 
   <summary>Español</summary>
+  
+  ## Tener en consideración:
+
+  Esta aplicación tiene muchas cosas que mejorar. Fue uno de mis primeros proyectos y lo hice antes de aprender muchos conceptos de UX/UI y sin prestar mucha atención al diseño. El objetivo era aprender las tecnologías utilizadas más que crear una aplicación realmente útil.
+
+  ## Descripción
 
   Una aplicación para obtener aleatoriamente citas inspiradoras o para reflexionar. Puedes hacerlo manualmente o recibir una automáticamente cada 5/10/15 segundos. Las ultimas 5 frases visualizadas serán guardadas en una galería para poder verlas nuevamente. También puedes buscar una cita (por contenido y/o por autor) en nuestra base de datos. Si quieres puedes compartir las frases en Facebook, Twitter, Tumblr o copiarla en el portapapeles para enviarla por el medio que desees. Puedes hacerlo en formato de texto o de imagen, con la opción de editar previamente en el segundo caso.
   
@@ -212,6 +214,12 @@ This app has many things to improve. It was one of my firsts projects and it was
 <details>
 
   <summary>English</summary>
+  
+  ## To take in consideration:
+
+  This app has many things to improve. It was one of my firsts projects and it was done before learning many UX/UI concepts and without paying much attetion to design. The porpouse of this app was to learn the technologies used more than creating a really useful app.
+  
+  ## Description
 
   An app to get random inspirational or reflexive quotes. You can request it manually or you can receive one automatically every 5/10/15 seconds. The last five quotes view will be stored in a gallery to see them again if pleased. You can also search for a quote (by content and/or author) in our database. If you want, you can share the phrase you like at Facebook, Twitter, Tumblr or copy it at clipboard to send it where you wish. You can do it in text or image formats, being able to previously edit in the second case.
   
