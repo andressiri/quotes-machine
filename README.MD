@@ -1,8 +1,6 @@
 
 # [<img src="./assets/quotes512.png" alt="Quotes logo" width="30"/>](#) Quotes Machine
 
-***
-
 <details>
 
   <summary>Español</summary>
