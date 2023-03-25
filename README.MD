@@ -11,7 +11,15 @@
   
    * Con [Railway](https://railway.app/) posiblemente aparezca un error, pero no quiere decir que no funcione. Puede entonces tardar entre un minuto o dos en responder adecuadamente desde la primera vez que se ingresa. Luego de esto, debería funcionar correctamente: [Ir al sitio en Railway](https://quotes-machine-production.up.railway.app/)
    
-   * Con [Render](https://render.com/) es probable que tarde alrededor de 30 segundos en cargar la apicación, y una vez cargada suele andar mal un par de minutos: [Ir al sitio en Render](https://as-quotes-machine.onrender.com/)  
+   * Con [Render](https://render.com/) es probable que tarde alrededor de 30 segundos en cargar la apicación, y una vez cargada suele andar mal un par de minutos: [Ir al sitio en Render](https://as-quotes-machine.onrender.com/) 
+   
+  ### Usuario de prueba
+  
+  Usuario: fakeuser@mail.com
+  
+  Contraseña: 123456
+  
+  * El ingreso puede fallar al principio hasta que cargue bien la página por los mismos motivos aclarados antes.
   
   ## Tener en consideración:
 
@@ -226,6 +234,14 @@
    * With [Railway](https://railway.app/) you may possibly get an error, but it doesn't mean it won't work. It will then take a minute or two for the server to respond properly from the first time you tried to enter. After that, it should work fine: [Go to site on Railway](https://quotes-machine-production.up.railway.app/)
    
    * With [Render](https://render.com/) it is likely to take about 30 seconds to load the application, and once it is loaded it usually runs poorly for a couple of minutes: [Go to site in Render](https://as-quotes-machine.onrender.com/)
+   
+  ### Test user
+  
+  User: fakeuser@mail.com
+  
+  Password: 123456
+  
+  * Login may fail until page loads properly for same reasons stated before.
   
   ## To take in consideration:
 
