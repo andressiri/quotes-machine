@@ -19,7 +19,7 @@
   
   Contraseña: 123456
   
-  * El ingreso puede fallar al principio hasta que cargue bien la página por los mismos motivos aclarados antes.
+  * El ingreso puede fallar al principio hasta que cargue bien la página, por los mismos motivos aclarados antes.
   
   ## Tener en consideración:
 
@@ -33,7 +33,77 @@
 
   ## Motivación para el proyecto
 
-  La princpial motivación para este proyecto fue el deseo de ser capaz de desarrollar utilizando el "stack" MERN. Comenzó como un desafío para [FreeCodeCamp](https://www.freecodecamp.org/andressiri), un [proyecto simple](https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-random-quote-machine) para el [curso de librerias de desarollo frontend](https://www.freecodecamp.org/learn/front-end-development-libraries) que consiste en una sencilla ["máquina de citas"](https://codepen.io/freeCodeCamp/full/qRZeGZ). En principio este curso y el ejercicio sirven para estudiar y ejercitar las bases de teconologías como `Bootstrap`, `SASS`, `React`, `Redux`, and `jQuery`. Yo elegí enfocarme principalmente en aprender `React` al comienzo, más allá de los requerimientos para cumplir con las exigencias de FreeCodeCamp, utilizando hooks y React Context. Finalmente a medida que fui desarrollando la aplicación surgieron ideas de funcionalidades que ya no tenían nada que ver con el curso, pero que me servía implementarlas para capacitarme en las demás tecnologías que deseaba tener conocimiento: `MongoDB` (y `Mongoose`), `Express` y `Node`. 
+  La princpial motivación para este proyecto fue el deseo de ser capaz de desarrollar utilizando el "stack" MERN. Comenzó como un desafío para [FreeCodeCamp](https://www.freecodecamp.org/andressiri), un [proyecto simple](https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-random-quote-machine) para el [curso de librerias de desarollo frontend](https://www.freecodecamp.org/learn/front-end-development-libraries) que consiste en una sencilla ["máquina de citas"](https://codepen.io/freeCodeCamp/full/qRZeGZ). En principio este curso y el ejercicio sirven para estudiar y ejercitar las bases de teconologías como `Bootstrap`, `SASS`, `React`, `Redux`, and `jQuery`. Yo elegí enfocarme principalmente en aprender `React` al comienzo, más allá de los requerimientos para cumplir con las exigencias de FreeCodeCamp, utilizando hooks y React Context. Finalmente a medida que fui desarrollando la aplicación surgieron ideas de funcionalidades que ya no tenían nada que ver con el curso, pero que me servía implementarlas para capacitarme en las demás tecnologías que deseaba tener conocimiento: `MongoDB` (y `Mongoose`), `Express` y `Node`.
+  
+  ## Tecnologías utilizadas
+
+  Esta sección lista las tecnologías o frameworks que fueron utilizados para hacer le proyecto, con una breve descripción y la razón o intención de utlizarlas.
+
+  <details>
+
+  <summary>Node JS</summary>
+
+  [Node.js](https://nodejs.org/es) es un entorno de ejecución orientado a eventos asíncronos para JavaScript construido con [V8, motor de JavaScript de Chrome](https://v8.dev/), y diseñado para crear aplicaciones network escalables. Por supuesto Node.js tiene varios pros y contras comparado con otros lenguajes y frameworks con los que compite, pero las principales razones que explican por qué lo elegí para este pequeño proyecto son, primero, por la ventaja de poder utilizar "Javascript en todos lados", siendo que Node.js soporta Javascript tanto en el lado del cliente como en el lado del servidor, y segundo, el vasto repositorio de librerías al que se tiene acceso con Node Package Manager.
+
+  </details>
+
+  <details>
+
+  <summary>Express</summary>
+
+  [Express](https://expressjs.com/es) es una infraestructura web rápida, minimalista y flexible para Node.js que proporciona un conjunto sólido de prestaciones. La principal razón por la cual la elegí es que, sin agregar muchas restricciones, hace mucho más claro y fácil el control de las peticiones y las respuestas y el diseño de rutas con, como dice en su sitio oficial, "con miles de métodos de programa de utilidad HTTP y middleware a su disposición".
+
+  </details>
+  
+  <details>
+
+  <summary>MongoDB y Mongoose</summary>
+
+  [MongoDB](https://www.mongodb.com/es) es una base de datos no relacional ("noSQL") que almacena documentos JSON (o registros) que puedes usar en tu aplicación. [Mongoose](https://mongoosejs.com/) es un paquete de NPM que suele instalarse junto a MongoDB, con el que, entre otras cosas, puedes utilizar objetos de Javascript en lugar de JSON para trabajar con la base de datos, facilitando ampliamente la tarea. Siendo parte del stack MERN y considerando las ventajas que ofrece para iniciar un proyecto con rapidez y sin dificultad, MongoDB sin duda era la elección correcta y Mongoose también por extensión.
+
+  </details>
+
+  <details>
+
+  <summary>React JS</summary>
+
+  [React](https://es.reactjs.org/) es una librería de Javascript de código abierto eficiente, declarativa, y flexible para construir interfaces de usuario simples, rápidas, y escalables para el frontend de aplicaciones web. Utiliza JSX que es una extensión de sintaxis de JavaScript que permite mezclar HTML, lo que facilita el desarrollo de componentes. He elegido aprender React como primer marco de trabajo (aunque sea una librería) de frontend en mi proceso de aprendizaje. Decidí hacerlo en su momento por recomendaciones, siendo que estoy de acuerdo con las razones que me dieron: que es más fácil de aprender y usar en un principio y que tiene un enorme potencial cuando se lo aprende en profundidad, que tiene un gran apoyo de la comunidad y que es empleado ampliamente en el mercado laboral IT; junto con otras ventajas tecnológicas como un renderizado rápido.
+
+  </details>  
+  
+  <details>
+
+  <summary>Passport</summary>
+
+  [Passport](https://www.passportjs.org/) es un middleware de autenticación para Node.js, que puede ser utilizado sin problemas en cualquier aplicación hecha con Express. Con sus módulos facilita ampliamente el proceso de autenticación y autorización del usuario, simplificando también su manejo en el frontend. 
+
+  </details>
+
+  <details>
+
+  <summary>Sass</summary>
+
+  [Sass, or "Syntactically Awesome StyleSheets"](https://sass-lang.com/) es un lenguaje extensivo de CSS. Agrega funcionalidades que no están disponibles en el CSS básico que hacen más fácil el simplificar y mantener las hojas de estilo de los proyectos.
+
+  </details>
+
+  <details>
+
+  <summary>Librerías extra</summary>
+
+  - [bcryptjs](https://www.npmjs.com/package/bcryptjs): es una librería que ayuda a encriptar las constraseñas, para una mejor seguridad.
+  - [express-session](https://www.npmjs.com/package/express-session): ayuda a crear un middleware de sesión, que necesitaba para poder almacenar el código y la dirección de correo electrónico para el proceso de verificación de identidad del usuario.
+  - [connect-flash](https://www.npmjs.com/package/connect-flash): es una librería que utiliza el área "flash" de la sesión para almacenar mensajes, que serán eliminados luego de haberlos entregado al usuario.
+  - [express-brute](https://www.npmjs.com/package/express-brute): es un middleware para protección de las rutas ante un ataque de "fuerza bruta" que limita las peticiones que recibe.
+  - [nodemailer](https://nodemailer.com/about/): es un módulo para aplicaciones de Node.js que permite enviar correos elctrónicos de manera muy fácil.
+  - [react-router-dom](https://v5.reactrouter.com/): es la librería de mapeo de rutas de React estándar, mantiene la Interfaz de Usuario en sintonía con la URL y tiene una colección de componentes de navegación.
+  - [express-brute-mongoose](https://www.npmjs.com/package/express-brute-mongoose): es una adaptador de la tienda de Mongoose para ser utilizada por express-brute.
+  - [moment](https://www.npmjs.com/package/moment): una librería de Javascript para analizar y convertir, validar, manipular y dar formato a fechas. 
+  - [react-beforeunload](https://www.npmjs.com/package/react-beforeunload): Un componente y hook de React que escucha el evento beforeunload de la ventana.
+  - [fontawesome](https://fontawesome.com/): es una librería de para manejar los íconos de la aplicación con facilidad.
+  - [dom-to-image](https://www.npmjs.com/package/dom-to-image): es una librería que puede transformar una parte del DOM en un SVG, PNG o JPEG.
+
+  </details>
 
   ## Estado actual de la aplicación
 
@@ -147,76 +217,6 @@
   
   El código está organizado en archivos y directorios modularizando y reutilizando el código lo más posible, intentando seguir el principio DRY. Aunque aún quede mucho por corregir se intentó que los archivos y las funciones se ocupen de la menor cantidad de cosas posibles, siendo una sola cosa en concreto el ideal. A su vez se agruparon los archivos en diferentes directorios según su funcionalidad o la funcionalidad a la que pertenecen. Hay bastantes cosas a mejorar al respecto, pero debe tenerse en cuenta que este fue uno de mis primeros proyectos, para una mejor organización referirse a proyectos más recientes.
 
-  ## Tecnologías utilizadas
-
-  Esta sección lista las tecnologías o frameworks que fueron utilizados para hacer le proyecto, con una breve descripción y la razón o intención de utlizarlas.
-
-  <details>
-
-  <summary>Node JS</summary>
-
-  [Node.js](https://nodejs.org/es) es un entorno de ejecución orientado a eventos asíncronos para JavaScript construido con [V8, motor de JavaScript de Chrome](https://v8.dev/), y diseñado para crear aplicaciones network escalables. Por supuesto Node.js tiene varios pros y contras comparado con otros lenguajes y frameworks con los que compite, pero las principales razones que explican por qué lo elegí para este pequeño proyecto son, primero, por la ventaja de poder utilizar "Javascript en todos lados", siendo que Node.js soporta Javascript tanto en el lado del cliente como en el lado del servidor, y segundo, el vasto repositorio de librerías al que se tiene acceso con Node Package Manager.
-
-  </details>
-
-  <details>
-
-  <summary>Express</summary>
-
-  [Express](https://expressjs.com/es) es una infraestructura web rápida, minimalista y flexible para Node.js que proporciona un conjunto sólido de prestaciones. La principal razón por la cual la elegí es que, sin agregar muchas restricciones, hace mucho más claro y fácil el control de las peticiones y las respuestas y el diseño de rutas con, como dice en su sitio oficial, "con miles de métodos de programa de utilidad HTTP y middleware a su disposición".
-
-  </details>
-  
-  <details>
-
-  <summary>MongoDB y Mongoose</summary>
-
-  [MongoDB](https://www.mongodb.com/es) es una base de datos no relacional ("noSQL") que almacena documentos JSON (o registros) que puedes usar en tu aplicación. [Mongoose](https://mongoosejs.com/) es un paquete de NPM que suele instalarse junto a MongoDB, con el que, entre otras cosas, puedes utilizar objetos de Javascript en lugar de JSON para trabajar con la base de datos, facilitando ampliamente la tarea. Siendo parte del stack MERN y considerando las ventajas que ofrece para iniciar un proyecto con rapidez y sin dificultad, MongoDB sin duda era la elección correcta y Mongoose también por extensión.
-
-  </details>
-
-  <details>
-
-  <summary>React JS</summary>
-
-  [React](https://es.reactjs.org/) es una librería de Javascript de código abierto eficiente, declarativa, y flexible para construir interfaces de usuario simples, rápidas, y escalables para el frontend de aplicaciones web. Utiliza JSX que es una extensión de sintaxis de JavaScript que permite mezclar HTML, lo que facilita el desarrollo de componentes. He elegido aprender React como primer marco de trabajo (aunque sea una librería) de frontend en mi proceso de aprendizaje. Decidí hacerlo en su momento por recomendaciones, siendo que estoy de acuerdo con las razones que me dieron: que es más fácil de aprender y usar en un principio y que tiene un enorme potencial cuando se lo aprende en profundidad, que tiene un gran apoyo de la comunidad y que es empleado ampliamente en el mercado laboral IT; junto con otras ventajas tecnológicas como un renderizado rápido.
-
-  </details>  
-  
-  <details>
-
-  <summary>Passport</summary>
-
-  [Passport](https://www.passportjs.org/) es un middleware de autenticación para Node.js, que puede ser utilizado sin problemas en cualquier aplicación hecha con Express. Con sus módulos facilita ampliamente el proceso de autenticación y autorización del usuario, simplificando también su manejo en el frontend. 
-
-  </details>
-
-  <details>
-
-  <summary>Sass</summary>
-
-  [Sass, or "Syntactically Awesome StyleSheets"](https://sass-lang.com/) es un lenguaje extensivo de CSS. Agrega funcionalidades que no están disponibles en el CSS básico que hacen más fácil el simplificar y mantener las hojas de estilo de los proyectos.
-
-  </details>
-
-  <details>
-
-  <summary>Librerías extra</summary>
-
-  - [bcryptjs](https://www.npmjs.com/package/bcryptjs): es una librería que ayuda a encriptar las constraseñas, para una mejor seguridad.
-  - [express-session](https://www.npmjs.com/package/express-session): ayuda a crear un middleware de sesión, que necesitaba para poder almacenar el código y la dirección de correo electrónico para el proceso de verificación de identidad del usuario.
-  - [connect-flash](https://www.npmjs.com/package/connect-flash): es una librería que utiliza el área "flash" de la sesión para almacenar mensajes, que serán eliminados luego de haberlos entregado al usuario.
-  - [express-brute](https://www.npmjs.com/package/express-brute): es un middleware para protección de las rutas ante un ataque de "fuerza bruta" que limita las peticiones que recibe.
-  - [nodemailer](https://nodemailer.com/about/): es un módulo para aplicaciones de Node.js que permite enviar correos elctrónicos de manera muy fácil.
-  - [react-router-dom](https://v5.reactrouter.com/): es la librería de mapeo de rutas de React estándar, mantiene la Interfaz de Usuario en sintonía con la URL y tiene una colección de componentes de navegación.
-  - [express-brute-mongoose](https://www.npmjs.com/package/express-brute-mongoose): es una adaptador de la tienda de Mongoose para ser utilizada por express-brute.
-  - [moment](https://www.npmjs.com/package/moment): una librería de Javascript para analizar y convertir, validar, manipular y dar formato a fechas. 
-  - [react-beforeunload](https://www.npmjs.com/package/react-beforeunload): Un componente y hook de React que escucha el evento beforeunload de la ventana.
-  - [fontawesome](https://fontawesome.com/): es una librería de para manejar los íconos de la aplicación con facilidad.
-  - [dom-to-image](https://www.npmjs.com/package/dom-to-image): es una librería que puede transformar una parte del DOM en un SVG, PNG o JPEG.
-
-  </details>
-
 ***
 
 </details>
@@ -241,7 +241,7 @@
   
   Password: 123456
   
-  * Login may fail until page loads properly for same reasons stated before.
+  * Login may fail until page loads properly. for same reasons stated before.
   
   ## To take in consideration:
 
@@ -257,6 +257,76 @@
   ## Motivation for the project  
   
   The main motivation for this project was the desire of being capable to develop using the MERN stack. It started as a challenge for [FreeCodeCamp](https://www.freecodecamp.org/andresiri), a [simple project](https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-random-quote-machine) for the [frontend development libraries course](https://www.freecodecamp.org/learn/front-end-development-libraries), which consists of a ["quotes machine"](https://codepen.io/freeCodeCamp/full/qRZeGZ). At the beginning, this course and the exercise were useful to study and practice the basics of technologies such as `Bootstrap`, `SASS`, `React`, `Redux`, and `jQuery`. I chose to focus primarily on learning `React` first, beyond looking that FreeCodeCamp's requirements were fulfilled, using hooks and React Context. Finally, as I continued developing the application, ideas arose for functionalities that no longer had anything to do with the course, but it was beneficial for me to implement them to train myself in other technologies that I wanted to know about: `MongoDB` (and `Mongoose`), ` Express` and `Node`.
+  
+  ## Technologies used
+
+  This section lists technologies or frameworks that have been used to do the project, with a brief description and the reason or intention of using them.
+
+  <details>
+
+  <summary>Node JS</summary>
+
+  [Node.js](https://nodejs.org/) is an asynchronous event-driven JavaScript runtime built on [Chrome's V8 JavaScript engine](https://v8.dev/) designed to build scalable network applications. Of course Node.js has many pros and cons compared with other copeting languages and frameworks, but the main reasons that explain why I chose it for this small project are, first, because of the "Javascript everywhere" advantage, as Node.js supports JavaScript both client-side and server-side, and second, the vast libraries repository you can access with the Node Package Manager.
+
+  </details>
+
+  <details>
+
+  <summary>Express</summary>
+
+  [Express](https://expressjs.com/) is a fast, unopinionated and minimalist web framework for Node.js that provides a robust set of features. The main reason I chose it is because, without adding many restrictions, it makes much more clear and easier to control requests and responses and to design routes with, as it says in it's official site, "a myriad of HTTP utility methods and middleware at your disposal".
+
+  </details>
+  
+  <details>
+
+  <summary>MongoDB & Mongoose</summary>
+
+  [MongoDB](https://www.mongodb.com/) is a non-relational database ("noSQL") that stores JSON documents (or records) that you can use in your application. [Mongoose](https://mongoosejs.com/) is an NPM package that is usually installed together with MongoDB, with which, among other things, you can use Javascript objects instead of JSON to work with the database, making the task much easier. Being part of the MERN stack and considering the advantages it offers to start a project quickly and without difficulty, MongoDB was undoubtedly the right choice and Mongoose also by extension.
+
+  </details>
+
+  <details>
+
+  <summary>React JS</summary>
+
+  [React](https://reactjs.org/) is an efficient, declarative, and flexible open source JavaScript library for building simple, fast, and scalable user interfaces for frontend web applications. It uses JSX which is a JavaScript syntax extension that allows mixing HTML, which facilitates component development. I chose to learn React as my first frontend framework (even though it is a library) in my learning process. I decided to do it at the time because of recommendations, being that I agree with the reasons I was given: that it is easier to learn and use in the beginning and that it has a huge potential when learned in depth, that it has great community support and that it is widely employed in the IT job market; along with other technological advantages such as fast rendering.
+
+  </details>  
+  
+  <details>
+
+  <summary>Passport</summary>
+
+  [Passport](https://www.passportjs.org/) is an authentication middleware for Node.js, which can be used seamlessly in any application made with Express. With its modules it greatly facilitates the user authentication and authorization process, simplifying also its handling in the frontend.
+
+  </details>
+
+  <details>
+
+  <summary>Sass</summary>
+
+  [Sass, or "Syntactically Awesome StyleSheets"](https://sass-lang.com/) is an extensive CSS language. It adds functionality not available in basic CSS that makes it easier to simplify and maintain project stylesheets.
+
+  </details>
+
+  <details>
+
+  <summary>Extra libraries</summary>
+
+  - [bcryptjs](https://www.npmjs.com/package/bcryptjs): it is a library that helps hash passwords, for a better security.
+  - [express-session](https://www.npmjs.com/package/express-session): helps create a session middleware, that I needed to store the code and the email address for user identity verification process.
+  - [connect-flash](https://www.npmjs.com/package/connect-flash): is a library that uses the "flash" area of the session to store messages, which will be deleted after they have been delivered to the user.
+  - [express-brute](https://www.npmjs.com/package/express-brute): is a middleware for route protection against a "brute force" attack that limits the requests it receives.
+  - [nodemailer](https://nodemailer.com/about/): is a module for Node.js applications to allow easy as cake email sending.
+  - [react-router-dom](https://v5.reactrouter.com/): is the standard routing library for React, it keeps your UI in sync with the URL and has a collection of navigational components.
+  - [express-brute-mongoose](https://www.npmjs.com/package/express-brute-mongoose): is a Mongoose store adapter to be used by express-brute.
+  - [moment](https://www.npmjs.com/package/moment): a Javascript library for parsing and converting, validating, manipulating and formatting dates.
+  - [react-beforeunload](https://www.npmjs.com/package/react-beforeunload): React component and hook which listens to the beforeunload window event.
+  - [fontawesome](https://fontawesome.com/): is a library to manage application icons with ease.
+  - [dom-to-image](https://www.npmjs.com/package/dom-to-image): is a library that can transform a part of the DOM into an SVG, PNG or JPEG.
+
+  </details>
 
   ## Build status
   
@@ -369,75 +439,5 @@
   ## Code arrangement
   
   The code is organized in files and directories modularizing and reusing it as much as possible, trying to follow the DRY principle. Although there is still a lot to be corrected, I tried to make the files and functions deal with as few things as possible, being only one thing in particular the ideal. At the same time the files were grouped in different directories according to their functionality or the functionality to which they belong. There are quite a few things to improve in this regard, but it should be noted that this was one of my first projects, for better organization refer to more recent projects.
-
-  ## Technologies used
-
-  This section lists technologies or frameworks that have been used to do the project, with a brief description and the reason or intention of using them.
-
-  <details>
-
-  <summary>Node JS</summary>
-
-  [Node.js](https://nodejs.org/) is an asynchronous event-driven JavaScript runtime built on [Chrome's V8 JavaScript engine](https://v8.dev/) designed to build scalable network applications. Of course Node.js has many pros and cons compared with other copeting languages and frameworks, but the main reasons that explain why I chose it for this small project are, first, because of the "Javascript everywhere" advantage, as Node.js supports JavaScript both client-side and server-side, and second, the vast libraries repository you can access with the Node Package Manager.
-
-  </details>
-
-  <details>
-
-  <summary>Express</summary>
-
-  [Express](https://expressjs.com/) is a fast, unopinionated and minimalist web framework for Node.js that provides a robust set of features. The main reason I chose it is because, without adding many restrictions, it makes much more clear and easier to control requests and responses and to design routes with, as it says in it's official site, "a myriad of HTTP utility methods and middleware at your disposal".
-
-  </details>
-  
-  <details>
-
-  <summary>MongoDB & Mongoose</summary>
-
-  [MongoDB](https://www.mongodb.com/) is a non-relational database ("noSQL") that stores JSON documents (or records) that you can use in your application. [Mongoose](https://mongoosejs.com/) is an NPM package that is usually installed together with MongoDB, with which, among other things, you can use Javascript objects instead of JSON to work with the database, making the task much easier. Being part of the MERN stack and considering the advantages it offers to start a project quickly and without difficulty, MongoDB was undoubtedly the right choice and Mongoose also by extension.
-
-  </details>
-
-  <details>
-
-  <summary>React JS</summary>
-
-  [React](https://reactjs.org/) is an efficient, declarative, and flexible open source JavaScript library for building simple, fast, and scalable user interfaces for frontend web applications. It uses JSX which is a JavaScript syntax extension that allows mixing HTML, which facilitates component development. I chose to learn React as my first frontend framework (even though it is a library) in my learning process. I decided to do it at the time because of recommendations, being that I agree with the reasons I was given: that it is easier to learn and use in the beginning and that it has a huge potential when learned in depth, that it has great community support and that it is widely employed in the IT job market; along with other technological advantages such as fast rendering.
-
-  </details>  
-  
-  <details>
-
-  <summary>Passport</summary>
-
-  [Passport](https://www.passportjs.org/) is an authentication middleware for Node.js, which can be used seamlessly in any application made with Express. With its modules it greatly facilitates the user authentication and authorization process, simplifying also its handling in the frontend.
-
-  </details>
-
-  <details>
-
-  <summary>Sass</summary>
-
-  [Sass, or "Syntactically Awesome StyleSheets"](https://sass-lang.com/) is an extensive CSS language. It adds functionality not available in basic CSS that makes it easier to simplify and maintain project stylesheets.
-
-  </details>
-
-  <details>
-
-  <summary>Extra libraries</summary>
-
-  - [bcryptjs](https://www.npmjs.com/package/bcryptjs): it is a library that helps hash passwords, for a better security.
-  - [express-session](https://www.npmjs.com/package/express-session): helps create a session middleware, that I needed to store the code and the email address for user identity verification process.
-  - [connect-flash](https://www.npmjs.com/package/connect-flash): is a library that uses the "flash" area of the session to store messages, which will be deleted after they have been delivered to the user.
-  - [express-brute](https://www.npmjs.com/package/express-brute): is a middleware for route protection against a "brute force" attack that limits the requests it receives.
-  - [nodemailer](https://nodemailer.com/about/): is a module for Node.js applications to allow easy as cake email sending.
-  - [react-router-dom](https://v5.reactrouter.com/): is the standard routing library for React, it keeps your UI in sync with the URL and has a collection of navigational components.
-  - [express-brute-mongoose](https://www.npmjs.com/package/express-brute-mongoose): is a Mongoose store adapter to be used by express-brute.
-  - [moment](https://www.npmjs.com/package/moment): a Javascript library for parsing and converting, validating, manipulating and formatting dates.
-  - [react-beforeunload](https://www.npmjs.com/package/react-beforeunload): React component and hook which listens to the beforeunload window event.
-  - [fontawesome](https://fontawesome.com/): is a library to manage application icons with ease.
-  - [dom-to-image](https://www.npmjs.com/package/dom-to-image): is a library that can transform a part of the DOM into an SVG, PNG or JPEG.
-
-  </details>
 
 </details>
